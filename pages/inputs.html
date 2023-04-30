@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inputs</title>
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+        width: 0.65vw;
+        height: 0vh;
+      }
+
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgb(155, 155, 155);
+        border-radius: 0.5vw;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(110, 110, 110);
+      }
+
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        box-sizing: border-box;
+        height: fit-content;
+      }
+
+      .grid-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 250px) minmax(350px, 1fr) minmax(
+            0,
+            170px
+          );
+      }
+
+      .nav {
+        height: 100vh;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      iframe {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .main {
+        width: 100%;
+        box-sizing: border-box;
+        height: 100vh;
+        overflow: auto;
+      }
+
+      .main-primary {
+        font-family: poppins;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px;
+        padding-bottom: 10px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: rgb(17, 104, 190);
+      }
+
+      .main-title {
+        font-family: poppins;
+        font-size: 34px;
+        padding: 0 30px;
+      }
+
+      .ads {
+        box-sizing: border-box;
+        border-left: 0.45mm solid rgb(239, 239, 239);
+        height: 100vh;
+      }
+
+      .main-content {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .main-container {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 70px;
+      }
+
+      .main-box {
+        width: fit-content;
+        height: fit-content;
+        perspective: 1000px;
+        margin-bottom: 25px;
+      }
+
+      .main-box-control {
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgb(248, 249, 250);
+        border-radius: 1mm;
+        box-sizing: border-box;
+        margin: auto;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .main-box-control button {
+        background: none;
+        outline: none;
+        border: none;
+        font-family: poppins;
+        font-size: medium;
+        font-weight: 500;
+        padding: 7px 25px;
+        cursor: pointer;
+        width: 100px;
+      }
+
+      .main-box-control button:hover {
+        background: rgb(232, 240, 254);
+        color: rgb(17, 104, 190);
+      }
+
+      /* Can be changed */
+      .main-box-card {
+        position: relative;
+        width: 500px;
+        height: 450px;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px rgba(54, 64, 67, 0.15),
+          0 1px 3px rgba(54, 64, 67, 0.3);
+        border-radius: 1mm;
+      }
+
+      .main-box-front,
+      .main-box-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 1mm;
+        overflow: auto;
+      }
+
+      .main-box-front {
+        background: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main-box-back {
+        color: rgb(0, 0, 0);
+        transform: rotateY(180deg);
+      }
+
+      .btn-line {
+        width: 100px;
+        height: 0.8mm;
+        background: rgb(35, 124, 213);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: 0.25s;
+      }
+
+      .design-menu {
+        width: 100%;
+        background: rgb(248, 249, 250);
+        box-sizing: border-box;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .design-title {
+        flex-basis: 65%;
+        font-family: poppins;
+        font-size: medium;
+      }
+
+      .design-colors {
+        flex-basis: 35%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .color {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .color-icons {
+        width: 10px;
+        height: 10px;
+        border: 0.25mm solid rgb(45, 45, 45);
+        margin-right: 5px;
+        border-radius: 0.4mm;
+        cursor: pointer;
+      }
+
+      .color-code {
+        font-family: poppins;
+        font-size: 10px;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: none;
+        width: fit-content;
+        white-space: nowrap;
+      }
+
+      .color-icons:hover + .color-code {
+        display: block;
+      }
+      .src {
+        width: 100%;
+        height: 100%;
+      }
+      .main-design {
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .nav,
+        .ads {
+          display: none;
+        }
+
+        .grid-container {
+          width: 100%;
+          display: grid;
+          grid-template-columns: minmax(350px, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 530px) {
+        .main-box-card {
+          width: 350px;
+          height: 350px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">FORMS > INPUT FIELDS</div>
+        <div class="main-title">Different types of input styles</div>
+        <div class="main-content">
+          <div class="main-container">
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(118, 118, 118)"
+                        ></div>
+                        <div class="color-code">rgb(118, 118, 118)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 116, 214)"
+                        ></div>
+                        <div class="color-code">rgb(19, 116, 214)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/input-style1.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(118, 118, 118)"
+                        ></div>
+                        <div class="color-code">rgb(118, 118, 118)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 116, 214)"
+                        ></div>
+                        <div class="color-code">rgb(19, 116, 214)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+    &lt;style&gt;
+      .input {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .inputf {
+        width: 300px;
+        height: 35px;
+        font-family: poppins;
+        border: none;
+        outline: 0.3mm solid rgb(118, 118, 118);
+        box-sizing: border-box;
+        padding: 0 10px;
+        border-radius: 1mm;
+        position: relative;
+        z-index: 1;
+      }
+      .inputf:focus {
+        outline: 0.7mm solid rgb(19, 116, 214);
+      }
+      .label {
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transition: 0.25s;
+        color: rgb(19, 116, 214);
+      }
+      .inputf:focus + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) {
+        outline: 0.7mm solid rgb(19, 116, 214);
+      }
+    &lt;/style&gt;
+    &lt;div class="input"&gt;
+      &lt;input type="text" name="" id="" class="inputf" placeholder="Name" /&gt;
+      &lt;span class="label"&gt;Name&lt;/span&gt;
+    &lt;/div&gt;
+
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(1)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(1)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 2</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(110, 110, 110)"
+                        ></div>
+                        <div class="color-code">rgb(110, 110, 110)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(240, 243, 246)"
+                        ></div>
+                        <div class="color-code">rgb(240, 243, 246)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 116, 214)"
+                        ></div>
+                        <div class="color-code">rgb(19, 116, 214)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(77, 77, 77)"
+                        ></div>
+                        <div class="color-code">rgb(77, 77, 77)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/input-style2.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 2</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(110, 110, 110)"
+                        ></div>
+                        <div class="color-code">rgb(110, 110, 110)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(240, 243, 246)"
+                        ></div>
+                        <div class="color-code">rgb(240, 243, 246)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 116, 214)"
+                        ></div>
+                        <div class="color-code">rgb(19, 116, 214)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(77, 77, 77)"
+                        ></div>
+                        <div class="color-code">rgb(77, 77, 77)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;style&gt;
+      .input {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .inputf {
+        width: 300px;
+        height: 35px;
+        font-family: poppins;
+        border: none;
+        border-bottom: 0.7mm solid rgb(110, 110, 110);
+        outline: none;
+        box-sizing: border-box;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+        background: rgb(240, 243, 246);
+      }
+      .inputf:focus {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+      .inputf:hover {
+        border-bottom: 0.7mm solid rgb(77, 77, 77);
+        background: rgb(238, 240, 243);
+      }
+      .inputf:focus:hover {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+      .label {
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transition: 0.25s;
+        color: rgb(19, 116, 214);
+      }
+      .inputf:focus + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="input"&gt;
+      &lt;input type="text" name="" id="" class="inputf" placeholder="Name" /&gt;
+      &lt;span class="label"&gt;Name&lt;/span&gt;
+    &lt;/div&gt;
+
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(2)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(2)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 3</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(62, 62, 62)"
+                        ></div>
+                        <div class="color-code">rgb(62, 62, 62)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/input-style3.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 3</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(118, 118, 118)"
+                        ></div>
+                        <div class="color-code">rgb(118, 118, 118)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 116, 214)"
+                        ></div>
+                        <div class="color-code">rgb(19, 116, 214)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;style&gt;
+      .input {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .inputf {
+        width: 300px;
+        height: 35px;
+        font-family: poppins;
+        border: 0.5mm solid rgb(62, 62, 62);
+        outline: none;
+        box-sizing: border-box;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+      }
+      .inputf:focus {
+        box-shadow: 5px 5px 0 rgb(62, 62, 62);
+      }
+      .label {
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transition: 0.25s;
+        color: black;
+      }
+      .inputf:focus + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) {
+        box-shadow: 5px 5px 0 rgb(62, 62, 62);
+      }
+    &lt;/style&gt;
+    &lt;div class="input"&gt;
+      &lt;input type="text" name="" id="" class="inputf" placeholder="Name" /&gt;
+      &lt;span class="label"&gt;Name&lt;/span&gt;
+    &lt;/div&gt;
+
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ads"></section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<html style="width: 100%; margin: 0; padding: 0; flex-grow: 1">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet"
+  />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 0vw;
+      height: 0vh;
+    }
+    ::-webkit-scrollbar-track {
+      border-radius: 0px;
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgb(155, 155, 155);
+      border-radius: 0vw;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(110, 110, 110);
+    }
+    .nav-main {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+      height: fit-content;
+      border-right: 0.45mm solid rgb(239, 239, 239);
+      min-height: 100vh;
+    }
+    .nav-title {
+      font-family: "Major Mono Display";
+      font-size: 24px;
+      width: 100%;
+      padding: 10px 15px;
+      padding-top: 25px;
+      box-sizing: border-box;
+    }
+    .nav-search {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 18px;
+      box-sizing: border-box;
+    }
+    #nav-search {
+      width: 100%;
+      font-size: 12px;
+      font-family: poppins;
+      padding: 6px 20px;
+      border-radius: 5mm;
+      background: white;
+      border: none;
+      outline: 0.35mm solid rgb(139, 139, 139);
+      box-sizing: border-box;
+    }
+    #nav-search:focus {
+      outline: 0.4mm solid rgb(17, 104, 190);
+    }
+    .nav-topics {
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .nav-primary {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: poppins;
+      padding-left: 16px;
+      color: black;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+    }
+    .nav-primary::after {
+      position: absolute;
+      content: "expand_more";
+      font-family: "Material Icons";
+      right: 10px;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: x-large;
+    }
+    .nav-primary.is-open::after {
+      position: absolute;
+      content: "expand_less";
+      font-family: "Material Icons";
+      right: 10px;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: x-large;
+    }
+    .nav-primary span {
+      width: fit-content;
+      padding: 1px 8px;
+      border-radius: 3mm;
+      background: rgb(17, 104, 190);
+      color: white;
+    }
+    .nav-btn {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 7px 10px;
+      padding-left: 28px;
+      font-size: 14px;
+      font-family: poppins;
+      text-decoration: none;
+      word-wrap: break-word;
+      height: fit-content;
+      color: black;
+    }
+    .nav-btn:hover {
+      color: rgb(17, 104, 190);
+      background: rgba(0, 0, 0, 0.039);
+    }
+    .line {
+      width: 100%;
+      height: 0.35mm;
+      background: rgb(173, 173, 173);
+      margin: 10px 0;
+    }
+    .semi-circle {
+      position: fixed;
+      top: 50%;
+      left: -50%;
+      transform: translate(-50%, -50%);
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      border: 0.9mm dotted rgba(64, 198, 31, 0.231);
+      z-index: -1;
+    }
+    .nav-sec {
+      width: 96%;
+      box-shadow: 0 4px 8px rgba(54, 64, 67, 0.15),
+        0 1px 3px rgba(54, 64, 67, 0.3);
+      border-radius: 2mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgb(248, 249, 250);
+      padding: 5px 0;
+      margin-bottom: 15px;
+      transition: 0.15s;
+    }
+    .nav-sec:hover {
+      box-shadow: 0 2px 4px rgba(54, 64, 67, 0.15),
+        0 1px 2px rgba(54, 64, 67, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-in-out;
+      width: 100%;
+    }
+  </style>
+  <body style="width: 100%; padding: 0; margin: 0">
+    <div class="nav-main">
+      <div class="semi-circle"></div>
+      <div class="nav-title">SNIPPETS</div>
+      <div class="nav-search">
+        <input type="search" name="" id="nav-search" placeholder="Search" />
+      </div>
+      <div class="nav-topics">
+        <div class="nav-sec">
+          <span class="nav-primary"><span>Forms</span></span>
+          <div class="nav-links">
+            <a href="./pages/inputs.html" target="_blank" class="nav-btn"
+              >Input Fields</a
+            >
+            <a href="" target="_blank" class="nav-btn">Buttons</a>
+            <a href="" target="_blank" class="nav-btn">Form</a>
+          </div>
+        </div>
+        <br />
+        <br />
+      </div>
+    </div>
+    <script>
+      var accordions = document.getElementsByClassName("nav-primary");
+
+      for (var i = 0; i < accordions.length; i++) {
+        accordions[i].onclick = function () {
+          this.classList.toggle("is-open");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            // accordion is currently open, so close it
+            content.style.maxHeight = null;
+          } else {
+            // accordion is currently closed, so open it
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        };
+      }
+
+      function reveal() {
+        for (var i = 0; i < accordions.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = accordions[i].getBoundingClientRect().top;
+          elementTop = Math.round(elementTop);
+          console.log(elementTop);
+          if (elementTop > windowHeight - 100) {
+            if (accordions[i].classList.contains("is-open")) {
+              accordions[i].click();
+            }
+          } else {
+            if (accordions[i].classList.contains("is-open")) {
+            } else {
+              accordions[i].click();
+            }
+          }
+        }
+      }
+      setTimeout(() => {
+        for (var i = 0; i < accordions.length; i++) {
+          accordions[i].click();
+          accordions[i].click();
+        }
+        let navs = document.querySelectorAll(".nav-sec");
+        let he = 0;
+        navs.forEach((item) => {
+          he += item.clientHeight;
+          he += 30;
+        });
+        document.querySelector(".nav-topics").style.height = he + "px";
+      }, 200);
+
+      window.addEventListener("scroll", reveal);
+      reveal();
+    </script>
+  </body>
+</html>

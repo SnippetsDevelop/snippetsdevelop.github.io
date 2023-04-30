@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Input Style 2</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: poppins;
+      }
+      .input {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .inputf {
+        width: 300px;
+        height: 35px;
+        font-family: poppins;
+        border: none;
+        border-bottom: 0.7mm solid rgb(110, 110, 110);
+        outline: none;
+        box-sizing: border-box;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+        background: rgb(240, 243, 246);
+      }
+      .inputf:focus {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+      .inputf:hover {
+        border-bottom: 0.7mm solid rgb(77, 77, 77);
+        background: rgb(238, 240, 243);
+      }
+      .inputf:focus:hover {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+      .label {
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transition: 0.25s;
+        color: rgb(19, 116, 214);
+      }
+      .inputf:focus + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) + .label {
+        top: -20px;
+      }
+      .inputf:not(:placeholder-shown) {
+        border-bottom: 0.7mm solid rgb(19, 116, 214);
+        background: rgb(236, 239, 243);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <input type="text" name="" id="" class="inputf" placeholder="Name" />
+      <span class="label">Name</span>
+    </div>
+  </body>
+</html>
