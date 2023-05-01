@@ -302,6 +302,23 @@
         width: fit-content;
         height: 300px !important;
       }
+      .yt-videos {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .yt-video {
+        position: relative;
+        width: 384px;
+        height: 0;
+        min-height: 216px;
+      }
+      .yt-video .video {
+        width: 100%;
+      }
       @media screen and (max-width: 1000px) {
         .nav,
         .ads {
@@ -761,6 +778,18 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/WSULy8OlzPo"
+              title="Most commonly used input tag styles"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="video"
+            ></iframe>
           </div>
         </div>
         <div class="main-ads">
