@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Style</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgb(245, 245, 245);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: poppins;
+      }
+      .inputs {
+        width: fit-content;
+        height: fit-content;
+      }
+      .title {
+        margin-bottom: 10px;
+      }
+      .inputf {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        background: rgb(232, 232, 232);
+        position: relative;
+        border-radius: 1mm;
+      }
+      .inputf label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        padding: 10px 15px;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+      }
+      .inputf input {
+        display: none;
+      }
+      .inputf .slider {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 80px;
+        height: 30px;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 1mm;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        transition: 0.25s ease-in;
+      }
+      .inputf input:nth-child(1):checked ~ .slider {
+        left: 2px;
+      }
+      .inputf input:nth-child(3):checked ~ .slider {
+        left: 112px;
+      }
+      .inputf input:nth-child(5):checked ~ .slider {
+        left: 222px;
+      }
+
+      .inputf input:nth-child(1):checked + label {
+        font-weight: 500;
+        color: rgb(93, 200, 93);
+      }
+      .inputf input:nth-child(3):checked + label {
+        font-weight: 500;
+        color: orange;
+      }
+      .inputf input:nth-child(5):checked + label {
+        font-weight: 500;
+        color: rgb(255, 70, 70);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="inputs">
+        <div class="title">Question 1</div>
+        <div class="inputf">
+          <input type="radio" name="q1" id="q11" checked />
+          <label for="q11">Easy</label>
+          <input type="radio" name="q1" id="q12" />
+          <label for="q12">Medium</label>
+          <input type="radio" name="q1" id="q13" />
+          <label for="q13">Hard</label>
+          <span class="slider"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
