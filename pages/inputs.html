@@ -26,350 +26,36 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      ::-webkit-scrollbar {
-        width: 0.65vw;
-        height: 0vh;
-      }
-
-      ::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: rgb(155, 155, 155);
-        border-radius: 0.5vw;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgb(110, 110, 110);
-      }
-
-      body {
-        width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-      }
-
-      section {
-        box-sizing: border-box;
-        height: fit-content;
-      }
-
-      .grid-container {
-        width: 100%;
-        display: grid;
-        grid-template-columns: minmax(0, 250px) minmax(350px, 1fr) minmax(
-            0,
-            170px
-          );
-      }
-
-      .nav {
-        height: 100vh;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 100%;
-      }
-
-      iframe {
-        height: 100%;
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      .main {
-        width: 100%;
-        box-sizing: border-box;
-        height: 100vh;
-        overflow: auto;
-      }
-
-      .main-primary {
-        font-family: poppins;
-        font-size: 14px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 30px;
-        padding-bottom: 10px;
-        font-weight: 500;
-        letter-spacing: 2px;
-        color: rgb(17, 104, 190);
-      }
-
-      .main-title {
-        font-family: poppins;
-        font-size: 34px;
-        padding: 0 30px;
-      }
-
-      .ads {
-        box-sizing: border-box;
-        border-left: 0.45mm solid rgb(239, 239, 239);
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      .main-content {
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .main-container {
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        margin-top: 70px;
-      }
-
-      .main-box {
-        width: fit-content;
-        height: fit-content;
-        perspective: 1000px;
-        margin-bottom: 25px;
-      }
-
-      .main-box-control {
-        width: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: rgb(248, 249, 250);
-        border-radius: 1mm;
-        box-sizing: border-box;
-        margin: auto;
-        margin-bottom: 10px;
-        position: relative;
-      }
-
-      .main-box-control button {
-        background: none;
-        outline: none;
-        border: none;
-        font-family: poppins;
-        font-size: medium;
-        font-weight: 500;
-        padding: 7px 25px;
-        cursor: pointer;
-        width: 100px;
-      }
-
-      .main-box-control button:hover {
-        background: rgb(232, 240, 254);
-        color: rgb(17, 104, 190);
-      }
-
-      /* Can be changed */
-      .main-box-card {
-        position: relative;
-        width: 500px;
-        height: 450px;
-        transition: transform 0.5s;
-        transform-style: preserve-3d;
-        box-shadow: 0 4px 8px rgba(54, 64, 67, 0.15),
-          0 1px 3px rgba(54, 64, 67, 0.3);
-        border-radius: 1mm;
-      }
-
-      .main-box-front,
-      .main-box-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 1mm;
-        overflow: auto;
-      }
-
-      .main-box-front {
-        background: white;
-        color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .main-box-back {
-        color: rgb(0, 0, 0);
-        transform: rotateY(180deg);
-      }
-
-      .btn-line {
-        width: 100px;
-        height: 0.8mm;
-        background: rgb(35, 124, 213);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transition: 0.25s;
-      }
-
-      .design-menu {
-        width: 100%;
-        background: rgb(248, 249, 250);
-        box-sizing: border-box;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .design-title {
-        flex-basis: 65%;
-        font-family: poppins;
-        font-size: medium;
-      }
-
-      .design-colors {
-        flex-basis: 35%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .color {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      .color-icons {
-        width: 10px;
-        height: 10px;
-        border: 0.25mm solid rgb(45, 45, 45);
-        margin-right: 5px;
-        border-radius: 0.4mm;
-        cursor: pointer;
-      }
-
-      .color-code {
-        font-family: poppins;
-        font-size: 10px;
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        display: none;
-        width: fit-content;
-        white-space: nowrap;
-      }
-
-      .color-icons:hover + .color-code {
-        display: block;
-      }
-      .src {
-        width: 100%;
-        height: 100%;
-      }
-      .main-design {
-        width: 100%;
-        flex-grow: 1;
-      }
-      .ad-unit {
-        width: 94%;
-        margin: auto;
-        display: block;
-      }
-      .main-ads {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .ad-unit2 {
-        flex-grow: 1;
-        width: fit-content;
-        height: 300px !important;
-      }
-      .yt-videos {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-      }
-      .yt-video {
-        position: relative;
-        width: 384px;
-        height: 0;
-        min-height: 216px;
-      }
-      .yt-video .video {
-        width: 100%;
-      }
-      @media screen and (max-width: 1000px) {
-        .nav,
-        .ads {
-          display: none;
-        }
-
-        .grid-container {
-          width: 100%;
-          display: grid;
-          grid-template-columns: minmax(350px, 1fr);
-        }
-      }
-
-      @media screen and (max-width: 530px) {
-        .main-box-card {
-          width: 350px;
-          height: 350px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
     <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
       <section class="nav">
         <iframe src="../nav.html" frameborder="0"></iframe>
       </section>
       <section class="main">
         <div class="main-primary">FORMS > INPUT FIELDS</div>
         <div class="main-title">Different types of input styles</div>
-        <div class="ad-unit">
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
-            crossorigin="anonymous"
-          ></script>
-          <!-- Horizontal 1 -->
-          <ins
-            class="adsbygoogle"
-            style="display: block"
-            data-ad-client="ca-pub-7648686090734646"
-            data-ad-slot="7190117276"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
         <div class="main-content">
           <div class="main-container">
+            <p class="text">
+              When it comes to designing a form in HTML, input tags play a
+              crucial role in capturing user input. However, styling them
+              effectively can enhance the form's overall look and feel, making
+              it more attractive and user-friendly. In this blog post, we'll
+              explore three simple and visually appealing designs for input tags
+              that you can easily implement in your HTML forms.
+            </p>
+            <p class="text">
+              <span class="hight">The first design</span> is a flat-style input
+              tag that uses simple outline with curved border and color
+              variations to highlight the focused input field. This design is
+              clean and minimal, making it perfect for modern and professional
+              websites.
+            </p>
             <div class="main-box">
               <div class="main-box-control">
                 <button
@@ -492,7 +178,14 @@
                 </div>
               </div>
             </div>
-
+            <p class="text">
+              <span class="hight">The second design</span> input tag, which
+              features a bottom border and background with sharp edges, is a
+              popular choice for creating a clean and modern look in HTML forms.
+              This design is often referred to as the "bottom border input" or
+              "underline input" because it only adds a border and background at
+              the bottom of the input field
+            </p>
             <div class="main-box">
               <div class="main-box-control">
                 <button
@@ -656,7 +349,14 @@
                 </div>
               </div>
             </div>
-
+            <p class="text">
+              <span class="hight">The third input tag design</span>, which
+              features a border all around and a solid box shadow towards two
+              sides with sharp edges, is a popular and modern design choice for
+              HTML forms. This design adds a sense of depth and dimension to the
+              input field, making it more visually engaging and interactive, the
+              design can convey a more approachable and friendly tone.
+            </p>
             <div class="main-box">
               <div class="main-box-control">
                 <button
@@ -780,6 +480,7 @@
             </div>
           </div>
         </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
         <div class="yt-videos">
           <div class="yt-video">
             <iframe
@@ -870,6 +571,24 @@
     <script src="../highlight/highlight.min.js"></script>
     <script>
       hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        iframes[i].contentWindow.document.onclick = handleFrameClick;
+      }
+
+      document.onclick = handleFrameClick;
     </script>
   </body>
 </html>

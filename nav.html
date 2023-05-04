@@ -35,6 +35,8 @@
       height: fit-content;
       border-right: 0.45mm solid rgb(239, 239, 239);
       min-height: 100vh;
+      position: relative;
+      z-index: 10;
     }
     .nav-title {
       font-family: "Major Mono Display";
@@ -174,7 +176,13 @@
       <div class="semi-circle"></div>
       <div class="nav-title">SNIPPETS</div>
       <div class="nav-search">
-        <input type="search" name="" id="nav-search" placeholder="Search" />
+        <input
+          type="search"
+          name=""
+          id="nav-search"
+          placeholder="Search"
+          onkeyup="search()"
+        />
       </div>
       <div class="nav-topics">
         <div class="nav-sec">
@@ -252,6 +260,20 @@
 
       window.addEventListener("scroll", reveal);
       reveal();
+
+      function search() {
+        let searchVal = document.getElementById("nav-search").value;
+        let up = searchVal.toUpperCase();
+        let searchArray = document.querySelectorAll(".nav-btn");
+        for (var i = 0; i < searchArray.length; i++) {
+          let content = searchArray[i].innerHTML.toUpperCase();
+          if (content.indexOf(up) == -1) {
+            searchArray[i].style.display = "none";
+          } else {
+            searchArray[i].style.display = "block";
+          }
+        }
+      }
     </script>
   </body>
 </html>

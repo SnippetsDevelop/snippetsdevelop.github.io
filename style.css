@@ -1,0 +1,362 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0.65vw;
+  height: 0vh;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(155, 155, 155);
+  border-radius: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(110, 110, 110);
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 250px) minmax(350px, 1fr) minmax(0, 170px);
+}
+
+.nav {
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main-primary {
+  font-family: poppins;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgb(17, 104, 190);
+}
+
+.main-title {
+  font-family: poppins;
+  font-size: 34px;
+  padding: 0 30px;
+}
+
+.ads {
+  box-sizing: border-box;
+  border-left: 0.45mm solid rgb(239, 239, 239);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+.main-box {
+  width: fit-content;
+  height: fit-content;
+  perspective: 1000px;
+  margin-bottom: 25px;
+}
+/* Can be changed */
+.main-box-card {
+  position: relative;
+  width: 500px;
+  height: 450px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(54, 64, 67, 0.15), 0 1px 3px rgba(54, 64, 67, 0.3);
+  border-radius: 1mm;
+}
+.main-box-control {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(248, 249, 250);
+  border-radius: 1mm;
+  box-sizing: border-box;
+  margin: auto;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.main-box-control button {
+  background: none;
+  outline: none;
+  border: none;
+  font-family: poppins;
+  font-size: medium;
+  font-weight: 500;
+  padding: 7px 25px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.main-box-control button:hover {
+  background: rgb(232, 240, 254);
+  color: rgb(17, 104, 190);
+}
+
+.main-box-front,
+.main-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1mm;
+  overflow: auto;
+}
+
+.main-box-front {
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-box-back {
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
+
+.btn-line {
+  width: 100px;
+  height: 0.8mm;
+  background: rgb(35, 124, 213);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.25s;
+}
+
+.design-menu {
+  width: 100%;
+  background: rgb(248, 249, 250);
+  box-sizing: border-box;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.design-title {
+  flex-basis: 65%;
+  font-family: poppins;
+  font-size: medium;
+}
+
+.design-colors {
+  flex-basis: 35%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.color {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.color-icons {
+  width: 10px;
+  height: 10px;
+  border: 0.25mm solid rgb(45, 45, 45);
+  margin-right: 5px;
+  border-radius: 0.4mm;
+  cursor: pointer;
+}
+
+.color-code {
+  font-family: poppins;
+  font-size: 10px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: none;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.color-icons:hover + .color-code {
+  display: block;
+}
+.src {
+  width: 100%;
+  height: 100%;
+}
+.main-design {
+  width: 100%;
+  flex-grow: 1;
+}
+.ad-unit {
+  width: 94%;
+  margin: auto;
+  display: block;
+}
+.main-ads {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ad-unit2 {
+  flex-grow: 1;
+  width: fit-content;
+  height: 300px !important;
+}
+.yt-videos {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.yt-video {
+  position: relative;
+  width: 384px;
+  height: 0;
+  min-height: 216px;
+}
+.yt-video .video {
+  width: 100%;
+}
+.text {
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: justify;
+  font-family: poppins;
+  margin-bottom: 30px;
+  color: rgb(83, 83, 83);
+  font-weight: 300;
+  margin-top: 30px;
+}
+.text .hight {
+  font-weight: 500;
+  color: rgb(42, 130, 218);
+}
+.nbt {
+  display: none;
+}
+#nbt1 {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .nav,
+  .ads {
+    display: none;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 250px;
+    background: white !important;
+    z-index: 10;
+    box-shadow: 10px 0 10px rgba(41, 41, 41, 0.3);
+    transition: 0.25s ease-in;
+  }
+  .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(350px, 1fr);
+  }
+  .nbt {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 45px;
+    height: 45px;
+    position: relative;
+  }
+  .nbt::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    content: "menu";
+    font-family: "Material Icons";
+  }
+  #nbt1:not(:checked) ~ .nav {
+    transform: translateX(-400px);
+  }
+  #nbt1:checked ~ .nav {
+    transform: translateX(0px);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .main-box-card {
+    width: 350px;
+    height: 350px;
+  }
+}
