@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sliding Button</title>
+    <title>Material Design</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -347,8 +347,10 @@
         <iframe src="../nav.html" frameborder="0"></iframe>
       </section>
       <section class="main">
-        <div class="main-primary">FORMS > SLIDING RADIO BUTTON</div>
-        <div class="main-title">Custom radio button | Sliding buttons</div>
+        <div class="main-primary">MATERIAL DESIGN > SWITCH</div>
+        <div class="main-title">
+          Customize checkbox toggle switch | Google Material 3 design
+        </div>
         <div class="main-content">
           <div class="main-container">
             <div class="main-box">
@@ -377,43 +379,29 @@
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(245, 245, 245)"
+                          style="background: rgb(247, 242, 250)"
                         ></div>
-                        <div class="color-code">rgb(245, 245, 245)</div>
+                        <div class="color-code">rgb(247, 242, 250)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(232, 232, 232)"
+                          style="background: rgb(121, 116, 126)"
                         ></div>
-                        <div class="color-code">rgb(232, 232, 232)</div>
+                        <div class="color-code">rgb(121, 116, 126)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(93, 200, 93)"
+                          style="background: rgb(103, 80, 164)"
                         ></div>
-                        <div class="color-code">rgb(93, 200, 93)</div>
-                      </div>
-                      <div class="color">
-                        <div
-                          class="color-icons"
-                          style="background: rgb(255, 166, 0)"
-                        ></div>
-                        <div class="color-code">rgb(255, 166, 0)</div>
-                      </div>
-                      <div class="color">
-                        <div
-                          class="color-icons"
-                          style="background: rgb(255, 70, 70)"
-                        ></div>
-                        <div class="color-code">rgb(255, 70, 70)</div>
+                        <div class="color-code">rgb(103, 80, 164)</div>
                       </div>
                     </div>
                   </div>
                   <div class="main-design">
                     <iframe
-                      src="../codes/radio-style.html"
+                      src="../codes/toggle-buttons.html"
                       frameborder="0"
                       class="src"
                       height="100%"
@@ -427,138 +415,108 @@
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(245, 245, 245)"
+                          style="background: rgb(247, 242, 250)"
                         ></div>
-                        <div class="color-code">rgb(245, 245, 245)</div>
+                        <div class="color-code">rgb(247, 242, 250)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(232, 232, 232)"
+                          style="background: rgb(121, 116, 126)"
                         ></div>
-                        <div class="color-code">rgb(232, 232, 232)</div>
+                        <div class="color-code">rgb(121, 116, 126)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(93, 200, 93)"
+                          style="background: rgb(103, 80, 164)"
                         ></div>
-                        <div class="color-code">rgb(93, 200, 93)</div>
-                      </div>
-                      <div class="color">
-                        <div
-                          class="color-icons"
-                          style="background: rgb(255, 166, 0)"
-                        ></div>
-                        <div class="color-code">rgb(255, 166, 0)</div>
-                      </div>
-                      <div class="color">
-                        <div
-                          class="color-icons"
-                          style="background: rgb(255, 70, 70)"
-                        ></div>
-                        <div class="color-code">rgb(255, 70, 70)</div>
+                        <div class="color-code">rgb(103, 80, 164)</div>
                       </div>
                     </div>
                   </div>
                   <!--Place the code here-->
                   <pre><code class="language-html"> 
+   &lt;link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    /&gt;
     &lt;style&gt;
       body {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100vh;
-        background: rgb(245, 245, 245);
+        background: rgb(247, 242, 250);
       }
       .center {
-        width: 100%;
-        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: poppins;
+        width: 100%;
+        height: 100%;
       }
       .inputs {
         width: fit-content;
         height: fit-content;
       }
-      .title {
-        margin-bottom: 10px;
-      }
       .inputf {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2px;
-        background: rgb(232, 232, 232);
+        display: block;
+        width: 95px;
+        height: 55px;
         position: relative;
-        border-radius: 1mm;
-      }
-      .inputf label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80px;
-        height: 30px;
-        padding: 10px 15px;
         cursor: pointer;
-        position: relative;
-        z-index: 2;
+      }
+      .inputf .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        border: 0.5mm solid rgb(121, 116, 126);
+        border-radius: 12mm;
       }
       .inputf input {
         display: none;
       }
-      .inputf .slider {
+      .inputf .slider::before {
+        content: "";
         position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 80px;
-        height: 30px;
-        padding: 10px 15px;
-        background: white;
-        border-radius: 1mm;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        width: 31px;
+        height: 31px;
+        left: 8px;
+        background: rgb(121, 116, 126);
+        border-radius: 50%;
+        top: 50%;
+        transform: translate(0, -50%);
         transition: 0.25s ease-in;
       }
-      .inputf input:nth-child(1):checked ~ .slider {
-        left: 2px;
+      .inputf input:checked ~ .slider::before {
+        width: 41px;
+        height: 41px;
+        left: calc(100% - 49px);
+        background: white;
+        content: "done";
+        font-family: "Material Icons";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: x-large;
       }
-      .inputf input:nth-child(3):checked ~ .slider {
-        left: 112px;
-      }
-      .inputf input:nth-child(5):checked ~ .slider {
-        left: 222px;
-      }
-
-      .inputf input:nth-child(1):checked + label {
-        font-weight: 500;
-        color: rgb(93, 200, 93);
-      }
-      .inputf input:nth-child(3):checked + label {
-        font-weight: 500;
-        color: orange;
-      }
-      .inputf input:nth-child(5):checked + label {
-        font-weight: 500;
-        color: rgb(255, 70, 70);
+      .inputf input:checked ~ .slider {
+        background: rgb(103, 80, 164);
+        border-radius: 0.5mm solid rgb(103, 80, 164);
       }
     &lt;/style&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;div class="center"&gt;
       &lt;div class="inputs"&gt;
-        &lt;div class="title"&gt;Question 1&lt;/div&gt;
-        &lt;div class="inputf"&gt;
-          &lt;input type="radio" name="q1" id="q11" checked /&gt;
-          &lt;label for="q11"&gt;Easy&lt;/label&gt;
-          &lt;input type="radio" name="q1" id="q12" /&gt;
-          &lt;label for="q12"&gt;Medium&lt;/label&gt;
-          &lt;input type="radio" name="q1" id="q13" /&gt;
-          &lt;label for="q13"&gt;Hard&lt;/label&gt;
+        &lt;label for="s1" class="inputf"&gt;
+          &lt;input type="checkbox" name="" id="s1" /&gt;
           &lt;span class="slider"&gt;&lt;/span&gt;
-        &lt;/div&gt;
+        &lt;/label&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
