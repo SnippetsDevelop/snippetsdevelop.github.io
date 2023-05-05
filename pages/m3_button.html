@@ -37,20 +37,21 @@
         <iframe src="../nav.html" frameborder="0"></iframe>
       </section>
       <section class="main">
-        <div class="main-primary">MATERIAL DESIGN > SWITCH</div>
+        <div class="main-primary">MATERIAL DESIGN > BUTTONS</div>
         <div class="main-title">
-          Customize checkbox toggle switch | Google Material 3 design
+          Stunning Button Styles with Google Material 3 Design using HTML and
+          CSS
         </div>
         <div class="main-content">
           <div class="main-container">
             <p class="text">
-              <span class="hight">A toggle switch</span> is a simple yet
-              effective user interface element that allows users to switch
-              between two states (i.e. on and off state). Below is a design for
-              the customized toggle switch that is inspired from the Google
-              Material Desing 3 components. Instead of using complex JavaScript
-              or jQuery, we will be utilizing the simple HTML checkbox element
-              to achieve the desired functionality.
+              <span class="hight">Buttons</span> are an essential element in any
+              website or web application. They not only provide a way to
+              interact with the interface but also contribute to the overall
+              look and feel of the design. With Google's Material 3 Design,
+              creating visually appealing and engaging button styles has never
+              been easier. There are total 5 different designs of buttons shown
+              below, that can be used in different cases.
             </p>
             <div class="main-box">
               <div class="main-box-control">
@@ -78,29 +79,29 @@
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(247, 242, 250)"
+                          style="background: rgb(243, 246, 234)"
                         ></div>
-                        <div class="color-code">rgb(247, 242, 250)</div>
+                        <div class="color-code">rgb(243, 246, 234)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(121, 116, 126)"
+                          style="background: rgb(56, 106, 32)"
                         ></div>
-                        <div class="color-code">rgb(121, 116, 126)</div>
+                        <div class="color-code">rgb(56, 106, 32)</div>
                       </div>
                       <div class="color">
                         <div
                           class="color-icons"
-                          style="background: rgb(103, 80, 164)"
+                          style="background: rgb(217, 231, 203)"
                         ></div>
-                        <div class="color-code">rgb(103, 80, 164)</div>
+                        <div class="color-code">rgb(217, 231, 203)</div>
                       </div>
                     </div>
                   </div>
                   <div class="main-design">
                     <iframe
-                      src="../codes/toggle-buttons.html"
+                      src="../codes/m3-buttons-style.html"
                       frameborder="0"
                       class="src"
                       height="100%"
@@ -137,83 +138,74 @@
                   <!--Place the code here-->
                   <pre><code class="language-html"> 
    &lt;link
-      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     /&gt;
     &lt;style&gt;
       body {
-        margin: 0;
         padding: 0;
+        margin: 0;
         width: 100%;
         height: 100vh;
-        background: rgb(247, 242, 250);
+        background: rgb(243, 246, 234);
       }
       .center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
         height: 100%;
-      }
-      .inputs {
-        width: fit-content;
-        height: fit-content;
-      }
-      .inputf {
-        display: block;
-        width: 95px;
-        height: 55px;
-        position: relative;
-        cursor: pointer;
-      }
-      .inputf .slider {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        cursor: pointer;
-        border: 0.5mm solid rgb(121, 116, 126);
-        border-radius: 12mm;
-      }
-      .inputf input {
-        display: none;
-      }
-      .inputf .slider::before {
-        content: "";
-        position: absolute;
-        width: 31px;
-        height: 31px;
-        left: 8px;
-        background: rgb(121, 116, 126);
-        border-radius: 50%;
-        top: 50%;
-        transform: translate(0, -50%);
-        transition: 0.25s ease-in;
-      }
-      .inputf input:checked ~ .slider::before {
-        width: 41px;
-        height: 41px;
-        left: calc(100% - 49px);
-        background: white;
-        content: "done";
-        font-family: "Material Icons";
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: x-large;
       }
-      .inputf input:checked ~ .slider {
-        background: rgb(103, 80, 164);
-        border-radius: 0.5mm solid rgb(103, 80, 164);
+      .buttons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .btn {
+        width: fit-content;
+        padding: 8px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5mm;
+        outline: none;
+        cursor: pointer;
+        font-family: poppins;
+        font-weight: 500;
+      }
+      .btn:nth-child(1) {
+        background: rgb(243, 246, 234);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15),
+          0 1px 3px 1px rgba(0, 0, 0, 0.1);
+        color: rgb(56, 106, 32);
+      }
+      .btn:nth-child(2) {
+        background: rgb(56, 106, 32);
+        color: white;
+      }
+      .btn:nth-child(3) {
+        background: rgb(217, 231, 203);
+        color: black;
+      }
+      .btn:nth-child(4) {
+        background: none;
+        border: 0.3mm solid rgba(0, 0, 0, 0.678);
+        color: rgb(56, 106, 32);
+      }
+      .btn:nth-child(5) {
+        background: none;
+        color: rgb(56, 106, 32);
+        font-weight: 600;
       }
     &lt;/style&gt;
     &lt;div class="center"&gt;
-      &lt;div class="inputs"&gt;
-        &lt;label for="s1" class="inputf"&gt;
-          &lt;input type="checkbox" name="" id="s1" /&gt;
-          &lt;span class="slider"&gt;&lt;/span&gt;
-        &lt;/label&gt;
+      &lt;div class="buttons"&gt;
+        &lt;button class="btn"&gt;Elevated&lt;/button&gt;
+        &lt;button class="btn"&gt;Filled&lt;/button&gt;
+        &lt;button class="btn"&gt;Tonal&lt;/button&gt;
+        &lt;button class="btn"&gt;Outlined&lt;/button&gt;
+        &lt;button class="btn"&gt;Text&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 

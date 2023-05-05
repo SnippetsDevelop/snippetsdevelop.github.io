@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgb(243, 246, 234);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .buttons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .btn {
+        width: fit-content;
+        padding: 8px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5mm;
+        outline: none;
+        cursor: pointer;
+        font-family: poppins;
+        font-weight: 500;
+      }
+      .btn:nth-child(1) {
+        background: rgb(243, 246, 234);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15),
+          0 1px 3px 1px rgba(0, 0, 0, 0.1);
+        color: rgb(56, 106, 32);
+      }
+      .btn:nth-child(2) {
+        background: rgb(56, 106, 32);
+        color: white;
+      }
+      .btn:nth-child(3) {
+        background: rgb(217, 231, 203);
+        color: black;
+      }
+      .btn:nth-child(4) {
+        background: none;
+        border: 0.3mm solid rgba(0, 0, 0, 0.678);
+        color: rgb(56, 106, 32);
+      }
+      .btn:nth-child(5) {
+        background: none;
+        color: rgb(56, 106, 32);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="buttons">
+        <button class="btn">Elevated</button>
+        <button class="btn">Filled</button>
+        <button class="btn">Tonal</button>
+        <button class="btn">Outlined</button>
+        <button class="btn">Text</button>
+      </div>
+    </div>
+  </body>
+</html>
