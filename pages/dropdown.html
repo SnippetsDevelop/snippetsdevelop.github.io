@@ -53,6 +53,12 @@
               dropdown not only provides a more aesthetically pleasing interface
               but also improves the user experience by making it easier for
               users to select options.
+              <br />
+              we will be building a dynamic search or filter function that can
+              be easily integrated into any web page that utilizes tables and
+              dropdown menus. By using HTML, CSS, and JavaScript, we will create
+              a user-friendly search feature that allows users to filter through
+              large sets of data quickly and efficiently.
             </p>
             <div class="main-box">
               <div class="main-box-control">
@@ -124,7 +130,7 @@
                   </div>
                   <!--Place the code here-->
                   <pre><code class="language-html"> 
-    &lt;link
+   &lt;link
       href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
       rel="stylesheet"
     /&gt;
@@ -134,6 +140,7 @@
       href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     /&gt;
+    &lt;title&gt;Dropdown&lt;/title&gt;
 
     &lt;style&gt;
       body {
@@ -251,13 +258,41 @@
         font-weight: 500;
         margin-bottom: 10px;
       }
+      .search-box {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 8px;
+      }
+      #search {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 1mm;
+        border: none;
+        outline: 0.3mm solid rgba(0, 0, 0, 0.15);
+        font-family: poppins;
+      }
+      #search:focus {
+        outline: 0.5mm solid rgba(0, 0, 0, 0.35);
+      }
     &lt;/style&gt;
-
+  &lt;/head&gt;
+  &lt;body&gt;
     &lt;div class="center"&gt;
       &lt;div class="dropdown"&gt;
         &lt;div class="title"&gt;Title&lt;/div&gt;
         &lt;div class="input-box"&gt;&lt;/div&gt;
         &lt;div class="list"&gt;
+          &lt;div class="search-box"&gt;
+            &lt;input
+              type="search"
+              name=""
+              id="search"
+              placeholder="Search Options"
+              onkeyup="search(this)"
+            /&gt;
+          &lt;/div&gt;
           &lt;input type="radio" name="drop1" id="id11" class="radio" /&gt;
           &lt;label for="id11"&gt;
             &lt;span class="material-icons-outlined"&gt; directions_walk &lt;/span&gt;
@@ -280,6 +315,18 @@
           &lt;label for="id14"&gt;
             &lt;span class="material-icons-outlined"&gt; flight &lt;/span&gt;
             &lt;span class="name"&gt;Flight&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;input type="radio" name="drop1" id="id15" class="radio" /&gt;
+          &lt;label for="id15"&gt;
+            &lt;span class="material-icons-outlined"&gt; directions_boat &lt;/span&gt;
+            &lt;span class="name"&gt;Ship&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;input type="radio" name="drop1" id="id16" class="radio" /&gt;
+          &lt;label for="id16"&gt;
+            &lt;span class="material-icons-outlined"&gt; local_shipping &lt;/span&gt;
+            &lt;span class="name"&gt;Delivery&lt;/span&gt;
           &lt;/label&gt;
         &lt;/div&gt;
       &lt;/div&gt;
@@ -306,6 +353,23 @@
           input.click();
         });
       });
+
+      var label = document.querySelectorAll("label");
+      function search(searchin) {
+        let searchVal = searchin.value;
+        searchVal = searchVal.toUpperCase();
+        label.forEach((item) => {
+          let checkVal = item.querySelector(".name").innerHTML;
+          checkVal = checkVal.toUpperCase();
+          if (checkVal.indexOf(searchVal) == -1) {
+            item.style.display = "none";
+          } else {
+            item.style.display = "flex";
+          }
+          let list = input.nextElementSibling;
+          list.style.maxHeight = list.scrollHeight + "px";
+        });
+      }
     &lt;/script&gt;
                     <!--Place the code here-->
                   </code></pre>
@@ -318,8 +382,8 @@
         <div class="yt-videos">
           <div class="yt-video">
             <iframe
-              src="https://www.youtube.com/embed/cNdJLapVQMo"
-              title="Create a custom dropdown / Select menu using HTML CSS and JS"
+              src="https://www.youtube.com/embed/s2EeR5khWYw"
+              title="Create a Live Search / Filter function using HTML CSS and JS"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
