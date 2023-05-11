@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Bar</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .navigation {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icons {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgb(40, 40, 40);
+        padding: 9px 20px;
+        border-radius: 10mm;
+        position: relative;
+        max-width: 1000px;
+        width: fit-content;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+      input {
+        display: none;
+      }
+      .icon {
+        color: rgb(235, 237, 243);
+        width: 40px;
+        height: 40px;
+        border-radius: 10mm;
+        background: rgb(77, 77, 77);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 12px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: 0.25s;
+      }
+      .icon .material-icons-outlined {
+        font-size: 24px;
+      }
+      .icon .text {
+        font-family: poppins;
+        width: 0;
+        overflow: hidden;
+      }
+      input:checked + .icon .text {
+        width: fit-content;
+      }
+      input:checked + .icon {
+        width: fit-content;
+        border-radius: 10mm;
+        padding: 0 10px;
+        background: rgb(198, 247, 136);
+        color: rgb(40, 40, 40);
+      }
+      .icon:hover {
+        background: white;
+        color: rgb(40, 40, 40);
+      }
+      .close-btn {
+        color: rgb(235, 237, 243);
+        cursor: pointer;
+        position: relative;
+        width: 40px;
+        height: 40px;
+      }
+      .close-btn::before {
+        content: "close";
+        font-family: "Material Icons";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        font-size: 24px;
+        position: absolute;
+        text-align: center;
+        line-height: 40px;
+      }
+      #close:checked + .icons {
+        max-width: 18px;
+      }
+      #close:checked + .icons .icon {
+        visibility: hidden;
+      }
+      #close:checked + .icons .close-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #close:checked + .icons .close-btn::before {
+        content: "fullscreen";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="navigation">
+        <input type="checkbox" name="" id="close" />
+        <div class="icons">
+          <input type="radio" name="nav" id="n1" checked />
+          <label for="n1" class="icon">
+            <span class="material-icons-outlined"> home </span>
+            <span class="text">Home</span>
+          </label>
+
+          <input type="radio" name="nav" id="n2" />
+          <label for="n2" class="icon">
+            <span class="material-icons-outlined"> calendar_month </span>
+            <span class="text">Schedule</span>
+          </label>
+
+          <input type="radio" name="nav" id="n3" />
+          <label for="n3" class="icon">
+            <span class="material-icons-outlined"> menu_book </span>
+            <span class="text">Resources</span>
+          </label>
+
+          <input type="radio" name="nav" id="n4" />
+          <label for="n4" class="icon">
+            <span class="material-icons-outlined"> currency_rupee </span>
+            <span class="text">Bill</span>
+          </label>
+
+          <input type="radio" name="nav" id="n5" />
+          <label for="n5" class="icon">
+            <span class="material-icons-outlined"> person </span>
+            <span class="text">Profile</span>
+          </label>
+
+          <input type="radio" name="nav" id="n6" />
+          <label for="n6" class="icon">
+            <span class="material-icons-outlined"> settings </span>
+            <span class="text">Settings</span>
+          </label>
+
+          <input type="radio" name="nav" id="n7" />
+          <label for="n7" class="icon">
+            <span class="material-icons-outlined"> logout </span>
+            <span class="text">logout</span>
+          </label>
+          <label for="close" class="close-btn"></label>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
