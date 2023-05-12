@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel {
+        width: 90%;
+        height: fit-content;
+        background: rgb(245, 245, 245);
+        border-radius: 2mm;
+        box-sizing: border-box;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-direction: column;
+        font-weight: 600;
+      }
+      .title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 20px;
+        font-family: poppins;
+        font-size: 26px;
+        margin-bottom: 25px;
+      }
+      .navigation {
+        position: absolute;
+        top: 0;
+        left: -20px;
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .navigation:nth-child(4) {
+        left: calc(100% - 20px);
+      }
+      .navigation button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgb(77, 77, 77);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        outline: none;
+        border: none;
+      }
+      .navigation button span {
+        font-size: 24px;
+        color: white;
+      }
+      .navigation button:hover {
+        background: rgb(16, 116, 215);
+      }
+      .slide-lock {
+        width: 900px;
+        max-width: 100%;
+        overflow: hidden;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding: 15px;
+        scroll-behavior: smooth;
+      }
+
+      .slides {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+      .slide {
+        width: 250px;
+        height: 250px;
+        background: white;
+        border: 0.5mm solid rgb(228, 228, 228);
+        box-shadow: 10px 10px 0 rgb(228, 228, 228);
+        border-radius: 1mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 5px;
+        transition: 0.25s;
+        margin: 5px 25px;
+      }
+      .slide:hover {
+        border: 0.5mm solid rgb(40, 40, 40);
+        box-shadow: 12px 12px 0 rgb(40, 40, 40);
+      }
+      .slide:hover .button button {
+        background: rgb(16, 116, 215);
+      }
+      .icon {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding: 3px;
+      }
+      .icon span {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        background: rgb(245, 245, 245);
+        border-radius: 50%;
+        box-shadow: inset 1px 2px 1px 0 rgba(0, 0, 0, 0.15);
+        text-align: center;
+        line-height: 40px;
+      }
+      .content {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: poppins;
+        font-size: 26px;
+        font-weight: 500;
+        color: rgb(16, 116, 215);
+      }
+      .button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+      .button button {
+        background: rgb(77, 77, 77);
+        color: white;
+        font-family: poppins;
+        outline: none;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 4mm;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="carousel">
+        <div class="title">Carousel</div>
+        <div class="navigation">
+          <button type="button" onclick="moveLeft()">
+            <span class="material-icons-outlined">chevron_left</span>
+          </button>
+        </div>
+        <div class="slide-lock">
+          <div class="slides">
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">movie</span>
+              </div>
+              <div class="content">Movies</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">sports_soccer</span>
+              </div>
+              <div class="content">Sports</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">sports_esports</span>
+              </div>
+              <div class="content">Games</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">music_note</span>
+              </div>
+              <div class="content">Music</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">child_care</span>
+              </div>
+              <div class="content">Kids</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="icon">
+                <span class="material-icons-round">science</span>
+              </div>
+              <div class="content">Science</div>
+              <div class="button">
+                <button type="button">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navigation">
+          <button type="button" onclick="moveRight()">
+            <span class="material-icons-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let slider = document.querySelector(".slide-lock");
+      function moveRight() {
+        slider.scrollBy(300, 0);
+      }
+      function moveLeft() {
+        slider.scrollBy(-300, 0);
+      }
+    </script>
+  </body>
+</html>
