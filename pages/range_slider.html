@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms | Range Slider</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">FORMS > RANGE SLIDER</div>
+        <div class="main-title">
+          Create custom range slider without input tag using HTML CSS and JS
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              <span class="hight">Range sliders</span> are a great way to allow
+              users to select a value from a range of options by moving a thumb
+              along a track. While the input tag is commonly used to create
+              range sliders, it can be limiting in terms of customization. If
+              you want more control over the appearance and behavior of your
+              range slider, you can create a custom one using HTML, CSS, and
+              JavaScript without using the input tag. To create a custom range
+              slider, you'll need to start by creating the basic HTML structure
+              for your slider, which will include a container div for the slider
+              track and a separate div for the thumb. You can then use CSS to
+              style your slider, adding background colors and border radius to
+              make it look visually appealing. Finally, you'll use JavaScript to
+              handle the user's mouse or touch events and update the thumb's
+              position based on their input. By creating a custom range slider
+              using HTML, CSS, and JavaScript, you'll have more control over the
+              appearance and behavior of your slider. This can be useful for
+              creating unique and visually appealing sliders for your web
+              projects that stand out from the default input tag sliders. With a
+              bit of coding knowledge and some creativity, you can create a
+              custom range slider that perfectly suits your needs.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(206, 216, 226)"
+                        ></div>
+                        <div class="color-code">rgb(206, 216, 226)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(219, 224, 225)"
+                        ></div>
+                        <div class="color-code">rgb(219, 224, 225)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(100, 100, 100)"
+                        ></div>
+                        <div class="color-code">rgb(100, 100, 100)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/range_slider_style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(206, 216, 226)"
+                        ></div>
+                        <div class="color-code">rgb(206, 216, 226)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(219, 224, 225)"
+                        ></div>
+                        <div class="color-code">rgb(219, 224, 225)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(100, 100, 100)"
+                        ></div>
+                        <div class="color-code">rgb(100, 100, 100)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+      &lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    /&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    /&gt;
+    &lt;style&gt;
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgb(206, 216, 226);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .range {
+        width: fit-content;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 2mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        flex-direction: column;
+      }
+      .slider {
+        height: 85px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        box-sizing: border-box;
+      }
+      .thumb {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        left: -15px;
+        transform-origin: center;
+      }
+      .thumb::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "place";
+        font-family: "Material Icons Round";
+        text-align: center;
+        line-height: 30px;
+        font-size: 26px;
+        cursor: pointer;
+      }
+      .ticks {
+        width: 100%;
+        height: 50px;
+        position: relative;
+      }
+      .tick {
+        display: block;
+        height: 30px;
+        width: 0.75mm;
+        background: rgb(219, 224, 225);
+        position: absolute;
+        bottom: 0;
+        border-radius: 0.5mm;
+      }
+      .tick.big {
+        height: 50px;
+      }
+      .tick span {
+        font-family: poppins;
+        font-size: 8px;
+        color: rgb(100, 100, 100);
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-weight: 600;
+      }
+      .display {
+        width: 100%;
+        margin-top: 50px;
+        box-sizing: border-box;
+        padding: 20px;
+        font-family: poppins;
+        font-size: 50px;
+        color: rgb(40, 40, 40);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 10px;
+        font-weight: 500;
+      }
+      .value {
+        font-family: poppins;
+        line-height: 16px;
+        font-size: 16px;
+        color: rgb(100, 100, 100);
+        width: 100%;
+        text-align: center;
+      }
+    &lt;/style&gt;
+    &lt;div class="center"&gt;
+      &lt;div class="range"&gt;
+        &lt;div class="slider" min="0" max="25" step="1" id="slider"&gt;
+          &lt;div class="thumb" id="thumb"&gt;&lt;/div&gt;
+          &lt;div class="ticks"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="display"&gt;0&lt;/div&gt;
+        &lt;div class="value"&gt;Value&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      var slider = document.getElementById("slider");
+      let ticksCount = slider.getAttribute("max") - slider.getAttribute("min");
+      let ticks = document.querySelector(".ticks");
+      let thumb = document.getElementById("thumb");
+      slider.style.width = ticksCount * 16 + "px";
+      for (var i = 0; i <= ticksCount; i++) {
+        let tick = document.createElement("span");
+        let tickText = document.createElement("span");
+        tickText.innerHTML = i;
+        tick.appendChild(tickText);
+        if (i % 5 == 0) {
+          tick.className = "tick big";
+        } else {
+          tick.className = "tick";
+        }
+        tick.style.left = i * 16 + "px";
+        ticks.appendChild(tick);
+      }
+
+      var isDragging = false;
+
+      thumb.addEventListener("mousedown", startDragging);
+      thumb.addEventListener("touchmove", startDragging);
+
+      function startDragging(event) {
+        isDragging = true;
+        updateThumbPosition(event);
+        event.preventDefault();
+      }
+
+      document.addEventListener("mousemove", updateThumbPosition);
+      document.addEventListener("touchmove", updateThumbPosition);
+
+      document.addEventListener("mouseup", stopDragging);
+      document.addEventListener("touchend", stopDragging);
+      function updateThumbPosition(event) {
+        if (isDragging) {
+          var sliderRect = slider.getBoundingClientRect();
+          var thumbWidth = thumb.offsetWidth;
+          var thumbHalfWidth = thumbWidth / 2;
+          var positionX = event.clientX - sliderRect.left - thumbHalfWidth;
+          var maxPositionX = slider.offsetWidth;
+          var step = parseInt(slider.getAttribute("step")) * 16;
+          positionX = Math.min(
+            Math.max(Math.round(positionX / step) * step, 0),
+            maxPositionX
+          );
+          thumb.style.transform = "translateX(" + positionX + "px)";
+
+          var allticks = document.querySelectorAll(".tick");
+          for (var i = 0; i <= ticksCount; i++) {
+            allticks[i].style.background = "rgb(219, 224, 225)";
+          }
+          allticks[Math.round(positionX / 16)].style.background =
+            "rgb(40, 40, 40)";
+
+          document.querySelector(".display").innerHTML =
+            allticks[Math.round(positionX / 16)].querySelector(
+              "span"
+            ).innerHTML;
+        }
+      }
+
+      function stopDragging(event) {
+        isDragging = false;
+      }
+    &lt;/script&gt;
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/oyFjflvy3Qg"
+              title="Create stunning Carousel / Slider using simple HTML CSS and JS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>
