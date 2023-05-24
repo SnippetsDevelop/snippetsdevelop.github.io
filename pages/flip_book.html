@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specials| Flip Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">SPECIALS > FLIP BOOK</div>
+        <div class="main-title">
+          Create a Flip Book using simple HTML CSS and JS | No External Library
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              <span class="hight">Flip books</span> are a creative way to
+              present content in a dynamic and engaging manner. They can be used
+              to showcase portfolios, photo albums, product catalogs, or even
+              tell interactive stories. By incorporating a flip book into your
+              website, you can provide an intuitive and enjoyable user
+              experience, encouraging visitors to explore your content in a more
+              interactive way.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 228, 130)"
+                        ></div>
+                        <div class="color-code">rgb(255, 228, 130)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/book-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 228, 130)"
+                        ></div>
+                        <div class="color-code">rgb(255, 228, 130)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+  &lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    /&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    /&gt;
+
+    &lt;style&gt;
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .book {
+        width: 400px;
+        height: 300px;
+        position: relative;
+      }
+      .pages {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .page {
+        width: 380px;
+        height: 270px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 7mm;
+        margin: 0 6px;
+        transform-style: preserve-3d;
+        transform-origin: left;
+        transition: 0.25s;
+        box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.15),
+          1px 3px 1px 0 rgba(0, 0, 0, 0.1);
+      }
+      .page-side {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px 30px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-family: poppins;
+        border-radius: 7mm;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+      }
+      .page-head {
+        width: 100%;
+      }
+      .page-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 40px;
+        font-weight: 500;
+      }
+      .page-subtitle {
+        font-size: 12px;
+        font-weight: 300;
+      }
+      .page-content {
+        flex-grow: 1;
+        font-size: 14px;
+        display: flex;
+        align-items: flex-end;
+      }
+      .page-footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+      .pg-no {
+        width: 14px;
+        padding: 0 15px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: rgb(40, 40, 40);
+        background: white;
+        border-radius: 3mm;
+      }
+      .front {
+        background: rgb(255, 228, 130);
+        color: rgb(40, 40, 40);
+        padding-left: 40px;
+      }
+      .back {
+        background: rgb(40, 40, 40);
+        color: white;
+        padding-right: 40px;
+        transform: rotateY(180deg);
+      }
+      .beads {
+        position: absolute;
+        top: 0;
+        left: -12px;
+        height: 270px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        z-index: 9999;
+      }
+      .bead {
+        width: 36px;
+        height: 12px;
+        background: white;
+        border-radius: 5mm;
+        z-index: 9999;
+        box-shadow: inset 1px 2px 0 0 rgba(0, 0, 0, 0.15),
+          inset 1px 3px 1px 0 rgba(0, 0, 0, 0.1);
+      }
+      .controls {
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .controls button {
+        background: white;
+        width: 40px;
+        height: 40px;
+        border: 0.4mm solid rgb(40, 40, 40);
+        border-radius: 50%;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    &lt;/style&gt;
+    &lt;div class="center"&gt;
+      &lt;div class="book"&gt;
+        &lt;div class="pages"&gt;
+          &lt;div class="beads"&gt;
+            &lt;div class="bead"&gt;&lt;/div&gt;
+            &lt;div class="bead"&gt;&lt;/div&gt;
+            &lt;div class="bead"&gt;&lt;/div&gt;
+            &lt;div class="bead"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="page active"&gt;
+            &lt;div class="page-side front"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  Sports
+                  &lt;span class="material-icons-outlined"&gt;sports_soccer&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus iusto adipisci ad nobis omnis ipsam, porro
+                aperiam exercitationem eum quas sint facilis nihil possimus qui?
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;1&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="page-side back"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  Movies
+                  &lt;span class="material-icons-outlined"&gt;theaters&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus iusto adipisci ad nobis omnis ipsam, porro
+                aperiam exercitationem eum quas sint facilis nihil possimus qui?
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;2&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="page"&gt;
+            &lt;div class="page-side front"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  Music
+                  &lt;span class="material-icons-outlined"&gt; music_note &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                modi temporibus tempora eligendi consectetur harum recusandae
+                rem exercitationem molestias? Dolorum itaque ducimus quam odio
+                unde
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;3&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="page-side back"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  Games
+                  &lt;span class="material-icons-outlined"&gt; sports_esports &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                modi temporibus tempora eligendi consectetur harum recusandae
+                rem exercitationem molestias? Dolorum itaque ducimus quam odio
+                unde
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;4&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="page"&gt;
+            &lt;div class="page-side front"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  News
+                  &lt;span class="material-icons-outlined"&gt; feed &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                modi temporibus tempora eligendi consectetur harum recusandae
+                rem exercitationem molestias? Dolorum itaque ducimus quam odio
+                unde
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;5&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="page-side back"&gt;
+              &lt;div class="page-head"&gt;
+                &lt;div class="page-title"&gt;
+                  Education
+                  &lt;span class="material-icons-outlined"&gt; school &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="page-subtitle"&gt;Client Name&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="page-content"&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                modi temporibus tempora eligendi consectetur harum recusandae
+                rem exercitationem molestias? Dolorum itaque ducimus quam odio
+                unde
+              &lt;/div&gt;
+              &lt;div class="page-footer"&gt;
+                &lt;span&gt;May 2023&lt;/span&gt;
+                &lt;span class="pg-no"&gt;6&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="page"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="controls"&gt;
+        &lt;button type="button" class="btn" onclick="previous()"&gt;
+          &lt;span class="material-icons-outlined"&gt;arrow_back&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button type="button" class="btn" onclick="next()"&gt;
+          &lt;span class="material-icons-outlined"&gt;arrow_forward&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      function setIndex() {
+        let pages = document.querySelectorAll(".page");
+        for (var i = 0; i< pages.length; i++) {
+          pages[i].style.zIndex = pages.length - i;
+        }
+      }
+
+      setIndex();
+
+      function previous() {
+        let active = document.querySelector(".active");
+        let prevSib = active.previousElementSibling;
+        active.className = "page";
+        prevSib.className = "page active";
+        setIndex();
+        prevSib.style.transform = "rotateY(0deg)";
+        let prevSib2 = prevSib.previousElementSibling;
+        if (prevSib2 && prevSib2.className == "page") {
+          prevSib2.style.zIndex = "9998";
+        }
+      }
+
+      function next() {
+        let active = document.querySelector(".active");
+        let nextSib = active.nextElementSibling;
+        active.style.transform = "rotateY(180deg)";
+        active.className = "page";
+        setIndex();
+        active.style.zIndex = "9998";
+        if (nextSib) {
+          nextSib.className = "page active";
+        }
+      }
+    &lt;/script&gt;
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/oyFjflvy3Qg"
+              title="Create stunning Carousel / Slider using simple HTML CSS and JS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>
