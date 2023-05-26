@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        width: 430px;
+        height: fit-content;
+        border-radius: 3mm;
+        background: white;
+      }
+      .title {
+        width: 100%;
+      }
+      .title span {
+        width: fit-content;
+        font-family: poppins;
+        font-size: 22px;
+        background: rgb(233, 176, 250);
+        border-radius: 7mm;
+        padding: 5px 15px;
+        display: block;
+        margin: 30px 20px;
+        margin-bottom: 10px;
+      }
+      .all-inputs {
+        display: block;
+        margin: 50px 0;
+      }
+      .inputf {
+        position: relative;
+        width: 370px;
+        height: 40px;
+        background: rgb(0, 0, 0);
+        display: block;
+        border-radius: 6mm;
+        margin: 25px 30px;
+      }
+      .input {
+        width: 300px;
+        box-sizing: border-box;
+        padding: 15px;
+        height: 40px;
+        border-radius: 5mm;
+        border: 0.4mm solid rgb(90, 90, 90);
+        background: white;
+        font-family: poppins;
+        outline: none;
+      }
+      .label {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 11px;
+        background: white;
+        font-family: poppins;
+        padding: 0 3px;
+        font-weight: 500;
+        transition: 0.25s;
+        z-index: -1;
+        opacity: 0;
+      }
+      .input:focus + .label {
+        top: -8px;
+        z-index: 0;
+        opacity: 1;
+      }
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+      .input:not(:placeholder-shown) + .label {
+        top: -8px;
+        z-index: 0;
+        opacity: 1;
+      }
+      .more {
+        width: 100%;
+        height: fit-content;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: poppins;
+        font-size: 16px;
+        background: rgb(92, 214, 105);
+        border-top: 0.5mm solid rgb(0, 0, 0);
+        cursor: pointer;
+      }
+      .close {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+        transition: 0.25s;
+      }
+      .close:hover {
+        background: rgb(255, 133, 81);
+        color: black;
+      }
+      .delete {
+        width: 100%;
+        background: rgb(236, 94, 79);
+        display: block;
+        position: relative;
+        height: 40px;
+        animation: delete 0.25s linear;
+      }
+      @keyframes delete {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="">
+        <div class="title"><span>Dynamic Form</span></div>
+        <span class="all-inputs" id="inputs">
+          <span class="inputf">
+            <input
+              type="text"
+              class="input"
+              placeholder="Your Entry"
+              name="Entry 1"
+            />
+            <span class="label">Your Entry</span>
+          </span>
+        </span>
+        <div class="more" id="add">
+          Add Input <span class="material-icons-outlined">add</span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      let add = document.getElementById("add");
+      let index = 2;
+      add.addEventListener("click", () => {
+        let inputs = document.getElementById("inputs");
+        let input = document.createElement("span");
+        input.className = "inputf";
+        let html =
+          ' <input type="text" class="input" placeholder="Your Entry" name="Entry' +
+          index +
+          ' " /> <span class="label">Your Entry</span> <div class="close"><span class="material-icons-outlined">close</span></div>';
+
+        input.insertAdjacentHTML("beforeend", html);
+        inputs.appendChild(input);
+        index += 1;
+
+        let allInputs = inputs.querySelectorAll(".inputf");
+
+        allInputs.forEach((item) => {
+          let close = item.querySelector(".close");
+          if (close) {
+            close.addEventListener("click", () => {
+              item.className = "delete";
+              item.innerHTML = "";
+              setTimeout(() => {
+                item.remove();
+              }, 1000);
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
