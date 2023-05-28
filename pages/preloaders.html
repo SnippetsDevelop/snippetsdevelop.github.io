@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Components | Preloader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">DESIGN COMPONENTS > PRELOADER</div>
+        <div class="main-title">
+          Enhancing User Experience with HTML and CSS Preloaders
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              <span class="hight">A preloader</span> is an essential element in
+              web development that enhances the user experience by displaying a
+              loading animation or graphic while the website's content is being
+              loaded. It serves as a visual cue to inform visitors that the
+              website is actively loading and prevents them from experiencing a
+              blank or unresponsive page. Creating a preloader using HTML and
+              CSS is a straightforward and effective way to add this feature to
+              your website. With HTML, you can define the structure and layout
+              of the preloader, while CSS allows you to style and animate it. By
+              customizing the design and animation of the preloader, you can
+              align it with your website's branding and create a visually
+              appealing loading experience for your users.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Finger Tap Loader</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(66, 143, 255)"
+                        ></div>
+                        <div class="color-code">rgb(66, 143, 255)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/preloader-style1.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Finger Tap Loader</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(66, 143, 255)"
+                        ></div>
+                        <div class="color-code">rgb(66, 143, 255)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;style&gt;
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(66, 143, 255);
+      }
+      .fingers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .finger {
+        width: 80px;
+        height: 200px;
+        background: white;
+        border-radius: 5mm 5mm 10mm 10mm;
+        margin: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      .finger:nth-child(2) {
+        height: 230px;
+      }
+      .finger:nth-child(3) {
+        height: 260px;
+      }
+      .finger:nth-child(4) {
+        height: 240px;
+      }
+      .marks {
+        width: 100%;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      .mark {
+        width: 50px;
+        background: rgb(66, 143, 255);
+        height: 10px;
+        margin: 7px auto;
+      }
+      .nail {
+        width: 50px;
+        height: 60px;
+        background: rgb(66, 143, 255);
+        margin: 10px auto;
+        border-radius: 10mm 10mm 5mm 5mm;
+      }
+      .thumb {
+        width: 120px;
+        height: 80px;
+        border-radius: 4mm 4mm 15mm 5mm;
+        background: white;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      @keyframes move {
+        0%,
+        45% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-30px);
+        }
+      }
+    &lt;/style&gt;
+    &lt;div class="fingers"&gt;
+      &lt;div class="finger" style="--delay: 200ms"&gt;
+        &lt;div class="marks"&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="nail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="finger" style="--delay: 300ms"&gt;
+        &lt;div class="marks"&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="nail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="finger" style="--delay: 400ms"&gt;
+        &lt;div class="marks"&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="nail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="finger" style="--delay: 500ms"&gt;
+        &lt;div class="marks"&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+          &lt;div class="mark"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="nail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="thumb" style="--delay: 600ms"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(1)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(1)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Cubic Neon Loader</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0,0,0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 0, 255)"
+                        ></div>
+                        <div class="color-code">rgb(255, 0, 255)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 255, 255)"
+                        ></div>
+                        <div class="color-code">rgb(0, 255, 255)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/preloader-style2.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Cubic Neon Loader</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0,0,0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 0, 255)"
+                        ></div>
+                        <div class="color-code">rgb(255, 0, 255)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 255, 255)"
+                        ></div>
+                        <div class="color-code">rgb(0, 255, 255)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    /&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    /&gt;
+    &lt;style&gt;
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .preloader {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+      }
+      .loader {
+        width: fit-content;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .box {
+        width: 40px;
+        height: 40px;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      .cube-preloader {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+      }
+      .side {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.3mm solid rgba(0, 15, 46, 0.7);
+        background: linear-gradient(45deg, rgb(255, 0, 255), rgb(0, 255, 255));
+        background-size: 400% 400%;
+        animation: neon 2s ease-in-out infinite alternate;
+      }
+      @keyframes neon {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 400% 400%;
+        }
+      }
+      .front {
+        transform: rotateY(0) translateZ(20px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(20px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(20px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(20px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(20px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(20px);
+      }
+      .box2 .front,
+      .box2 .back,
+      .box2 .right,
+      .box2 .left {
+        height: 120px;
+      }
+      .box2 .bottom {
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+      .box2 .cube-preloader {
+        width: 40px;
+        height: 120px;
+        transform: rotateX(-45deg) rotateY(-45deg);
+      }
+      .box2 {
+        height: 120px;
+      }
+      .box1 {
+        align-self: flex-start;
+      }
+      .box1 .cube-preloader {
+        transform: rotateX(-45deg) rotateY(-45deg) translateZ(-15px)
+          translateY(-5px);
+      }
+      .box3 .cube-preloader {
+        transform: rotateX(-45deg) rotateY(-45deg) translateZ(15px)
+          translateY(0px);
+      }
+
+      @keyframes animate1 {
+        0% {
+          transform: rotateX(-45deg) rotateY(-45deg) translateZ(15px)
+            translateY(0px);
+        }
+        10% {
+          transform: rotateX(-45deg) rotateY(-45deg) translateZ(15px)
+            translateY(0px);
+        }
+        25% {
+          transform: rotateX(-45deg) rotateY(-135deg) translateZ(15px)
+            translateY(20px);
+        }
+        35% {
+          transform: rotateX(-45deg) rotateY(-135deg) translateZ(15px)
+            translateY(20px);
+        }
+        50% {
+          transform: rotateX(-45deg) rotateY(-225deg) translateZ(-15px)
+            translateY(0px);
+        }
+        60% {
+          transform: rotateX(-45deg) rotateY(-225deg) translateZ(-15px)
+            translateY(0px);
+        }
+        75% {
+          transform: rotateX(-45deg) rotateY(-315deg) translateZ(-18px)
+            translateY(25px);
+        }
+        85% {
+          transform: rotateX(-45deg) rotateY(-315deg) translateZ(-18px)
+            translateY(25px);
+        }
+        100% {
+          transform: rotateX(-45deg) rotateY(-405deg) translateZ(15px)
+            translateY(0px);
+        }
+      }
+
+      @keyframes animate2 {
+        0% {
+          transform: rotateX(-45deg) rotateY(-45deg);
+        }
+        10% {
+          transform: rotateX(-45deg) rotateY(-45deg);
+        }
+        25% {
+          transform: rotateX(-45deg) rotateY(45deg);
+        }
+        35% {
+          transform: rotateX(-45deg) rotateY(45deg);
+        }
+        50% {
+          transform: rotateX(-45deg) rotateY(135deg);
+        }
+        60% {
+          transform: rotateX(-45deg) rotateY(135deg);
+        }
+        75% {
+          transform: rotateX(-45deg) rotateY(225deg);
+        }
+        85% {
+          transform: rotateX(-45deg) rotateY(225deg);
+        }
+        100% {
+          transform: rotateX(-45deg) rotateY(315deg);
+        }
+      }
+
+      @keyframes animate3 {
+        0% {
+          transform: rotateX(-45deg) rotateY(-45deg) translateZ(-15px)
+            translateY(-3px);
+        }
+        10% {
+          transform: rotateX(-45deg) rotateY(-45deg) translateZ(-15px)
+            translateY(-3px);
+        }
+        25% {
+          transform: rotateX(-45deg) rotateY(-135deg) translateZ(-15px)
+            translateY(-25px);
+        }
+        35% {
+          transform: rotateX(-45deg) rotateY(-135deg) translateZ(-15px)
+            translateY(-25px);
+        }
+        50% {
+          transform: rotateX(-45deg) rotateY(-225deg) translateZ(15px)
+            translateY(-3px);
+        }
+        60% {
+          transform: rotateX(-45deg) rotateY(-225deg) translateZ(15px)
+            translateY(-3px);
+        }
+        75% {
+          transform: rotateX(-45deg) rotateY(-315deg) translateZ(12px)
+            translateY(-20px);
+        }
+        85% {
+          transform: rotateX(-45deg) rotateY(-315deg) translateZ(12px)
+            translateY(-20px);
+        }
+        100% {
+          transform: rotateX(-45deg) rotateY(-405deg) translateZ(-15px)
+            translateY(-3px);
+        }
+      }
+      .box3 .cube-preloader {
+        animation: animate1 4s linear infinite;
+      }
+      .box2 .cube-preloader {
+        animation: animate2 4s linear infinite;
+      }
+      .box1 .cube-preloader {
+        animation: animate3 4s linear infinite;
+      }
+      .text {
+        font-family: poppins;
+        font-size: 24px;
+        letter-spacing: 2px;
+        color: white;
+        font-weight: 500;
+      }
+    &lt;/style&gt;
+    &lt;div class="preloader"&gt;
+      &lt;div class="loader"&gt;
+        &lt;div class="box box1"&gt;
+          &lt;div class="cube-preloader"&gt;
+            &lt;div class="side front"&gt;&lt;/div&gt;
+            &lt;div class="side back"&gt;&lt;/div&gt;
+            &lt;div class="side right"&gt;&lt;/div&gt;
+            &lt;div class="side left"&gt;&lt;/div&gt;
+            &lt;div class="side top"&gt;&lt;/div&gt;
+            &lt;div class="side bottom"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="box box2"&gt;
+          &lt;div class="cube-preloader"&gt;
+            &lt;div class="side front"&gt;&lt;/div&gt;
+            &lt;div class="side back"&gt;&lt;/div&gt;
+            &lt;div class="side right"&gt;&lt;/div&gt;
+            &lt;div class="side left"&gt;&lt;/div&gt;
+            &lt;div class="side top"&gt;&lt;/div&gt;
+            &lt;div class="side bottom"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="box box3"&gt;
+          &lt;div class="cube-preloader"&gt;
+            &lt;div class="side front"&gt;&lt;/div&gt;
+            &lt;div class="side back"&gt;&lt;/div&gt;
+            &lt;div class="side right"&gt;&lt;/div&gt;
+            &lt;div class="side left"&gt;&lt;/div&gt;
+            &lt;div class="side top"&gt;&lt;/div&gt;
+            &lt;div class="side bottom"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="text"&gt;Loading...&lt;/div&gt;
+    &lt;/div&gt;
+                      <!--Place the code here-->
+                    </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/ox0iI2xumuw"
+              title="Create Finger Tap Loading page animation using HTML and CSS only"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>

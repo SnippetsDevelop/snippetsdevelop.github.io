@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finger Tap Loader</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(66, 143, 255);
+      }
+      .fingers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .finger {
+        width: 80px;
+        height: 200px;
+        background: white;
+        border-radius: 5mm 5mm 10mm 10mm;
+        margin: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      .finger:nth-child(2) {
+        height: 230px;
+      }
+      .finger:nth-child(3) {
+        height: 260px;
+      }
+      .finger:nth-child(4) {
+        height: 240px;
+      }
+      .marks {
+        width: 100%;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      .mark {
+        width: 50px;
+        background: rgb(66, 143, 255);
+        height: 10px;
+        margin: 7px auto;
+      }
+      .nail {
+        width: 50px;
+        height: 60px;
+        background: rgb(66, 143, 255);
+        margin: 10px auto;
+        border-radius: 10mm 10mm 5mm 5mm;
+      }
+      .thumb {
+        width: 120px;
+        height: 80px;
+        border-radius: 4mm 4mm 15mm 5mm;
+        background: white;
+        animation: move 1s ease-in-out infinite var(--delay);
+      }
+      @keyframes move {
+        0%,
+        45% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-30px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fingers">
+      <div class="finger" style="--delay: 200ms">
+        <div class="marks">
+          <div class="mark"></div>
+          <div class="mark"></div>
+        </div>
+        <div class="nail"></div>
+      </div>
+
+      <div class="finger" style="--delay: 300ms">
+        <div class="marks">
+          <div class="mark"></div>
+          <div class="mark"></div>
+        </div>
+        <div class="nail"></div>
+      </div>
+
+      <div class="finger" style="--delay: 400ms">
+        <div class="marks">
+          <div class="mark"></div>
+          <div class="mark"></div>
+        </div>
+        <div class="nail"></div>
+      </div>
+
+      <div class="finger" style="--delay: 500ms">
+        <div class="marks">
+          <div class="mark"></div>
+          <div class="mark"></div>
+        </div>
+        <div class="nail"></div>
+      </div>
+
+      <div class="thumb" style="--delay: 600ms"></div>
+    </div>
+  </body>
+</html>
