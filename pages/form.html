@@ -386,6 +386,391 @@
                 </div>
               </div>
             </div>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(1)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(1)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255,215,0)"
+                        ></div>
+                        <div class="color-code">rgb(255,215,0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(86,86,86)"
+                        ></div>
+                        <div class="color-code">rgb(86, 86, 86)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 246, 196)"
+                        ></div>
+                        <div class="color-code">rgb(255, 246, 196)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/selection-form-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 2</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255,215,0)"
+                        ></div>
+                        <div class="color-code">rgb(255,215,0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(86,86,86)"
+                        ></div>
+                        <div class="color-code">rgb(86, 86, 86)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(40, 40, 40)"
+                        ></div>
+                        <div class="color-code">rgb(40, 40, 40)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 246, 196)"
+                        ></div>
+                        <div class="color-code">rgb(255, 246, 196)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background: gold;
+        overflow: hidden;
+      }
+      form {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        border: 0.6mm solid black;
+        box-sizing: border-box;
+        margin: 15px;
+        width: fit-content;
+        border-radius: 3mm;
+        background: white;
+        padding: 20px 0;
+        height: 90vh;
+        flex-direction: column;
+      }
+      .team {
+        display: block;
+        overflow: auto;
+        flex-grow: 1;
+        padding: 10px 0;
+      }
+      .team::-webkit-scrollbar{
+        width: 0;
+        opacity: 0;
+      }
+      #search {
+        width: 350px;
+        display: block;
+        margin: auto;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        height: 42px;
+        padding: 5px 16px;
+        font-family: poppins;
+        font-size: 15px;
+        background: gold;
+        outline: 0.6mm solid black;
+        border: none;
+      }
+      #search::placeholder {
+        color: rgb(86, 86, 86);
+      }
+      .players {
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+      .player {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        border-radius: 3mm;
+        margin: 3px 0;
+        cursor: pointer;
+      }
+      .player-name {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-family: poppins;
+      }
+      .p-icon {
+        font-size: 30px;
+        margin-right: 5px;
+        color: rgb(40, 40, 40);
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+      .player-attributes {
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .player-attributes img {
+        width: 90%;
+      }
+      .player:hover {
+        outline: 0.6mm solid black;
+      }
+      input[type="checkbox"]:checked + label {
+        background: rgb(255, 246, 196);
+      }
+      .btn {
+        width: 100%;
+        font-family: poppins;
+        font-size: 16px;
+        background: gold;
+        padding: 5px 0;
+        outline: 0.6mm solid black;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;form action="">
+        &lt;input type="text" id="search" placeholder="Search" onkeyup="find(this)"/>
+        &lt;span class="team">
+          &lt;span class="players">
+            &lt;input type="checkbox" name="cskSquad" id="p1" />
+            &lt;label for="p1" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon"
+                  >account_circle&lt;/span
+                >
+                &lt;span class="name">MS Dhoni(C)&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/wick-bat.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+            &lt;input type="checkbox" name="csk squad" id="p2" />
+            &lt;label for="p2" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Devon Conway&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bat.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p3" />
+            &lt;label for="p3" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Ruturaj
+                  Gaikwad&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bat.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p4" />
+            &lt;label for="p4" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Ambati Rayudu&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bat.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p5" />
+            &lt;label for="p5" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Ajinkya Rahane&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bat.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p6" />
+            &lt;label for="p6" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Moeen Ali&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/all-rounder.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p7" />
+            &lt;label for="p7" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Ravindra
+                  Jadeja&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/all-rounder.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p8" />
+            &lt;label for="p8" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Matheesha
+                  Pathirana&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bowl.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p9" />
+            &lt;label for="p9" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Maheesh Theekshana
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src=".../images/bowl.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p10" />
+            &lt;label for="p10" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">Deepak Chahar&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bowl.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+  
+            &lt;input type="checkbox" name="csk squad" id="p11" />
+            &lt;label for="p11" class="player">
+              &lt;div class="player-name">
+                &lt;span class="material-icons-outlined p-icon">account_circle&lt;/span>&lt;span class="name">
+                  Tushar Deshpande&lt;/span>
+              &lt;/div>
+              &lt;div class="player-attributes">
+                &lt;img src="../images/bowl.svg" alt="" />
+              &lt;/div>
+            &lt;/label>
+          &lt;/span>
+        &lt;/span>
+        &lt;button type="button" class="btn">Submit&lt;/button>
+      &lt;/form>
+    &lt;/div>
+    &lt;script>
+        let players = document.querySelectorAll(".player")
+        function find(search){
+            let searchVal = search.value
+            searchVal = searchVal.toUpperCase()
+            players.forEach((player)=>{
+                let checkVal = player.querySelector(".name").innerHTML
+                checkVal = checkVal.toUpperCase()
+                if(checkVal.indexOf(searchVal)>-1){
+                    player.style.display = "flex"
+                }
+                else{
+                    player.style.display = "none"
+                }
+            })
+        }
+    &lt;/script>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>

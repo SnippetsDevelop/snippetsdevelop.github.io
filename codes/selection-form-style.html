@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSK Team Selection Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background: gold;
+        overflow: hidden;
+      }
+      form {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        border: 0.6mm solid black;
+        box-sizing: border-box;
+        margin: 15px;
+        width: fit-content;
+        border-radius: 3mm;
+        background: white;
+        padding: 20px 0;
+        height: 90vh;
+        flex-direction: column;
+      }
+      .team {
+        display: block;
+        overflow: auto;
+        flex-grow: 1;
+        padding: 10px 0;
+      }
+      .team::-webkit-scrollbar{
+        width: 0;
+        opacity: 0;
+      }
+      #search {
+        width: 350px;
+        display: block;
+        margin: auto;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        height: 42px;
+        padding: 5px 16px;
+        font-family: poppins;
+        font-size: 15px;
+        background: gold;
+        outline: 0.6mm solid black;
+        border: none;
+      }
+      #search::placeholder {
+        color: rgb(86, 86, 86);
+      }
+      .players {
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+      .player {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        border-radius: 3mm;
+        margin: 3px 0;
+        cursor: pointer;
+      }
+      .player-name {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-family: poppins;
+      }
+      .p-icon {
+        font-size: 30px;
+        margin-right: 5px;
+        color: rgb(40, 40, 40);
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+      .player-attributes {
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .player-attributes img {
+        width: 90%;
+      }
+      .player:hover {
+        outline: 0.6mm solid black;
+      }
+      input[type="checkbox"]:checked + label {
+        background: rgb(255, 246, 196);
+      }
+      .btn {
+        width: 100%;
+        font-family: poppins;
+        font-size: 16px;
+        background: gold;
+        padding: 5px 0;
+        outline: 0.6mm solid black;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="">
+        <input type="text" id="search" placeholder="Search" onkeyup="find(this)"/>
+        <span class="team">
+          <span class="players">
+            <input type="checkbox" name="cskSquad" id="p1" />
+            <label for="p1" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon"
+                  >account_circle</span
+                >
+                <span class="name">MS Dhoni(C)</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/wick-bat.svg" alt="" />
+              </div>
+            </label>
+            <input type="checkbox" name="csk squad" id="p2" />
+            <label for="p2" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Devon Conway</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bat.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p3" />
+            <label for="p3" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Ruturaj
+                  Gaikwad</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bat.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p4" />
+            <label for="p4" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Ambati Rayudu</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bat.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p5" />
+            <label for="p5" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Ajinkya Rahane</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bat.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p6" />
+            <label for="p6" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Moeen Ali</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/all-rounder.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p7" />
+            <label for="p7" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Ravindra
+                  Jadeja</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/all-rounder.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p8" />
+            <label for="p8" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Matheesha
+                  Pathirana</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bowl.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p9" />
+            <label for="p9" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Maheesh Theekshana
+              </div>
+              <div class="player-attributes">
+                <img src=".../images/bowl.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p10" />
+            <label for="p10" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">Deepak Chahar</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bowl.svg" alt="" />
+              </div>
+            </label>
+  
+            <input type="checkbox" name="csk squad" id="p11" />
+            <label for="p11" class="player">
+              <div class="player-name">
+                <span class="material-icons-outlined p-icon">account_circle</span><span class="name">
+                  Tushar Deshpande</span>
+              </div>
+              <div class="player-attributes">
+                <img src="../images/bowl.svg" alt="" />
+              </div>
+            </label>
+          </span>
+        </span>
+        <button type="button" class="btn">Submit</button>
+      </form>
+    </div>
+    <script>
+        let players = document.querySelectorAll(".player")
+        function find(search){
+            let searchVal = search.value
+            searchVal = searchVal.toUpperCase()
+            players.forEach((player)=>{
+                let checkVal = player.querySelector(".name").innerHTML
+                checkVal = checkVal.toUpperCase()
+                if(checkVal.indexOf(searchVal)>-1){
+                    player.style.display = "flex"
+                }
+                else{
+                    player.style.display = "none"
+                }
+            })
+        }
+    </script>
+  </body>
+</html>
