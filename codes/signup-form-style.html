@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(
+            circle at 25% 25%,
+            rgb(255, 90, 95),
+            transparent 50%
+          ),
+          radial-gradient(circle at 75% 25%, rgb(255, 176, 59), transparent 50%),
+          radial-gradient(
+            circle at 50% 50%,
+            rgb(255, 232, 132),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgb(198, 222, 174),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 25% 75%,
+            rgb(113, 187, 224),
+            transparent 50%
+          );
+      }
+      form {
+        width: 400px;
+        height: 400px;
+        background: white;
+        box-sizing: border-box;
+        padding: 30px;
+        border-radius: 5mm;
+        box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, 0.3),
+          0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      }
+      .head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 25px;
+      }
+      .title {
+        font-family: poppins;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .desc {
+        font-family: poppins;
+        font-size: 13px;
+      }
+      .desc a {
+        color: dodgerblue;
+      }
+      .input-field {
+        width: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+        box-sizing: border-box;
+      }
+      .input {
+        height: 40px;
+        font-family: poppins;
+        background: rgb(248, 248, 248);
+        border: none;
+        outline: none;
+        font-size: 14px;
+        box-sizing: border-box;
+        padding: 5px 20px;
+        font-weight: 500;
+      }
+      .input::placeholder {
+        font-weight: 400;
+        font-style: italic;
+      }
+      .input:focus {
+        background: white;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        outline: 0.3mm solid rgba(0, 0, 0, 0.2);
+      }
+      .big {
+        width: 340px;
+        border-radius: 3mm;
+      }
+      .small {
+        width: 160px;
+        box-sizing: border-box;
+      }
+      .small:nth-child(1) {
+        border-radius: 3mm 0 0 3mm;
+      }
+      .small:nth-child(2) {
+        border-radius: 0 3mm 3mm 0;
+      }
+      .btn {
+        width: 340px;
+        padding: 6px 10px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: dodgerblue;
+        color: white;
+        outline: none;
+        border: none;
+        font-family: poppins;
+        font-size: 14px;
+        border-radius: 3mm;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      .btn span {
+        transition: 0.25s;
+      }
+      .btn:hover span {
+        transform: translateX(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="">
+        <div class="head">
+          <div class="title">Create Account</div>
+          <div class="desc">
+            Already have an account? <a href="#">Sign In</a>
+          </div>
+        </div>
+        <span class="input-field">
+          <input
+            type="text"
+            class="input big"
+            placeholder="@Username"
+            minlength="5"
+          />
+        </span>
+        <span class="input-field">
+          <input
+            type="text"
+            class="input small"
+            placeholder="First Name"
+            minlength="3"
+          />
+          <input
+            type="text"
+            class="input small"
+            placeholder="Last Name"
+            minlength="3"
+          />
+        </span>
+        <span class="input-field">
+          <input type="email" class="input big" placeholder="Email Id" />
+        </span>
+        <button type="button" class="btn">
+          Sign Up <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
