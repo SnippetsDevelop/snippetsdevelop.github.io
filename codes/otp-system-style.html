@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .center {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(244, 254, 232);
+    }
+    form {
+      width: 450px;
+      height: 320px;
+      border-radius: 3mm;
+      border: 0.4mm solid rgb(28, 58, 64);
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    .icon {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .icon span {
+      font-size: 40px;
+      color: rgb(233, 126, 81);
+    }
+    .head {
+      width: 100%;
+    }
+    .title {
+      font-family: poppins;
+      font-size: 20px;
+      color: rgb(28, 58, 64);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .subtitle {
+      font-family: poppins;
+      font-size: 13px;
+      color: rgb(98, 98, 98);
+    }
+    .input-fields {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .inputs {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .inputs input {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      outline: 0.4mm solid rgba(28, 58, 64, 0.7);
+      text-align: center;
+      font-family: poppins;
+      background: white;
+      font-size: 18px;
+    }
+    .inputs input:focus {
+      outline: 0.4mm solid rgba(130, 190, 87);
+    }
+    .inputs input:valid {
+      background: rgb(130, 190, 87);
+      color: white;
+      outline: 0.4mm solid rgb(130, 190, 87);
+    }
+    .timer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: poppins;
+      font-size: 14px;
+      color: rgb(98, 98, 98);
+      margin: 10px 0;
+    }
+    .timer button {
+      background: none;
+      outline: none;
+      border: none;
+      color: rgb(98, 98, 98);
+      font-family: poppins;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .timer button:disabled {
+      color: rgb(200, 200, 200);
+      cursor: auto;
+    }
+    .timer .time {
+      width: 30px;
+    }
+    .btn {
+      width: 100%;
+      background: rgb(28, 58, 64);
+      color: white;
+      padding: 5px 0;
+      font-family: poppins;
+      font-size: 16px;
+      border-radius: 1mm;
+      cursor: pointer;
+    }
+    .status {
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgb(28, 58, 64);
+      border-radius: 2mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+      transition: 0.35s;
+    }
+    .status span {
+      font-size: 80px;
+      width: 80px;
+      color: rgb(249, 244, 60);
+    }
+    .success {
+      color: white;
+    }
+  </style>
+  <body>
+    <div class="center">
+      <form action="">
+        <div class="icon">
+          <span class="material-icons">rocket</span>
+        </div>
+        <div class="head">
+          <div class="title">Please check your email</div>
+          <div class="subtitle">We've sent a code to snippets@gmail.com</div>
+        </div>
+        <span class="input-fields">
+          <span class="inputs">
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+            <input
+              type="text"
+              class="input"
+              required
+              pattern="[0-9]*"
+              maxlength="1"
+            />
+          </span>
+          <div class="timer">
+            Didn't recieve code
+            <button type="button" id="resend">Click to Resend</button>
+            <span class="time"></span>
+          </div>
+        </span>
+        <button type="button" class="btn">Submit</button>
+
+        <div class="status" id="status">
+          <span class="material-icons"> done_outlined </span>
+          <div class="title success">Hooray!</div>
+          <div class="subtitle success">Verification Successful</div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function timer(n) {
+        document.getElementById("resend").disabled = true;
+        const interval = setInterval(() => {
+          if (n == 0) {
+            clearInterval(interval);
+            document.getElementById("resend").disabled = false;
+          }
+          document.querySelector(".time").innerHTML = n;
+          n = n - 1;
+        }, 1000);
+      }
+      timer(15);
+      document.getElementById("resend").onclick = function () {
+        timer(15);
+      };
+
+      let inputs = document.querySelectorAll(".input");
+      inputs.forEach((input) => {
+        input.addEventListener("keyup", (e) => {
+          let key = e.key;
+          if (Number.isInteger(Number(key))) {
+            if (input.nextElementSibling) {
+              input.nextElementSibling.focus();
+            }
+          }
+        });
+
+        input.addEventListener("keydown", (e) => {
+          let key = e.key;
+          if (input.value == "" && key === "Backspace") {
+            if (input.previousElementSibling) {
+              input.previousElementSibling.focus();
+            }
+          }
+        });
+      });
+
+      document.querySelector(".btn").onclick = function () {
+        document.getElementById("status").style.width = "100%";
+      };
+    </script>
+  </body>
+</html>
