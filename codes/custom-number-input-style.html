@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Number Input</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+      }
+      .number-input {
+        width: 380px;
+        height: 200px;
+        background: rgb(249, 207, 0);
+        border-radius: 10mm;
+        box-sizing: border-box;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: poppins;
+        transform-style: preserve-3d;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        transition: 0.25s;
+      }
+      .btn {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        color: black;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+      .btn span {
+        font-size: 55px;
+      }
+      .btn:active::before {
+        position: absolute;
+        content: "";
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgb(255, 255, 255);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+        animation: ripple 0.25s ease-out;
+      }
+      @keyframes ripple {
+        0% {
+          width: 80px;
+          height: 80px;
+          opacity: 0.8;
+        }
+        100% {
+          width: 230px;
+          height: 230px;
+          opacity: 0.3;
+        }
+      }
+      .value {
+        flex-grow: 1;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .number {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: 60px;
+        font-weight: 600;
+      }
+      .text {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="number-input" min="" max="" step="1" value="0">
+        <button type="button" class="btn" onclick="decrease()">
+          <span class="material-icons-outlined">remove</span>
+        </button>
+        <div class="value">
+          <span class="number">1</span>
+          <span class="text">Quantity</span>
+        </div>
+        <button type="button" class="btn" onclick="increase()">
+          <span class="material-icons-outlined">add</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      let input = document.querySelector(".number-input");
+      const min = input.getAttribute("min");
+      const max = input.getAttribute("max");
+      const step = Number(input.getAttribute("step") || 1);
+      var value = Number(input.getAttribute("value") || 0);
+      let number = document.querySelector(".number");
+      number.innerHTML = value;
+
+      function increase() {
+        if (max) {
+          if (value < max && value + step <= max) {
+            value += step;
+          }
+        } else {
+          value += step;
+        }
+        input.style.transform = "rotateY(20deg)";
+        setTimeout(() => {
+          input.style.transform = "rotateY(0deg)";
+        }, 150);
+        number.innerHTML = value;
+      }
+
+      function decrease() {
+        if (min) {
+          if (value > min && value - step >= min) {
+            value -= step;
+          }
+        } else {
+          value -= step;
+        }
+        input.style.transform = "rotateY(-20deg)";
+        setTimeout(() => {
+          input.style.transform = "rotateY(0deg)";
+        }, 150);
+        number.innerHTML = value;
+      }
+    </script>
+  </body>
+</html>
