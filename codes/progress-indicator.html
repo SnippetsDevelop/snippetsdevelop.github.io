@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Indicator</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(233, 232, 233);
+      }
+      .progress {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(38, 41, 47);
+        border-radius: 2mm;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      }
+      .spikes {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .spike {
+        display: block;
+        position: absolute;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0.7) 60%,
+          rgb(38, 41, 47)
+        );
+        border-radius: 0.5mm;
+        width: 2px;
+        height: 35px;
+        margin: 0 1px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: top;
+      }
+      .percentage {
+        font-family: poppins;
+        font-size: 36px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: 30px;
+      }
+      .label {
+        font-size: 12px;
+        color: rgb(188, 188, 188);
+      }
+      .active {
+        height: 60px;
+        background: linear-gradient(rgb(19, 242, 135) 60%, rgb(38, 41, 47));
+        transition: 0.25s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="progress">
+        <div class="spikes"></div>
+        <div class="percentage">
+          <span class="value">10%</span>
+          <span class="label">Percentage</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      let spikes = document.querySelector(".spikes");
+      for (var i = 0; i < 360; i += 3) {
+        let spike = document.createElement("span");
+        spike.className = "spike";
+        spike.style.transform = `rotate(${i}deg) translateY(-135px)`;
+        spikes.appendChild(spike);
+      }
+
+      let allspikes = document.querySelectorAll(".spike");
+      let n = allspikes.length;
+      i = 0;
+      const interval = setInterval(() => {
+        allspikes[i].className = "spike active";
+        let percent = Math.ceil(((i + 1) / n) * 100);
+        document.querySelector(".value").innerHTML = percent + "%";
+        i = i + 1;
+        if (i == n) {
+          document.querySelector(".value").innerHTML = "0%";
+          i = 0;
+          allspikes.forEach((spike) => {
+            spike.className = "spike";
+          });
+        }
+      }, 200);
+    </script>
+  </body>
+</html>

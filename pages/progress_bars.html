@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Components | Progress Bars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">DESIGN COMPONENTS > PROGRESS BARS</div>
+        <div class="main-title">
+          Create a Stunning Progress Bar with Spike Design using HTML, CSS, and
+          JS
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              <span class="hight">Progress bars</span> play a crucial role in
+              user experience by providing visual feedback on the completion
+              status of a task or process. They help users understand the
+              progress made, set expectations, and reduce uncertainty. Whether
+              it's indicating the loading progress of a web page, the completion
+              of a form, or the progress of a file upload, progress bars enhance
+              usability and keep users engaged. By mastering the creation of a
+              captivating circular progress bar, readers can enhance their web
+              development skills and create more intuitive and visually
+              appealing user interfaces.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(233, 232, 233)"
+                        ></div>
+                        <div class="color-code">rgb(233, 232, 233)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(38, 41, 47)"
+                        ></div>
+                        <div class="color-code">rgb(38, 41, 47)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 242, 135)"
+                        ></div>
+                        <div class="color-code">rgb(19, 242, 135)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/progress-indicator.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(233, 232, 233)"
+                        ></div>
+                        <div class="color-code">rgb(233, 232, 233)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(38, 41, 47)"
+                        ></div>
+                        <div class="color-code">rgb(38, 41, 47)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(19, 242, 135)"
+                        ></div>
+                        <div class="color-code">rgb(19, 242, 135)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+  &lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(233, 232, 233);
+      }
+      .progress {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(38, 41, 47);
+        border-radius: 2mm;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      }
+      .spikes {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .spike {
+        display: block;
+        position: absolute;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0.7) 60%,
+          rgb(38, 41, 47)
+        );
+        border-radius: 0.5mm;
+        width: 2px;
+        height: 35px;
+        margin: 0 1px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: top;
+      }
+      .percentage {
+        font-family: poppins;
+        font-size: 36px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: 30px;
+      }
+      .label {
+        font-size: 12px;
+        color: rgb(188, 188, 188);
+      }
+      .active {
+        height: 60px;
+        background: linear-gradient(rgb(19, 242, 135) 60%, rgb(38, 41, 47));
+        transition: 0.25s ease-out;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="progress">
+        &lt;div class="spikes">&lt;/div>
+        &lt;div class="percentage">
+          &lt;span class="value">10%&lt;/span>
+          &lt;span class="label">Percentage&lt;/span>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;script>
+      let spikes = document.querySelector(".spikes");
+      for (var i = 0; i < 360; i += 3) {
+        let spike = document.createElement("span");
+        spike.className = "spike";
+        spike.style.transform = `rotate(${i}deg) translateY(-135px)`;
+        spikes.appendChild(spike);
+      }
+
+      let allspikes = document.querySelectorAll(".spike");
+      let n = allspikes.length;
+      i = 0;
+      const interval = setInterval(() => {
+        allspikes[i].className = "spike active";
+        let percent = Math.ceil(((i + 1) / n) * 100);
+        document.querySelector(".value").innerHTML = percent + "%";
+        i = i + 1;
+        if (i == n) {
+          document.querySelector(".value").innerHTML = "0%";
+          i = 0;
+          allspikes.forEach((spike) => {
+            spike.className = "spike";
+          });
+        }
+      }, 200);
+    &lt;/script>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/oyFjflvy3Qg"
+              title="Create stunning Carousel / Slider using simple HTML CSS and JS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>
