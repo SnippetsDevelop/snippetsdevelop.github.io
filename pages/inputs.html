@@ -478,6 +478,212 @@
                 </div>
               </div>
             </div>
+            <p class="text">
+              <span class="hight">The forth input tag design</span>, which is a
+              search bar using HTML CSS
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(3)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(3)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 4</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 225, 116)"
+                        ></div>
+                        <div class="color-code">rgb(255, 225, 116)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(3, 35, 67)"
+                        ></div>
+                        <div class="color-code">rgb(3, 35, 67)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(41, 41, 41)"
+                        ></div>
+                        <div class="color-code">rgb(41, 41, 41)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/dual-search-bar.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 4</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 225, 116)"
+                        ></div>
+                        <div class="color-code">rgb(255, 225, 116)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(3, 35, 67)"
+                        ></div>
+                        <div class="color-code">rgb(3, 35, 67)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(41, 41, 41)"
+                        ></div>
+                        <div class="color-code">rgb(41, 41, 41)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(255, 225, 116);
+      }
+      .search-bar {
+        width: fit-content;
+        height: fit-content;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.5mm solid rgb(3, 35, 67);
+        border-radius: 1mm;
+        padding: 7px 10px;
+      }
+      .inputf {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .search-bar input {
+        width: 225px;
+        flex-grow: 1;
+        height: 35px;
+        box-sizing: border-box;
+        padding: 10px 25px;
+        background: transparent;
+        font-family: poppins;
+        outline: none;
+        border: none;
+        position: relative;
+      }
+      #search1 {
+        border-right: 0.5mm solid rgba(3, 35, 67, 0.5);
+        margin-right: 10px;
+      }
+      .inputf::before {
+        content: "search";
+        font-family: "Material Icons";
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 50%;
+        left: -3px;
+        transform: translate(0, -50%) rotateY(180deg);
+        z-index: 1;
+      }
+      .inputf:nth-child(2)::before {
+        content: "location_on";
+      }
+      .search-bar button {
+        width: 80px;
+        height: 35px;
+        font-family: poppins;
+        background: rgb(41, 41, 41);
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 1mm;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+      }
+      input[type="search"]::-webkit-search-cancel-button {
+        appearance: none;
+        position: relative;
+        right: -10px;
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/cancel.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 16px 16px;
+        cursor: pointer;
+      }
+    &lt;/style>
+    &lt;div class="center">
+      &lt;div class="search-bar">
+        &lt;span class="inputf">
+          &lt;input
+            type="search"
+            id="search1"
+            placeholder="Job Title / Keywords"
+          />
+        &lt;/span>
+        &lt;span class="inputf">
+          &lt;input type="search" id="search2" placeholder="Location" />
+        &lt;/span>
+        &lt;button type="button">Search&lt;/button>
+      &lt;/div>
+    &lt;/div>
+
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
