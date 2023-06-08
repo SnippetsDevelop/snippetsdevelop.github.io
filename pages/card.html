@@ -498,6 +498,230 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(2)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(2)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 3</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(199, 229, 201)"
+                        ></div>
+                        <div class="color-code">rgb(199, 229, 201)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(126, 193, 129)"
+                        ></div>
+                        <div class="color-code">rgb(126, 193, 129)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/coupon.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 3</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(199, 229, 201)"
+                        ></div>
+                        <div class="color-code">rgb(199, 229, 201)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(126, 193, 129)"
+                        ></div>
+                        <div class="color-code">rgb(126, 193, 129)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Barcode+128&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: rgb(199, 229, 201);
+        perspective: 1000px;
+      }
+      .coupon {
+        width: 350px;
+        height: 200px;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16),
+          0px 3px 6px rgba(0, 0, 0, 0.23);
+        transform-style: preserve-3d;
+        position: relative;
+        transition: 5s;
+      }
+      .front,
+      .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backface-visibility: hidden;
+        flex-direction: column;
+        font-family: poppins;
+      }
+      .front {
+        background: url(../images/Coupon\ Background.svg);
+        background-size: cover;
+      }
+      .front span {
+        background: rgb(126, 193, 129);
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+        color: white;
+        font-size: 26px;
+        font-weight: 600;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.16);
+      }
+      .back {
+        transform: rotateY(180deg);
+        background: white;
+      }
+      .top {
+        flex-basis: 60%;
+        width: 100%;
+        height: 100%;
+        border-bottom: 0.7mm solid rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        padding-bottom: 0;
+        box-sizing: border-box;
+      }
+      .title {
+        font-size: 36px;
+        font-family: "Abril Fatface";
+      }
+      .subtitle {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      .code-copy {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin: 10px 0;
+      }
+      .code {
+        font-size: 13px;
+        background: rgb(199, 229, 201);
+        border: 0.4mm dashed rgb(126, 193, 129);
+        letter-spacing: 1px;
+        padding: 0 10px;
+      }
+      .icon {
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .bottom {
+        flex-basis: 40%;
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .left {
+        font-size: 8px;
+      }
+      .right {
+        font-family: "Libre Barcode 128";
+        font-size: 55px;
+        height: 35px;
+      }
+      .coupon:hover {
+        transform: rotateY(180deg);
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="coupon">
+        &lt;div class="front">&lt;span>New Coupon&lt;/span>&lt;/div>
+        &lt;div class="back">
+          &lt;div class="top">
+            &lt;div class="title">Get 100Rs Off&lt;/div>
+            &lt;div class="subtitle">On your first purchase&lt;/div>
+            &lt;div class="code-copy">
+              &lt;span class="material-icons-round icon">content_copy&lt;/span>
+              &lt;span class="code">1SjzCv4f5k9&lt;/span>
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="bottom">
+            &lt;div class="left">
+              This coupon can be used only once, with purchase above 699Rs only.
+              Terms and Conditions apply
+            &lt;/div>
+            &lt;div class="right">Barcode&lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
