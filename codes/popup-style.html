@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup</title>
+    <!--Google Fonts and Icons-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(233, 236, 244);
+      }
+      .main-btn {
+        width: fit-content;
+        height: fit-content;
+        font-family: poppins;
+        font-size: 18px;
+        color: white;
+        background: rgb(8, 95, 225);
+        padding: 5px 20px;
+        outline: none;
+        border: none;
+        border-radius: 1mm;
+        cursor: pointer;
+      }
+      .popup {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        animation: fadein 0.25s ease-out;
+      }
+      .popup-content {
+        width: 300px;
+        height: 270px;
+        background: white;
+        box-sizing: border-box;
+        padding: 30px 25px;
+        border-radius: 3mm;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        font-family: poppins;
+        position: relative;
+        animation: scalein 0.25s ease-out;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+      .close:hover {
+        color: rgb(221, 44, 44);
+      }
+      .head {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      .text {
+        font-size: 14px;
+        color: rgb(100, 100, 100);
+      }
+      .input {
+        flex-grow: 1;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+      }
+      .input input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+      .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .btn {
+        flex-grow: 1;
+        margin: 0 5px;
+        padding: 7px 0;
+        font-family: poppins;
+        outline: none;
+        border: none;
+        border-radius: 1mm;
+        cursor: pointer;
+      }
+      .btn:nth-child(1) {
+        background: rgb(238, 241, 247);
+        color: rgb(60, 60, 60);
+      }
+      .btn:nth-child(2) {
+        background: rgb(8, 95, 225);
+        color: white;
+      }
+      .btn:nth-child(1):hover {
+        background: rgb(232, 234, 240);
+      }
+      .btn:nth-child(2):hover {
+        background: rgb(7, 85, 202);
+      }
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes scalein {
+        0% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <button type="button" class="main-btn" onclick="openPop()">Submit</button>
+      <div class="popup">
+        <div class="popup-content">
+          <div class="close" onclick="closePop()">
+            <span class="material-icons-round">cancel</span>
+          </div>
+          <div class="head">Submit Details</div>
+          <div class="text">
+            Are you sure you want to submit the details? You can later edit them
+            in details section
+          </div>
+          <div class="input">
+            <input type="checkbox" id="check1" />
+            <label for="check1">Do not show this anymore</label>
+          </div>
+          <div class="btns">
+            <button type="button" class="btn" onclick="closePop()">
+              Cancel
+            </button>
+            <button type="button" class="btn" onclick="closePop()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function closePop() {
+        document.querySelector(".popup").style.display = "none";
+      }
+      function openPop() {
+        document.querySelector(".popup").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
