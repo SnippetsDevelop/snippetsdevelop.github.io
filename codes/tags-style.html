@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tags</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .head {
+        width: 510px;
+      }
+      .title {
+        font-family: poppins;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        font-family: poppins;
+        font-size: 12px;
+        margin-bottom: 10px;
+        color: rgb(60, 60, 60);
+      }
+      .tags {
+        width: 500px;
+        min-height: 40px;
+        height: fit-content;
+        outline: 0.3mm solid rgba(0, 0, 0, 0.5);
+        border-radius: 1mm;
+        padding: 0 7px;
+      }
+      .tags:focus-within {
+        outline: 0.3mm solid rgb(13, 109, 205);
+      }
+      .tag-input {
+        box-sizing: border-box;
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        flex-wrap: wrap;
+      }
+      .inputf {
+        flex-grow: 1;
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        margin: 5px;
+      }
+      .inputf .input {
+        min-width: 100px;
+        height: 40px;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        font-family: poppins;
+        background: none;
+      }
+      .inputf .cancel {
+        display: none;
+      }
+      .tag {
+        width: fit-content;
+        flex-grow: 0;
+        background: rgba(0, 0, 0, 0.08);
+        padding: 0 10px;
+        border-radius: 5mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 7px 5px;
+      }
+      .tag .input {
+        width: max-content;
+        min-width: 10px;
+        height: 36px;
+      }
+      .tag .cancel {
+        display: block;
+        font-size: 20px;
+        cursor: pointer;
+        color: rgb(60, 60, 60);
+      }
+      .bottom {
+        width: 510px;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="head">
+        <div class="title">Tags</div>
+        <div class="subtitle">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta
+          voluptatibus natus repudiandae nostrum obcaecati?
+        </div>
+      </div>
+      <div class="tags">
+        <div class="tag-input">
+          <span class="inputf">
+            <input type="text" class="input" placeholder="Add Tag" />
+            <span class="cancel material-icons-outlined">highlight_off</span>
+          </span>
+        </div>
+      </div>
+      <div class="bottom">Enter a comma after each tag</div>
+    </div>
+    <script>
+      let tagBox = document.querySelector(".tag-input");
+
+      function findWidth(val) {
+        let tempElement = document.createElement("span");
+        document.body.appendChild(tempElement);
+        tempElement.style.display = "block";
+        tempElement.style.width = "fit-content";
+        tempElement.style.fontFamily = "poppins";
+        tempElement.style.fontSize = "14px";
+        tempElement.innerHTML = val;
+        let width = tempElement.offsetWidth;
+        tempElement.remove();
+        return Number(width) + 10;
+      }
+
+      document.addEventListener("keydown", (e) => {
+        let key = e.key;
+        if (key == "," || key == "Enter") {
+          e.preventDefault();
+          if (e.target.parentElement.className == "inputf") {
+            let parent = e.target.parentElement;
+            parent.className = "inputf tag";
+
+            let input = e.target;
+            input.style.width = findWidth(input.value) + "px";
+
+            let newTag = document.createElement("span");
+            newTag.className = "inputf";
+            let newInput = document.createElement("input");
+            newInput.className = "input";
+            newTag.appendChild(newInput);
+            newTag.insertAdjacentHTML(
+              "beforeend",
+              '<span class="cancel material-icons-outlined">highlight_off</span>'
+            );
+            tagBox.appendChild(newTag);
+            newInput.focus();
+          }
+        }
+      });
+
+      document.addEventListener("input", (e) => {
+        let parent = e.target.parentElement;
+        if (parent.classList.contains("tag")) {
+          let taggedInput = e.target;
+          taggedInput.style.width = findWidth(taggedInput.value) + "px";
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("cancel")) {
+          let parent = e.target.parentElement;
+          parent.nextElementSibling.querySelector(".input").focus();
+          parent.remove();
+        }
+      });
+    </script>
+  </body>
+</html>
