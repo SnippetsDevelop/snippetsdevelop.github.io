@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgb(0, 0, 0);
+      }
+      .carousel {
+        width: 100%;
+        height: fit-content;
+        flex-grow: 1;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+      }
+      .controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .controls button {
+        background: none;
+        outline: none;
+        border: none;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .controls button span {
+        color: white;
+        font-size: 40px;
+      }
+      .controls button:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .slide-center {
+        width: fit-content;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(calc(50% - 155px));
+      }
+      .slider {
+        width: fit-content;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.25s ease-in-out;
+      }
+      .slide {
+        width: 140px;
+        height: 175px;
+        position: relative;
+        border-radius: 2mm;
+        margin: 0 10px;
+        transition: 0.25s;
+      }
+      .slide img {
+        width: 140px;
+        height: 175px;
+        border-radius: 2mm;
+        -webkit-box-reflect: below 0px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+        transition: 0.25s;
+      }
+      .title {
+        color: white;
+        font-size: 50px;
+        font-family: poppins;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      .title span {
+        font-size: 60px;
+        color: gold;
+        margin-right: 5px;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 0.5);
+        border-radius: 2mm;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      .desc {
+        position: absolute;
+        width: 90%;
+        height: 60px;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 10mm;
+        background: rgba(0, 0, 0, 0.7);
+        font-family: poppins;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 15px;
+        color: white;
+        transition: 0.2s;
+      }
+      .slide .desc {
+        opacity: 0;
+      }
+      .slide.active {
+        width: 280px;
+        height: 350px;
+      }
+      .slide.active img {
+        width: 280px;
+        height: 350px;
+        -webkit-box-reflect: below 0px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+      }
+      .slide.active:hover .desc {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="title">
+        <span class="material-icons-outlined">image</span>Image Slider
+      </div>
+      <div class="carousel">
+        <div class="controls">
+          <button type="button" class="btn" onclick="moveLeft()">
+            <span class="material-icons-outlined">arrow_back_ios</span>
+          </button>
+          <button type="button" class="btn" onclick="playPause()">
+            <span class="material-icons-outlined icon">pause</span>
+          </button>
+          <button type="button" class="btn" onclick="moveRight()">
+            <span class="material-icons-outlined">arrow_forward_ios</span>
+          </button>
+        </div>
+        <div class="slide-center">
+          <div class="slider">
+            <div class="slide active">
+              <img src="../images/image1.jpg" alt="" />
+              <div class="desc">Image 1</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image2.jpg" alt="" />
+              <div class="desc">Image 2</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image3.jpg" alt="" />
+              <div class="desc">Image 3</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image4.jpg" alt="" />
+              <div class="desc">Image 4</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image5.jpg" alt="" />
+              <div class="desc">Image 5</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image6.jpg" alt="" />
+              <div class="desc">Image 6</div>
+            </div>
+            <div class="slide">
+              <img src="../images/image7.jpg" alt="" />
+              <div class="desc">Image 7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var i = 0;
+      let slides = document.querySelectorAll(".slide");
+      let slider = document.querySelector(".slider");
+      var pause = false;
+      function moveRight() {
+        slides[i].className = "slide";
+        i = (i + 1) % slides.length;
+        slides[i].className = "slide active";
+        let Xvalue = -160 * i;
+        slider.style.transform = `translateX(${Xvalue}px)`;
+      }
+      function moveLeft() {
+        slides[i].className = "slide";
+        i = (i - 1 + slides.length) % slides.length;
+        slides[i].className = "slide active";
+        let Xvalue = -160 * i;
+        slider.style.transform = `translateX(${Xvalue}px)`;
+      }
+
+      const interval = setInterval(() => {
+        if (!pause) {
+          moveRight();
+        }
+      }, 2000);
+
+      function playPause() {
+        let state = document.querySelector(".icon");
+        if (state.innerHTML == "pause") {
+          state.innerHTML = "play_arrow";
+          pause = true;
+        } else {
+          state.innerHTML = "pause";
+          pause = false;
+        }
+      }
+    </script>
+  </body>
+</html>
