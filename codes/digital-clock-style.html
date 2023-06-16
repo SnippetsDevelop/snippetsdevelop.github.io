@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(180deg, rgb(0, 64, 0), rgb(0, 0, 0));
+        color: rgb(81, 208, 169);
+        font-family: geologica;
+        font-weight: 300;
+      }
+      .clock-card {
+        width: 190px;
+        height: 100px;
+        font-size: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        position: relative;
+      }
+      .clock-card span {
+        position: absolute;
+        font-size: 16px;
+        bottom: -30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: white;
+      }
+      .clock-card:nth-child(3) {
+        width: 150px;
+      }
+      .clock-card:nth-child(4) {
+        font-size: 40px;
+        align-items: flex-start;
+        margin: 0;
+        width: fit-content;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-card">
+      <div class="value">00</div>
+      <span>Hours</span>
+    </div>
+    <div class="clock-card">
+      <div class="value">00</div>
+      <span>Minutes</span>
+    </div>
+    <div class="clock-card">
+      <div class="value">00</div>
+      <span>Seconds</span>
+    </div>
+    <div class="clock-card">
+      <div class="value">AM</div>
+    </div>
+    <script>
+      const interval = setInterval(() => {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        let values = document.querySelectorAll(".value");
+        values[0].innerHTML = hours + ":";
+        values[1].innerHTML = minutes + ":";
+        values[2].innerHTML = seconds;
+        values[3].innerHTML = ampm;
+      }, 1000);
+    </script>
+  </body>
+</html>
