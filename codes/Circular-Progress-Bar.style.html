@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Progress Bar</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(25, 25, 50);
+      }
+      .progress {
+        width: 400px;
+        height: 400px;
+        background: rgb(78, 91, 205);
+        border-radius: 5mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      circle {
+        fill: none;
+      }
+      svg {
+        transform: rotate(-90deg);
+      }
+      circle:nth-child(1) {
+        stroke: rgb(25, 26, 49);
+        stroke-width: 12px;
+      }
+      circle:nth-child(2) {
+        stroke: white;
+        stroke-dasharray: 848;
+        stroke-dashoffset: calc(848 - (848 * 75) / 100);
+        stroke-linecap: round;
+        stroke-width: 16px;
+        animation: progress 1s ease;
+      }
+      @keyframes progress {
+        from {
+          stroke-dashoffset: 848;
+        }
+      }
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: poppins;
+        font-size: 60px;
+        color: rgb(255, 201, 5);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .text span {
+        font-size: 14px;
+        color: rgb(230, 230, 230);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="progress">
+        <svg class="progress-bar" width="300" height="300">
+          <circle class="progress-circle" cx="150" cy="150" r="135"></circle>
+          <circle class="progress-circle" cx="150" cy="150" r="135"></circle>
+        </svg>
+        <div class="text">
+          75
+          <span>Completed</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
