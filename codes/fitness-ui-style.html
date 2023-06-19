@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fitness UI</title>
+    <!--Google Fonts and Icons-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
       rel="stylesheet"
@@ -42,7 +43,7 @@
         padding: 20px;
         padding-bottom: 0;
         position: relative;
-        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px,
           rgba(0, 0, 0, 0.23) 0px 6px 6px;
       }
       .title {
@@ -69,6 +70,7 @@
       }
       .progress {
         width: 300px;
+        min-width: 300px;
         height: 300px;
         position: relative;
       }
@@ -91,7 +93,7 @@
         left: 50%;
         transform: translate(-50%, -50%) rotate(-90deg);
       }
-      circle {
+      .circle {
         fill: none;
       }
       svg:nth-child(1) circle:nth-child(1) {
@@ -99,25 +101,27 @@
         stroke-width: 14px;
       }
       svg:nth-child(1) circle:nth-child(2) {
-        stroke: rgb(244, 108, 31);
+        stroke: rgb(244, 109, 31);
         stroke-dasharray: 848;
         stroke-dashoffset: calc(848 - (848 * 90) / 100);
         stroke-linecap: round;
         stroke-width: 14px;
         animation: progress1 1s ease;
       }
+
       svg:nth-child(2) circle:nth-child(1) {
         stroke: rgba(18, 129, 255, 0.2);
         stroke-width: 14px;
       }
       svg:nth-child(2) circle:nth-child(2) {
-        stroke: rgb(18, 128, 255);
+        stroke: rgb(18, 129, 255);
         stroke-dasharray: 688;
         stroke-dashoffset: calc(688 - (688 * 60) / 100);
         stroke-linecap: round;
         stroke-width: 14px;
-        animation: progress1 1s ease;
+        animation: progress2 1s ease;
       }
+
       svg:nth-child(3) circle:nth-child(1) {
         stroke: rgba(15, 211, 133, 0.2);
         stroke-width: 14px;
@@ -168,6 +172,8 @@
       .icon {
         width: 30px;
         height: 30px;
+        min-width: 30px;
+        min-height: 30px;
         border-radius: 50%;
         color: white;
         display: flex;
@@ -177,10 +183,10 @@
         margin-right: 10px;
       }
       .item:nth-child(1) .icon {
-        background: rgb(244, 108, 31);
+        background: rgb(244, 109, 31);
       }
       .item:nth-child(2) .icon {
-        background: rgb(18, 128, 255);
+        background: rgb(18, 129, 255);
       }
       .item:nth-child(3) .icon {
         background: rgb(15, 211, 133);
@@ -193,24 +199,20 @@
         font-size: 14px;
       }
       .item:nth-child(1) .data span {
-        color: rgb(244, 108, 31);
+        color: rgb(244, 109, 31);
       }
       .item:nth-child(2) .data span {
-        color: rgb(18, 128, 255);
+        color: rgb(18, 129, 255);
       }
       .item:nth-child(3) .data span {
         color: rgb(15, 211, 133);
       }
       .footer {
         width: 100%;
-        font-family: poppins;
         display: flex;
         align-items: center;
         justify-content: space-between;
-      }
-      .footer span:nth-child(2) {
-        color: rgba(230, 230, 230, 0.7);
-        padding-bottom: 10px;
+        font-family: poppins;
       }
       .footer span:nth-child(1) {
         background: white;
@@ -222,48 +224,31 @@
         align-items: center;
         justify-content: center;
       }
+      .footer span:nth-child(2) {
+        color: rgba(230, 230, 230, 0.7);
+        padding-bottom: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="center">
       <div class="fitness">
         <div class="title">
-          <span class="material-icons-outlined"> monitor_heart </span>Welcome
-          Snippets
+          <span class="material-icons-outlined">monitor_heart</span>Welcome
         </div>
         <div class="fitness-data">
           <div class="progress">
-            <svg class="progress-bar" width="300" height="300">
-              <circle
-                class="progress-circle"
-                cx="150"
-                cy="150"
-                r="135"
-              ></circle>
-              <circle
-                class="progress-circle"
-                cx="150"
-                cy="150"
-                r="135"
-              ></circle>
+            <svg width="300" height="300">
+              <circle cx="150" cy="150" r="135"></circle>
+              <circle cx="150" cy="150" r="135"></circle>
             </svg>
-            <svg class="progress-bar" width="260" height="260">
-              <circle
-                class="progress-circle"
-                cx="130"
-                cy="130"
-                r="110"
-              ></circle>
-              <circle
-                class="progress-circle"
-                cx="130"
-                cy="130"
-                r="110"
-              ></circle>
+            <svg width="260" height="260">
+              <circle cx="130" cy="130" r="110"></circle>
+              <circle cx="130" cy="130" r="110"></circle>
             </svg>
-            <svg class="progress-bar" width="220" height="220">
-              <circle class="progress-circle" cx="110" cy="110" r="85"></circle>
-              <circle class="progress-circle" cx="110" cy="110" r="85"></circle>
+            <svg width="220" height="220">
+              <circle cx="110" cy="110" r="85"></circle>
+              <circle cx="110" cy="110" r="85"></circle>
             </svg>
             <div class="image">
               <img src="../images/animoji.jpg" alt="" />
