@@ -722,6 +722,240 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(3)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(3)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 4</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(245, 247, 249)"
+                        ></div>
+                        <div class="color-code">rgb(245, 247, 249)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(3, 112, 244)"
+                        ></div>
+                        <div class="color-code">rgb(3, 112, 244)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(104, 169, 247)"
+                        ></div>
+                        <div class="color-code">rgb(104, 169, 247)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(180, 212, 252)"
+                        ></div>
+                        <div class="color-code">rgb(180, 212, 252)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/profile-card-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 4</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(245, 247, 249)"
+                        ></div>
+                        <div class="color-code">rgb(245, 247, 249)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(3, 112, 244)"
+                        ></div>
+                        <div class="color-code">rgb(3, 112, 244)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(104, 169, 247)"
+                        ></div>
+                        <div class="color-code">rgb(104, 169, 247)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(180, 212, 252)"
+                        ></div>
+                        <div class="color-code">rgb(180, 212, 252)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+    &lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(245, 247, 249);
+      }
+      .profile-card {
+        width: 350px;
+        height: 450px;
+        padding: 45px 30px;
+        box-sizing: border-box;
+        border-radius: 7mm;
+        background: rgb(3, 112, 244);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        z-index: 2;
+        transform-style: preserve-3d;
+      }
+      .image {
+        width: 180px;
+        height: 180px;
+      }
+      .image img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+      .details {
+        font-family: poppins;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .title {
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .subtitle {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        font-weight: 300;
+      }
+      .contact {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .contact span {
+        font-size: 30px;
+        color: white;
+        margin: 0 30px;
+        cursor: pointer;
+      }
+      .profile-card::before {
+        width: 92%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, 0) translateZ(-1px);
+        background: rgb(104, 169, 247);
+        border-radius: 7mm;
+        z-index: 0;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+      .profile-card::after {
+        width: 84%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        top: 55px;
+        left: 50%;
+        transform: translate(-50%, 0) translateZ(-2px);
+        background: rgb(180, 212, 252);
+        border-radius: 7mm;
+        z-index: 0;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+    &lt;/style>
+
+    &lt;div class="center">
+      &lt;div class="profile-card">
+        &lt;div class="image">
+          &lt;img src="../images/avatar.png" alt="" />
+        &lt;/div>
+        &lt;div class="details">
+          &lt;div class="title">Kylie Miller&lt;/div>
+          &lt;div class="subtitle">Web Developer&lt;/div>
+        &lt;/div>
+        &lt;div class="contact">
+          &lt;span class="material-icons-outlined">calendar_month&lt;/span>
+          &lt;span class="material-icons-outlined">chat&lt;/span>
+          &lt;span class="material-icons-outlined">videocam&lt;/span>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
@@ -730,6 +964,15 @@
             <iframe
               src="https://www.youtube.com/embed/PgRURi5VZE0"
               title="Create Credit Card UI | HTML CSS | Style 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/_HFHNeA_VyA"
+              title="Credit Card UI with depth effect | Show Balance | HTML CSS | Style 2"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen

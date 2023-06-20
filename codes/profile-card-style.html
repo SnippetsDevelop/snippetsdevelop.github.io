@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(245, 247, 249);
+      }
+      .profile-card {
+        width: 350px;
+        height: 450px;
+        padding: 45px 30px;
+        box-sizing: border-box;
+        border-radius: 7mm;
+        background: rgb(3, 112, 244);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        z-index: 2;
+        transform-style: preserve-3d;
+      }
+      .image {
+        width: 180px;
+        height: 180px;
+      }
+      .image img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+      .details {
+        font-family: poppins;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .title {
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .subtitle {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        font-weight: 300;
+      }
+      .contact {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .contact span {
+        font-size: 30px;
+        color: white;
+        margin: 0 30px;
+        cursor: pointer;
+      }
+      .profile-card::before {
+        width: 92%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, 0) translateZ(-1px);
+        background: rgb(104, 169, 247);
+        border-radius: 7mm;
+        z-index: 0;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+      .profile-card::after {
+        width: 84%;
+        height: 100%;
+        position: absolute;
+        content: "";
+        top: 55px;
+        left: 50%;
+        transform: translate(-50%, 0) translateZ(-2px);
+        background: rgb(180, 212, 252);
+        border-radius: 7mm;
+        z-index: 0;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="profile-card">
+        <div class="image">
+          <img src="../images/avatar.png" alt="" />
+        </div>
+        <div class="details">
+          <div class="title">Kylie Miller</div>
+          <div class="subtitle">Web Developer</div>
+        </div>
+        <div class="contact">
+          <span class="material-icons-outlined">calendar_month</span>
+          <span class="material-icons-outlined">chat</span>
+          <span class="material-icons-outlined">videocam</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
