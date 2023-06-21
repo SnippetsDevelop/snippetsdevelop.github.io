@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-btn {
+        width: fit-content;
+        height: fit-content;
+        font-family: poppins;
+        font-size: 18px;
+        color: white;
+        background: rgb(3, 112, 244);
+        padding: 5px 20px;
+        outline: none;
+        border: none;
+        border-radius: 1mm;
+        cursor: pointer;
+      }
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        animation: fadein 0.25s ease-out;
+      }
+      .popup-content {
+        width: 450px;
+        height: 450px;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 5mm;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        font-family: poppins;
+        position: relative;
+        animation: scalein 0.25s ease-out;
+      }
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes scalein {
+        0% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .head {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 30px 25px;
+        padding-bottom: 0;
+        border-bottom: 0.5mm solid rgba(0, 0, 0, 0.1);
+      }
+      .title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .subtitle {
+        margin-left: 35px;
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      .close:hover {
+        color: rgb(0, 0, 0);
+      }
+      .payment-data {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px 25px;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .data {
+        width: 100%;
+        outline: 0.6mm solid rgb(3, 112, 244);
+        background: rgba(3, 112, 244, 0.08);
+        border-radius: 2mm;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .data span {
+        font-size: 34px;
+        color: rgb(3, 112, 244);
+        margin-right: 10px;
+      }
+      .details {
+        font-size: 12px;
+        flex-grow: 1;
+      }
+      .details a {
+        text-decoration: none;
+        color: rgb(3, 112, 244);
+      }
+      .inputs {
+        width: 100%;
+        padding: 30px 25px;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .inputf {
+        position: relative;
+      }
+      .inputf:nth-child(1) {
+        flex-grow: 1;
+        box-sizing: border-box;
+        margin-right: 15px;
+      }
+      .input {
+        width: 100%;
+        box-sizing: border-box;
+        height: 35px;
+        padding: 5px 10px;
+        font-family: poppins;
+        font-size: 13px;
+        border: none;
+        outline: 0.5mm solid rgba(0, 0, 0, 0.3);
+        border-radius: 1mm;
+      }
+      .input.small {
+        width: 100px;
+      }
+      .input:focus {
+        outline: 0.5mm solid rgb(3, 112, 244);
+      }
+      .label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 11px;
+        width: fit-content;
+        height: fit-content;
+        color: rgb(3, 112, 244);
+        padding: 0 3px;
+        background: white;
+        opacity: 0;
+        z-index: -1;
+        transform: scale(1.2);
+        transition: 0.25s ease;
+        font-weight: 500;
+      }
+      .input:focus + .label {
+        top: -10px;
+        opacity: 1;
+        z-index: 0;
+        transform: scale(1);
+      }
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+      .input:not(:placeholder-shown) {
+        outline: 0.5mm solid rgb(3, 112, 244);
+      }
+      .input:not(:placeholder-shown) + .label {
+        top: -10px;
+        opacity: 1;
+        z-index: 0;
+        transform: scale(1);
+      }
+      .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 25px;
+        box-sizing: border-box;
+      }
+      .btn {
+        flex-grow: 1;
+        margin: 0 5px;
+        padding: 7px 0;
+        font-family: poppins;
+        outline: 0.5mm solid rgba(0, 0, 0, 0.3);
+        border: none;
+        border-radius: 1mm;
+        cursor: pointer;
+      }
+      .btn:nth-child(1) {
+        background: white;
+        color: rgb(60, 60, 60);
+      }
+      .btn:nth-child(2) {
+        outline: none;
+        background: rgb(3, 112, 244);
+        color: white;
+      }
+      .btn:nth-child(1):hover {
+        background: rgb(232, 234, 240);
+      }
+      .btn:nth-child(2):hover {
+        background: rgb(7, 85, 202);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <button type="button" class="main-btn" onclick="openPop()">
+        Make Payment
+      </button>
+      <div class="popup">
+        <form action="" class="popup-content">
+          <div class="close" onclick="closePop()">
+            <span class="material-icons-outlined">cancel</span>
+          </div>
+          <div class="head">
+            <div class="title">
+              <span class="material-icons-outlined">paid</span>
+              Edit Payment Details
+            </div>
+            <div class="subtitle">
+              We will automatically bill on the 1st of each month
+            </div>
+          </div>
+          <div class="payment-data">
+            <div class="data">
+              <span class="material-icons-round">shop</span>
+              <div class="details">
+                <div class="name">Some Plan</div>
+                <div class="info">Lorem ipsum dolor sit amet consectetur.</div>
+                <a href="#">Change Plan</a>
+              </div>
+              <div class="price">20$</div>
+            </div>
+          </div>
+          <span class="inputs">
+            <span class="inputf">
+              <input type="text" class="input" placeholder="Card Holder Name" />
+              <span class="label">Card Holder Name</span>
+            </span>
+            <span class="inputf">
+              <input
+                type="text"
+                class="input small"
+                placeholder="Expiry"
+                pattern="[^0-9]*"
+                maxlength="5"
+              />
+              <span class="label">Expiry</span>
+            </span>
+          </span>
+          <span class="inputs">
+            <span class="inputf">
+              <input type="text" class="input" placeholder="Card Number" />
+              <span class="label">Card Number</span>
+            </span>
+            <span class="inputf">
+              <input
+                type="text"
+                class="input small"
+                placeholder="CVV"
+                pattern="[^0-9]*"
+                maxlength="3"
+              />
+              <span class="label">CVV</span>
+            </span>
+          </span>
+          <div class="btns">
+            <button class="btn" type="button">Cancel Payment</button>
+            <button class="btn" type="button">Make Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function closePop() {
+        document.querySelector(".popup").style.display = "none";
+      }
+      function openPop() {
+        document.querySelector(".popup").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
