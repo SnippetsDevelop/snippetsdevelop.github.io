@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Plan UI</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        flex-direction: column;
+      }
+      .title {
+        font-family: "plus jakarta sans";
+        font-size: 30px;
+        margin-bottom: 40px;
+        margin-top: 20px;
+      }
+      .title span {
+        background: rgb(107, 216, 136);
+      }
+      .pricings {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .pricings input {
+        display: none;
+      }
+      .pricing {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 270px;
+        height: 360px;
+        box-sizing: border-box;
+        padding: 15px;
+        border: 0.5mm solid rgb(40, 40, 40);
+        margin: 15px;
+        border-radius: 1mm;
+        transition: 0.25s;
+        cursor: pointer;
+        color: black;
+        background: white;
+      }
+      .pricing:hover {
+        box-shadow: 10px 10px 0 rgb(40, 40, 40);
+      }
+      .name {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: poppins;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .name span {
+        font-size: 22px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 50%;
+        background: rgba(40, 40, 40, 0.1);
+      }
+      .price {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 34px;
+        font-weight: 600;
+        font-family: "plus jakarta sans";
+      }
+      .price span {
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .features {
+        font-family: poppins;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-top: 10px;
+      }
+      .feature {
+        font-size: 13px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+        position: relative;
+      }
+      .feature::before {
+        content: "check_circle";
+        font-family: "Material Icons";
+        position: absolute;
+        top: 0;
+        left: -18px;
+        font-size: 16px;
+        color: rgb(69, 172, 97);
+      }
+      .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .btns button {
+        width: fit-content;
+        height: fit-content;
+        padding: 5px 15px;
+        font-family: poppins;
+        font-size: 16px;
+        background: white;
+        color: black;
+        border: none;
+        outline: 0.5mm solid rgb(40, 40, 40);
+        cursor: pointer;
+      }
+      .btns a {
+        color: rgb(17, 105, 194);
+        text-decoration: underline;
+        font-family: poppins;
+        font-size: 12px;
+      }
+      input:checked + label {
+        background: rgb(40, 40, 40);
+        color: white;
+        transform: scale(1.1);
+        position: relative;
+      }
+      input:checked + label:hover {
+        box-shadow: none;
+      }
+      input:checked + label .btns a {
+        color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="title">Choose the plan that <span>works for you</span></div>
+      <div class="pricings">
+        <input type="radio" name="pricing" id="p1" />
+        <label for="p1" class="pricing">
+          <div class="name">
+            Starter <span class="material-icons-outlined">leaderboard</span>
+          </div>
+          <div class="price">
+            $5.00
+            <span>Per month</span>
+          </div>
+          <div class="features">
+            <span class="feature">Lorem ipsum dolor sit.</span>
+            <span class="feature">amet, consectetur adipisicing elit.</span>
+            <span class="feature">Alias possimus tenetur quo</span>
+          </div>
+          <div class="btns">
+            <button type="button" class="btn">Get Started</button>
+            <a href="#">Know More</a>
+          </div>
+        </label>
+
+        <input type="radio" name="pricing" id="p2" />
+        <label for="p2" class="pricing">
+          <div class="name">
+            Basic <span class="material-icons-outlined"> account_tree </span>
+          </div>
+          <div class="price">
+            $45.00
+            <span>Per Month</span>
+          </div>
+          <div class="features">
+            <span class="feature"> Unde maxime velit minus </span>
+            <span class="feature">repellendus placeat tenetur, dolor</span>
+            <span class="feature">tempore ratione cumque vel impedit</span>
+          </div>
+          <div class="btns">
+            <button type="button" class="btn">Get Started</button>
+            <a href="#">Know More</a>
+          </div>
+        </label>
+
+        <input type="radio" name="pricing" id="p3" />
+        <label for="p3" class="pricing">
+          <div class="name">
+            Premium <span class="material-icons-outlined"> schema </span>
+          </div>
+          <div class="price">
+            $225.00
+            <span>Per Month</span>
+          </div>
+          <div class="features">
+            <span class="feature">praesentium dolorem emque, </span>
+            <span class="feature">iure neque pariatur eius impedit</span>
+            <span class="feature">delectus ipsa consectetur veritatis!</span>
+          </div>
+          <div class="btns">
+            <button type="button" class="btn">Get Started</button>
+            <a href="#">Know More</a>
+          </div>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
