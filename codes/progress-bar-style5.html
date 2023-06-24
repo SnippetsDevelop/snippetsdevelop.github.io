@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bars</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+      }
+      .progress-bar {
+        width: 260px;
+        height: 24px;
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1px;
+      }
+      .block {
+        flex-grow: 1;
+        width: 100%;
+        height: 14px;
+        margin: 6px;
+        box-sizing: border-box;
+        background: transparent;
+        position: relative;
+        border-radius: 50%;
+      }
+      .block::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 14px;
+        box-sizing: border-box;
+        background: rgba(255, 255, 0, 0.3);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="progress-bar">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+    </div>
+    <script>
+      var i = 0;
+      let blocks = document.querySelectorAll(".block");
+      const interval = setInterval(() => {
+        if (i == blocks.length) {
+          i = 0;
+          blocks.forEach((block) => {
+            block.style.background = "transparent";
+          });
+        } else {
+          blocks[i].style.background = "rgb(255,255,0)";
+          i = i + 1;
+        }
+      }, 250);
+    </script>
+  </body>
+</html>
