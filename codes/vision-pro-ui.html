@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision Pro UI</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: url(../images/vision-pro-back.png);
+        justify-content: center;
+        background-size: cover;
+      }
+      .pro-ui {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      .left {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+      }
+      .head,
+      .controls {
+        width: fit-content;
+        height: fit-content;
+        padding: 8px 15px;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .icons span {
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        line-height: 22px;
+        border-radius: 50%;
+        font-size: 17px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      .icons .button {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+        box-shadow: 2px 2px 4px rgba(150, 150, 150, 0.6),
+          -2px -2px 4px rgba(150, 150, 150, 0.6);
+        font-size: 14px;
+      }
+      .url,
+      .title {
+        width: 250px;
+        height: 25px;
+        backdrop-filter: blur(11px) saturate(23%);
+        -webkit-backdrop-filter: blur(11px) saturate(23%);
+        background: rgba(50, 50, 50, 0.5);
+        border-radius: 8mm;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-sizing: border-box;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-size: 11px;
+        font-family: "plus jakarta sans";
+      }
+      .url span {
+        font-size: 15px;
+      }
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .link span {
+        margin-right: 2px;
+        font-size: 13px;
+      }
+      .video {
+        width: 740px;
+        height: 415px;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        margin-bottom: 5px;
+      }
+      .video video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10mm;
+      }
+      .title {
+        width: 200px;
+        height: 30px;
+        border-radius: 1mm;
+        background: rgba(50, 50, 50, 0.7);
+        padding: 1px 5px;
+        position: relative;
+      }
+      .title img {
+        width: 25px;
+        height: 25px;
+        border-radius: 0.5mm;
+        margin-right: 5px;
+      }
+      .details {
+        width: 100%;
+      }
+      .name {
+        font-size: 11px;
+      }
+      .producer {
+        font-size: 8px;
+      }
+      .title::before {
+        position: absolute;
+        content: "";
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: white;
+        border-radius: 0.2mm;
+        animation: progress 10s linear infinite;
+      }
+      @keyframes progress {
+        to {
+          width: 100%;
+        }
+      }
+      .right {
+        color: white;
+      }
+      .right .head {
+        width: 320px;
+        box-sizing: border-box;
+        padding: 5px 15px;
+        background: rgba(200, 200, 200, 0.3);
+      }
+      .tile {
+        font-family: poppins;
+        font-size: 14px;
+        padding: 5px 15px;
+        border-radius: 8mm;
+        cursor: pointer;
+      }
+      .tile.active {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+        box-shadow: 2px 2px 4px rgba(150, 150, 150, 0.6),
+          -2px -2px 4px rgba(150, 150, 150, 0.6);
+      }
+      .playlist {
+        width: 320px;
+        height: fit-content;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(200, 200, 200, 0.3);
+        border-radius: 5mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        margin: 10px 0;
+      }
+      .list-video {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: poppins;
+        padding: 12px;
+        box-sizing: border-box;
+        border-radius: 1mm;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .list-video img {
+        width: 60px;
+        height: 60px;
+        border-radius: 1mm;
+      }
+      .details2 {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10px;
+      }
+      .details2 .name {
+        font-size: 14px;
+      }
+      .details2 .producer {
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+      .details2 .views-date {
+        font-size: 11px;
+      }
+      .list-video.active {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+      }
+      .icons span:hover,
+      .tile:hover,
+      .list-video:hover {
+        background: rgba(100, 100, 100, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="pro-ui">
+        <div class="left">
+          <div class="head">
+            <div class="icons">
+              <span class="material-icons-round"> menu </span>
+              <span class="material-icons-round button"> arrow_back_ios </span>
+              <span class="material-icons-round button">
+                arrow_forward_ios
+              </span>
+            </div>
+            <div class="url">
+              <span class="material-icons-round">text_fields</span>
+              <div class="link">
+                <span class="material-icons-outlined"> lock </span>
+                https://snippetscode.com
+              </div>
+              <span class="material-icons-round">refresh</span>
+            </div>
+            <div class="icons">
+              <span class="material-icons-round">ios_share</span>
+              <span class="material-icons-round">add</span>
+              <span class="material-icons-round">content_copy</span>
+            </div>
+          </div>
+
+          <div class="video">
+            <video src="../images/vision-pro-video.mp4" autoplay loop></video>
+          </div>
+
+          <div class="controls">
+            <div class="icons">
+              <span class="material-icons-round">skip_previous</span>
+              <span class="material-icons-round">pause</span>
+              <span class="material-icons-round">skip_next</span>
+            </div>
+            <div class="title">
+              <img src="../images/vision-pro-icon.png" alt="" />
+              <div class="details">
+                <div class="name">Snippets Video</div>
+                <div class="producer">Snippets</div>
+              </div>
+            </div>
+            <div class="icons">
+              <span class="material-icons-round"> subtitles </span>
+              <span class="material-icons-round">volume_up</span>
+              <span class="material-icons-round">toc</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="head">
+            <div class="tile active">Watch Next</div>
+            <div class="tile">Related</div>
+            <div class="tile">Trending</div>
+          </div>
+
+          <div class="playlist">
+            <div class="list-video active">
+              <img src="../images/vision-pro-icon.png" alt="" />
+              <div class="details2">
+                <div class="name">Snippets Code Video</div>
+                <div class="producer">Snippets</div>
+                <div class="views-date">4.5M views | 6 months ago</div>
+              </div>
+            </div>
+            <div class="list-video">
+              <img src="../images/avatar.png" alt="" />
+              <div class="details2">
+                <div class="name">Lorem ipsum dolor, sit amet</div>
+                <div class="producer">Snippets</div>
+                <div class="views-date">1.5M views | 2 months ago</div>
+              </div>
+            </div>
+            <div class="list-video">
+              <img src="../images/vision-pro-icon 2.png" alt="" />
+              <div class="details2">
+                <div class="name">Lorem ipsum dolor, sit amet</div>
+                <div class="producer">Snippets</div>
+                <div class="views-date">10M views | 1yr ago</div>
+              </div>
+            </div>
+            <div class="list-video">
+              <img src="../images/vision-pro-icon 3.png" alt="" />
+              <div class="details2">
+                <div class="name">Lorem ipsum dolor, sit amet</div>
+                <div class="producer">Snippets</div>
+                <div class="views-date">4M views | 5 months ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

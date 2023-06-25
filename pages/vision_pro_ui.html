@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specials| Vision Pro UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">SPECIALS > VISION PRO UI</div>
+        <div class="main-title">
+          Create a Apple Vision Pro UI using HTML CSS
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              In the fast-paced world of web design, staying up to date with the
+              latest trends and mastering cutting-edge user interface (UI)
+              techniques is crucial. If you're inspired by Apple's sleek and
+              intuitive designs, this blog post is just for you! Join us as we
+              delve into the realm of web development and explore how to create
+              the stunning Apple Vision Pro UI using HTML and CSS.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(110, 110, 110)"
+                        ></div>
+                        <div class="color-code">rgb(110, 110, 110)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(100, 100, 100)"
+                        ></div>
+                        <div class="color-code">rgb(100, 100, 100)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/vision-pro-ui.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(110, 110, 110)"
+                        ></div>
+                        <div class="color-code">rgb(110, 110, 110)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(100, 100, 100)"
+                        ></div>
+                        <div class="color-code">rgb(100, 100, 100)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+    &lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: url(../images/vision-pro-back.png);
+        justify-content: center;
+        background-size: cover;
+      }
+      .pro-ui {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      .left {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+      }
+      .head,
+      .controls {
+        width: fit-content;
+        height: fit-content;
+        padding: 8px 15px;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .icons span {
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        line-height: 22px;
+        border-radius: 50%;
+        font-size: 17px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      .icons .button {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+        box-shadow: 2px 2px 4px rgba(150, 150, 150, 0.6),
+          -2px -2px 4px rgba(150, 150, 150, 0.6);
+        font-size: 14px;
+      }
+      .url,
+      .title {
+        width: 250px;
+        height: 25px;
+        backdrop-filter: blur(11px) saturate(23%);
+        -webkit-backdrop-filter: blur(11px) saturate(23%);
+        background: rgba(50, 50, 50, 0.5);
+        border-radius: 8mm;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-sizing: border-box;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-size: 11px;
+        font-family: "plus jakarta sans";
+      }
+      .url span {
+        font-size: 15px;
+      }
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .link span {
+        margin-right: 2px;
+        font-size: 13px;
+      }
+      .video {
+        width: 740px;
+        height: 415px;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        margin-bottom: 5px;
+      }
+      .video video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10mm;
+      }
+      .title {
+        width: 200px;
+        height: 30px;
+        border-radius: 1mm;
+        background: rgba(50, 50, 50, 0.7);
+        padding: 1px 5px;
+        position: relative;
+      }
+      .title img {
+        width: 25px;
+        height: 25px;
+        border-radius: 0.5mm;
+        margin-right: 5px;
+      }
+      .details {
+        width: 100%;
+      }
+      .name {
+        font-size: 11px;
+      }
+      .producer {
+        font-size: 8px;
+      }
+      .title::before {
+        position: absolute;
+        content: "";
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: white;
+        border-radius: 0.2mm;
+        animation: progress 10s linear infinite;
+      }
+      @keyframes progress {
+        to {
+          width: 100%;
+        }
+      }
+      .right {
+        color: white;
+      }
+      .right .head {
+        width: 320px;
+        box-sizing: border-box;
+        padding: 5px 15px;
+        background: rgba(200, 200, 200, 0.3);
+      }
+      .tile {
+        font-family: poppins;
+        font-size: 14px;
+        padding: 5px 15px;
+        border-radius: 8mm;
+        cursor: pointer;
+      }
+      .tile.active {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+        box-shadow: 2px 2px 4px rgba(150, 150, 150, 0.6),
+          -2px -2px 4px rgba(150, 150, 150, 0.6);
+      }
+      .playlist {
+        width: 320px;
+        height: fit-content;
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        background: rgba(200, 200, 200, 0.3);
+        border-radius: 5mm;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        margin: 10px 0;
+      }
+      .list-video {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: poppins;
+        padding: 12px;
+        box-sizing: border-box;
+        border-radius: 1mm;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .list-video img {
+        width: 60px;
+        height: 60px;
+        border-radius: 1mm;
+      }
+      .details2 {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10px;
+      }
+      .details2 .name {
+        font-size: 14px;
+      }
+      .details2 .producer {
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+      .details2 .views-date {
+        font-size: 11px;
+      }
+      .list-video.active {
+        background: linear-gradient(
+          145deg,
+          rgb(110, 110, 110),
+          rgb(100, 100, 100)
+        );
+      }
+      .icons span:hover,
+      .tile:hover,
+      .list-video:hover {
+        background: rgba(100, 100, 100, 0.6);
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="pro-ui">
+        &lt;div class="left">
+          &lt;div class="head">
+            &lt;div class="icons">
+              &lt;span class="material-icons-round"> menu &lt;/span>
+              &lt;span class="material-icons-round button"> arrow_back_ios &lt;/span>
+              &lt;span class="material-icons-round button">
+                arrow_forward_ios
+              &lt;/span>
+            &lt;/div>
+            &lt;div class="url">
+              &lt;span class="material-icons-round">text_fields&lt;/span>
+              &lt;div class="link">
+                &lt;span class="material-icons-outlined"> lock &lt;/span>
+                https://snippetscode.com
+              &lt;/div>
+              &lt;span class="material-icons-round">refresh&lt;/span>
+            &lt;/div>
+            &lt;div class="icons">
+              &lt;span class="material-icons-round">ios_share&lt;/span>
+              &lt;span class="material-icons-round">add&lt;/span>
+              &lt;span class="material-icons-round">content_copy&lt;/span>
+            &lt;/div>
+          &lt;/div>
+
+          &lt;div class="video">
+            &lt;video src="../images/vision-pro-video.mp4" autoplay loop>&lt;/video>
+          &lt;/div>
+
+          &lt;div class="controls">
+            &lt;div class="icons">
+              &lt;span class="material-icons-round">skip_previous&lt;/span>
+              &lt;span class="material-icons-round">pause&lt;/span>
+              &lt;span class="material-icons-round">skip_next&lt;/span>
+            &lt;/div>
+            &lt;div class="title">
+              &lt;img src="../images/vision-pro-icon.png" alt="" />
+              &lt;div class="details">
+                &lt;div class="name">Snippets Video&lt;/div>
+                &lt;div class="producer">Snippets&lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="icons">
+              &lt;span class="material-icons-round"> subtitles &lt;/span>
+              &lt;span class="material-icons-round">volume_up&lt;/span>
+              &lt;span class="material-icons-round">toc&lt;/span>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+
+        &lt;div class="right">
+          &lt;div class="head">
+            &lt;div class="tile active">Watch Next&lt;/div>
+            &lt;div class="tile">Related&lt;/div>
+            &lt;div class="tile">Trending&lt;/div>
+          &lt;/div>
+
+          &lt;div class="playlist">
+            &lt;div class="list-video active">
+              &lt;img src="../images/vision-pro-icon.png" alt="" />
+              &lt;div class="details2">
+                &lt;div class="name">Snippets Code Video&lt;/div>
+                &lt;div class="producer">Snippets&lt;/div>
+                &lt;div class="views-date">4.5M views | 6 months ago&lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="list-video">
+              &lt;img src="../images/avatar.png" alt="" />
+              &lt;div class="details2">
+                &lt;div class="name">Lorem ipsum dolor, sit amet&lt;/div>
+                &lt;div class="producer">Snippets&lt;/div>
+                &lt;div class="views-date">1.5M views | 2 months ago&lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="list-video">
+              &lt;img src="../images/vision-pro-icon 2.png" alt="" />
+              &lt;div class="details2">
+                &lt;div class="name">Lorem ipsum dolor, sit amet&lt;/div>
+                &lt;div class="producer">Snippets&lt;/div>
+                &lt;div class="views-date">10M views | 1yr ago&lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div class="list-video">
+              &lt;img src="../images/vision-pro-icon 3.png" alt="" />
+              &lt;div class="details2">
+                &lt;div class="name">Lorem ipsum dolor, sit amet&lt;/div>
+                &lt;div class="producer">Snippets&lt;/div>
+                &lt;div class="views-date">4M views | 5 months ago&lt;/div>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/XjdQYgb6KDc"
+              title="Create Fitness App UI using HTML CSS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>
