@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .title {
+        font-family: "plus jakarta sans";
+        font-size: 30px;
+        margin-bottom: 100px;
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-weight: 600;
+      }
+      .bar {
+        width: 500px;
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        border-right: 0.8mm solid rgb(47, 168, 82);
+      }
+      .progress-bar {
+        width: calc(0.8 * 500px);
+        height: 40px;
+        border: 0.5mm solid rgb(47, 168, 82);
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 7px,
+          rgb(47, 168, 82) 7px,
+          rgb(47, 168, 82) 11px
+        );
+        background-size: 200% 100%;
+        position: relative;
+        animation: move 10s linear infinite, progress 5s forwards;
+      }
+      @keyframes move {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+      @keyframes progress {
+        from {
+          width: 0;
+        }
+        to {
+          width: calc(0.8 * 500px);
+        }
+      }
+      .progress-bar::before {
+        position: absolute;
+        content: "80%";
+        top: 50%;
+        right: -50px;
+        transform: translate(0, -50%) rotateY(-90deg);
+        transform-origin: left;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        font-family: "plus jakarta sans";
+        background: rgb(47, 168, 82);
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.25s;
+      }
+      .progress-bar:hover::before {
+        transform: translate(0, -50%) rotateY(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="title">Hey There, I am a Progress Bar</div>
+      <div class="bar">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+  </body>
+</html>
