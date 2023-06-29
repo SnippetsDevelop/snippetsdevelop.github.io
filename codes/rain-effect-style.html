@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rain</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: black;
+      }
+      .rain {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 250px;
+        height: 100%;
+      }
+      .drop {
+        width: 2px;
+        height: fit-content;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 50px solid white;
+        border-radius: 2mm;
+        position: absolute;
+        top: calc(100% - 150px);
+        left: 50%;
+        animation: fall var(--duration) ease-in var(--delay) infinite backwards;
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(-150vh);
+        }
+        45% {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+        46% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .ripples {
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      .ripple {
+        display: block;
+        width: 100%;
+        height: 80px;
+        border-radius: 50%;
+        border: 1.5mm solid white;
+        position: absolute;
+        animation: spread var(--duration) ease-out var(--delay) infinite
+          backwards;
+      }
+      .ripple:nth-child(2) {
+        animation-delay: calc(var(--delay) + 0.4s);
+      }
+      @keyframes spread {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        40% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0;
+        }
+      }
+      .splash {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, 0);
+        border-radius: 8px;
+        clip-path: polygon(
+          7% 100%,
+          5% 95%,
+          3% 80%,
+          11% 50%,
+          17% 38%,
+          23% 44%,
+          30% 53%,
+          37% 28%,
+          40% 29%,
+          45% 43%,
+          51% 53%,
+          59% 36%,
+          64% 22%,
+          67% 23%,
+          70% 34%,
+          72% 46%,
+          79% 37%,
+          83% 37%,
+          93% 61%,
+          96% 76%,
+          96% 94%,
+          94% 100%
+        );
+        background: white;
+        transform-origin: bottom;
+        animation: watersplash var(--duration) ease-out var(--delay) infinite
+          backwards;
+      }
+      @keyframes watersplash {
+        0% {
+          transform: translate(-50%, 0) scale(0.3, 0);
+        }
+        49% {
+          transform: translate(-50%, 0) scale(0.3, 0);
+        }
+        50% {
+          transform: translate(-50%, 0) scale(0.3, 0.3);
+        }
+        60% {
+          transform: translate(-50%, 0) scale(0.7, 1);
+        }
+        90% {
+          transform: translate(-50%, 0) scale(1, 0);
+        }
+        100% {
+          transform: translate(-50%, 0) scale(1, 0);
+        }
+      }
+      .bubbles {
+        width: 100%;
+      }
+      .bubble {
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+        background: white;
+      }
+      .bubble:nth-child(1) {
+        width: 7px;
+        height: 7px;
+        bottom: 30px;
+        left: 45%;
+        animation: jumpLeft var(--duration) ease-out calc(var(--delay) + 0.2s)
+          infinite backwards;
+      }
+      .bubble:nth-child(2) {
+        width: 5px;
+        height: 5px;
+        bottom: 100px;
+        left: 40%;
+        animation: jumpLeft var(--duration) ease-out calc(var(--delay) + 0s)
+          infinite backwards;
+      }
+      .bubble:nth-child(3) {
+        width: 6px;
+        height: 6px;
+        bottom: 110px;
+        right: 50%;
+        animation: jumpRight var(--duration) ease-out calc(var(--delay) + 0.3s)
+          infinite backwards;
+      }
+      .bubble:nth-child(4) {
+        width: 7px;
+        height: 7px;
+        bottom: 70px;
+        right: 35%;
+        animation: jumpRight var(--duration) ease-out calc(var(--delay) + 0.1s)
+          infinite backwards;
+      }
+      @keyframes jumpLeft {
+        0%,
+        45% {
+          transform: translate(0, 0) scale(0);
+        }
+        60% {
+          transform: translate(-50px, -90px) scale(1);
+        }
+        100% {
+          transform: translate(-60px, 0px) scale(0.1);
+        }
+      }
+      @keyframes jumpRight {
+        0%,
+        45% {
+          transform: translate(0, 0) scale(0);
+        }
+        60% {
+          transform: translate(30px, -80px) scale(1);
+        }
+        100% {
+          transform: translate(50px, 0px) scale(0.1);
+        }
+      }
+      .rain:nth-child(1) {
+        --delay: 1s;
+        --duration: 2.2s;
+      }
+      .rain:nth-child(2) {
+        top: -10%;
+        left: 25%;
+        --delay: 1.1s;
+        --duration: 2.1s;
+      }
+      .rain:nth-child(3) {
+        top: -30%;
+        left: 75%;
+        --delay: 2.3s;
+        --duration: 2.2s;
+      }
+      .rain:nth-child(4) {
+        top: -5%;
+        left: 70%;
+        --delay: 1.4s;
+        --duration: 2.1s;
+      }
+      .rain:nth-child(5) {
+        top: -15%;
+        left: 40%;
+        --delay: 2.5s;
+        --duration: 2.2s;
+      }
+      .rain:nth-child(6) {
+        top: -30%;
+        left: 55%;
+        --delay: 1.2s;
+        --duration: 2s;
+      }
+      .rain:nth-child(7) {
+        top: -40%;
+        left: 28%;
+        --delay: 1.5s;
+        --duration: 2s;
+      }
+      .rain:nth-child(8) {
+        top: -40%;
+        left: 60%;
+        --delay: 1.7s;
+        --duration: 2.3s;
+      }
+      .rain:nth-child(9) {
+        top: -50%;
+        left: 80%;
+        --delay: 1.3s;
+        --duration: 2.2s;
+      }
+      .rain:nth-child(10) {
+        top: -30%;
+        left: 20%;
+        --delay: 2.3s;
+        --duration: 2.5s;
+      }
+      .rain:nth-child(11) {
+        top: -25%;
+        left: 10%;
+        --delay: 0.9s;
+        --duration: 2.3s;
+      }
+      .rain:nth-child(12) {
+        top: -25%;
+        left: 90%;
+        --delay: 1.7s;
+        --duration: 2.3s;
+      }
+      .rain:nth-child(13) {
+        top: -60%;
+        left: 40%;
+        --delay: 2s;
+        --duration: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+      <div class="rain">
+        <div class="drop"></div>
+        <div class="ripples">
+          <span class="ripple"></span>
+          <span class="ripple"></span>
+        </div>
+        <div class="splash"></div>
+        <div class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
