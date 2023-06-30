@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(../images/sliding-back.png);
+        background-size: cover;
+      }
+      .slider {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      form {
+        width: 400px;
+        height: 500px;
+        backdrop-filter: blur(16px) saturate(0%);
+        -webkit-backdrop-filter: blur(16px) saturate(0%);
+        background: rgba(17, 25, 40, 0.75);
+        border-radius: 4mm;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-sizing: border-box;
+        padding: 40px 60px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-family: poppins;
+        margin: 0 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 50px 50px 100px -20px,
+          rgba(0, 0, 0, 0.5) 30px 30px 60px -30px,
+          rgba(212, 217, 222, 0.35) 2px -2px 6px 0px inset;
+        z-index: 3;
+        transition: 0.25s ease-in-out;
+      }
+      form:nth-child(2) {
+        box-shadow: rgba(50, 50, 93, 0.25) -50px 50px 100px -20px,
+          rgba(0, 0, 0, 0.5) -30px 30px 60px -30px,
+          rgba(212, 217, 222, 0.35) -2px -2px 6px 0px inset;
+      }
+      .title {
+        font-size: 18px;
+        color: rgb(246, 249, 255);
+        letter-spacing: 1px;
+        margin-bottom: 1px;
+        font-weight: 300;
+      }
+      .title span {
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: 11px;
+        color: rgb(224, 229, 240);
+        letter-spacing: 0.25mm;
+        margin-bottom: 35px;
+      }
+      .inputf {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        margin-bottom: 35px;
+        position: relative;
+      }
+      .input {
+        width: 100%;
+        height: 35px;
+        box-sizing: border-box;
+        border: none;
+        outline: 0.5mm solid rgb(200, 200, 220);
+        background: transparent;
+        border-radius: 1.5mm;
+        padding: 0 15px;
+        font-family: poppins;
+        font-size: 12px;
+        color: rgb(246, 249, 255);
+      }
+      .input::placeholder {
+        color: rgb(175, 180, 190);
+      }
+      input:focus {
+        outline: 0.5mm solid rgb(224, 229, 240);
+      }
+      .label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: rgb(224, 229, 240);
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0;
+        z-index: -1;
+        transition: 0.25s ease-out;
+      }
+      input:focus + .label {
+        top: -20px;
+        opacity: 1;
+        z-index: 1;
+      }
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+      input:not(:placeholder-shown) + .label {
+        top: -20px;
+        opacity: 1;
+        z-index: 1;
+      }
+      form button {
+        width: 100%;
+        height: 35px;
+        background: rgb(36, 217, 127);
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 1.5mm;
+        font-family: poppins;
+        font-weight: 500;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      form.hidden {
+        height: 395px;
+        padding: 0 60px;
+        box-shadow: none;
+        z-index: 1;
+      }
+      .card {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 2;
+        width: 430px;
+        height: 400px;
+        background: url(../images/slider-form.png) white;
+        background-size: contain;
+        border-radius: 0 4mm 4mm 0;
+        box-sizing: border-box;
+        padding: 40px;
+        transition: 0.5s ease-in-out;
+      }
+      .head {
+        font-family: poppins;
+        font-size: 34px;
+        margin-bottom: 35px;
+      }
+      .name {
+        font-weight: 300;
+      }
+      .name span {
+        font-weight: 600;
+        color: rgb(36, 217, 127);
+      }
+      .desc {
+        font-family: poppins;
+        font-size: 14px;
+        text-align: justify;
+        margin-bottom: 35px;
+      }
+      .btn {
+        display: inline-block;
+        font-family: poppins;
+        font-size: 14px;
+      }
+      .btn button {
+        font-family: poppins;
+        font-size: 14px;
+        padding: 5px 15px;
+        background: rgb(36, 217, 127);
+        border: none;
+        outline: none;
+        border-radius: 1mm;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .card.active {
+        right: calc(100% - 440px);
+        border-radius: 4mm 0 0 4mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="slider">
+        <form action="">
+          <div class="title">Welcome <span>Back</span></div>
+          <div class="subtitle">Sign in to your account</div>
+          <span class="inputf">
+            <input type="email" class="input" placeholder="Email" />
+            <span class="label">Email</span>
+          </span>
+          <span class="inputf">
+            <input type="password" class="input" placeholder="Password" />
+            <span class="label">Password</span>
+          </span>
+          <button type="button">Sign In</button>
+        </form>
+
+        <form action="" class="hidden">
+          <div class="title">Get <span>Started</span></div>
+          <div class="subtitle">Create an account</div>
+          <span class="inputf">
+            <input type="text" class="input" placeholder="Name" />
+            <span class="label">Name</span>
+          </span>
+          <span class="inputf">
+            <input type="email" class="input" placeholder="Email" />
+            <span class="label">Email</span>
+          </span>
+          <span class="inputf">
+            <input type="text" class="input" placeholder="Phone" />
+            <span class="label">Phone</span>
+          </span>
+          <span class="inputf">
+            <input type="password" class="input" placeholder="Password" />
+            <span class="label">Password</span>
+          </span>
+          <button type="button">Sign Up</button>
+        </form>
+        <div class="card">
+          <div class="head">
+            <div class="name">Ocean <span>Company</span></div>
+          </div>
+          <div class="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            voluptate minus reprehenderit ex voluptates deleniti beatae ea,
+            ratione provident soluta sint debitis facere quibusdam
+            necessitatibus.
+          </div>
+          <div class="btn">
+            New User? <button type="button" onclick="move(1)">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function move(n) {
+        let forms = document.querySelectorAll("form");
+        forms[0].classList.toggle("hidden");
+        forms[1].classList.toggle("hidden");
+        document.querySelector(".card").classList.toggle("active");
+        if (n == 1) {
+          document.querySelector(".btn").innerHTML =
+            'Existing User? <button type="button" onclick="move(2)">Sign In</button>';
+        } else {
+          document.querySelector(".btn").innerHTML =
+            'New User? <button type="button" onclick="move(1)">Sign Up</button>';
+        }
+      }
+    </script>
+  </body>
+</html>

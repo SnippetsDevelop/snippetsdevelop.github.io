@@ -1911,6 +1911,408 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(5)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(5)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 6</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 249, 255)"
+                        ></div>
+                        <div class="color-code">rgb(246, 249, 255)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(224, 229, 240)"
+                        ></div>
+                        <div class="color-code">rgb(224, 229, 240)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(200, 200, 220)"
+                        ></div>
+                        <div class="color-code">rgb(200, 200, 220)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(175, 180, 190)"
+                        ></div>
+                        <div class="color-code">rgb(175, 180, 190)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(36, 217, 127)"
+                        ></div>
+                        <div class="color-code">rgb(36, 217, 127)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/sliding-form-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 6</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 249, 255)"
+                        ></div>
+                        <div class="color-code">rgb(246, 249, 255)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(224, 229, 240)"
+                        ></div>
+                        <div class="color-code">rgb(224, 229, 240)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(200, 200, 220)"
+                        ></div>
+                        <div class="color-code">rgb(200, 200, 220)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(175, 180, 190)"
+                        ></div>
+                        <div class="color-code">rgb(175, 180, 190)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(36, 217, 127)"
+                        ></div>
+                        <div class="color-code">rgb(36, 217, 127)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(../images/sliding-back.png);
+        background-size: cover;
+      }
+      .slider {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      form {
+        width: 400px;
+        height: 500px;
+        backdrop-filter: blur(16px) saturate(0%);
+        -webkit-backdrop-filter: blur(16px) saturate(0%);
+        background: rgba(17, 25, 40, 0.75);
+        border-radius: 4mm;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-sizing: border-box;
+        padding: 40px 60px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-family: poppins;
+        margin: 0 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 50px 50px 100px -20px,
+          rgba(0, 0, 0, 0.5) 30px 30px 60px -30px,
+          rgba(212, 217, 222, 0.35) 2px -2px 6px 0px inset;
+        z-index: 3;
+        transition: 0.25s ease-in-out;
+      }
+      form:nth-child(2) {
+        box-shadow: rgba(50, 50, 93, 0.25) -50px 50px 100px -20px,
+          rgba(0, 0, 0, 0.5) -30px 30px 60px -30px,
+          rgba(212, 217, 222, 0.35) -2px -2px 6px 0px inset;
+      }
+      .title {
+        font-size: 18px;
+        color: rgb(246, 249, 255);
+        letter-spacing: 1px;
+        margin-bottom: 1px;
+        font-weight: 300;
+      }
+      .title span {
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: 11px;
+        color: rgb(224, 229, 240);
+        letter-spacing: 0.25mm;
+        margin-bottom: 35px;
+      }
+      .inputf {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        margin-bottom: 35px;
+        position: relative;
+      }
+      .input {
+        width: 100%;
+        height: 35px;
+        box-sizing: border-box;
+        border: none;
+        outline: 0.5mm solid rgb(200, 200, 220);
+        background: transparent;
+        border-radius: 1.5mm;
+        padding: 0 15px;
+        font-family: poppins;
+        font-size: 12px;
+        color: rgb(246, 249, 255);
+      }
+      .input::placeholder {
+        color: rgb(175, 180, 190);
+      }
+      input:focus {
+        outline: 0.5mm solid rgb(224, 229, 240);
+      }
+      .label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: rgb(224, 229, 240);
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0;
+        z-index: -1;
+        transition: 0.25s ease-out;
+      }
+      input:focus + .label {
+        top: -20px;
+        opacity: 1;
+        z-index: 1;
+      }
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+      input:not(:placeholder-shown) + .label {
+        top: -20px;
+        opacity: 1;
+        z-index: 1;
+      }
+      form button {
+        width: 100%;
+        height: 35px;
+        background: rgb(36, 217, 127);
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 1.5mm;
+        font-family: poppins;
+        font-weight: 500;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      form.hidden {
+        height: 395px;
+        padding: 0 60px;
+        box-shadow: none;
+        z-index: 1;
+      }
+      .card {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 2;
+        width: 430px;
+        height: 400px;
+        background: url(../images/slider-form.png) white;
+        background-size: contain;
+        border-radius: 0 4mm 4mm 0;
+        box-sizing: border-box;
+        padding: 40px;
+        transition: 0.5s ease-in-out;
+      }
+      .head {
+        font-family: poppins;
+        font-size: 34px;
+        margin-bottom: 35px;
+      }
+      .name {
+        font-weight: 300;
+      }
+      .name span {
+        font-weight: 600;
+        color: rgb(36, 217, 127);
+      }
+      .desc {
+        font-family: poppins;
+        font-size: 14px;
+        text-align: justify;
+        margin-bottom: 35px;
+      }
+      .btn {
+        display: inline-block;
+        font-family: poppins;
+        font-size: 14px;
+      }
+      .btn button {
+        font-family: poppins;
+        font-size: 14px;
+        padding: 5px 15px;
+        background: rgb(36, 217, 127);
+        border: none;
+        outline: none;
+        border-radius: 1mm;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .card.active {
+        right: calc(100% - 440px);
+        border-radius: 4mm 0 0 4mm;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="slider">
+        &lt;form action="">
+          &lt;div class="title">Welcome &lt;span>Back&lt;/span>&lt;/div>
+          &lt;div class="subtitle">Sign in to your account&lt;/div>
+          &lt;span class="inputf">
+            &lt;input type="email" class="input" placeholder="Email" />
+            &lt;span class="label">Email&lt;/span>
+          &lt;/span>
+          &lt;span class="inputf">
+            &lt;input type="password" class="input" placeholder="Password" />
+            &lt;span class="label">Password&lt;/span>
+          &lt;/span>
+          &lt;button type="button">Sign In&lt;/button>
+        &lt;/form>
+
+        &lt;form action="" class="hidden">
+          &lt;div class="title">Get &lt;span>Started&lt;/span>&lt;/div>
+          &lt;div class="subtitle">Create an account&lt;/div>
+          &lt;span class="inputf">
+            &lt;input type="text" class="input" placeholder="Name" />
+            &lt;span class="label">Name&lt;/span>
+          &lt;/span>
+          &lt;span class="inputf">
+            &lt;input type="email" class="input" placeholder="Email" />
+            &lt;span class="label">Email&lt;/span>
+          &lt;/span>
+          &lt;span class="inputf">
+            &lt;input type="text" class="input" placeholder="Phone" />
+            &lt;span class="label">Phone&lt;/span>
+          &lt;/span>
+          &lt;span class="inputf">
+            &lt;input type="password" class="input" placeholder="Password" />
+            &lt;span class="label">Password&lt;/span>
+          &lt;/span>
+          &lt;button type="button">Sign Up&lt;/button>
+        &lt;/form>
+        &lt;div class="card">
+          &lt;div class="head">
+            &lt;div class="name">Ocean &lt;span>Company&lt;/span>&lt;/div>
+          &lt;/div>
+          &lt;div class="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            voluptate minus reprehenderit ex voluptates deleniti beatae ea,
+            ratione provident soluta sint debitis facere quibusdam
+            necessitatibus.
+          &lt;/div>
+          &lt;div class="btn">
+            New User? &lt;button type="button" onclick="move(1)">Sign Up&lt;/button>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;script>
+      function move(n) {
+        let forms = document.querySelectorAll("form");
+        forms[0].classList.toggle("hidden");
+        forms[1].classList.toggle("hidden");
+        document.querySelector(".card").classList.toggle("active");
+        if (n == 1) {
+          document.querySelector(".btn").innerHTML =
+            'Existing User? &lt;button type="button" onclick="move(2)">Sign In&lt;/button>';
+        } else {
+          document.querySelector(".btn").innerHTML =
+            'New User? &lt;button type="button" onclick="move(1)">Sign Up&lt;/button>';
+        }
+      }
+    &lt;/script>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
@@ -1937,6 +2339,9 @@
           </div>
           <div class="yt-video">
             <iframe src="https://www.youtube.com/embed/H7r38T0yqg0" title="Create a Popup Modal Form using HTML CSS and JS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="yt-video">
+            <iframe src="https://www.youtube.com/embed/cHhgy6Yn_LA" title="Sign-In and Sign-Up (2 in one)... Animated Sliding Form using HTML CSS and JS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
         <div class="main-ads">
