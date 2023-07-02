@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(196, 238, 205);
+      }
+      .clock {
+        width: 200px;
+        height: 200px;
+        background: rgb(37, 53, 42);
+        border-radius: 50%;
+        position: relative;
+      }
+      .clock .spike {
+        border-left: 24px solid transparent;
+        border-right: 24px solid transparent;
+        border-bottom: 16px solid rgb(37, 53, 42);
+        width: 24px;
+        position: absolute;
+        top: calc(50% - 8px);
+        left: calc(50% - 36px);
+        border-radius: 0.5mm;
+      }
+      .spike::before {
+        position: absolute;
+        content: "";
+        width: 39px;
+        height: 39px;
+        top: -4px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 50%;
+        background: rgb(37, 53, 42);
+        z-index: -1;
+      }
+      .seconds {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        background: rgb(189, 233, 252);
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .minutes,
+      .hours {
+        width: 16px;
+        height: 80px;
+        background: rgb(168, 245, 195);
+        border-radius: 3mm;
+        position: absolute;
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        transform-origin: 8px 8px;
+        z-index: 1;
+      }
+      .hours {
+        height: 64px;
+        background: rgb(131, 149, 136);
+      }
+      .date {
+        position: absolute;
+        width: 50px;
+        height: 16px;
+        top: calc(50% - 8px);
+        left: calc(50% - 25px);
+        font-family: poppins;
+        font-size: 13px;
+        color: white;
+        background: none;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="clock">
+        <div class="seconds"></div>
+        <div class="minutes"></div>
+        <div class="hours"></div>
+        <div class="date"></div>
+      </div>
+    </div>
+    <script>
+      let clock = document.querySelector(".clock");
+      for (var i = 0; i < 360; i += 30) {
+        let spike = document.createElement("span");
+        spike.className = "spike";
+        spike.style.transform = `rotate(${i}deg) translateY(-100px)`;
+        clock.appendChild(spike);
+      }
+      const interval = setInterval(() => {
+        var date = new Date();
+        let secondsPoint = document.querySelector(".seconds");
+        let minutesPoint = document.querySelector(".minutes");
+        let hoursPoint = document.querySelector(".hours");
+        let datePoint = document.querySelector(".date");
+
+        let secPosition = date.getSeconds() * 6;
+        let minPosition = date.getMinutes() * 6;
+        let hourPosition = date.getHours() * 30;
+
+        let dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        datePoint.innerHTML = dayArray[date.getDay()] + " " + date.getDate();
+
+        if (secPosition == 0) {
+          secondsPoint.style.transition = "none";
+          datePoint.style.transition = "none";
+        } else {
+          secondsPoint.style.transition = "0.25s";
+          datePoint.style.transition = "0.25s";
+        }
+        if (minPosition == 0) {
+          minutesPoint.style.transition = "none";
+        } else {
+          minutesPoint.style.transition = "0.25s";
+        }
+        secondsPoint.style.transform = `rotate(${secPosition}deg) translateY(-84px)`;
+        minutesPoint.style.transform = `rotate(${minPosition - 180}deg) `;
+        hoursPoint.style.transform = `rotate(${hourPosition - 180}deg) `;
+        datePoint.style.transform = `rotate(${
+          secPosition - 180
+        }deg) translateY(-84px)`;
+      }, 1000);
+    </script>
+  </body>
+</html>
