@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brightness Slider</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+      }
+      .slider {
+        width: 400px;
+        height: 30px;
+        border: 0.5mm solid rgb(100, 100, 100);
+        border-radius: 10mm;
+        padding: 10px;
+        position: relative;
+        z-index: 1;
+      }
+      .slider::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 3px;
+        background: rgb(255, 255, 255, 0.3);
+        border-radius: 0.5mm;
+        z-index: -1;
+      }
+      .thumb {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        border-radius: 5mm;
+        background: rgb(214, 245, 130);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: grab;
+      }
+      .thumb span {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="slider">
+        <div class="thumb" id="thumb">
+          <span class="material-icons-outlined"> brightness_low </span>
+        </div>
+      </div>
+    </div>
+    <script>
+      var slider = document.querySelector(".slider");
+      var thumb = document.getElementById("thumb");
+      var isDragging = false;
+      thumb.addEventListener("mousedown", startDragging);
+      thumb.addEventListener("touchmove", startDragging);
+
+      function startDragging(event) {
+        isDragging = true;
+        changeThumbWidth(event);
+        event.preventDefault();
+      }
+
+      document.addEventListener("mousemove", changeThumbWidth);
+      document.addEventListener("touchmove", changeThumbWidth);
+
+      function changeThumbWidth(event) {
+        if (isDragging) {
+          var sliderRect = slider.getBoundingClientRect();
+          var positionX = event.clientX - sliderRect.left;
+          var maxPositionX = 400 - 10;
+          positionX = Math.min(Math.max(positionX, 0), maxPositionX);
+          thumb.style.width = positionX + "px";
+          if (positionX / maxPositionX <= 0.25) {
+            thumb.querySelector("span").innerHTML = "brightness_low";
+          } else if (positionX / maxPositionX <= 0.7) {
+            thumb.querySelector("span").innerHTML = "brightness_medium";
+          } else {
+            thumb.querySelector("span").innerHTML = "brightness_high";
+          }
+          document.body.style.cursor = "grabbing";
+          thumb.style.cursor = "grabbing";
+        }
+      }
+
+      document.addEventListener("mouseup", stopDragging);
+      document.addEventListener("touchend", stopDragging);
+      function stopDragging(event) {
+        isDragging = false;
+        document.body.style.cursor = "auto";
+        thumb.style.cursor = "grab";
+      }
+    </script>
+  </body>
+</html>
