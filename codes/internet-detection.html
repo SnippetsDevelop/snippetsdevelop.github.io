@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Internet Detection</title>
+    <!--Google Fonts and Icons-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
       rel="stylesheet"
@@ -24,10 +25,10 @@
       .center {
         width: 100%;
         height: 100%;
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
       }
       .band {
         position: fixed;
@@ -45,25 +46,37 @@
         transition: 0.5s ease-in;
       }
       .box {
-        position: fixed;
-        bottom: 100px;
-        left: 50%;
-        transform: translate(-50%, 0) scale(1.2);
-        width: 200px;
-        height: 40px;
+        width: 280px;
+        height: 50px;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        padding: 0 15px;
         background: rgb(50, 50, 50);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5), 4px 4px 0 rgba(0, 0, 0, 0.4);
+        border-radius: 1mm;
         color: white;
         font-family: poppins;
         font-size: 15px;
         opacity: 0;
+        transform: scale(1.1);
         z-index: -1;
-        transition: 0.5s;
+        transition: 0.25s ease-out;
       }
-      .box span {
-        color: rgb(255, 255, 255, 0.5);
+      .box .icon {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .box .text {
+        flex-grow: 1;
+        margin-left: 15px;
+      }
+      .box button {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: rgb(18, 128, 255);
+        font-family: poppins;
       }
       .band.active {
         transform: translateY(0);
@@ -71,31 +84,34 @@
       .box.active {
         z-index: 9999;
         opacity: 1;
-        transform: translate(-50%, 0) scale(1);
-      }
-      .text {
-        font-family: poppins;
-        font-size: 50px;
+        transform: scale(1);
       }
     </style>
   </head>
   <body>
     <div class="center">
-      <!--<div class="text">Check Internet Connection</div>-->
       <div class="band">No Internet Connection</div>
       <div class="box">
-        <span class="material-icons-outlined"> wifi_off </span> Not Connected
+        <span class="material-icons-outlined icon">wifi_off</span>
+        <span class="text">You are currently offline</span>
+        <button type="button" onclick="window.location.reload()" id="btn">
+          Refresh
+        </button>
       </div>
     </div>
     <script>
       let band = document.querySelector(".band");
       let box = document.querySelector(".box");
+      let boxBtn = document.querySelector("#btn");
+      let icon = document.querySelector(".icon");
+      let text = document.querySelector(".text");
       window.addEventListener("offline", () => {
-        band.style.background = "rgb(65, 65, 65)";
-        box.querySelector("span").style.color = "rgb(255, 255, 255, 0.5)";
+        band.style.background = "rgb(0,0,0)";
+        icon.style.color = "rgb(255,255,255,0.5)";
+        icon.innerHTML = "wifi_off";
+        text.innerHTML = "You are currently offline";
         band.innerHTML = "No Internet Connection";
-        box.innerHTML =
-          '<span class="material-icons-outlined"> wifi_off </span> Not Connected';
+        boxBtn.style.display = "block";
         if (band.className == "band") {
           band.classList.toggle("active");
         }
@@ -103,13 +119,13 @@
           box.classList.toggle("active");
         }
       });
-
       window.addEventListener("online", () => {
         band.style.background = "rgb(18,128,255)";
+        icon.style.color = "rgb(109,230,142)";
+        icon.innerHTML = "wifi";
+        text.innerHTML = "Your connection is restored";
         band.innerHTML = "Connected to Internet";
-        box.innerHTML =
-          '<span class="material-icons-outlined">wifi</span> Back Online';
-        box.querySelector("span").style.color = "rgb(18,128,255)";
+        boxBtn.style.display = "none";
         if (band.className == "band active") {
           setTimeout(() => {
             band.classList.toggle("active");
