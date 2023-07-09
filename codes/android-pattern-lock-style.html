@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pattern Lock</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(243, 254, 166);
+      }
+      .pattern {
+        width: 420px;
+        height: 420px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        overflow: hidden;
+      }
+      .block {
+        width: 140px;
+        height: 140px;
+        position: relative;
+      }
+      .dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgb(128, 137, 70);
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+      }
+      .dot::before {
+        position: absolute;
+        content: "";
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .dot.error {
+        background: rgb(192, 108, 94);
+      }
+      .bar {
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(
+          to right,
+          rgba(136, 179, 237, 0.5),
+          rgb(136, 179, 237)
+        );
+        transform-origin: 15px 15px;
+        border-radius: 5mm;
+        z-index: 1;
+        display: none;
+      }
+      .bar.resize {
+        display: block;
+      }
+      .result {
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+        background: rgb(40, 40, 40);
+        color: white;
+        font-family: poppins;
+        font-size: 14px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: none;
+      }
+      .result.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="pattern">
+        <div class="block">
+          <div class="dot" value="1"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="2"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="3"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="4"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="5"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="6"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="7"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="8"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="block">
+          <div class="dot" value="9"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="result"></div>
+    </div>
+    <script>
+      let dots = document.querySelectorAll(".dot");
+      let startPosX, startPosY, originX, originY;
+      let pattern = [];
+      let currentDot;
+
+      dots.forEach((dot) => {
+        dot.addEventListener("mousedown", startResize);
+      });
+
+      function startResize(event) {
+        let resizableDiv = event.target.nextElementSibling;
+        startPosX = event.clientX;
+        startPosY = event.clientY;
+        originX = resizableDiv.getBoundingClientRect().left;
+        originY = resizableDiv.getBoundingClientRect().top;
+        resizableDiv.className = "bar resize";
+        currentDot = event.target;
+        pattern.push(event.target.getAttribute("value"));
+        document.addEventListener("mousemove", resizeDiv);
+        document.addEventListener("mouseup", endResize);
+      }
+
+      function resizeDiv(event) {
+        let resizableDiv = document.querySelector(".resize");
+        const currentPosX = event.clientX;
+        const currentPosY = event.clientY;
+        const deltaX = currentPosX - startPosX;
+        const deltaY = currentPosY - startPosY;
+
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        resizableDiv.style.width = `${Math.max(distance + 20, 30)}px`;
+
+        const angle = Math.atan2(deltaY, deltaX);
+
+        resizableDiv.style.transform = `rotate(${angle}rad)`;
+
+        if (event.target.className == "dot") {
+          let nextDot = event.target;
+          let i = 0;
+          for (i = 0; i < dots.length; i++) {
+            if (nextDot == dots[i]) {
+              break;
+            }
+          }
+          i = i + 1;
+          i = i.toString();
+          if (nextDot != currentDot && !pattern.includes(i)) {
+            resizableDiv.className = "bar";
+            startResize(event);
+          }
+        }
+      }
+
+      function endResize() {
+        document.querySelector(".resize").className = "bar";
+        let bars = document.querySelectorAll(".bar");
+        bars.forEach((bar) => {
+          bar.style.width = 30 + "px";
+          bar.style.height = 30 + "px";
+        });
+        document.removeEventListener("mousemove", resizeDiv);
+        document.removeEventListener("mouseup", endResize);
+        let result = document.querySelector(".result");
+        result.innerHTML = pattern;
+        result.classList.toggle("active");
+        dots.forEach((dot) => {
+          dot.classList.toggle("error");
+        });
+        setTimeout(() => {
+          result.classList.toggle("active");
+          dots.forEach((dot) => {
+            dot.classList.toggle("error");
+          });
+        }, 3000);
+        pattern = [];
+      }
+    </script>
+  </body>
+</html>
