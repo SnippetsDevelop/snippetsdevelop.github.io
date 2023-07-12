@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          to bottom,
+          rgb(255, 229, 180) 0%,
+          rgb(244, 162, 97) 50%,
+          rgb(0, 0, 0) 100%
+        );
+      }
+      .profile-card {
+        width: 400px;
+        height: fit-content;
+        position: relative;
+        box-shadow: 0px 10px 36px 0px rgba(0, 0, 0, 0.16),
+          0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+        border-radius: 2mm;
+      }
+      .top {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        box-sizing: border-box;
+        border-radius: 2mm;
+        transition: 0.25s;
+      }
+      .top-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../images/profile-card-back.png);
+        background-size: cover;
+        filter: blur(0.2mm);
+        border-radius: 2mm;
+      }
+      .top-text {
+        font-family: poppins;
+        font-size: 24px;
+        color: white;
+        font-weight: 500;
+        position: relative;
+        padding: 10px 20px;
+      }
+      .top-text span {
+        display: block;
+        font-size: 30px;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+      }
+      .top img {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        top: -50px;
+        right: 10px;
+        z-index: 1;
+        border: 0.6mm solid white;
+      }
+      #expand {
+        display: none;
+      }
+      #expand + label {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-family: poppins;
+        color: white;
+        border: 0.5mm solid white;
+        z-index: 1;
+        padding: 4px 15px;
+        border-radius: 5mm;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      #expand + label:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      #toggle {
+        display: none;
+      }
+      #toggle + label {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 18px;
+        height: 18px;
+        z-index: 1;
+      }
+      #toggle + label::before {
+        position: absolute;
+        content: "expand_less";
+        font-family: "Material Icons";
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 18px;
+        color: rgb(120, 120, 120);
+        border: 0.5mm solid rgb(120, 120, 120);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .bars {
+        width: 250px;
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        position: relative;
+        margin-left: 20px;
+        flex-direction: column;
+      }
+      .bars span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin-bottom: 10px;
+      }
+      .bars span:nth-child(3) {
+        width: 150px;
+      }
+      .bottom {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 2mm;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.5s ease-in;
+      }
+      .details {
+        width: 100%;
+        text-align: center;
+        padding: 50px 10px 25px 10px;
+        box-sizing: border-box;
+        border-bottom: 0.5mm solid rgba(0, 0, 0, 0.1);
+      }
+      .main {
+        font-family: poppins;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .sub {
+        display: block;
+        font-family: poppins;
+        font-size: 12px;
+        color: rgb(120, 120, 120);
+      }
+      .mutuals {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: 0.25s;
+      }
+      .mutuals .images {
+        width: 110px;
+        position: relative;
+      }
+      .mutuals .text {
+        font-family: poppins;
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .mutuals .images img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 0.4mm solid white;
+      }
+      .images img:nth-child(2) {
+        left: 22px;
+      }
+      .images img:nth-child(3) {
+        left: 44px;
+      }
+      .mutuals span {
+        width: 30px;
+        height: 30px;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        background: rgb(207, 214, 224);
+        float: right;
+      }
+      .stats {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+      }
+      .stats .data {
+        text-align: center;
+        padding-bottom: 25px;
+      }
+      #expand:checked + label {
+        display: none;
+      }
+      #expand:checked ~ .bottom {
+        max-height: 450px;
+        border-radius: 0 0 2mm 2mm;
+      }
+      #expand:checked ~ .top img {
+        animation: moveit 0.5s ease-out;
+        width: 70px;
+        height: 70px;
+        top: calc(100% - 35px);
+        left: calc(50% - 35px);
+      }
+      @keyframes moveit {
+        0% {
+          transform: scale(0);
+          width: 100px;
+          height: 100px;
+          top: -50px;
+          right: 10px;
+        }
+        100% {
+          transform: scale(1);
+          width: 70px;
+          height: 70px;
+          top: calc(100% - 35px);
+          left: calc(50% - 35px);
+        }
+      }
+      #expand:checked ~ .top .top-text,
+      #expand:checked ~ .top .bars {
+        display: none;
+      }
+      #expand:checked ~ .top {
+        height: 100px;
+      }
+      #expand:checked ~ #toggle + label {
+        display: block;
+      }
+      #expand:checked ~ .top .top-back {
+        border-radius: 2mm 2mm 0 0;
+        filter: blur(0);
+      }
+      #toggle:checked ~ .top {
+        height: 50px;
+      }
+      #toggle:checked ~ .top .top-back {
+        background: white;
+      }
+      #toggle:checked ~ .bottom .mutuals {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #toggle:checked + label::before {
+        content: "expand_more";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="profile-card">
+        <input type="checkbox" name="" id="expand" />
+        <label for="expand">View</label>
+        <input type="checkbox" name="" id="toggle" />
+        <label for="toggle"></label>
+        <div class="top">
+          <img src="../images/avatar 2.png" alt="" />
+          <div class="top-back"></div>
+          <div class="top-text">Meet <span>Nichelle</span></div>
+          <div class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="details">
+            <span class="main">Nichelle</span>
+            <span class="sub">Web Developer</span>
+          </div>
+          <div class="mutuals">
+            <div class="text">6 Mutual Friends</div>
+            <div class="images">
+              <img src="../images/avatar 3.png" alt="" />
+              <img src="../images/avatar 4.png" alt="" />
+              <img src="../images/avatar 5.png" alt="" />
+              <span>+3</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="data">
+              <span class="main">25</span>
+              <span class="sub">Posts</span>
+            </div>
+            <div class="data">
+              <span class="main">350</span>
+              <span class="sub">Following</span>
+            </div>
+            <div class="data">
+              <span class="main">1.5K</span>
+              <span class="sub">Followers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

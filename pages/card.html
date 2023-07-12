@@ -956,6 +956,463 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(3)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(3)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 5</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 229, 180)"
+                        ></div>
+                        <div class="color-code">rgb(255, 229, 180)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(244, 162, 97)"
+                        ></div>
+                        <div class="color-code">rgb(244, 162, 97)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(120, 120, 120)"
+                        ></div>
+                        <div class="color-code">rgb(120, 120, 120)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(207, 214, 224)"
+                        ></div>
+                        <div class="color-code">rgb(207, 214, 224)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/profile-card-style2.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 5</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(255, 229, 180)"
+                        ></div>
+                        <div class="color-code">rgb(255, 229, 180)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(244, 162, 97)"
+                        ></div>
+                        <div class="color-code">rgb(244, 162, 97)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(120, 120, 120)"
+                        ></div>
+                        <div class="color-code">rgb(120, 120, 120)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(207, 214, 224)"
+                        ></div>
+                        <div class="color-code">rgb(207, 214, 224)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          to bottom,
+          rgb(255, 229, 180) 0%,
+          rgb(244, 162, 97) 50%,
+          rgb(0, 0, 0) 100%
+        );
+      }
+      .profile-card {
+        width: 400px;
+        height: fit-content;
+        position: relative;
+        box-shadow: 0px 10px 36px 0px rgba(0, 0, 0, 0.16),
+          0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+        border-radius: 2mm;
+      }
+      .top {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        box-sizing: border-box;
+        border-radius: 2mm;
+        transition: 0.25s;
+      }
+      .top-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../images/profile-card-back.png);
+        background-size: cover;
+        filter: blur(0.2mm);
+        border-radius: 2mm;
+      }
+      .top-text {
+        font-family: poppins;
+        font-size: 24px;
+        color: white;
+        font-weight: 500;
+        position: relative;
+        padding: 10px 20px;
+      }
+      .top-text span {
+        display: block;
+        font-size: 30px;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+      }
+      .top img {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        top: -50px;
+        right: 10px;
+        z-index: 1;
+        border: 0.6mm solid white;
+      }
+      #expand {
+        display: none;
+      }
+      #expand + label {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-family: poppins;
+        color: white;
+        border: 0.5mm solid white;
+        z-index: 1;
+        padding: 4px 15px;
+        border-radius: 5mm;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      #expand + label:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      #toggle {
+        display: none;
+      }
+      #toggle + label {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 18px;
+        height: 18px;
+        z-index: 1;
+      }
+      #toggle + label::before {
+        position: absolute;
+        content: "expand_less";
+        font-family: "Material Icons";
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 18px;
+        color: rgb(120, 120, 120);
+        border: 0.5mm solid rgb(120, 120, 120);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .bars {
+        width: 250px;
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        position: relative;
+        margin-left: 20px;
+        flex-direction: column;
+      }
+      .bars span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin-bottom: 10px;
+      }
+      .bars span:nth-child(3) {
+        width: 150px;
+      }
+      .bottom {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 2mm;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.5s ease-in;
+      }
+      .details {
+        width: 100%;
+        text-align: center;
+        padding: 50px 10px 25px 10px;
+        box-sizing: border-box;
+        border-bottom: 0.5mm solid rgba(0, 0, 0, 0.1);
+      }
+      .main {
+        font-family: poppins;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .sub {
+        display: block;
+        font-family: poppins;
+        font-size: 12px;
+        color: rgb(120, 120, 120);
+      }
+      .mutuals {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: 0.25s;
+      }
+      .mutuals .images {
+        width: 110px;
+        position: relative;
+      }
+      .mutuals .text {
+        font-family: poppins;
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .mutuals .images img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 0.4mm solid white;
+      }
+      .images img:nth-child(2) {
+        left: 22px;
+      }
+      .images img:nth-child(3) {
+        left: 44px;
+      }
+      .mutuals span {
+        width: 30px;
+        height: 30px;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        background: rgb(207, 214, 224);
+        float: right;
+      }
+      .stats {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+      }
+      .stats .data {
+        text-align: center;
+        padding-bottom: 25px;
+      }
+      #expand:checked + label {
+        display: none;
+      }
+      #expand:checked ~ .bottom {
+        max-height: 450px;
+        border-radius: 0 0 2mm 2mm;
+      }
+      #expand:checked ~ .top img {
+        animation: moveit 0.5s ease-out;
+        width: 70px;
+        height: 70px;
+        top: calc(100% - 35px);
+        left: calc(50% - 35px);
+      }
+      @keyframes moveit {
+        0% {
+          transform: scale(0);
+          width: 100px;
+          height: 100px;
+          top: -50px;
+          right: 10px;
+        }
+        100% {
+          transform: scale(1);
+          width: 70px;
+          height: 70px;
+          top: calc(100% - 35px);
+          left: calc(50% - 35px);
+        }
+      }
+      #expand:checked ~ .top .top-text,
+      #expand:checked ~ .top .bars {
+        display: none;
+      }
+      #expand:checked ~ .top {
+        height: 100px;
+      }
+      #expand:checked ~ #toggle + label {
+        display: block;
+      }
+      #expand:checked ~ .top .top-back {
+        border-radius: 2mm 2mm 0 0;
+        filter: blur(0);
+      }
+      #toggle:checked ~ .top {
+        height: 50px;
+      }
+      #toggle:checked ~ .top .top-back {
+        background: white;
+      }
+      #toggle:checked ~ .bottom .mutuals {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #toggle:checked + label::before {
+        content: "expand_more";
+      }
+    &lt;/style>
+
+    &lt;div class="center">
+      &lt;div class="profile-card">
+        &lt;input type="checkbox" name="" id="expand" />
+        &lt;label for="expand">View&lt;/label>
+        &lt;input type="checkbox" name="" id="toggle" />
+        &lt;label for="toggle">&lt;/label>
+        &lt;div class="top">
+          &lt;img src="../images/avatar 2.png" alt="" />
+          &lt;div class="top-back">&lt;/div>
+          &lt;div class="top-text">Meet &lt;span>Nichelle&lt;/span>&lt;/div>
+          &lt;div class="bars">
+            &lt;span>&lt;/span>
+            &lt;span>&lt;/span>
+            &lt;span>&lt;/span>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="bottom">
+          &lt;div class="details">
+            &lt;span class="main">Nichelle&lt;/span>
+            &lt;span class="sub">Web Developer&lt;/span>
+          &lt;/div>
+          &lt;div class="mutuals">
+            &lt;div class="text">6 Mutual Friends&lt;/div>
+            &lt;div class="images">
+              &lt;img src="../images/avatar 3.png" alt="" />
+              &lt;img src="../images/avatar 4.png" alt="" />
+              &lt;img src="../images/avatar 5.png" alt="" />
+              &lt;span>+3&lt;/span>
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="stats">
+            &lt;div class="data">
+              &lt;span class="main">25&lt;/span>
+              &lt;span class="sub">Posts&lt;/span>
+            &lt;/div>
+            &lt;div class="data">
+              &lt;span class="main">350&lt;/span>
+              &lt;span class="sub">Following&lt;/span>
+            &lt;/div>
+            &lt;div class="data">
+              &lt;span class="main">1.5K&lt;/span>
+              &lt;span class="sub">Followers&lt;/span>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
@@ -982,6 +1439,15 @@
             <iframe
               src="https://www.youtube.com/embed/fSf6XIWpmIg"
               title="How to Make Simple Attractive Profile Card using HTML and CSS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/gLhe7ynCCVU"
+              title="Animated Profile Card... without JavaScript!"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
