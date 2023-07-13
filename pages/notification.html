@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Components | Notification</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">LAYOUT COMPONENTS > NOTIFICATION</div>
+        <div class="main-title">
+          Collapsible Navigation bar for top or bottom navigation
+        </div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              <span class="hight">Notification alerts</span> are essential
+              components of modern web applications, providing users with
+              important updates, messages, or alerts in an unobtrusive and
+              visually appealing manner. We will learn the step-by-step process
+              of creating dynamic and visually appealing notifications.
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 248, 250)"
+                        ></div>
+                        <div class="color-code">rgb(246, 248, 250)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(80, 80, 80)"
+                        ></div>
+                        <div class="color-code">rgb(80, 80, 80)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(226, 230, 233)"
+                        ></div>
+                        <div class="color-code">rgb(226, 230, 233)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/notification-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 248, 250)"
+                        ></div>
+                        <div class="color-code">rgb(246, 248, 250)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(80, 80, 80)"
+                        ></div>
+                        <div class="color-code">rgb(80, 80, 80)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(226, 230, 233)"
+                        ></div>
+                        <div class="color-code">rgb(226, 230, 233)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(246, 248, 250);
+      }
+      .notification {
+        position: fixed;
+        top: 15px;
+        left: 50%;
+        transform: translate(-50%, -200px);
+        background: rgb(0, 0, 0);
+        width: fit-content;
+        height: 54px;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 15mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        box-shadow: rgba(38, 57, 77, 0.7) 0px 20px 30px -10px;
+        transition: 0.5s ease-in;
+        max-width: 1000px;
+      }
+      .notification img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 4px solid rgb(80, 80, 80);
+        transition: 0.35s ease-in;
+      }
+      .details {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-family: poppins;
+        margin: 0 15px;
+        padding: 1px;
+        white-space: nowrap;
+      }
+      .name {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .message {
+        font-size: 14px;
+        color: white;
+      }
+      .btn {
+        width: 35px;
+        height: 35px;
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+        text-align: center;
+        line-height: 35px;
+        font-size: 22px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .notify {
+        background: rgb(226, 230, 233);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      .notify span {
+        font-size: 30px;
+      }
+      .notification.hidden {
+        animation: closeNote 1s ease-in-out;
+        transform: translate(-50%, -200px);
+        max-width: 54px;
+        padding: 0;
+      }
+      .notification.hidden img {
+        width: 38px;
+        height: 38px;
+        border: 8px solid rgb(80, 80, 80);
+      }
+      @keyframes closeNote {
+        0% {
+          transform: translate(-50%, 0);
+          max-width: 1000px;
+          padding: 8px;
+        }
+        65% {
+          transform: translate(-50%, 0);
+          max-width: 54px;
+          padding: 0px;
+        }
+        100% {
+          transform: translate(-50%, -200px);
+          max-width: 54px;
+          padding: 0;
+        }
+      }
+      .notification.active {
+        animation: showNote 1s ease-in-out;
+        max-width: 1000px;
+        transform: translate(-50%, 0);
+        padding: 8px;
+      }
+      .notification.active img {
+        animation: resize 1s ease-in-out;
+        width: 32px;
+        height: 32px;
+        border: 4px solid rgb(80, 80, 80);
+      }
+      @keyframes showNote {
+        0% {
+          transform: translate(-50%, -200px);
+          max-width: 54px;
+          padding: 0;
+        }
+        35% {
+          transform: translate(-50%, 0px);
+          max-width: 54px;
+          padding: 0;
+        }
+        100% {
+          transform: translate(-50%, 0px);
+          max-width: 1000px;
+          padding: 8px;
+        }
+      }
+      @keyframes resize {
+        0%,
+        40% {
+          width: 38px;
+          height: 38px;
+          border: 8px solid rgb(80, 80, 80);
+        }
+        100% {
+          width: 32px;
+          height: 32px;
+          border: 4px solid rgb(80, 80, 80);
+        }
+      }
+    &lt;/style>
+
+    &lt;div class="center">
+      &lt;button class="notify" type="button" onclick="getNotified()">
+        &lt;span class="material-icons-round">north&lt;/span>
+      &lt;/button>
+      &lt;div class="notification">
+        &lt;img src="../images/health.png" alt="" />
+        &lt;div class="details">
+          &lt;div class="name">Health&lt;/div>
+          &lt;div class="message">You have reached your goals...&lt;/div>
+        &lt;/div>
+        &lt;span class="material-icons-round btn" onclick="closeNote()"
+          >close&lt;/span
+        >
+      &lt;/div>
+    &lt;/div>
+    &lt;script>
+      let notification = document.querySelector(".notification");
+      function getNotified() {
+        if (notification.classList.contains("hidden")) {
+          notification.classList.toggle("hidden");
+        }
+        notification.classList.toggle("active");
+        const timeout = setTimeout(() => {
+          if (
+            notification.classList.contains("active") &&
+            !notification.classList.contains("hidden")
+          ) {
+            notification.classList.toggle("active");
+            notification.classList.toggle("hidden");
+          } else {
+            window.clearTimeout(timeout);
+          }
+        }, 5000);
+      }
+      function closeNote() {
+        notification.classList.toggle("active");
+        notification.classList.toggle("hidden");
+      }
+    &lt;/script>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/dN0_O4ihDgQ"
+              title="Create Animated Popup / Dialog Box using HTML CSS and JS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+  </body>
+</html>
