@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Menu</title>
+    <!--Google Icons and Font Awesome-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(255, 235, 92);
+        box-sizing: border-box;
+        padding-top: 100px;
+      }
+      .share-menu {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .menu-list {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: fit-content;
+        width: 55px;
+        box-sizing: border-box;
+        border: 0.4mm solid rgb(0, 0, 0);
+        padding: 15px;
+        border-radius: 20mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        overflow: hidden;
+        transition: 0.35s ease-in-out;
+        max-height: 300px;
+      }
+      .item {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 40px;
+        position: relative;
+        margin: 6px 0;
+        cursor: pointer;
+      }
+      .item::before {
+        position: absolute;
+        content: "";
+        width: 34px;
+        height: 34px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: white;
+        z-index: -1;
+        box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      }
+      #toggle {
+        display: none;
+      }
+      #toggle + label {
+        width: 55px;
+        height: 55px;
+        position: relative;
+        display: block;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+      #toggle + label::before {
+        position: absolute;
+        content: "share";
+        font-family: "Material Icons";
+        width: 55px;
+        height: 55px;
+        background: white;
+        border-radius: 50%;
+        font-size: 36px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        line-height: 55px;
+        box-shadow: rgba(80, 80, 80, 0.5) 0px 20px 30px -10px;
+      }
+      #toggle:not(:checked) ~ .menu-list {
+        padding: 0;
+        border: 0;
+        max-height: 0;
+      }
+      #toggle:checked + label::before {
+        content: "close";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="share-menu">
+        <input type="checkbox" name="" id="toggle" />
+        <label for="toggle"></label>
+        <div class="menu-list">
+          <div class="item">
+            <i class="fa-brands fa-square-instagram"></i>
+          </div>
+          <div class="item"><i class="fa-brands fa-facebook"></i></div>
+          <div class="item"><i class="fa-brands fa-square-whatsapp"></i></div>
+          <div class="item"><i class="fa-brands fa-telegram"></i></div>
+          <div class="item"><i class="fa-brands fa-linkedin"></i></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
