@@ -256,6 +256,335 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(1)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(1)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 2</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 248, 250)"
+                        ></div>
+                        <div class="color-code">rgb(246, 248, 250)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(52, 55, 60)"
+                        ></div>
+                        <div class="color-code">rgb(52, 55, 60)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/folder-style.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 2</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 248, 250)"
+                        ></div>
+                        <div class="color-code">rgb(246, 248, 250)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(52, 55, 60)"
+                        ></div>
+                        <div class="color-code">rgb(52, 55, 60)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: repeating-radial-gradient(
+            circle,
+            rgba(183, 190, 200, 0.5),
+            transparent 100px
+          ),
+          rgb(246, 248, 250);
+      }
+      .folder {
+        width: 400px;
+        height: 400px;
+        backdrop-filter: blur(10px) saturate(0);
+        -webkit-backdrop-filter: blur(10px) saturate(0);
+        background: rgba(57, 61, 68, 0.58);
+        border-radius: 10mm;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        box-shadow: rgba(38, 57, 77, 0.5) 0px 20px 30px -10px;
+        box-sizing: border-box;
+        padding: 20px;
+        transition: 0.25s ease;
+      }
+      .icons {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+      .title {
+        width: 300px;
+        height: fit-content;
+        font-family: poppins;
+        color: rgb(0, 0, 0);
+        position: absolute;
+        bottom: calc(100% + 20px);
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .icon {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .symbol {
+        width: 55px;
+        height: 55px;
+        background: rgb(52, 55, 60);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 55px;
+        color: white;
+        font-size: 23px;
+        cursor: pointer;
+      }
+      .name {
+        font-family: poppins;
+        font-size: 14px;
+        color: white;
+        margin-top: 3px;
+        cursor: pointer;
+      }
+      .folder.close {
+        width: 100px;
+        height: 100px;
+        border-radius: 6mm;
+        padding: 5px;
+      }
+      .folder.close .icons {
+        display: none;
+      }
+      .folder.close .title {
+        display: none;
+      }
+      .folder.close .preview {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        cursor: pointer;
+      }
+      .folder.close .dot {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: -1;
+      }
+      .folder.close .dot::before {
+        position: absolute;
+        content: "";
+        width: 12px;
+        height: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 50%;
+      }
+      .folder.open {
+        width: 400px;
+        height: 400px;
+        padding: 20px;
+      }
+      .folder.open .icons {
+        animation: displayIcons 0.5s ease;
+      }
+      @keyframes displayIcons {
+        0%,
+        10% {
+          display: none;
+          opacity: 0;
+          transform: scale(0);
+        }
+        100% {
+          display: grid;
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="folder close">
+        &lt;div class="title">My Folder&lt;/div>
+        &lt;div class="preview">
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+          &lt;span class="dot">&lt;/span>
+        &lt;/div>
+        &lt;div class="icons">
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-brands fa-google">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Google&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-solid fa-envelope">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Mail&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-solid fa-location-dot">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Maps&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-brands fa-youtube">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Youtube&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-brands fa-google-drive">&lt;/i
+            >&lt;/span>
+            &lt;span class="name">Drive&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-solid fa-circle-play">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Music&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-brands fa-google-play">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Play Store&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol"> &lt;i class="fa-brands fa-google-pay">&lt;/i> &lt;/span
+            >&lt;span class="name">GPay&lt;/span>
+          &lt;/div>
+          &lt;div class="icon">
+            &lt;span class="symbol">
+              &lt;i class="fa-solid fa-tv">&lt;/i>
+            &lt;/span>
+            &lt;span class="name">Google TV&lt;/span>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;script>
+      let folder = document.querySelector(".folder");
+      document.addEventListener("click", (e) => {
+        if (e.target == folder || folder.contains(e.target)) {
+          if (folder.classList.contains("close")) {
+            folder.classList.toggle("close");
+            folder.classList.toggle("open");
+          }
+        } else {
+          if (folder.classList.contains("open")) {
+            folder.classList.toggle("close");
+            folder.classList.toggle("open");
+          }
+        }
+      });
+    &lt;/script>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
