@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Art</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(40, 40, 40);
+      }
+      .gradient {
+        width: 620px;
+        height: 620px;
+        background: radial-gradient(
+            circle,
+            rgb(250, 250, 250) 8%,
+            transparent 8%
+          ),
+          radial-gradient(
+            circle at 53% 50%,
+            rgb(246, 243, 235) 12%,
+            transparent 12%
+          ),
+          radial-gradient(
+            circle at 56% 50%,
+            rgb(208, 227, 227) 16%,
+            transparent 16%
+          ),
+          radial-gradient(
+            circle at 59% 50%,
+            rgb(183, 218, 219) 20%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 62% 50%,
+            rgb(150, 197, 214) 24%,
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at 65% 50%,
+            rgb(100, 190, 223) 26%,
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 61.5% 50%,
+            rgb(43, 168, 220) 32%,
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 58% 50%,
+            rgb(47, 153, 206) 38%,
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at 55% 50%,
+            rgb(16, 120, 172) 44%,
+            transparent 44%
+          ),
+          radial-gradient(
+            circle at 52% 50%,
+            rgb(48, 89, 164) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 48% 50%,
+            rgb(47, 73, 133) 56%,
+            transparent 56%
+          );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="gradient"></div>
+    </div>
+  </body>
+</html>
