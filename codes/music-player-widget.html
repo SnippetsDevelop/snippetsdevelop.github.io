@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player Widget</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(0, 114, 223);
+      }
+      .widget {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.25) 0px 6px 6px;
+        border-radius: 2mm;
+      }
+      .album {
+        width: 100%;
+        height: 100%;
+        background: url(../images/album.png);
+        background-size: cover;
+        border-radius: 2mm;
+      }
+      .controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px) saturate(180%);
+        -webkit-backdrop-filter: blur(5px) saturate(180%);
+        border-radius: 2mm;
+        background: rgba(17, 25, 40, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 25px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .details {
+        width: 100%;
+        height: fit-content;
+        font-family: poppins;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+      }
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .artist {
+        font-size: 16px;
+        font-weight: 200;
+      }
+      .btns {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn {
+        width: 70px;
+        height: 70px;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        margin: 0 10px;
+        background: none;
+        color: white;
+        text-align: center;
+        line-height: 70px;
+        cursor: pointer;
+      }
+      .btn span {
+        font-size: 60px;
+        text-align: center;
+        line-height: 70px;
+      }
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      #toggle,
+      #toggle2 {
+        display: none;
+      }
+      #toggle-btn {
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        position: relative;
+      }
+      #toggle-btn::before {
+        position: absolute;
+        content: "pause";
+        font-family: "Material Icons Round";
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        line-height: 100px;
+        font-size: 80px;
+        color: white;
+        cursor: pointer;
+      }
+      #toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      #toggle:checked ~ .btns #toggle-btn::before {
+        content: "play_arrow";
+      }
+      .player {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .progress {
+        width: 50px;
+        height: 6px;
+        box-sizing: border-box;
+        background: rgb(5, 100, 191);
+        border-radius: 1mm;
+        position: relative;
+        animation: play 15s linear infinite;
+      }
+      .progress::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: 300px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.75);
+        z-index: -1;
+        border-radius: 1mm;
+      }
+      .progress::after {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        right: -5px;
+        transform: translate(0, -50%);
+        background: rgb(5, 100, 191);
+        border-radius: 50%;
+        border: 5px solid white;
+      }
+      @keyframes play {
+        from {
+          width: 0;
+        }
+        to {
+          width: 300px;
+        }
+      }
+      #toggle:not(:checked) ~ .player .progress {
+        animation-play-state: running;
+      }
+      #toggle:checked ~ .player .progress {
+        animation-play-state: paused;
+      }
+      #toggle-btn2 {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        box-sizing: border-box;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      #toggle-btn2::before {
+        position: absolute;
+        content: "volume_up";
+        font-family: "Material Icons Outlined";
+        width: 100%;
+        height: 100%;
+        font-size: 26px;
+        color: white;
+        text-align: right;
+        line-height: 40px;
+      }
+      #toggle2:checked + label::before {
+        content: "volume_off";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="widget">
+        <div class="album"></div>
+        <div class="controls">
+          <div class="details">
+            <div class="title">Gradation of Lorem</div>
+            <div class="artist">Daniel</div>
+          </div>
+          <input type="checkbox" name="" id="toggle" />
+          <div class="btns">
+            <button type="button" class="btn">
+              <span class="material-icons-round">skip_previous</span>
+            </button>
+            <label for="toggle" id="toggle-btn"></label>
+            <button type="button" class="btn">
+              <span class="material-icons-round">skip_next</span>
+            </button>
+          </div>
+          <div class="player">
+            <div class="progress"></div>
+            <input type="checkbox" name="" id="toggle2" />
+            <label for="toggle2" id="toggle-btn2"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
