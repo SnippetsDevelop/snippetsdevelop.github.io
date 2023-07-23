@@ -2694,6 +2694,403 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(7)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(7)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 8</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(27, 27, 27)"
+                        ></div>
+                        <div class="color-code">rgb(27, 27, 27)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(232, 17, 35)"
+                        ></div>
+                        <div class="color-code">rgb(232, 17, 35)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(44, 129, 197)"
+                        ></div>
+                        <div class="color-code">rgb(44, 129, 197)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(120, 120, 120)"
+                        ></div>
+                        <div class="color-code">rgb(120, 120, 120)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 103, 184)"
+                        ></div>
+                        <div class="color-code">rgb(0, 103, 184)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 93, 166)"
+                        ></div>
+                        <div class="color-code">rgb(0, 93, 166)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/microsoft-signin-form.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 8</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(27, 27, 27)"
+                        ></div>
+                        <div class="color-code">rgb(27, 27, 27)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(232, 17, 35)"
+                        ></div>
+                        <div class="color-code">rgb(232, 17, 35)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(44, 129, 197)"
+                        ></div>
+                        <div class="color-code">rgb(44, 129, 197)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 0, 0)"
+                        ></div>
+                        <div class="color-code">rgb(0, 0, 0)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(120, 120, 120)"
+                        ></div>
+                        <div class="color-code">rgb(120, 120, 120)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 103, 184)"
+                        ></div>
+                        <div class="color-code">rgb(0, 103, 184)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(0, 93, 166)"
+                        ></div>
+                        <div class="color-code">rgb(0, 93, 166)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(../images/microsoft-back.svg);
+        background-size: cover;
+      }
+      form {
+        width: 440px;
+        height: fit-content;
+        min-height: 338px;
+        padding: 44px;
+        background: white;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+        font-family: "Segoe UI";
+        overflow: hidden;
+      }
+      .logo {
+        width: 100%;
+        height: fit-content;
+      }
+      .logo img {
+        width: 108px;
+      }
+      .wrapper {
+        width: 900px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.5s ease-in;
+      }
+      .section {
+        display: block;
+        min-width: 352px;
+        width: 352px;
+        min-height: 208px;
+      }
+      .head {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        margin-top: 16px;
+      }
+      .inputf {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 16px;
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        padding: 2px;
+      }
+      .input {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        font-family: "Segoe UI";
+        font-size: 15px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 6px 10px 6px 0px;
+        color: rgb(27, 27, 27);
+        line-height: 20px;
+      }
+      .input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .label {
+        color: rgb(232, 17, 35);
+        font-size: 15px;
+        display: none;
+      }
+      .info {
+        width: 100%;
+        font-size: 13px;
+        display: block;
+        position: relative;
+        width: fit-content;
+        margin-bottom: 16px;
+      }
+      .info a {
+        text-decoration: none;
+        color: rgb(44, 129, 197);
+      }
+      .info span {
+        display: inline-block;
+        color: rgb(120, 120, 120);
+        height: 16px;
+        width: 16px;
+        font-size: 15px;
+        border: 0.4mm solid rgb(120, 120, 120);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 16px;
+        font-weight: 500;
+      }
+      .btn {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 12px;
+      }
+      .btn button {
+        width: 108px;
+        height: 32px;
+        box-sizing: border-box;
+        padding: 4px 12px;
+        background: rgb(0, 103, 184);
+        text-align: center;
+        color: white;
+        font-family: "Segoe UI";
+        font-size: 15px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+      }
+      .btn button:hover {
+        background: rgb(0, 93, 166);
+      }
+      .email {
+        width: 100%;
+        height: fit-content;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+      }
+      .email span {
+        font-size: 16px;
+        margin-right: 3px;
+        color: rgb(120, 120, 120);
+        cursor: pointer;
+      }
+      .section.hidden {
+        animation: hidden 0.25s ease-in;
+        opacity: 0;
+      }
+      @keyframes hidden {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .label:has(+ .alert:not(:valid)) {
+        display: block;
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;form action="">
+        &lt;div class="logo">
+          &lt;img src="../images/microsoft-logo.svg" alt="" />
+        &lt;/div>
+        &lt;span class="wrapper">
+          &lt;span class="section">
+            &lt;div class="head">Sign in&lt;/div>
+            &lt;span class="inputf">
+              &lt;span class="label">
+                Enter a valid email address, phone number or Skype name.
+              &lt;/span>
+              &lt;input
+                type="text"
+                class="input"
+                placeholder="Email, phone or Skype"
+                required
+              />
+            &lt;/span>
+            &lt;div class="info">No account? &lt;a href="">Create one!&lt;/a>&lt;/div>
+
+            &lt;div class="info">
+              &lt;a href="">Sign in with Windows Hello or a security key&lt;/a>
+              &lt;span>?&lt;/span>
+            &lt;/div>
+            &lt;span class="btn">
+              &lt;button type="button" onclick="moveLeft()">Next&lt;/button>
+            &lt;/span>
+          &lt;/span>
+
+          &lt;span class="section hidden">
+            &lt;div class="email">
+              &lt;span class="material-icons-outlined" onclick="moveRight()"
+                >west&lt;/span
+              >
+              snippets@outlook.com
+            &lt;/div>
+            &lt;div class="head">Enter password&lt;/div>
+            &lt;span class="inputf">
+              &lt;span class="label">
+                Please enter the password for your Microsoft account
+              &lt;/span>
+              &lt;input
+                type="password"
+                class="input"
+                placeholder="Password"
+                required
+              />
+            &lt;/span>
+            &lt;div class="info">&lt;a href="">Forgotten your password?&lt;/a>&lt;/div>
+
+            &lt;div class="info">
+              &lt;a href="">Other ways to sign in&lt;/a>
+            &lt;/div>
+            &lt;span class="btn">
+              &lt;button type="button">Sign in&lt;/button>
+            &lt;/span>
+          &lt;/span>
+        &lt;/span>
+      &lt;/form>
+    &lt;/div>
+
+    &lt;script>
+      let sections = document.querySelectorAll(".section");
+      let inputs = document.querySelectorAll(".input");
+      function moveLeft() {
+        if (inputs[0].checkValidity()) {
+          document.querySelector(".wrapper").style.transform =
+            "translateX(-548px)";
+          sections[0].classList.toggle("hidden");
+          sections[1].classList.toggle("hidden");
+          inputs[0].className = "input";
+        } else {
+          inputs[0].className = "input alert";
+        }
+      }
+      function moveRight() {
+        document.querySelector(".wrapper").style.transform = "translateX(0px)";
+        sections[0].classList.toggle("hidden");
+        sections[1].classList.toggle("hidden");
+      }
+    &lt;/script>
+                       <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
@@ -2726,6 +3123,9 @@
           </div>
           <div class="yt-video">
             <iframe src="https://www.youtube.com/embed/eG0g6QdjT9k" title="Animated Login Form with Input Shaking Animation using HTML CSS | Glassmorphism" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="yt-video">
+            <iframe src="https://www.youtube.com/embed/9xRgsKnaDV4" title="Microsoft Sign-in Form using HTML CSS and JS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
         <div class="main-ads">

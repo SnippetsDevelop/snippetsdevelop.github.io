@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microsoft Sign-in</title>
+    <!--Google Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(../images/microsoft-back.svg);
+        background-size: cover;
+      }
+      form {
+        width: 440px;
+        height: fit-content;
+        min-height: 338px;
+        padding: 44px;
+        background: white;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+        font-family: "Segoe UI";
+        overflow: hidden;
+      }
+      .logo {
+        width: 100%;
+        height: fit-content;
+      }
+      .logo img {
+        width: 108px;
+      }
+      .wrapper {
+        width: 900px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.5s ease-in;
+      }
+      .section {
+        display: block;
+        min-width: 352px;
+        width: 352px;
+        min-height: 208px;
+      }
+      .head {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        margin-top: 16px;
+      }
+      .inputf {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 16px;
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        padding: 2px;
+      }
+      .input {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        font-family: "Segoe UI";
+        font-size: 15px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 6px 10px 6px 0px;
+        color: rgb(27, 27, 27);
+        line-height: 20px;
+      }
+      .input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .label {
+        color: rgb(232, 17, 35);
+        font-size: 15px;
+        display: none;
+      }
+      .info {
+        width: 100%;
+        font-size: 13px;
+        display: block;
+        position: relative;
+        width: fit-content;
+        margin-bottom: 16px;
+      }
+      .info a {
+        text-decoration: none;
+        color: rgb(44, 129, 197);
+      }
+      .info span {
+        display: inline-block;
+        color: rgb(120, 120, 120);
+        height: 16px;
+        width: 16px;
+        font-size: 15px;
+        border: 0.4mm solid rgb(120, 120, 120);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 16px;
+        font-weight: 500;
+      }
+      .btn {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 12px;
+      }
+      .btn button {
+        width: 108px;
+        height: 32px;
+        box-sizing: border-box;
+        padding: 4px 12px;
+        background: rgb(0, 103, 184);
+        text-align: center;
+        color: white;
+        font-family: "Segoe UI";
+        font-size: 15px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+      }
+      .btn button:hover {
+        background: rgb(0, 93, 166);
+      }
+      .email {
+        width: 100%;
+        height: fit-content;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+      }
+      .email span {
+        font-size: 16px;
+        margin-right: 3px;
+        color: rgb(120, 120, 120);
+        cursor: pointer;
+      }
+      .section.hidden {
+        animation: hidden 0.25s ease-in;
+        opacity: 0;
+      }
+      @keyframes hidden {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .label:has(+ .alert:not(:valid)) {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="">
+        <div class="logo">
+          <img src="../images/microsoft-logo.svg" alt="" />
+        </div>
+        <span class="wrapper">
+          <span class="section">
+            <div class="head">Sign in</div>
+            <span class="inputf">
+              <span class="label">
+                Enter a valid email address, phone number or Skype name.
+              </span>
+              <input
+                type="text"
+                class="input"
+                placeholder="Email, phone or Skype"
+                required
+              />
+            </span>
+            <div class="info">No account? <a href="">Create one!</a></div>
+
+            <div class="info">
+              <a href="">Sign in with Windows Hello or a security key</a>
+              <span>?</span>
+            </div>
+            <span class="btn">
+              <button type="button" onclick="moveLeft()">Next</button>
+            </span>
+          </span>
+
+          <span class="section hidden">
+            <div class="email">
+              <span class="material-icons-outlined" onclick="moveRight()"
+                >west</span
+              >
+              snippets@outlook.com
+            </div>
+            <div class="head">Enter password</div>
+            <span class="inputf">
+              <span class="label">
+                Please enter the password for your Microsoft account
+              </span>
+              <input
+                type="password"
+                class="input"
+                placeholder="Password"
+                required
+              />
+            </span>
+            <div class="info"><a href="">Forgotten your password?</a></div>
+
+            <div class="info">
+              <a href="">Other ways to sign in</a>
+            </div>
+            <span class="btn">
+              <button type="button">Sign in</button>
+            </span>
+          </span>
+        </span>
+      </form>
+    </div>
+
+    <script>
+      let sections = document.querySelectorAll(".section");
+      let inputs = document.querySelectorAll(".input");
+      function moveLeft() {
+        if (inputs[0].checkValidity()) {
+          document.querySelector(".wrapper").style.transform =
+            "translateX(-548px)";
+          sections[0].classList.toggle("hidden");
+          sections[1].classList.toggle("hidden");
+          inputs[0].className = "input";
+        } else {
+          inputs[0].className = "input alert";
+        }
+      }
+      function moveRight() {
+        document.querySelector(".wrapper").style.transform = "translateX(0px)";
+        sections[0].classList.toggle("hidden");
+        sections[1].classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
