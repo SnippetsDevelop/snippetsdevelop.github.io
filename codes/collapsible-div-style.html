@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collapsible Div</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(221, 251, 178);
+      }
+      .collapsible {
+        width: 400px;
+        height: fit-content;
+        background: white;
+        padding: 20px;
+        box-sizing: border-box;
+        font-family: poppins;
+        box-shadow: rgba(69, 155, 89, 0.25) 0px 30px 60px -12px,
+          rgba(0, 0, 0, 0.2) 0px 18px 36px -18px;
+      }
+      #toggle {
+        display: none;
+      }
+      .head {
+        display: block;
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 0.4mm solid black;
+        position: relative;
+        cursor: pointer;
+      }
+      .head::before {
+        position: absolute;
+        content: "expand_more";
+        font-family: "Material Icons";
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%);
+        font-size: 26px;
+      }
+      .content {
+        width: 90%;
+        background: linear-gradient(
+          to right,
+          rgb(209, 255, 141),
+          rgb(186, 249, 94)
+        );
+        margin: auto;
+        border: 0.4mm solid black;
+        border-top: none;
+        overflow: hidden;
+        max-height: 200px;
+        transition: 0.35s ease-out;
+      }
+      .content span {
+        display: block;
+        padding: 15px;
+        text-align: justify;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+        font-size: 14px;
+      }
+      #toggle:not(:checked) ~ .content {
+        max-height: 0px;
+        visibility: hidden;
+      }
+      #toggle:checked + .head::before {
+        content: "expand_less";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="collapsible">
+        <input type="checkbox" name="" id="toggle" />
+        <label for="toggle" class="head">Collapsible Div</label>
+        <div class="content">
+          <span>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi,
+            cumque non quos consequatur consequuntur eum doloribus ab commodi
+            quidem magni voluptatem id officia autem ea.
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
