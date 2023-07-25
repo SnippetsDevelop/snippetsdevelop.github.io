@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweet</title>
+    <!--Google Fonts Icons and Font Awesome-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --back: white;
+        --primary: rgb(0, 0, 0);
+        --secondary: rgb(136, 136, 136);
+        --teritiary: rgb(91, 114, 126);
+        --image: rgb(203, 148, 128);
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(0, 179, 246);
+      }
+      .tweet {
+        width: 450px;
+        height: 240px;
+        background: var(--back);
+        color: var(--primary);
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 1mm;
+        box-shadow: 0 9px 0 rgba(0, 0, 0, 0.2);
+      }
+      .head {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: flex-start;
+      }
+      .image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--image);
+        margin-right: 10px;
+      }
+      .name {
+        width: fit-content;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .username {
+        font-size: 22px;
+        font-family: poppins;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 26px;
+      }
+      .username span {
+        font-size: 20px;
+        margin-left: 5px;
+        color: rgb(6, 166, 250);
+      }
+      .handle,
+      .date {
+        font-family: poppins;
+        font-size: 13px;
+        color: var(--teritiary);
+        font-weight: 500;
+      }
+      .content {
+        font-size: 13px;
+        color: var(--secondary);
+        font-family: poppins;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content span {
+        color: rgb(6, 166, 250);
+      }
+      .date {
+        font-size: 11px;
+      }
+      .controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: var(--teritiary);
+      }
+      .controls .btn {
+        display: flex;
+        align-items: center;
+      }
+      .btn i {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+      #like {
+        display: none;
+      }
+      #like + label {
+        position: relative;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+      #like + label::before {
+        font: var(--fa-font-regular);
+        content: "\f004";
+        font-size: 16px;
+      }
+      #like:checked + label::before {
+        font: var(--fa-font-solid);
+        color: rgb(227, 0, 27);
+      }
+      .btn span {
+        font-family: poppins;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      #toggle {
+        display: none;
+      }
+      #toggle + label {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 45px;
+        height: 20px;
+        background: rgb(255, 255, 255);
+        border-radius: 3mm;
+        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2),
+          inset -1px 1px 1px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      #toggle + label::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 2px;
+        transform: translate(0, -50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgb(0, 179, 246);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        transition: 0.25s ease-in;
+      }
+      #toggle:checked + label {
+        background: rgb(91, 114, 126);
+      }
+      #toggle:checked + label::before {
+        left: calc(100% - 18px);
+      }
+      #toggle:checked ~ .tweet {
+        --back: rgb(8, 16, 38);
+        --primary: rgb(218, 226, 225);
+        --secondary: rgb(218, 226, 225);
+        --tertiary: rgb(162, 182, 196);
+        --image: rgb(139, 166, 177);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <input type="checkbox" name="" id="toggle" />
+      <label for="toggle"></label>
+      <div class="tweet">
+        <div class="head">
+          <div class="image"></div>
+          <div class="name">
+            <div class="username">
+              Profile Name
+              <span class="material-icons-round">verified</span>
+            </div>
+            <div class="handle">@username</div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="container">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos animi
+            nulla eaque a non error repellat delectus vel, eligendi harum!
+            <span>#TwitterPost</span>
+            <div class="date">25 July 2023</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="btn">
+            <i class="fa-regular fa-comment"></i>
+            <span>100k</span>
+          </div>
+          <div class="btn">
+            <i class="fa-solid fa-retweet"></i>
+            <span>10k</span>
+          </div>
+          <div class="btn">
+            <input type="checkbox" name="" id="like" />
+            <label for="like"></label>
+            <span>300</span>
+          </div>
+          <div class="btn">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
