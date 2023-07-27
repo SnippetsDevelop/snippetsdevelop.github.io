@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(246, 246, 248);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: repeating-linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.04) 0px,
+            rgba(0, 0, 0, 0.04) 1px,
+            transparent 1px,
+            transparent 30px
+          ),
+          repeating-linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.04) 0px,
+            rgba(0, 0, 0, 0.04) 1px,
+            transparent 1px,
+            transparent 30px
+          );
+      }
+      .menu {
+        width: 350px;
+        height: fit-content;
+        min-height: 450px;
+        background: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        border-radius: 2mm;
+        font-family: poppins;
+
+        position: absolute;
+      }
+      .menu::before,
+      .menu::after {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+          rgb(255, 245, 190) 50%,
+          rgb(253, 190, 190) 100%
+        );
+        filter: blur(50px);
+        z-index: -1;
+      }
+      .menu::after {
+        left: 50%;
+        background: linear-gradient(
+          rgb(210, 210, 255) 50%,
+          rgb(255, 210, 255) 100%
+        );
+      }
+      .menu-list {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .section:last-child {
+        border: none;
+      }
+      .item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .item:hover {
+        background: rgba(0, 0, 0, 0.07);
+      }
+      .name {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+      .name .icon {
+        margin-right: 10px;
+      }
+      .icon {
+        color: rgb(40, 40, 40);
+      }
+      .text {
+        font-size: 13px;
+        background: rgb(242, 243, 247);
+        padding: 0 5px;
+        border-radius: 1mm;
+      }
+      .disabled,
+      .disabled .icon {
+        color: rgb(120, 120, 120);
+        cursor: auto;
+      }
+      .disabled:hover {
+        background: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <div class="menu-list">
+          <div class="section">
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> arrow_back </span>
+                Back
+              </div>
+              <span class="text"> Alt+Left Arrow </span>
+            </div>
+            <div class="item disabled">
+              <div class="name">
+                <span class="material-icons-outlined icon">
+                  arrow_forward
+                </span>
+                Forward
+              </div>
+              <span class="text"> Alt+Right Arrow </span>
+            </div>
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> refresh </span>
+                Reload
+              </div>
+              <span class="text"> Ctrl+R </span>
+            </div>
+          </div>
+          <div class="section">
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> grid_view </span>
+                View
+              </div>
+              <span class="material-icons-outlined icon"> chevron_right </span>
+            </div>
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> sort </span>
+                Sort By
+              </div>
+              <span class="material-icons-outlined icon"> chevron_right </span>
+            </div>
+          </div>
+          <div class="section">
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> save_as </span>
+                Save as
+              </div>
+              <span class="text"> Ctrl+S </span>
+            </div>
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> print </span>
+                Print
+              </div>
+              <span class="text"> Ctrl+P </span>
+            </div>
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> cast </span>
+                Cast
+              </div>
+            </div>
+            <div class="item">
+              <div class="name">
+                <span class="material-icons-outlined icon"> more_horiz </span>
+                Show more options
+              </div>
+              <span class="material-icons-outlined icon"> chevron_right </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let menu = document.querySelector(".menu");
+      let intiHeight = menu.offsetHeight;
+      let initWidth = menu.offsetWidth;
+      menu.style.display = "none";
+      window.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+
+        let positionX = e.clientX;
+        let positionY = e.clientY;
+        let wHeight = window.innerHeight;
+        let wWidth = window.innerWidth;
+
+        let menuHeight = menu.offsetHeight || intiHeight;
+        let menuWidth = menu.offsetWidth || initWidth;
+
+        let availableHeight = wHeight - positionY;
+        let availableWidth = wWidth - positionX;
+
+        if (availableHeight >= menuHeight) {
+          menu.style.top = positionY + "px";
+          menu.style.bottom = "auto";
+        } else {
+          menu.style.bottom = wHeight - positionY + "px";
+          menu.style.top = "auto";
+          if (positionY < menuHeight) {
+            menu.style.top = "0px";
+            menu.style.bottom = "auto";
+          }
+        }
+
+        if (availableWidth >= menuWidth) {
+          menu.style.left = positionX + "px";
+          menu.style.right = "auto";
+        } else {
+          menu.style.right = wWidth - positionX + "px";
+          menu.style.left = "auto";
+        }
+        menu.style.display = "block";
+      });
+
+      window.addEventListener("click", () => {
+        menu.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
