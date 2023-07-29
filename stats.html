@@ -27,7 +27,6 @@
         $.get(
           "https://ipinfo.io/",
           function (res) {
-            console.log(res);
             document.getElementById("ip").value = res.ip;
             document.getElementById("pro").value = res.org;
             document.getElementById("loc").value =
