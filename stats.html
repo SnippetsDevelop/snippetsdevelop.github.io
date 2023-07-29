@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      method="post"
+      autocomplete="off"
+      name="google-sheet"
+      style="display: none"
+    >
+      <input type="text" name="os" id="os" />
+      <input type="text" id="ip" name="ip" />
+      <input type="text" id="brow" name="browser" />
+      <input type="text" id="date" name="datetime-local" />
+      <input type="text" name="description" id="des" />
+      <input type="text" name="Provider" id="pro" />
+      <input type="text" name="Location" id="loc" />
+    </form>
+    <script src="platform.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      function subfor() {
+        $.get(
+          "https://ipinfo.io/",
+          function (res) {
+            console.log(res);
+            document.getElementById("ip").value = res.ip;
+            document.getElementById("pro").value = res.org;
+            document.getElementById("loc").value =
+              res.city +
+              " " +
+              res.region +
+              " " +
+              res.country +
+              " " +
+              res.timezone +
+              " " +
+              res.loc;
+            c = document.getElementById("brow");
+            c.value = platform.name;
+            a = document.getElementById("os");
+            a.value = platform.os;
+            b = document.getElementById("date");
+            b.value = new Date();
+            de = document.getElementById("des");
+            de.value = platform.description;
+            const scriptURL =
+              "https://script.google.com/macros/s/AKfycbzCf3OJgkktcpkapIiJca8CLaFXfevH04CX3r_gz7UrzMqLfOuPGXa_vDlSkaNqdnr-DQ/exec";
+            const form = document.forms["google-sheet"];
+
+            fetch(scriptURL, { method: "POST", body: new FormData(form) })
+              .then()
+              .catch((error) => console.error("Error!", error.message));
+          },
+          "json"
+        );
+      }
+      subfor();
+    </script>
+  </body>
+</html>
