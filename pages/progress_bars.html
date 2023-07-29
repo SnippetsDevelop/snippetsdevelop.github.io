@@ -1365,6 +1365,268 @@
                 </div>
               </div>
             </div>
+
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(8)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(8)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 8</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(15, 18, 25)"
+                        ></div>
+                        <div class="color-code">rgb(15, 18, 25)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(16, 45, 98)"
+                        ></div>
+                        <div class="color-code">rgb(16, 45, 98)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 225, 73)"
+                        ></div>
+                        <div class="color-code">rgb(246, 225, 73)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(122, 209, 69)"
+                        ></div>
+                        <div class="color-code">rgb(122, 209, 69)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(244, 115, 116)"
+                        ></div>
+                        <div class="color-code">rgb(244, 115, 116)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/animated-progress-bar.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 8</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(15, 18, 25)"
+                        ></div>
+                        <div class="color-code">rgb(15, 18, 25)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(16, 45, 98)"
+                        ></div>
+                        <div class="color-code">rgb(16, 45, 98)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(246, 225, 73)"
+                        ></div>
+                        <div class="color-code">rgb(246, 225, 73)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(122, 209, 69)"
+                        ></div>
+                        <div class="color-code">rgb(122, 209, 69)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(244, 115, 116)"
+                        ></div>
+                        <div class="color-code">rgb(244, 115, 116)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com" />
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    &lt;link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        background: linear-gradient(45deg, rgb(15, 18, 25), rgb(16, 45, 98));
+      }
+      .progress {
+        width: 280px;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .bar {
+        width: 75px;
+        border-radius: 3mm;
+        position: relative;
+        animation: progress 1s ease-out;
+      }
+      .bar:nth-child(1) {
+        height: calc(150px * 0.5);
+        background: linear-gradient(rgb(246, 225, 73), transparent 100%);
+      }
+      .bar:nth-child(2) {
+        height: calc(150px * 0.9);
+        background: linear-gradient(rgb(122, 209, 69), transparent 100%);
+      }
+      .bar:nth-child(3) {
+        height: calc(150px * 0.4);
+        background: linear-gradient(rgb(244, 115, 116), transparent 100%);
+      }
+      .text {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        width: 100%;
+        height: fit-content;
+        transform: translate(-50%, 0);
+        color: white;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .text span {
+        font-weight: 200;
+      }
+      .bar::before {
+        position: absolute;
+        content: "";
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+      }
+      .text::before {
+        position: absolute;
+        content: "";
+        bottom: -55px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: linear-gradient(transparent 1%, rgb(255, 255, 255));
+        border-radius: 0.5mm;
+        width: 1px;
+        height: 55px;
+      }
+      @keyframes progress {
+        from {
+          height: 0;
+        }
+      }
+      .bar:hover::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 3mm;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.4) 0,
+          rgba(255, 255, 255, 0.4) 0.4mm,
+          transparent 0.4mm,
+          transparent 1.2mm
+        );
+        animation: move 5s linear infinite;
+        background-size: 200% 100%;
+      }
+      @keyframes move {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+    &lt;/style>
+
+    &lt;div class="center">
+      &lt;div class="progress">
+        &lt;div class="bar">
+          &lt;div class="text">
+            &lt;span>HTML&lt;/span>
+            50%
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="bar">
+          &lt;div class="text">
+            &lt;span>CSS&lt;/span>
+            90%
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="bar">
+          &lt;div class="text">
+            &lt;span>JS&lt;/span>
+            40%
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p class="text">Checkout the video for a more detailed explaination</p>
@@ -1400,6 +1662,15 @@
             <iframe
               src="https://www.youtube.com/embed/KdiAwTmqigI"
               title="The Progress Bar - Can you help (Him)? | HTML CSS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/UXtJlFyRIpk"
+              title="Animated Progress Indicators using HTML CSS only!"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
