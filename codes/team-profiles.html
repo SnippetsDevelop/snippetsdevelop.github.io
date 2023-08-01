@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team</title>
+    <!--Google Fonts Icons Font Awesome-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: rgb(0, 0, 0);
+        --secondary: rgb(255, 124, 10);
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .team {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: poppins;
+      }
+      .title {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .profiles {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .profile {
+        width: fit-content;
+        height: fit-content;
+        min-width: 350px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding-top: 20px;
+        margin: 20px;
+        max-height: 100px;
+        transition: 0.5s ease-in-out;
+      }
+      .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+      }
+      .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .details span {
+        font-weight: 300;
+      }
+      .card {
+        width: 320px;
+        height: 300px;
+        margin-bottom: 20px;
+        background: var(--primary);
+        box-sizing: border-box;
+        padding: 20px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        border-radius: 6mm;
+        position: relative;
+      }
+      .head {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: left;
+        margin-bottom: 5px;
+      }
+      .head img {
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 5mm;
+      }
+      .name {
+        font-size: 16px;
+        font-weight: 200;
+        width: fit-content;
+        margin-left: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 0 8px;
+        border-radius: 3mm;
+      }
+      .content {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 15px;
+        position: relative;
+      }
+      .role {
+        font-weight: 200;
+        font-size: 14px;
+      }
+      .icons {
+        backdrop-filter: blur(9px) saturate(180%);
+        -webkit-backdrop-filter: blur(9px) saturate(180%);
+        background: rgba(255, 255, 255, 0.4);
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 0 20px;
+        border-radius: 7mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .content::before {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 70%;
+        transform: translate(-50%, 0);
+        background: var(--secondary);
+        width: 60px;
+        height: 30px;
+        filter: blur(30px);
+      }
+      .icons a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.35s;
+      }
+      .icons a:hover {
+        background: white;
+        color: var(--primary);
+        border-radius: 50%;
+      }
+      .card::before {
+        position: absolute;
+        content: "location_pin";
+        font-family: "Material Icons";
+        color: var(--primary);
+        font-size: 85px;
+        top: calc(100% - 7px);
+        left: 50%;
+        transform: translate(-50%, 0) rotate(180deg);
+      }
+      .profile:hover {
+        max-height: 500px;
+      }
+      .profile:hover #picture {
+        border: 5px solid var(--primary);
+      }
+      .profile:hover .card {
+        display: flex;
+        animation: fade 0.5s ease-in-out;
+      }
+      @keyframes fade {
+        0% {
+          display: none;
+          opacity: 0;
+        }
+        1%,
+        50% {
+          display: flex;
+          opacity: 0;
+        }
+        100% {
+          display: flex;
+          opacity: 1;
+        }
+      }
+      .profile:nth-child(odd) {
+        --secondary: rgb(0, 0, 0);
+        --primary: rgb(255, 124, 10);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="team">
+        <div class="title">Our Team</div>
+        <div class="profiles">
+          <div class="profile">
+            <div class="card">
+              <div class="head">
+                <img src="../images/avatar 2.png" alt="" />
+                <div class="name">Sophia Diggs</div>
+              </div>
+              <div class="content">
+                <div class="role">Co Founder and CEO</div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+                accusamus fuga.
+              </div>
+              <div class="icons">
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href=""><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+
+            <img src="../images/avatar 2.png" alt="" id="picture" />
+            <div class="details">
+              Sophia Diggs
+              <span>Co Founder and CEO</span>
+            </div>
+          </div>
+
+          <div class="profile">
+            <div class="card">
+              <div class="head">
+                <img src="../images/avatar 3.png" alt="" />
+                <div class="name">Lana Ward</div>
+              </div>
+              <div class="content">
+                <div class="role">Content Head</div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur, harum recusandae!
+              </div>
+              <div class="icons">
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href=""><i class="fa-solid fa-envelope"></i></a>
+              </div>
+              <div class="pattern"></div>
+            </div>
+            <img src="../images/avatar 3.png" alt="" id="picture" />
+            <div class="details">
+              Lana Ward
+              <span>Content Head</span>
+            </div>
+          </div>
+
+          <div class="profile">
+            <div class="card">
+              <div class="head">
+                <img src="../images/avatar 4.png" alt="" />
+                <div class="name">Jackson Cano</div>
+              </div>
+              <div class="content">
+                <div class="role">Sales Manager</div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                magni distinctio quae.
+              </div>
+              <div class="icons">
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href=""><i class="fa-solid fa-envelope"></i></a>
+              </div>
+              <div class="pattern"></div>
+            </div>
+            <img src="../images/avatar 4.png" alt="" id="picture" />
+            <div class="details">
+              Jackson Cano
+              <span>Sales Manager</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
