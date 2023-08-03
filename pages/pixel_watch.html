@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specials| Pixel Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/symbol transparent.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../highlight/styles/vs.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <label for="nbt1" class="nbt"> </label>
+      <input type="checkbox" name="" id="nbt1" />
+      <section class="nav">
+        <iframe src="../nav.html" frameborder="0"></iframe>
+      </section>
+      <section class="main">
+        <div class="main-primary">SPECIALS > PIXEL WATCH</div>
+        <div class="main-title">Android Clock WIdget using HTML CSS and JS</div>
+        <div class="main-content">
+          <div class="main-container">
+            <p class="text">
+              we're going to explore an exciting topic that combines web
+              development with mobile app aesthetics. We'll be diving into the
+              world of creating an Pixel Watch using HTML, CSS, and JavaScript!
+            </p>
+            <div class="main-box">
+              <div class="main-box-control">
+                <button
+                  type="button"
+                  class="main-control-btn fr-btn"
+                  onclick="frontit(0)"
+                >
+                  Output
+                </button>
+                <button
+                  type="button"
+                  class="main-control-btn ba-btn"
+                  onclick="backit(0)"
+                >
+                  Code
+                </button>
+                <div class="btn-line"></div>
+              </div>
+              <div class="main-box-card">
+                <div class="main-box-front">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(249, 249, 249)"
+                        ></div>
+                        <div class="color-code">rgb(249, 249, 249)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(249, 253, 190)"
+                        ></div>
+                        <div class="color-code">rgb(249, 253, 190)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(213, 216, 185)"
+                        ></div>
+                        <div class="color-code">rgb(213, 216, 185)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(142, 145, 144)"
+                        ></div>
+                        <div class="color-code">rgb(142, 145, 144)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-design">
+                    <iframe
+                      src="../codes/pixel-watch-face.html"
+                      frameborder="0"
+                      class="src"
+                      height="100%"
+                    ></iframe>
+                  </div>
+                </div>
+                <div class="main-box-back">
+                  <div class="design-menu">
+                    <div class="design-title">Style 1</div>
+                    <div class="design-colors">
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(249, 249, 249)"
+                        ></div>
+                        <div class="color-code">rgb(249, 249, 249)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(249, 253, 190)"
+                        ></div>
+                        <div class="color-code">rgb(249, 253, 190)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(213, 216, 185)"
+                        ></div>
+                        <div class="color-code">rgb(213, 216, 185)</div>
+                      </div>
+                      <div class="color">
+                        <div
+                          class="color-icons"
+                          style="background: rgb(142, 145, 144)"
+                        ></div>
+                        <div class="color-code">rgb(142, 145, 144)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Place the code here-->
+                  <pre><code class="language-html"> 
+&lt;link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    &lt;style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(249, 249, 249);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .watch-face {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 0.6mm solid black;
+        border-radius: 50%;
+        background: black;
+        box-shadow: inset 20px 20px 20px rgba(255, 255, 255, 0.5),
+          inset -5px -5px 5px rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        position: relative;
+      }
+      .spikes {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: relative;
+      }
+      .spikes i {
+        position: absolute;
+        font-size: 11px;
+        color: rgb(249, 253, 190);
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+      }
+      .spikes i.fa-sm {
+        font-size: 9px;
+      }
+      .seconds,
+      .minutes,
+      .hours {
+        width: 2px;
+        height: 110px;
+        background: rgb(213, 216, 185);
+        border-radius: 3mm;
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 1px);
+        transform-origin: 1px 1px;
+        z-index: 1;
+        transform: rotateX(180deg) rotateY(180deg);
+        animation: rotate 60s linear infinite;
+      }
+      .minutes {
+        width: 4px;
+        background: white;
+        top: calc(50% - 2px);
+        left: calc(50% - 2px);
+        transform-origin: 2px 2px;
+        animation-duration: 3600s;
+      }
+      .hours {
+        width: 16px;
+        height: 80px;
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        transform-origin: 8px 8px;
+        background: rgb(249, 253, 190);
+        animation-duration: 43200s;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+        }
+        to {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(360deg);
+        }
+      }
+      .seconds::before {
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 6px;
+        bottom: calc(100% - 3px);
+        left: calc(50% - 3px);
+        background: rgb(213, 216, 185);
+        border-radius: 50%;
+      }
+      .assistant {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .assistant img {
+        width: 20px;
+        height: 20px;
+      }
+      .straps {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 90px;
+        width: 200px;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        z-index: -1;
+        box-sizing: border-box;
+      }
+      .straps:nth-child(1) {
+        bottom: calc(100% - 50px);
+        border-bottom: 100px solid rgb(142, 145, 144);
+      }
+      .straps:nth-child(2) {
+        top: calc(100% - 50px);
+        border-top: 100px solid rgb(142, 145, 144);
+      }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;div class="center">
+      &lt;div class="watch-face">
+        &lt;div class="straps">&lt;/div>
+        &lt;div class="straps">&lt;/div>
+        &lt;div class="spikes">&lt;/div>
+        &lt;div class="hours">&lt;/div>
+        &lt;div class="minutes">&lt;/div>
+        &lt;div class="seconds">&lt;/div>
+        &lt;div class="assistant">
+          &lt;img src="../images/assistant.svg" alt="" />
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;script>
+      let spikes = document.querySelector(".spikes");
+      let icons = [
+        "fa-solid fa-circle",
+        "fa-solid fa-bolt",
+        "fa-solid fa-circle fa-sm",
+        "fa-solid fa-square",
+        "fa-solid fa-play",
+        "fa-solid fa-diamond",
+        "fa-brands fa-google",
+        "fa-solid fa-bolt",
+        "fa-solid fa-circle fa-sm",
+        "fa-solid fa-square",
+        "fa-solid fa-play",
+        "fa-solid fa-diamond",
+      ];
+      let j = 0;
+      for (var i = 0; i< 360; i += 30) {
+        let spike = document.createElement("i");
+        spike.className = icons[j];
+        j = j + 1;
+        spike.style.transform = `rotateZ(${i}deg) translateY(-110px)`;
+        if (j == 7) {
+          spike.style.transform = `rotateZ(${i}deg) translateY(-110px) rotateY(180deg) rotateX(180deg)`;
+        }
+        spikes.appendChild(spike);
+      }
+
+      var date = new Date();
+      let secondsPoint = document.querySelector(".seconds");
+      let minutesPoint = document.querySelector(".minutes");
+      let hoursPoint = document.querySelector(".hours");
+
+      function moveClock() {
+        let secs = date.getSeconds();
+        let mins = date.getMinutes() * 60;
+        let hours = date.getHours() * 3600;
+
+        secondsPoint.style.animationDelay = "-" + secs + "s";
+        minutesPoint.style.animationDelay = "-" + mins + "s";
+        hoursPoint.style.animationDelay = "-" + hours + "s";
+      }
+      moveClock();
+    &lt;/script>
+
+                    <!--Place the code here-->
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text">Checkout the video for a more detailed explaination</p>
+        <div class="yt-videos">
+          <div class="yt-video">
+            <iframe
+              src="https://www.youtube.com/embed/bnD1BJ_dOb8"
+              title="Google Pixel Watch using HTML CSS JS"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 1 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="5536471861"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+          <div class="ad-unit2">
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+              crossorigin="anonymous"
+            ></script>
+            <!-- square 2 -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-7648686090734646"
+              data-ad-slot="6491279126"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </section>
+      <section class="ads">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648686090734646"
+          crossorigin="anonymous"
+        ></script>
+        <!-- vertical 1 -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-7648686090734646"
+          data-ad-slot="6128317041"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    </div>
+    <script>
+      var cards = document.querySelectorAll(".main-box-card");
+      var frnt = document.querySelectorAll(".fr-btn");
+      var back = document.querySelectorAll(".ba-btn");
+      var btLine = document.querySelectorAll(".btn-line");
+      function backit(i) {
+        cards[i].style.transform = "rotateY(180deg)";
+        btLine[i].style.left = "calc(100% - 100px)";
+      }
+      function frontit(i) {
+        cards[i].style.transform = "rotateY(0)";
+        btLine[i].style.left = "0";
+      }
+    </script>
+    <script src="../highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      var checkval = document.getElementById("nbt1");
+      var nav = document.querySelector(".nav");
+      function handleFrameClick(event) {
+        if (checkval.checked && event.target !== checkval) {
+          checkval.checked = false;
+          nav.style.transform = "translateX(-400px)";
+        } else if (event.target == checkval) {
+          nav.style.transform = "translateX(0px)";
+        }
+      }
+      var iframes = document.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        try {
+          iframes[i].contentWindow.document.onclick = handleFrameClick;
+        } catch {
+          console.log("error");
+        }
+      }
+
+      document.onclick = handleFrameClick;
+    </script>
+    <iframe src="../stats.html" frameborder="0" style="display: none"></iframe>
+  </body>
+</html>

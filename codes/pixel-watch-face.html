@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Watch</title>
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(249, 249, 249);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .watch-face {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 0.6mm solid black;
+        border-radius: 50%;
+        background: black;
+        box-shadow: inset 20px 20px 20px rgba(255, 255, 255, 0.5),
+          inset -5px -5px 5px rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        position: relative;
+      }
+      .spikes {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: relative;
+      }
+      .spikes i {
+        position: absolute;
+        font-size: 11px;
+        color: rgb(249, 253, 190);
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+      }
+      .spikes i.fa-sm {
+        font-size: 9px;
+      }
+      .seconds,
+      .minutes,
+      .hours {
+        width: 2px;
+        height: 110px;
+        background: rgb(213, 216, 185);
+        border-radius: 3mm;
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 1px);
+        transform-origin: 1px 1px;
+        z-index: 1;
+        transform: rotateX(180deg) rotateY(180deg);
+        animation: rotate 60s linear infinite;
+      }
+      .minutes {
+        width: 4px;
+        background: white;
+        top: calc(50% - 2px);
+        left: calc(50% - 2px);
+        transform-origin: 2px 2px;
+        animation-duration: 3600s;
+      }
+      .hours {
+        width: 16px;
+        height: 80px;
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        transform-origin: 8px 8px;
+        background: rgb(249, 253, 190);
+        animation-duration: 43200s;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+        }
+        to {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(360deg);
+        }
+      }
+      .seconds::before {
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 6px;
+        bottom: calc(100% - 3px);
+        left: calc(50% - 3px);
+        background: rgb(213, 216, 185);
+        border-radius: 50%;
+      }
+      .assistant {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .assistant img {
+        width: 20px;
+        height: 20px;
+      }
+      .straps {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 90px;
+        width: 200px;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        z-index: -1;
+        box-sizing: border-box;
+      }
+      .straps:nth-child(1) {
+        bottom: calc(100% - 50px);
+        border-bottom: 100px solid rgb(142, 145, 144);
+      }
+      .straps:nth-child(2) {
+        top: calc(100% - 50px);
+        border-top: 100px solid rgb(142, 145, 144);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="watch-face">
+        <div class="straps"></div>
+        <div class="straps"></div>
+        <div class="spikes"></div>
+        <div class="hours"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+        <div class="assistant">
+          <img src="../images/assistant.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      let spikes = document.querySelector(".spikes");
+      let icons = [
+        "fa-solid fa-circle",
+        "fa-solid fa-bolt",
+        "fa-solid fa-circle fa-sm",
+        "fa-solid fa-square",
+        "fa-solid fa-play",
+        "fa-solid fa-diamond",
+        "fa-brands fa-google",
+        "fa-solid fa-bolt",
+        "fa-solid fa-circle fa-sm",
+        "fa-solid fa-square",
+        "fa-solid fa-play",
+        "fa-solid fa-diamond",
+      ];
+      let j = 0;
+      for (var i = 0; i < 360; i += 30) {
+        let spike = document.createElement("i");
+        spike.className = icons[j];
+        j = j + 1;
+        spike.style.transform = `rotateZ(${i}deg) translateY(-110px)`;
+        if (j == 7) {
+          spike.style.transform = `rotateZ(${i}deg) translateY(-110px) rotateY(180deg) rotateX(180deg)`;
+        }
+        spikes.appendChild(spike);
+      }
+
+      var date = new Date();
+      let secondsPoint = document.querySelector(".seconds");
+      let minutesPoint = document.querySelector(".minutes");
+      let hoursPoint = document.querySelector(".hours");
+
+      function moveClock() {
+        let secs = date.getSeconds();
+        let mins = date.getMinutes() * 60;
+        let hours = date.getHours() * 3600;
+
+        secondsPoint.style.animationDelay = "-" + secs + "s";
+        minutesPoint.style.animationDelay = "-" + mins + "s";
+        hoursPoint.style.animationDelay = "-" + hours + "s";
+      }
+      moveClock();
+    </script>
+  </body>
+</html>
