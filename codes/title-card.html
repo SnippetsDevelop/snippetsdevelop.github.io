@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .title-card {
+        width: 1120px;
+        height: 480px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .title-card::before {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+      }
+      .title-card::after {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+      }
+      .dots {
+        width: 160px;
+        height: 160px;
+        background: transparent;
+        position: relative;
+      }
+      .dots::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.5) 0.5mm,
+          transparent 0.5mm,
+          transparent 1mm
+        );
+        background-size: 20px 20px;
+        background-position: center;
+        z-index: -1;
+      }
+      .dots span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        font-family: codystar;
+        font-size: 140px;
+        color: white;
+        z-index: 2;
+      }
+      .dots:not(:empty)::before {
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.5) 0.5mm,
+          transparent 0.5mm,
+          transparent 1mm
+        );
+        background-size: 20px 20px;
+        animation: 1.75s scaleDots ease-in-out var(--delay);
+      }
+      @keyframes scaleDots {
+        0% {
+          background-image: radial-gradient(
+            rgba(255, 255, 255, 1) 0.5mm,
+            transparent 0.5mm,
+            transparent 1mm
+          );
+          background-size: 20px 20px;
+        }
+        50% {
+          background-image: radial-gradient(
+            rgba(255, 255, 255, 1) 0mm,
+            transparent 0.1mm,
+            transparent 1mm
+          );
+          background-size: 200px 200px;
+        }
+        100% {
+          background-image: radial-gradient(
+            rgba(255, 255, 255, 0.5) 0.5mm,
+            transparent 0.5mm,
+            transparent 1mm
+          );
+          background-size: 20px 20px;
+        }
+      }
+      .dots:not(:empty) span {
+        animation: scaleText 1.75s ease-in var(--delay);
+      }
+      @keyframes scaleText {
+        0%,
+        80% {
+          transform: translate(-50%, -50%) scale(0);
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="center">
+      <div class="title-card">
+        <div class="dots"></div>
+        <div class="dots" style="--delay: 150ms">
+          <span>S</span>
+        </div>
+        <div class="dots" style="--delay: 300ms">
+          <span>U</span>
+        </div>
+        <div class="dots" style="--delay: 450ms">
+          <span>P</span>
+        </div>
+        <div class="dots" style="--delay: 600ms">
+          <span>E</span>
+        </div>
+        <div class="dots" style="--delay: 750ms">
+          <span>R</span>
+        </div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots" style="--delay: 800ms">
+          <span>S</span>
+        </div>
+        <div class="dots" style="--delay: 950ms">
+          <span>T</span>
+        </div>
+        <div class="dots" style="--delay: 1100ms">
+          <span>A</span>
+        </div>
+        <div class="dots" style="--delay: 1250ms">
+          <span>R</span>
+        </div>
+        <div class="dots"></div>
+      </div>
+    </div>
+  </body>
+</html>
