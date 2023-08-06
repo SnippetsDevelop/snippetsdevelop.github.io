@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title Card</title>
+    <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Noto+Serif+Vithkuqi:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -18,45 +19,27 @@
         padding: 0;
         background: black;
       }
-
       .center {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: 100vh;
+        perspective: 10000px;
       }
       .title-card {
-        width: 1120px;
+        width: 840px;
         height: 480px;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-      }
-      .title-card::before {
-        position: absolute;
-        content: "";
-        width: 50%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
-      }
-      .title-card::after {
-        position: absolute;
-        content: "";
-        width: 50%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+        transform-style: preserve-3d;
+        animation: impact linear 6s;
       }
       .dots {
-        width: 160px;
+        width: 120px;
         height: 160px;
         background: transparent;
         position: relative;
@@ -77,6 +60,24 @@
         background-position: center;
         z-index: -1;
       }
+      .title-card::before {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+      }
+      .title-card::after {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+      }
       .dots span {
         position: absolute;
         top: 50%;
@@ -86,6 +87,7 @@
         height: 100%;
         font-family: codystar;
         font-size: 140px;
+        text-align: center;
         color: white;
         z-index: 2;
       }
@@ -96,7 +98,8 @@
           transparent 1mm
         );
         background-size: 20px 20px;
-        animation: 1.75s scaleDots ease-in-out var(--delay);
+        animation: 1.25s scaleDots ease-in-out var(--delay);
+        animation-fill-mode: both;
       }
       @keyframes scaleDots {
         0% {
@@ -109,8 +112,8 @@
         }
         50% {
           background-image: radial-gradient(
-            rgba(255, 255, 255, 1) 0mm,
-            transparent 0.1mm,
+            rgba(255, 255, 255, 1) 0.5mm,
+            transparent 0.5mm,
             transparent 1mm
           );
           background-size: 200px 200px;
@@ -125,7 +128,8 @@
         }
       }
       .dots:not(:empty) span {
-        animation: scaleText 1.75s ease-in var(--delay);
+        animation: scaleText 1s ease-in var(--delay);
+        animation-fill-mode: both;
       }
       @keyframes scaleText {
         0%,
@@ -136,9 +140,89 @@
           transform: translate(-50%, -50%) scale(1);
         }
       }
+      .name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height: 150px;
+        z-index: 2;
+        animation: stomp 1.5s ease-in 2500ms;
+        animation-fill-mode: both;
+      }
+      .text {
+        font-family: "Noto Serif Vithkuqi";
+        font-weight: 900;
+        font-size: 90px;
+        background: linear-gradient(
+          45deg,
+          rgb(255, 253, 112),
+          rgb(255, 214, 53)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 3;
+        letter-spacing: 10px;
+      }
+      .name::before {
+        position: absolute;
+        content: "RAJINI";
+        width: 300px;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        font-family: "Noto Serif Vithkuqi";
+        font-weight: 900;
+        font-size: 90px;
+        text-shadow: 1px 1px orangered, 2px 2px orangered, 3px 3px orangered,
+          4px 4px orangered, 5px 5px orangered;
+        z-index: -1;
+        letter-spacing: 10px;
+      }
+      @keyframes stomp {
+        0% {
+          max-width: 73px;
+          overflow: hidden;
+          transform: translate(-50%, -50%) translateZ(9000px) rotateY(180deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        30%,
+        60% {
+          max-width: 73px;
+          overflow: hidden;
+          transform: translate(-50%, -50%) translateZ(0px) rotateY(0deg);
+        }
+        100% {
+          max-width: 1000px;
+          overflow: visible;
+          transform: translate(-50%, -50%) translateZ(0px);
+        }
+      }
+      @keyframes impact {
+        0%,
+        47% {
+          transform: scale(1.04);
+        }
+        50% {
+          transform: scale(1);
+        }
+        60% {
+          transform: translateX(0px);
+        }
+        63% {
+          transform: translateX(5px);
+        }
+        66%,
+        100% {
+          transform: translateX(0px);
+        }
+      }
     </style>
   </head>
-
   <body>
     <div class="center">
       <div class="title-card">
@@ -180,6 +264,10 @@
           <span>R</span>
         </div>
         <div class="dots"></div>
+
+        <div class="name">
+          <div class="text">RAJINI</div>
+        </div>
       </div>
     </div>
   </body>
