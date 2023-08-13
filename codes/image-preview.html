@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Preview</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgb(226, 68, 129) 25%, rgb(167, 45, 92));
+      }
+      .image-preview {
+        width: 350px;
+        height: 500px;
+        background: white;
+        border-radius: 5mm;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+          rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+          rgba(96, 25, 51, 0.607) -2px -3px 0px inset;
+        padding: 25px;
+        font-family: poppins;
+      }
+      .title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 25px;
+      }
+      .preview {
+        width: 350px;
+        height: 350px;
+        background: rgb(240, 240, 240);
+        border-radius: 5mm;
+        box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+      .preview::before {
+        position: absolute;
+        content: "image";
+        font-family: "Material Icons Outlined";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120px;
+        color: rgb(200, 200, 200);
+        z-index: 0;
+      }
+      .preview img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5mm;
+        z-index: 2;
+        display: none;
+      }
+      .load {
+        position: absolute;
+        width: 80%;
+        height: 5px;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: rgb(240, 240, 240);
+        z-index: 3;
+        border-radius: 1mm;
+        overflow: hidden;
+        visibility: hidden;
+      }
+      .load::before {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgb(226, 68, 129);
+      }
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.55);
+        color: black;
+        font-size: 24px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        z-index: 10;
+        cursor: pointer;
+        display: none;
+      }
+      .upload {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .upload input {
+        display: none;
+      }
+      .upload label {
+        width: 100%;
+        height: fit-content;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        color: white;
+        background: linear-gradient(to right, rgb(0, 0, 0), rgb(60, 60, 60));
+        padding: 10px 0;
+        border-radius: 8mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .upload label span {
+        margin-left: 5px;
+      }
+      .preview.active img {
+        filter: blur(0px) brightness(100%);
+        display: block;
+      }
+      .preview.active .close {
+        display: block;
+      }
+      .preview.active.animate img {
+        filter: blur(0px) brightness(100%);
+        animation: blur 3s ease-in;
+      }
+      @keyframes blur {
+        0%,
+        90% {
+          filter: blur(10px) brightness(60%);
+        }
+        100% {
+          filter: blur(0) brightness(100%);
+        }
+      }
+      .preview.active.animate .load {
+        animation: hide 2.8s linear;
+      }
+      .preview.active.animate .load::before {
+        width: 100%;
+        animation: progress 2.75s forwards;
+      }
+      @keyframes progress {
+        from {
+          width: 0;
+        }
+      }
+      @keyframes hide {
+        0% {
+          visibility: visible;
+        }
+        100% {
+          visibility: hidden;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="image-preview">
+        <div class="title">
+          UPLOAD <span class="material-icons-outlined">image</span>
+        </div>
+        <div class="preview">
+          <img src="" alt="" id="preview-img" />
+          <div class="load"></div>
+          <span class="material-icons close" onclick="closeit()"> close </span>
+        </div>
+        <div class="upload">
+          <input type="file" name="" id="image" accept="image/*" />
+          <label for="image"
+            >Upload Image
+            <span class="material-icons-outlined">cloud_upload</span></label
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      let image = document.getElementById("image");
+      let previewImage = document.getElementById("preview-img");
+      let preview = document.querySelector(".preview");
+
+      image.addEventListener("change", () => {
+        const file = image.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            previewImage.setAttribute("src", e.target.result);
+            preview.className = "preview active";
+            preview.classList.toggle("animate");
+            image.nextElementSibling.innerHTML =
+              'Change Image <span class="material-icons-outlined">cloud_upload</span>';
+
+            setTimeout(() => {
+              if (preview.classList.contains("animate")) {
+                preview.classList.toggle("animate");
+              }
+            }, 3000);
+          };
+
+          reader.readAsDataURL(file);
+        } else {
+          previewImage.setAttribute("src", "");
+          preview.className = "preview";
+        }
+      });
+
+      function closeit() {
+        previewImage.setAttribute("src", "");
+        image.value = "";
+        preview.className = "preview";
+        image.nextElementSibling.innerHTML =
+          'Upload Image <span class="material-icons-outlined">cloud_upload</span>';
+      }
+    </script>
+  </body>
+</html>
