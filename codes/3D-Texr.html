@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Text</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color1: rgb(2, 3, 2);
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: repeating-linear-gradient(
+            30deg,
+            rgb(25, 25, 25) 0px,
+            rgb(25, 25, 25) 2px,
+            transparent 2px,
+            transparent 35px
+          ),
+          repeating-linear-gradient(
+            -30deg,
+            rgb(25, 25, 25) 0px,
+            rgb(25, 25, 25) 2px,
+            transparent 2px,
+            transparent 35px
+          ),
+          rgb(41, 42, 45);
+        perspective: 1000px;
+      }
+      .text {
+        width: fit-content;
+        height: fit-content;
+        transform-style: preserve-3d;
+        display: flex;
+        transform: skew(60deg, 330deg) rotateX(45deg);
+      }
+      .letter {
+        width: fit-content;
+        height: fit-content;
+        transform-style: preserve-3d;
+        padding: 10px;
+        color: rgb(74, 74, 79);
+        cursor: pointer;
+      }
+      .letter span {
+        display: block;
+        font-family: poppins;
+        font-size: 120px;
+        font-weight: 800;
+        text-shadow: -1px 1px 0px var(--color1), -2px 2px 0px var(--color1),
+          -3px 3px 0px var(--color1), -4px 4px 0px var(--color1),
+          -5px 5px 0px var(--color1), -6px 6px 0px var(--color1),
+          -7px 7px 0px var(--color1), -8px 8px 0px var(--color1),
+          -9px 9px 0px var(--color1), -10px 10px 0px var(--color1),
+          -11px 11px 0px var(--color1), -12px 12px 0px var(--color1),
+          -13px 13px 1px var(--color1), -14px 14px 2px var(--color1),
+          -15px 15px 3px var(--color1);
+      }
+      .letter:hover {
+        color: rgb(255, 95, 107);
+        --color1: rgb(176, 18, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="text">
+        <div class="letter">
+          <span>3</span>
+        </div>
+        <div class="letter">
+          <span>D</span>
+        </div>
+        <div class="letter">
+          <span>T</span>
+        </div>
+        <div class="letter">
+          <span>E</span>
+        </div>
+        <div class="letter">
+          <span>X</span>
+        </div>
+        <div class="letter">
+          <span>T</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
