@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spoiler Text</title>
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+      }
+      .spoiler {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .text {
+        font-size: 60px;
+        font-family: poppins;
+        color: white;
+      }
+      .hide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        max-width: 400px;
+        transition: 0.35s;
+        overflow: hidden;
+      }
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        background: white;
+      }
+      .spoiler:hover .hide {
+        max-width: 0;
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="spoiler">
+        <div class="text">REVEALED</div>
+        <div class="hide"></div>
+      </div>
+    </div>
+    <script>
+      let hide = document.querySelector(".hide");
+      function dots() {
+        let dot = document.createElement("div");
+        dot.className = "dot";
+        dot.style.top = hide.offsetHeight * Math.random() + "px";
+        dot.style.left = hide.offsetWidth * Math.random() + "px";
+        let size = Math.random() * 0.5;
+        dot.style.height = size + "mm";
+        dot.style.width = size + "mm";
+        hide.appendChild(dot);
+      }
+      for (let i = 0; i < 1200; i++) {
+        dots();
+      }
+    </script>
+  </body>
+</html>
