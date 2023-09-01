@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop List</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(214, 104, 103);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .item {
+        width: 350px;
+        height: 60px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: white;
+        border-radius: 3mm;
+        margin: 10px 0;
+        cursor: grab;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px,
+          rgba(0, 0, 0, 0.23) 0px 3px 3px;
+        transition: margin 0.25s;
+      }
+      .name {
+        width: 100%;
+        text-align: center;
+        font-family: poppins;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .item span {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%);
+        font-size: 30px;
+        color: rgb(180, 180, 180);
+      }
+      .item.dragging {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0) scale(1.15);
+        pointer-events: none;
+        z-index: 1000;
+      }
+      .insert-animation {
+        animation: scaleit 0.1s ease-in-out;
+      }
+      @keyframes scaleit {
+        from {
+          transform: translate(-50%, 0) scale(1);
+        }
+      }
+      .item.dragging .name {
+        color: rgb(218, 83, 80);
+      }
+      .item.dragging span {
+        color: rgb(214, 104, 103);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+        <div class="item">
+          <div class="name">Item 1</div>
+          <span class="material-icons-round">drag_indicator</span>
+        </div>
+        <div class="item">
+          <div class="name">Item 2</div>
+          <span class="material-icons-round">drag_indicator</span>
+        </div>
+        <div class="item">
+          <div class="name">Item 3</div>
+          <span class="material-icons-round">drag_indicator</span>
+        </div>
+        <div class="item">
+          <div class="name">Item 4</div>
+          <span class="material-icons-round">drag_indicator</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      let isDragging = false;
+      let currentItem = null;
+      let containerOffsetY = 0;
+      let initY = 0;
+
+      const container = document.querySelector(".container");
+      container.style.width = container.offsetWidth + "px";
+      container.style.height = container.offsetHeight + "px";
+
+      document.addEventListener("mousedown", (e) => {
+        const item = e.target.closest(".item");
+        if (item) {
+          isDragging = true;
+          currentItem = item;
+          containerOffsetY = currentItem.offsetTop;
+          currentItem.classList.add("dragging");
+          document.body.style.userSelect = "none";
+          currentItem.classList.add("insert-animation");
+          currentItem.style.top = containerOffsetY + "px";
+          initY = e.clientY;
+        }
+      });
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging && currentItem) {
+          currentItem.classList.remove("insert-animation");
+          let newTop = containerOffsetY - (initY - e.clientY);
+          if (newTop < -50) {
+            newTop = -50;
+          } else if (newTop > container.offsetHeight - 30) {
+            newTop = container.offsetHeight - 30;
+          }
+          currentItem.style.top = newTop + "px";
+
+          let itemSibilings = [
+            ...document.querySelectorAll(".item:not(.dragging)"),
+          ];
+          let nextItem = itemSibilings.find((sibiling) => {
+            return (
+              e.clientY - container.getBoundingClientRect().top <=
+              sibiling.offsetTop + sibiling.offsetHeight / 2
+            );
+          });
+
+          itemSibilings.forEach((sibiling) => {
+            sibiling.style.marginTop = "10px";
+          });
+
+          if (nextItem) {
+            nextItem.style.marginTop = currentItem.offsetHeight + 20 + "px";
+          }
+          container.insertBefore(currentItem, nextItem);
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (currentItem) {
+          currentItem.classList.remove("dragging");
+          currentItem.style.top = "auto";
+          currentItem = null;
+          isDragging = false;
+
+          document.body.style.userSelect = "auto";
+        }
+
+        let itemSibilings = [
+          ...document.querySelectorAll(".item:not(.dragging)"),
+        ];
+
+        itemSibilings.forEach((sibiling) => {
+          sibiling.style.marginTop = "10px";
+        });
+      });
+    </script>
+  </body>
+</html>
