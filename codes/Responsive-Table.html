@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Table</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(rgb(23, 13, 35), rgb(72, 45, 143));
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .table {
+        width: 90%;
+        height: 90%;
+        background: rgb(245, 246, 247);
+        border-radius: 3mm;
+        box-sizing: border-box;
+        padding: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .title {
+        font-family: poppins;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .table-container {
+        border: 0.5mm solid rgb(211, 213, 214);
+        width: 100%;
+        border-radius: 3mm;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: poppins;
+        font-size: 15px;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 3mm;
+        overflow: hidden;
+      }
+      th {
+        padding: 10px 20px;
+      }
+      td {
+        padding: 20px;
+        display: block;
+        flex-grow: 1;
+        border: 0.5mm solid black;
+      }
+      tr {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="table">
+        <div class="title">Responsive Table</div>
+        <div class="head"></div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+                <th>Date</th>
+                <th>Product Name</th>
+                <th>Order Status</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>(555) 123-4567</td>
+                <td>johndoe@email.com</td>
+                <td>2023-09-06</td>
+                <td>Widget X</td>
+                <td>Shipped</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td>Jane Smith</td>
+                <td>(555) 987-6543</td>
+                <td>janesmith@email.com</td>
+                <td>2023-09-07</td>
+                <td>Gadget Y</td>
+                <td>Delivered</td>
+                <td>Retail</td>
+              </tr>
+              <tr>
+                <td>Michael Johnson</td>
+                <td>(555) 456-7890</td>
+                <td>michael@email.com</td>
+                <td>2023-09-08</td>
+                <td>Tool Z</td>
+                <td>Processing</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td>Susan Brown</td>
+                <td>(555) 789-0123</td>
+                <td>susan@email.com</td>
+                <td>2023-09-09</td>
+                <td>Appliance A</td>
+                <td>Pending</td>
+                <td>Retail</td>
+              </tr>
+              <tr>
+                <td>David Wilson</td>
+                <td>(555) 234-5678</td>
+                <td>david@email.com</td>
+                <td>2023-09-10</td>
+                <td>Accessory B</td>
+                <td>Cancelled</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td>Linda Lee</td>
+                <td>(555) 345-6789</td>
+                <td>linda@email.com</td>
+                <td>2023-09-11</td>
+                <td>Widget X</td>
+                <td>Shipped</td>
+                <td>Retail</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let table = document.querySelector("table");
+    </script>
+  </body>
+</html>
+
+<thead>
+  <tr>
+    <th>#</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Username</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>Jane</td>
+    <td>Smith</td>
+    <td>@Jane</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Michael</td>
+    <td>Johnson</td>
+    <td>@John</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Susan</td>
+    <td>Brown</td>
+    <td>@Susam</td>
+  </tr>
+</tbody>
