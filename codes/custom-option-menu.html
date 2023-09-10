@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Options Menu</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu {
+        width: 100%;
+        max-width: 550px;
+      }
+      .title {
+        width: 100%;
+        font-family: poppins;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .subtitle {
+        width: 100%;
+        font-family: poppins;
+        font-size: 14px;
+        color: rgb(120, 120, 120);
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 35px;
+      }
+      .list label {
+        padding: 13px 34px;
+        font-family: poppins;
+        font-size: 16px;
+        font-weight: 600;
+        border: 0.6mm solid black;
+        border-radius: 7mm;
+        margin: 5px;
+        cursor: pointer;
+      }
+      .list input {
+        display: none;
+      }
+      .list input:checked + label {
+        color: rgb(0, 120, 230);
+        border-color: rgb(15, 150, 255);
+        background: rgb(230, 245, 255);
+      }
+      .btn-heavy {
+        width: 75%;
+        background: black;
+        outline: none;
+        border: none;
+        font-family: poppins;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 2mm;
+        padding: 14px 0;
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      .btn-light {
+        background: none;
+        outline: none;
+        border: none;
+        display: block;
+        margin: auto;
+        font-family: poppins;
+        font-size: 15px;
+        color: rgb(120, 120, 120);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <div class="title">Who you are?</div>
+        <div class="subtitle">Select all that apply?</div>
+        <div class="list">
+          <input type="checkbox" name="role" id="opt1" />
+          <label for="opt1"> Student </label>
+          <input type="checkbox" name="role" id="opt2" />
+          <label for="opt2"> Teacher </label>
+          <input type="checkbox" name="role" id="opt3" />
+          <label for="opt3"> Parent </label>
+          <input type="checkbox" name="role" id="opt4" />
+          <label for="opt4"> Administrator </label>
+          <input type="checkbox" name="role" id="opt5" />
+          <label for="opt5"> Researcher </label>
+          <input type="checkbox" name="role" id="opt6" />
+          <label for="opt6"> Contributor </label>
+        </div>
+
+        <button type="button" class="btn-heavy">Continue</button>
+        <button type="button" class="btn-light">Skip</button>
+      </div>
+    </div>
+  </body>
+</html>
