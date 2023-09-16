@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Cube</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(234, 184, 30);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cube-container {
+        width: 160px;
+        height: 160px;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      .cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: 0.25s;
+        font-family: poppins;
+        cursor: grab;
+      }
+      .side {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        box-sizing: border-box;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        border: 0.2mm solid rgba(255, 255, 255, 0.5);
+        transform-style: preserve-3d;
+        background: black;
+        color: white;
+      }
+      .front {
+        transform: rotateY(0) translateZ(80px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(80px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(80px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(80px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(80px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(80px);
+      }
+      .cube-container::before {
+        position: absolute;
+        content: "";
+        bottom: -100px;
+        left: 50%;
+        transform: translate(-50%, 0) rotateX(45deg);
+        width: 120px;
+        height: 120px;
+        background: rgba(0, 0, 0, 0.25);
+        filter: blur(20px);
+        border-radius: 50%;
+      }
+      .logo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(
+          to right,
+          rgb(215, 228, 227),
+          rgb(234, 247, 81)
+        );
+        color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .logo span {
+        margin-right: 5px;
+      }
+      .back {
+        padding: 0;
+      }
+      .profile {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .head {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      .head img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .profile .content {
+        padding: 0 15px;
+        box-sizing: border-box;
+      }
+      .title {
+        font-size: 16px;
+      }
+      .content {
+        font-size: 7px;
+        text-align: justify;
+        color: rgb(200, 200, 200);
+      }
+      .about {
+        width: 100%;
+        height: 100%;
+      }
+      a {
+        display: block;
+        font-size: 14px;
+        background: white;
+        color: black;
+        padding: 5px 15px;
+        border-radius: 5mm;
+        text-decoration: none;
+      }
+      img {
+        width: 100%;
+      }
+      .features {
+        width: 100%;
+        height: 100%;
+      }
+      ul {
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
+      }
+      li {
+        font-size: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="cube-container">
+        <div class="cube">
+          <div class="side front">
+            <div class="logo">
+              <span class="material-icons-outlined">polymer</span>
+              Some Logo
+            </div>
+          </div>
+          <div class="side back">
+            <div class="profile">
+              <div class="head">
+                <div class="title">Someone</div>
+                <img src="../images/avatar 2.png" alt="" draggable="false" />
+              </div>
+              <div class="content">
+                Lorem ipsum dolor sit amet.
+                <br />
+                Lorem ipsum dolor sit amet.
+              </div>
+              <img src="../images/back.png" alt="" draggable="false" />
+            </div>
+          </div>
+          <div class="side left">
+            <div class="about">
+              <div class="title">About</div>
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id
+                voluptas culpa, sint harum fuga veniam nihil, aliquam
+                repudiandae rem, ullam dolore ipsum dicta doloremque rerum.
+              </div>
+            </div>
+          </div>
+          <div class="side right">
+            <a href="#">Visit Website</a>
+          </div>
+          <div class="side top">
+            <img src="../images/languages.png" alt="" draggable="false" />
+          </div>
+          <div class="side bottom">
+            <div class="features">
+              <div class="title">Features</div>
+              <ul>
+                <li>Lorem</li>
+                <li>ipsum</li>
+                <li>dolor</li>
+                <li>sit</li>
+                <li>amet</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cube = document.querySelector(".cube");
+      let isMouseDown = false;
+      let startX, startY;
+      let currentX = 0;
+      let currentY = 0;
+
+      cube.addEventListener("mousedown", (e) => {
+        isMouseDown = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        cube.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (isMouseDown) {
+          const deltaX = e.clientX - startX;
+          const deltaY = e.clientY - startY;
+
+          currentX += deltaY / 2;
+          currentY += deltaX / 2;
+          cube.style.transformOrigin = "center";
+          cube.style.transform = `rotateX(${-currentX}deg) rotateY(${currentY}deg)`;
+
+          startX = e.clientX;
+          startY = e.clientY;
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        isMouseDown = false;
+        cube.style.cursor = "grab";
+      });
+    </script>
+  </body>
+</html>
