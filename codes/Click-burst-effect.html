@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Effect</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .click-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      .spike {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform-origin: bottom;
+        width: 0;
+        height: 0;
+        background: white;
+        border-radius: 0.3mm;
+        transform: rotate(var(--angle)) translateY(var(--distance));
+      }
+      .effect .spike {
+        animation: animate 0.75s;
+      }
+      @keyframes animate {
+        0% {
+          width: 3px;
+          height: 12px;
+          opacity: 0;
+          transform: rotate(var(--angle)) translateY(0);
+        }
+        2% {
+          width: 4px;
+          height: 16px;
+          opacity: 1;
+          transform: rotate(var(--angle)) translateY(0);
+        }
+        100% {
+          width: 0px;
+          height: 0px;
+          opacity: 1;
+          transform: rotate(var(--angle)) translateY(var(--distance));
+        }
+      }
+      .btn {
+        font-size: 14px;
+        font-family: poppins;
+        font-weight: 500;
+        color: white;
+        background: none;
+        outline: none;
+        border: 0.5mm solid white;
+        border-radius: 2mm;
+        padding: 7px 35px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="click-effect">
+        <div class="spike" style="--angle: 5deg; --distance: 30px"></div>
+        <div class="spike" style="--angle: 55deg; --distance: 31px"></div>
+        <div class="spike" style="--angle: 75deg; --distance: 27px"></div>
+        <div class="spike" style="--angle: 135deg; --distance: 30px"></div>
+        <div class="spike" style="--angle: 190deg; --distance: 28px"></div>
+        <div class="spike" style="--angle: 210deg; --distance: 32px"></div>
+        <div class="spike" style="--angle: 280deg; --distance: 31px"></div>
+        <div class="spike" style="--angle: 330deg; --distance: 30px"></div>
+      </div>
+      <button type="button" class="btn">Click!</button>
+    </div>
+    <script>
+      let btn = document.querySelector(".btn");
+      let animationInProgress = false;
+      let animationId;
+      btn.addEventListener("click", (e) => {
+        const clickEffect = document.querySelector(".click-effect");
+
+        if (animationInProgress) {
+          clearTimeout(animationId);
+          clickEffect.classList.remove("effect");
+          void clickEffect.offsetWidth;
+        }
+
+        clickEffect.style.top = e.clientY + "px";
+        clickEffect.style.left = e.clientX + "px";
+        clickEffect.classList.add("effect");
+        animationInProgress = true;
+
+        animationId = setTimeout(() => {
+          clickEffect.classList.remove("effect");
+          animationInProgress = false;
+        }, 750);
+      });
+    </script>
+  </body>
+</html>
