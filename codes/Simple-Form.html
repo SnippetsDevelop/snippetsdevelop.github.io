@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Form</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .input {
+        width: 250px;
+        height: 45px;
+        border: 0.6mm solid black;
+        outline: none;
+        background: white;
+        box-sizing: border-box;
+        padding: 0 15px;
+        padding-right: 45px;
+        font-family: poppins;
+        font-size: 14px;
+        font-weight: 500;
+        transition: 0.25s;
+      }
+      .input:focus {
+        box-shadow: 5px 5px 0 black;
+      }
+      .label {
+        position: absolute;
+        top: 7px;
+        left: 15px;
+        font-size: 10px;
+        font-family: poppins;
+        font-weight: 600;
+        background: white;
+        padding: 0 3px;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s;
+      }
+      .input:focus + .label,
+      .input:not(:placeholder-shown) + .label {
+        top: -7px;
+        opacity: 1;
+        visibility: visible;
+      }
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+      .btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        height: 100%;
+        width: 45px;
+        outline: none;
+        background: white;
+        border: 0.6mm solid black;
+        cursor: pointer;
+        overflow: hidden;
+        display: none;
+      }
+      .btn::before {
+        position: absolute;
+        content: "arrow_forward";
+        font-family: "Material Icons Outlined";
+        font-size: 24px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(169, 249, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .input:valid ~ .btn {
+        display: block;
+      }
+      .load .input {
+        background: rgb(228, 228, 228);
+      }
+      .load .label,
+      .submit .label {
+        display: none;
+      }
+      .load .btn::before {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          45deg,
+          rgb(169, 249, 0) 50%,
+          black 50%,
+          black 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        content: "loop";
+        animation: rotate 1s infinite;
+        border-radius: 50%;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(-360deg);
+        }
+      }
+      .submit::before {
+        position: absolute;
+        content: "Form Submitted";
+        font-family: poppins;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(169, 249, 0);
+        background: black;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: slide 0.25s forwards;
+      }
+      @keyframes slide {
+        from {
+          width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="" id="myForm" autocomplete="off">
+        <input
+          type="email"
+          name="email"
+          class="input"
+          placeholder="Email"
+          pattern="[a-zA-Z0-9._+\-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
+          required
+        />
+
+        <span class="label">EMAIL</span>
+
+        <button
+          type="button"
+          class="btn"
+          onclick="submitAnimate(this)"
+        ></button>
+      </form>
+    </div>
+    <script>
+      function submitAnimate(button) {
+        let form = document.getElementById("myForm");
+        button.disabled = true;
+        form.classList.toggle("load");
+        setTimeout(() => {
+          form.classList.toggle("submit");
+          form.classList.toggle("load");
+
+          setTimeout(() => {
+            form.classList.toggle("submit");
+            form.submit();
+          }, 1500);
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>
