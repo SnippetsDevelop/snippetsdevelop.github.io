@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Pause</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .button {
+        width: 250px;
+        height: 250px;
+        border: 15px solid white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lines {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.1s;
+      }
+      .line {
+        width: 18px;
+        height: 120px;
+        background: white;
+        border-radius: 5mm;
+        margin: 0 25px;
+      }
+      .move .line {
+        height: 60px;
+        transition: 0.25s ease-in-out;
+      }
+      .move .line:nth-child(1) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        transform-origin: bottom;
+      }
+      .move .line:nth-child(2) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        transform-origin: top;
+      }
+      #toggle:checked + .button .move .line:nth-child(1) {
+        transform: rotate(-60deg) translateY(8px);
+        border-radius: 5mm;
+        height: 120px;
+      }
+      #toggle:checked + .button .move .line:nth-child(2) {
+        transform: rotate(60deg) translateY(-8px);
+        border-radius: 5mm;
+        height: 120px;
+      }
+      #toggle:checked + .button .move {
+        transform: translateX(21px);
+      }
+      .move {
+        transition: 0.2s ease-in;
+      }
+      #toggle {
+        display: none;
+      }
+      .button:active .lines {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <input type="checkbox" name="" id="toggle" />
+      <label for="toggle" class="button">
+        <div class="lines">
+          <div class="line"></div>
+          <div class="move">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </body>
+</html>
