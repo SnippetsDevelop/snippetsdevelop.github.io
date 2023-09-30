@@ -106,8 +106,8 @@
           void clickEffect.offsetWidth;
         }
 
-        clickEffect.style.top = e.clientY + "px";
-        clickEffect.style.left = e.clientX + "px";
+        clickEffect.style.top = e.clientY + window.scrollY + "px";
+        clickEffect.style.left = e.clientX + window.scrollX + "px";
         clickEffect.classList.add("effect");
         animationInProgress = true;
 

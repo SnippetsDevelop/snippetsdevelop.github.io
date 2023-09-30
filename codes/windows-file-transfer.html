@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows File Transfer</title>
+    <!--Google Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: url(../images/windows\ 11.jpg);
+        background-size: cover;
+        font-family: "Segoe UI";
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .file-transfer {
+        width: 420px;
+        height: fit-content;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 3mm;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .head,
+      .details {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .left,
+      .icons,
+      .controls {
+        display: flex;
+        align-items: center;
+      }
+      .head img {
+        width: 20px;
+        margin-right: 7px;
+      }
+      .title {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .icons span {
+        font-size: 14px;
+        margin: 0 10px;
+        cursor: pointer;
+        color: rgb(80, 80, 80);
+      }
+      .details {
+        margin: 20px 0;
+        padding: 0 5px;
+        box-sizing: border-box;
+      }
+      .percentage {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .controls span {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        line-height: 24px;
+        text-align: center;
+        background: rgba(100, 100, 100, 0.2);
+        margin: 0 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .progress {
+        width: calc(100% - 10px);
+        height: 10px;
+        background: rgba(100, 100, 100, 0.2);
+        margin: auto;
+        border-radius: 2mm;
+        position: relative;
+        margin-bottom: 15px;
+      }
+      .progress::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 10px;
+        border-radius: 2mm;
+        background: rgb(6, 197, 17);
+        animation: progress 10s linear infinite;
+      }
+      @keyframes progress {
+        from {
+          width: 0;
+        }
+      }
+      .note {
+        width: 100%;
+        padding: 0 5px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: rgb(80, 80, 80);
+        font-weight: 300;
+        padding-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="file-transfer">
+        <div class="head">
+          <div class="left">
+            <img src="../images/files.png" alt="" />
+            <span class="title">File Transfer in Progress</span>
+          </div>
+
+          <div class="icons">
+            <span class="material-icons-round"> remove </span>
+            <span class="material-icons-round"> check_box_outline_blank </span>
+            <span class="material-icons-round"> close </span>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="percentage"><span class="value">50%</span> Complete</div>
+          <div class="controls">
+            <span class="material-icons-round"> pause </span>
+            <span class="material-icons-round"> close </span>
+          </div>
+        </div>
+
+        <div class="progress"></div>
+        <div class="note">Estimated 20 Seconds Remaining...</div>
+      </div>
+    </div>
+
+    <script>
+      let progressText = document.querySelector(".value");
+      let progressBar = document.querySelector(".progress");
+      let pseudoElement = window.getComputedStyle(progressBar, "::before");
+      let progress = 0;
+
+      function updateProgress() {
+        if (progress < 100) {
+          progress = pseudoElement.getPropertyValue("width");
+          progress = progress.slice(0, -2);
+          progress = Number(progress) / progressBar.clientWidth;
+          progressText.textContent = Math.round(progress * 100) + "%";
+          setTimeout(updateProgress, 50);
+        }
+      }
+
+      updateProgress();
+    </script>
+  </body>
+</html>
