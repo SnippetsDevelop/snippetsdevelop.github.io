@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursor Trail Effect</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+        overflow: hidden;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: rgb(248, 90, 203);
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const dots = [];
+      const cursor = {
+        x: 0,
+        y: 0,
+      };
+
+      for (let i = 0; i < 40; i++) {
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        document.body.appendChild(dot);
+        dots.push(dot);
+      }
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.x = e.clientX;
+        cursor.y = e.clientY;
+      });
+
+      function draw() {
+        let x = cursor.x;
+        let y = cursor.y;
+
+        dots.forEach((dot, index) => {
+          const nextDot = dots[index + 1] || dots[0];
+
+          dot.style.left = x + "px";
+          dot.style.top = y + "px";
+
+          x += (nextDot.offsetLeft - dot.offsetLeft) * 0.5;
+          y += (nextDot.offsetTop - dot.offsetTop) * 0.5;
+        });
+      }
+
+      setInterval(draw, 10);
+    </script>
+  </body>
+</html>
