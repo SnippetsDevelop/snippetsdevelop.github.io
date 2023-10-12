@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Progress Bar</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(rgb(84, 84, 84), rgb(42, 42, 42));
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .progress-bar {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+      }
+      .bar {
+        width: 450px;
+        height: 28px;
+        background: rgb(42, 42, 42);
+        border-radius: 6mm;
+        box-shadow: inset -1px 2px 2px rgb(0, 0, 0),
+          1px 1px 1px rgb(120, 120, 120);
+        position: relative;
+      }
+      .bar::before {
+        position: absolute;
+        content: "";
+        background: linear-gradient(90deg, rgb(200, 5, 45), rgb(235, 250, 10));
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        top: 5px;
+        left: 5px;
+        border-radius: 6mm;
+        box-shadow: 1px 1px 1px rgb(0, 0, 0),
+          inset -1px 1px 2px rgb(180, 180, 180);
+        animation: progress 5s forwards;
+      }
+      @keyframes progress {
+        from {
+          width: 0;
+        }
+      }
+      .percent {
+        position: absolute;
+        bottom: -30px;
+        left: calc(100% - 20px);
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        line-height: 27px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Segoe UI";
+        background: rgb(255, 255, 255, 0.8);
+        color: transparent;
+        -webkit-background-clip: text;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: 0.25s;
+      }
+      .percent::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(42, 42, 42);
+        border-radius: 50%;
+        z-index: -1;
+      }
+      .bar:hover .percent {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="progress-bar">
+        <div class="bar">
+          <span class="percent">100</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
