@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendulum</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(7, 16, 27);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .pendulum {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        animation: swing 3s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+        transform-origin: 50% 0;
+      }
+      @keyframes swing {
+        0%,
+        100% {
+          transform: rotate(60deg);
+        }
+        50% {
+          transform: rotate(-60deg);
+        }
+      }
+      .stick {
+        width: 1px;
+        height: 350px;
+        background: white;
+      }
+      .ball {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: inset 0 0 10px white, inset 4px 0 12px violet,
+          inset -4px 0 12px rgb(0, 255, 255), inset 2px 0 60px violet,
+          inset -4px 0 60px rgb(0, 255, 255), 0 0 2px white, -2px 0 12px violet,
+          2px 0 12px rgb(0, 255, 255);
+
+        animation: glow 3s ease-in infinite;
+      }
+      @keyframes glow {
+        0%,
+        10%,
+        40%,
+        60%,
+        90%,
+        100% {
+          box-shadow: inset 0 0 10px white, inset 4px 0 12px violet,
+            inset -4px 0 12px rgb(0, 255, 255), inset 2px 0 60px violet,
+            inset -4px 0 60px rgb(0, 255, 255), 0 0 2px white,
+            -2px 0 12px violet, 2px 0 12px rgb(0, 255, 255);
+        }
+        25%,
+        75% {
+          box-shadow: inset 0 0 50px white, inset 20px 0 60px violet,
+            inset -20px 0 60px rgb(0, 255, 255), inset 10px 0 300px violet,
+            inset -20px 0 300px rgb(0, 255, 255), 0 0 10px white,
+            -10px 0 60px violet, 10px 0 60px rgb(0, 255, 255);
+        }
+      }
+      .center img {
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: effect 3s ease-in-out infinite;
+      }
+      @keyframes effect {
+        0%,
+        15%,
+        35%,
+        65%,
+        85%,
+        100% {
+          opacity: 0;
+        }
+        25%,
+        75% {
+          opacity: 0.3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <img src="../images/face.png" alt="" />
+      <div class="pendulum">
+        <div class="stick"></div>
+        <div class="ball"></div>
+      </div>
+    </div>
+  </body>
+</html>
