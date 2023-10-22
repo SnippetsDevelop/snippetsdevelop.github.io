@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Level Menu</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(61, 61, 69);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .menu {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .item {
+        width: fit-content;
+        position: relative;
+        font-family: poppins;
+      }
+      .item-title,
+      .title {
+        font-size: 16px;
+        color: rgb(200, 200, 200);
+        font-weight: 500;
+        position: relative;
+        cursor: pointer;
+      }
+      .item-title {
+        padding: 10px 25px;
+      }
+      .item-title::before {
+        display: none;
+        position: absolute;
+        content: "play_arrow";
+        font-family: "Material Icons Round";
+        color: white;
+        top: 25px;
+        left: 50%;
+        transform: translate(-50%, 0) rotate(-90deg);
+        font-size: 40px;
+      }
+      .submenu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 5px);
+        width: 320px;
+        height: fit-content;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 1mm;
+        padding: 5px 0;
+      }
+      .item:nth-child(-n + 2) .submenu {
+        left: 0;
+      }
+      .item:nth-child(n + 3) .submenu {
+        right: 0;
+      }
+      .submenu .title {
+        color: black;
+      }
+      .sub-item {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        margin: 15px 0;
+        cursor: pointer;
+      }
+      .sub-item:hover {
+        background: rgba(0, 0, 0, 0.08);
+      }
+      .sub-item span {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: rgb(120, 54, 227);
+      }
+      .desc {
+        font-size: 12px;
+        color: rgb(160, 160, 160);
+      }
+      .item:hover .item-title::before {
+        display: block;
+      }
+      .item:hover .submenu {
+        display: block;
+      }
+      .item:hover .item-title {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <div class="item">
+          <div class="item-title">Pricing Plan</div>
+
+          <div class="submenu">
+            <div class="sub-item">
+              <span class="material-icons-outlined">perm_identity</span>
+              <div class="details">
+                <div class="title">Personal</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">home</span>
+              <div class="details">
+                <div class="title">Family</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">business</span>
+              <div class="details">
+                <div class="title">Organization</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Features</div>
+          <div class="submenu">
+            <div class="sub-item">
+              <span class="material-icons-outlined">smart_button</span>
+              <div class="details">
+                <div class="title">User Experience</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">smartphone</span>
+              <div class="details">
+                <div class="title">New Interface</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-round">dynamic_feed</span>
+              <div class="details">
+                <div class="title">Dynamic</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">hive</span>
+              <div class="details">
+                <div class="title">Compatibility</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">About</div>
+          <div class="submenu">
+            <div class="sub-item">
+              <span class="material-icons-outlined">inventory_2</span>
+              <div class="details">
+                <div class="title">Product</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">branding_watermark</span>
+              <div class="details">
+                <div class="title">Brand</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">groups</span>
+              <div class="details">
+                <div class="title">Team</div>
+                <div class="desc">Lorem ipsum dolor sit amet.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Contact</div>
+          <div class="submenu">
+            <div class="sub-item">
+              <span class="material-icons-outlined">email</span>
+              <div class="details">
+                <div class="title">Email</div>
+                <div class="desc">Snippetsdevelop@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="sub-item">
+              <span class="material-icons-outlined">branding_watermark</span>
+              <div class="details">
+                <div class="title">Website</div>
+                <div class="desc">OurWebsite.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
