@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Hover Effect</title>
+    <!--Google FOnts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(50, 144, 248);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        width: 350px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: white;
+        font-family: poppins;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+          rgba(17, 17, 26, 0.1) 0px 16px 56px,
+          rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      }
+      .top {
+        width: 100%;
+        height: fit-content;
+      }
+      .top img {
+        width: 100%;
+      }
+      .top .title {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0px 25px;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 15px;
+      }
+      .bottom {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 0 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+      }
+      .card:hover .bottom {
+        max-height: 250px;
+      }
+      .card:not(:hover) .top .title {
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+      .bottom .time {
+        font-size: 12px;
+        color: rgb(150, 150, 150);
+        margin: 5px 0;
+        margin-bottom: 20px;
+      }
+      .bottom .desc {
+        width: 100%;
+        font-size: 13px;
+        text-align: justify;
+        line-height: 18px;
+        margin-bottom: 20px;
+      }
+      .details {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+        font-size: 12px;
+        color: rgb(150, 150, 150);
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .item span {
+        font-size: 14px;
+        margin-right: 5px;
+      }
+      .bottom button {
+        float: right;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        outline: none;
+        font-family: poppins;
+        cursor: pointer;
+      }
+      .bottom button span {
+        font-size: 20px;
+        margin-left: 5px;
+        animation: slide 1.5s infinite;
+      }
+      @keyframes slide {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="card">
+        <div class="top">
+          <img src="../images/scenery.png" alt="image" />
+          <div class="title">The Rain Forest, India</div>
+        </div>
+
+        <div class="bottom">
+          <div class="time">2 days ago</div>
+          <div class="desc">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione,
+            officia possimus explicabo neque reprehenderit, consequatur
+            voluptatem corporis incidunt labore veniam adipisci eligendi, a est
+            recusandae.
+          </div>
+          <div class="details">
+            <div class="item">
+              <span class="material-icons-round">favorite</span>
+              284
+            </div>
+            <div class="item">
+              <span class="material-icons-round">library_books</span>
+              3545
+            </div>
+          </div>
+          <button>
+            Read More
+            <span class="material-icons-round"> east </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
