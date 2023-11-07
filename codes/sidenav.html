@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Nav Bar</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(50, 144, 248);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .btn {
+        width: 40px;
+        height: 40px;
+        background: rgb(37, 38, 53);
+        outline: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn span {
+        color: white;
+        font-size: 30px;
+      }
+      .nav-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background: rgb(37, 38, 53);
+        font-family: poppins;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transform: translateX(-300px);
+        transition: 0.25s;
+      }
+      .nav-bar.open {
+        transform: translateX(0);
+      }
+      .head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border-bottom: 0.5mm solid rgb(87, 88, 109);
+      }
+      .logo {
+        font-size: 28px;
+      }
+      .list {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+      .list-title {
+        width: 100%;
+        padding: 5px 20px;
+        padding-top: 20px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .items {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .item {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      .item:hover {
+        background: rgba(100, 100, 100, 0.5);
+      }
+      .item span {
+        font-size: 20px;
+        margin-right: 5px;
+      }
+      .list:last-child {
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+      .list:last-child .item {
+        color: rgb(255, 131, 131);
+        background: rgba(100, 100, 100, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <button type="button" class="btn open">
+        <span class="material-icons-round"> menu </span>
+      </button>
+
+      <div class="nav-bar">
+        <div class="head">
+          <div class="logo">LOGO</div>
+          <button type="button" class="btn close">
+            <span class="material-icons-round"> close </span>
+          </button>
+        </div>
+
+        <div class="list">
+          <div class="list-title">ANALYTICS</div>
+          <div class="items">
+            <a href="" class="item">
+              <span class="material-icons-round"> home </span>
+              Overview
+            </a>
+
+            <a href="" class="item">
+              <span class="material-icons-round"> analytics </span>
+              Team Insights
+            </a>
+
+            <a href="" class="item">
+              <span class="material-icons-round"> show_chart </span>
+              Engagement
+            </a>
+
+            <a href="" class="item">
+              <span class="material-icons-round"> bar_chart </span>
+              Leaderboard
+            </a>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="list-title">CONTEXT</div>
+          <div class="items">
+            <a href="" class="item">
+              <span class="material-icons-round"> event </span>
+              Events
+            </a>
+            <a href="" class="item">
+              <span class="material-icons-round"> insights </span>
+              Insights
+            </a>
+            <a href="" class="item">
+              <span class="material-icons-round"> description </span>
+              Spreadsheet
+            </a>
+          </div>
+        </div>
+
+        <div class="list">
+          <a href="" class="item">
+            <span class="material-icons-round">logout</span>
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+    <script>
+      let navBar = document.querySelector(".nav-bar");
+      document.addEventListener("click", (e) => {
+        if (e.target.closest(".open") && !navBar.classList.contains("open")) {
+          navBar.classList.add("open");
+        } else {
+          navBar.classList.remove("open");
+        }
+      });
+    </script>
+  </body>
+</html>
