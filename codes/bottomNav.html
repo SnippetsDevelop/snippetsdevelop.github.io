@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bottom Nav</title>
+    <!--Google Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(245, 245, 245);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-bar {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(51, 51, 51);
+      }
+      .nav-bar input {
+        display: none;
+      }
+      .nav-bar label {
+        display: block;
+        width: fit-content;
+        padding: 7px 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .nav-bar label span {
+        font-size: 22px;
+        color: white;
+      }
+      .nav-bar label:hover span {
+        color: rgb(108, 196, 250);
+      }
+      .nav-bar input:checked + label {
+        background: black;
+      }
+      .nav-bar input:checked + label span {
+        color: rgb(108, 196, 250);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="nav-bar">
+        <input type="radio" name="nav" id="nav1" />
+        <label for="nav1">
+          <span class="material-icons-outlined">menu</span>
+        </label>
+
+        <input type="radio" name="nav" id="nav2" />
+        <label for="nav2">
+          <span class="material-icons-outlined">map</span>
+        </label>
+
+        <input type="radio" name="nav" id="nav3" />
+        <label for="nav3">
+          <span class="material-icons-outlined">hub</span>
+        </label>
+
+        <input type="radio" name="nav" id="nav4" />
+        <label for="nav4">
+          <span class="material-icons-outlined">favorite_border</span>
+        </label>
+
+        <input type="radio" name="nav" id="nav5" />
+        <label for="nav5">
+          <span class="material-icons-outlined">person</span>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
