@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Page</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+        font-family: poppins;
+        color: white;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+      }
+      .head {
+        width: 100%;
+        height: fit-content;
+        border-bottom: 0.6mm solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 15px 20px;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 600;
+      }
+      .btn {
+        width: fit-content;
+        height: fit-content;
+        padding: 8px 24px;
+        background: none;
+        outline: none;
+        border: 0.5mm solid white;
+        color: white;
+        font-family: poppins;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1mm;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .btn span {
+        font-size: 20px;
+        margin-left: 5px;
+      }
+
+      .main {
+        width: 100%;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 25px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .left,
+      .right {
+        flex-grow: 1;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px 0;
+      }
+      .left {
+        padding: 25px 100px;
+      }
+      .sub-title {
+        width: fit-content;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 15px;
+        background: rgb(60, 60, 60);
+        border-radius: 1mm;
+      }
+      .title {
+        font-size: 50px;
+        font-weight: 700;
+        margin-top: 5px;
+        margin-bottom: 70px;
+      }
+      .buttons {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .buttons .btn {
+        width: 180px;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      .buttons .btn2 {
+        width: 180px;
+        height: fit-content;
+        padding: 8px 24px;
+        border: none;
+        outline: none;
+        border-radius: 1mm;
+        background: white;
+        color: black;
+        font-family: poppins;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .right img {
+        width: 300px;
+      }
+      .cards {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .cards img {
+        width: 200px;
+        border-radius: 1mm;
+        margin: 0 5px;
+        margin-bottom: 20px;
+      }
+      @media screen and (max-width: 1000px) {
+        .btn {
+          font-size: 12px;
+        }
+        .left {
+          padding: 25px 75px;
+        }
+        .buttons .btn,
+        .buttons .btn2 {
+          font-size: 14px;
+          width: 140px;
+        }
+        .title {
+          font-size: 40px;
+        }
+        .right img {
+          width: 250px;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .main {
+          flex-wrap: wrap;
+        }
+        .right {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        .left {
+          padding: 25px;
+        }
+        .btn {
+          font-size: 10px;
+          padding: 5px 10px;
+        }
+        .buttons .btn {
+          font-size: 12px;
+          width: 120px;
+          padding: 5px 10px;
+        }
+        .buttons .btn2 {
+          font-size: 12px;
+          width: 120px;
+          padding: 7px 10px;
+        }
+        .title {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="head">
+        <div class="logo">LOGO</div>
+        <button type="button" class="btn">
+          Sign Up <span class="material-icons-round"> east </span>
+        </button>
+      </div>
+
+      <div class="main">
+        <div class="left">
+          <div class="sub-title">@Simple</div>
+          <div class="title">Responsive Design</div>
+          <div class="buttons">
+            <button type="button" class="btn">
+              Visit <span class="material-icons-round"> east </span>
+            </button>
+            <button type="button" class="btn2">Download</button>
+          </div>
+        </div>
+
+        <div class="right">
+          <img src="../images/responsive-page-image.png" alt="" />
+        </div>
+      </div>
+
+      <div class="cards">
+        <img src="../images/responsive1.png" alt="" />
+        <img src="../images/responsive2.png" alt="" />
+        <img src="../images/responsive3.png" alt="" />
+        <img src="../images/responsive4.png" alt="" />
+        <img src="../images/responsive5.png" alt="" />
+        <img src="../images/responsive6.png" alt="" />
+        <img src="../images/responsive7.png" alt="" />
+        <img src="../images/responsive8.png" alt="" />
+        <img src="../images/responsive9.png" alt="" />
+        <img src="../images/responsive10.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
