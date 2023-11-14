@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Particle Effect</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+        overflow: hidden;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        perspective: 800px;
+      }
+      .container {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        perspective: 800px;
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 400px;
+        height: 400px;
+        transform-style: preserve-3d;
+        transform-origin: center;
+        perspective: 600px;
+        transform: rotate(0);
+        animation: colors 6s infinite;
+      }
+      .particles:nth-child(even) {
+        transform: rotate(180deg);
+      }
+      @keyframes colors {
+        to {
+          filter: hue-rotate(360deg);
+        }
+      }
+      .particle {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        top: 185px;
+        left: 185px;
+        animation: move 3s infinite;
+      }
+      @keyframes move {
+        100% {
+          transform: translate3d(0, 0, -1000px);
+        }
+      }
+      .particle:nth-child(1) {
+        background: rgb(255, 222, 81);
+        box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
+        transform: translate3d(0px, 0px, 1685px);
+        animation-delay: calc(var(--delay) - 0.3s);
+      }
+      .particle:nth-child(2) {
+        background: rgb(94, 99, 254);
+        transform: translate3d(38px, 40px, 1400px);
+        animation-delay: calc(var(--delay) - 0.8s);
+      }
+      .particle:nth-child(3) {
+        background: rgb(255, 107, 108);
+        transform: translate3d(-116px, 104px, 723px);
+        animation-delay: calc(var(--delay) - 0.5s);
+      }
+      .particle:nth-child(4) {
+        background: white;
+        transform: translate3d(-200px, -100px, 1200px);
+        animation-delay: calc(var(--delay) - 0.2s);
+      }
+      .particle:nth-child(5) {
+        background: rgb(77, 170, 87);
+        transform: translate3d(380px, -344px, 1305px);
+        animation-delay: calc(var(--delay) - 1.2s);
+      }
+      .particle:nth-child(6) {
+        background: rgb(229, 240, 85);
+        transform: translate3d(241px, 125px, 684px);
+        animation-delay: calc(var(--delay) - 0.8s);
+      }
+      .particle:nth-child(7) {
+        background: rgb(254, 76, 136);
+        transform: translate3d(-50px, 400px, 300px);
+        animation-delay: calc(var(--delay) - 1s);
+      }
+      .particle:nth-child(8) {
+        background: rgb(107, 228, 255);
+        transform: translate3d(380px, -400px, 2100px);
+        animation-delay: calc(var(--delay) - 3.5s);
+      }
+      .particle:nth-child(9) {
+        background: rgb(192, 173, 248);
+        transform: translate3d(200px, 1000px, 600px);
+        animation-delay: calc(var(--delay) - 2.2s);
+      }
+      .particle:nth-child(10) {
+        background: rgb(217, 231, 203);
+        transform: translate3d(-50px, 400px, 300px);
+        animation-delay: calc(var(--delay) - 1.5s);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+        <div class="particles" style="--delay: 0s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="particles" style="--delay: 2.3s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="particles" style="--delay: 3.5s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="particles" style="--delay: 2.8s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="particles" style="--delay: 5s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <div class="particles" style="--delay: 4.3s">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
