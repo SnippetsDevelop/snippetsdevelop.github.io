@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Tags</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(245, 245, 245);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tag-box {
+        background: white;
+        width: 500px;
+        height: fit-content;
+        padding: 20px;
+        font-family: poppins;
+        border-radius: 1mm;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      }
+      .tag-wrap {
+        width: 100%;
+        height: 100%;
+        border: 0.4mm solid rgb(220, 220, 220);
+        border-radius: 1mm;
+      }
+      .tags {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .tag {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        background: rgb(235, 235, 235);
+        color: rgb(45, 45, 45);
+        font-weight: 500;
+        padding: 4px 9px;
+        border-radius: 4mm;
+        margin: 3px;
+      }
+      .tag span {
+        font-size: 16px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+      .input-box {
+        width: 100%;
+        box-sizing: border-box;
+        background: rgb(245, 245, 245);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      .input-box label {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .input-box input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        border-radius: 1mm;
+        outline: 0.4mm solid rgb(220, 220, 220);
+        border: none;
+        font-family: poppins;
+        margin-bottom: 5px;
+      }
+      .message {
+        font-size: 12px;
+        color: rgb(150, 150, 150);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="tag-box">
+        <div class="tag-wrap">
+          <div class="tags"></div>
+
+          <div class="input-box">
+            <label for="input">Add your skills</label>
+            <input
+              type="text"
+              id="input"
+              placeholder="HTML, CSS, JS..."
+              autocomplete="off"
+            />
+            <div class="message">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let colors = [
+        { back: "rgb(255,240,246)", text: "rgb(192, 75, 143)" },
+        { back: "rgb(255,241,240)", text: "rgb(203, 69, 80)" },
+        { back: "rgb(255,242,232)", text: "rgb(196, 96, 66)" },
+        { back: "rgb(255,247,230)", text: "rgb(206, 107, 36)" },
+        { back: "rgb(255,251,230)", text: "rgb(196, 144, 54)" },
+        { back: "rgb(252,255,230)", text: "rgb(117, 151, 36)" },
+        { back: "rgb(246,255,237)", text: "rgb(131, 176, 109)" },
+        { back: "rgb(230,255,251)", text: "rgb(71, 159, 161)" },
+        { back: "rgb(230,244,255)", text: "rgb(64, 121, 212)" },
+        { back: "rgb(240,245,255)", text: "rgb(93, 110, 197)" },
+        { back: "rgb(249,240,255)", text: "rgb(140, 116, 173)" },
+        { back: "rgb(255,85,0)", text: "rgb(255,255,255)" },
+        { back: "rgb(45,183,245)", text: "rgb(255,255,255)" },
+        { back: "rgb(135,208,104)", text: "rgb(255,255,255)" },
+        { back: "rgb(16,142,233)", text: "rgb(255,255,255)" },
+        { back: "rgb(22,119,255)", text: "rgb(255,255,255)" },
+        { back: "rgb(205,32,31)", text: "rgb(255,255,255)" },
+        { back: "rgb(59,89,153)", text: "rgb(255,255,255)" },
+        { back: "rgb(56,106,32)", text: "rgb(255,255,255)" },
+        { back: "rgb(30,31,37)", text: "rgb(255,255,255)" },
+      ];
+      let input = document.getElementById("input");
+      let tags = document.querySelector(".tags");
+
+      document.addEventListener("keyup", (e) => {
+        if (e.key == "Enter") {
+          if (input.value) {
+            let tag = document.createElement("div");
+
+            tag.className = "tag";
+            tag.insertAdjacentHTML("beforeend", input.value);
+
+            let close = document.createElement("span");
+            close.className = "material-icons";
+            close.innerHTML = "close";
+
+            tag.insertAdjacentElement("beforeend", close);
+
+            let colorValues = colors[Math.floor(Math.random() * colors.length)];
+
+            tag.style.color = colorValues.text;
+            tag.style.background = colorValues.back;
+
+            tags.append(tag);
+
+            close.addEventListener("click", (e) => {
+              tag.remove();
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

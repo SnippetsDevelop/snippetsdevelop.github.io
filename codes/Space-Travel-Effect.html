@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+    }
+    .center {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .stars {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .star {
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(to left, white, transparent);
+      border-radius: 1mm;
+      transform-origin: left;
+      transition: 0.25s;
+    }
+  </style>
+  <body>
+    <div class="center">
+      <div class="stars"></div>
+    </div>
+    <script>
+      let starCount = 200;
+      let stars = document.querySelector(".stars");
+
+      function updateStarPosition(star, angle, speed) {
+        // Get current position
+        let currentX = parseFloat(star.style.left);
+        let currentY = parseFloat(star.style.top);
+
+        // Calculate next position based on angle and speed
+        let nextX = currentX + Math.cos(angle) * speed;
+        let nextY = currentY - Math.sin(angle) * speed; // Negative since y-axis is inverted in the browser
+
+        // Update star position
+        star.style.left = nextX + "px";
+        star.style.top = nextY + "px";
+      }
+
+      function createNewStars() {
+        for (let i = 0; i < starCount; i++) {
+          let star = document.createElement("div");
+          star.className = "star";
+
+          // Randomly position the new star within the window
+          let topPosition = Math.round(Math.random() * window.innerHeight);
+          let leftPosition = Math.round(Math.random() * window.innerWidth);
+
+          // Set the position and add the star to the stars container
+          star.style.top = topPosition + "px";
+          star.style.left = leftPosition + "px";
+          stars.appendChild(star);
+
+          // Calculate the angle between the star and the center of the screen
+          let centerX = window.innerWidth / 2;
+          let centerY = window.innerHeight / 2;
+          let angle = Math.atan2(centerY - topPosition, leftPosition - centerX);
+          let initialRotation = (-angle * 180) / Math.PI;
+
+          // Apply initial rotation and position
+          star.style.transform = `translate(0, 0) rotate(${initialRotation}deg)`;
+        }
+      }
+
+      function draw() {
+        // Loop through each star
+        stars.childNodes.forEach((star) => {
+          // Retrieve initial rotation from the inline style
+          let initialRotation = parseFloat(
+            star.style.transform.split("rotate(")[1].split("deg)")[0]
+          );
+
+          // Convert initial rotation to radians
+          let initialAngle = (initialRotation * Math.PI) / 180;
+
+          // Update star position based on initial angle and speed (you can adjust the speed)
+          updateStarPosition(star, initialAngle, 1);
+        });
+
+        // Check if stars are moving out of the screen
+        let isOutOfScreen = Array.from(stars.childNodes).some((star) => {
+          let currentX = parseFloat(star.style.left);
+          let currentY = parseFloat(star.style.top);
+          return (
+            currentX < 0 ||
+            currentX > window.innerWidth ||
+            currentY < 0 ||
+            currentY > window.innerHeight
+          );
+        });
+
+        // If stars are out of the screen, create a new set of stars
+        if (isOutOfScreen) {
+          // Remove existing stars
+          stars.innerHTML = "";
+
+          // Create new stars
+          createNewStars();
+        }
+
+        // Request the next animation frame
+        window.requestAnimationFrame(draw);
+      }
+
+      // Initial setup
+      createNewStars();
+
+      // Start the animation loop
+      window.requestAnimationFrame(draw);
+    </script>
+  </body>
+</html>
