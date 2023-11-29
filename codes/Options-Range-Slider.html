@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Options Slider</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .wrapper {
+        width: fit-content;
+        height: fit-content;
+        padding: 20px 30px;
+        box-shadow: 0 0 20px 10px rgba(152, 116, 244, 0.6);
+        border-radius: 10mm;
+        padding-bottom: 2px;
+      }
+      .slider {
+        width: 360px;
+        height: 24px;
+        border-radius: 10mm;
+        z-index: 1;
+        border: 0.5mm solid rgb(100, 100, 100);
+        position: relative;
+      }
+      .thumb {
+        min-width: 24px;
+        width: 24px;
+        height: 24px;
+        border-radius: 5mm;
+        background: linear-gradient(
+          to right,
+          rgb(61, 36, 124),
+          rgb(152, 116, 244)
+        );
+        cursor: grab;
+        position: relative;
+      }
+      .thumb::before {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        background: white;
+        border-radius: 50%;
+      }
+      .option {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 10px;
+        transform: translate(0, -50%);
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+      }
+      .option:nth-child(2),
+      .option:nth-child(4) {
+        left: 85px;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .option:nth-child(3) {
+        left: 170px;
+      }
+      .option:nth-child(4) {
+        left: 255px;
+      }
+      .option:nth-child(5) {
+        left: 340px;
+      }
+      .texts {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-family: poppins;
+        font-size: 12px;
+        margin-top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="wrapper">
+        <div class="slider">
+          <div class="thumb" id="thumb"></div>
+
+          <span class="option"></span>
+          <span class="option"></span>
+          <span class="option"></span>
+          <span class="option"></span>
+          <span class="option"></span>
+        </div>
+        <div class="texts">
+          <span class="text">Basic</span>
+          <span class="text">Tough</span>
+          <span class="text">Expert</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      var slider = document.querySelector(".slider");
+      var thumb = document.getElementById("thumb");
+      var isDragging = false;
+      var currentPositionX = 0;
+      var maxPositionX = slider.clientWidth;
+
+      thumb.addEventListener("mousedown", startDragging);
+
+      function startDragging(event) {
+        isDragging = true;
+        changeThumbWidth(event);
+        event.preventDefault();
+      }
+
+      thumb.addEventListener("mousemove", changeThumbWidth);
+
+      document.addEventListener("mousemove", changeThumbWidth);
+
+      function changeThumbWidth(event) {
+        if (isDragging) {
+          var sliderRect = slider.getBoundingClientRect();
+
+          var positionX = event.clientX - sliderRect.left;
+
+          positionX = Math.min(Math.max(positionX, 0), maxPositionX);
+
+          currentPositionX = positionX;
+
+          thumb.style.width = positionX + "px";
+          thumb.style.cursor = "grabbing";
+          document.body.style.cursor = "grabbing";
+        }
+      }
+
+      thumb.addEventListener("mouseup", stopDragging);
+      document.addEventListener("mouseup", stopDragging);
+
+      function stopDragging() {
+        let percent = currentPositionX / maxPositionX;
+        let finalPosition = 0;
+
+        if (percent >= 0 && percent < 0.12) {
+          finalPosition = 0;
+        } else if (percent > 0.12 && percent <= 0.37) {
+          finalPosition = 0.25 * maxPositionX;
+        } else if (percent > 0.37 && percent <= 0.62) {
+          finalPosition = 0.5 * maxPositionX;
+        } else if (percent > 0.62 && percent <= 0.87) {
+          finalPosition = 0.75 * maxPositionX;
+        } else if (percent > 0.87 && percent <= 1) {
+          finalPosition = maxPositionX;
+        }
+
+        thumb.style.width = finalPosition + "px";
+
+        isDragging = false;
+        thumb.style.cursor = "grab";
+        document.body.style.cursor = "grab";
+      }
+    </script>
+  </body>
+</html>
