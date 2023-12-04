@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Menu</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu {
+        width: 420px;
+        height: 420px;
+        position: relative;
+        background: radial-gradient(
+            55% 55% at 70% 35%,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(0, 0, 0, 0) 100%
+          ),
+          rgba(255, 255, 255, 0.05);
+
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.5),
+          inset -1px -1px 1px rgba(255, 255, 255, 0.3);
+
+        overflow: hidden;
+      }
+      .menu a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+      }
+      .menu a .item {
+        width: 210px;
+        height: 210px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: -210px;
+        transform: rotate(-30deg) skew(-30deg);
+        transform-origin: 0 100%;
+      }
+      .menu a:nth-child(2) .item {
+        transform: rotate(30deg) skew(-30deg);
+      }
+      .menu a:nth-child(3) .item {
+        transform: rotate(90deg) skew(-30deg);
+      }
+      .menu a:nth-child(4) .item {
+        transform: rotate(150deg) skew(-30deg);
+      }
+      .menu a:nth-child(5) .item {
+        transform: rotate(210deg) skew(-30deg);
+      }
+      .menu a:nth-child(6) .item {
+        transform: rotate(270deg) skew(-30deg);
+      }
+      .menu a .option {
+        position: absolute;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        top: calc(50% - 30px);
+        left: calc(50% - 50px);
+        transform: rotateZ(30deg) translateY(-140px) rotateZ(-30deg);
+        text-decoration: none;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+        line-height: 20px;
+        z-index: 1;
+      }
+      .menu a .option span {
+        font-size: 35px;
+      }
+      .menu a:nth-child(2) .option {
+        transform: rotateZ(90deg) translateY(-140px) rotateZ(-90deg);
+      }
+      .menu a:nth-child(3) .option {
+        transform: rotateZ(150deg) translateY(-140px) rotateZ(-150deg);
+      }
+      .menu a:nth-child(4) .option {
+        transform: rotateZ(210deg) translateY(-140px) rotateZ(-210deg);
+      }
+      .menu a:nth-child(5) .option {
+        transform: rotateZ(270deg) translateY(-140px) rotateZ(-270deg);
+      }
+      .menu a:nth-child(6) .option {
+        transform: rotateZ(330deg) translateY(-140px) rotateZ(-330deg);
+      }
+      .menu a:hover .item {
+        background: white;
+      }
+      .menu a:hover .option {
+        color: black;
+      }
+      .menu::before {
+        position: absolute;
+        content: "menu";
+        font-family: "Material Icons";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">home</span>
+            <div class="name">Home</div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">theaters</span>
+            <div class="name">Movies</div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">music_note</span>
+            <div class="name">Music</div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">sports_soccer</span>
+            <div class="name">Sports</div>
+          </div>
+          <div class="item"></div>
+        </a>
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">newspaper</span>
+            <div class="name">News</div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="item"></div>
+          <div class="option">
+            <span class="material-icons-round">settings</span>
+            <div class="name">Settings</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
