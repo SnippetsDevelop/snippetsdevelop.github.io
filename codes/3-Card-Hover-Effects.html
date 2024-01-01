@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Hover Effects</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .card {
+        width: 350px;
+        height: 280px;
+        background: white;
+        border-radius: 2mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        position: relative;
+        overflow: hidden;
+      }
+      .card .text {
+        font-family: poppins;
+        font-size: 60px;
+        font-weight: 500;
+        z-index: 10;
+      }
+      .card span {
+        font-size: 220px;
+        z-index: 10;
+      }
+      #card2::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        bottom: -150px;
+        left: -150px;
+        background: rgb(5, 113, 220);
+        border-radius: 50%;
+        z-index: 0;
+        transition: 0.5s;
+      }
+      #card2:hover::before {
+        width: 600px;
+        height: 600px;
+      }
+      #card2:hover {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="card" id="card1">
+        <div class="text">CARD</div>
+      </div>
+      <div class="card" id="card2">
+        <span class="material-icons-round"> star_rate </span>
+      </div>
+    </div>
+  </body>
+</html>

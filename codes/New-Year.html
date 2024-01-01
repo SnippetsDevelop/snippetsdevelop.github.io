@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Year</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(12, 36, 18);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .light {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: calc(50% + 150px);
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0) scale(var(--scale));
+        transform-origin: top;
+        animation: swing ease-in-out 1.5s infinite alternate var(--delayTime);
+      }
+      .thread {
+        width: 2px;
+        flex-grow: 1;
+        background: linear-gradient(to right, white, rgb(255, 126, 156));
+      }
+      .cap {
+        width: 40px;
+        height: 25px;
+        background: linear-gradient(
+          to right,
+          gold 5%,
+          rgb(255, 255, 0) 20%,
+          rgb(255, 255, 0) 25%,
+          rgb(255, 70, 93) 100%
+        );
+        border-top-right-radius: 2mm;
+        border-top-left-radius: 2mm;
+        position: relative;
+      }
+      .cap::before {
+        position: absolute;
+        content: "";
+        top: 95%;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(
+          to right,
+          gold 5%,
+          rgb(255, 255, 0) 20%,
+          rgb(255, 255, 0) 25%,
+          rgb(255, 70, 93) 100%
+        );
+      }
+      .ball {
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(to right, rgb(255, 140, 0), rgb(255, 0, 0));
+        border-radius: 50%;
+        position: relative;
+      }
+      .ball::before {
+        position: absolute;
+        content: "";
+        width: 45px;
+        height: 45px;
+        top: 40%;
+        left: 15%;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        filter: blur(15px);
+      }
+      #light2 {
+        height: 500px;
+        left: 12%;
+        filter: blur(5px);
+      }
+      #light2 .ball {
+        background: linear-gradient(
+          to right,
+          rgb(212, 0, 255),
+          rgb(157, 0, 255)
+        );
+      }
+      #light3 {
+        height: 700px;
+        left: 90%;
+        filter: blur(10px);
+      }
+      #light3 .ball {
+        background: linear-gradient(
+          to right,
+          rgb(255, 255, 0),
+          rgb(255, 0, 255)
+        );
+      }
+      #light4 {
+        left: 70%;
+        filter: blur(15px);
+      }
+      #light4 .ball {
+        background: linear-gradient(to right, aqua, darkblue);
+      }
+      @keyframes swing {
+        from {
+          transform: translate(-50%, 0) rotate(1deg) scale(var(--scale));
+        }
+        to {
+          transform: translate(-50%, 0) rotate(-1deg) scale(var(--scale));
+        }
+      }
+      .card {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: block;
+        background: rgb(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content {
+        width: 320px;
+        height: fit-content;
+        color: white;
+        z-index: 10;
+      }
+      .top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 24px;
+        font-family: poppins;
+        font-weight: 300;
+      }
+      .mid,
+      .bottom {
+        font-size: 180px;
+        line-height: 200px;
+        font-family: "Great Vibes";
+        font-weight: 600;
+      }
+      .snow {
+        position: absolute;
+        top: -20px;
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        animation: fall linear var(--speed) infinite var(--delay);
+      }
+      .snow.back {
+        filter: blur(5px);
+        z-index: -1;
+      }
+      @keyframes fall {
+        to {
+          top: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="main">
+        <div class="light" style="--scale: 1; --delayTime: 0s">
+          <div class="thread"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
+        <div class="light" id="light2" style="--scale: 0.65; --delayTime: 0.2s">
+          <div class="thread"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
+        <div class="light" id="light3" style="--scale: 0.55; --delayTime: 0.5s">
+          <div class="thread"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
+        <div class="light" id="light4" style="--scale: 0.35; --delayTime: 0.7s">
+          <div class="thread"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
+
+        <div class="card">
+          <div class="content">
+            <div class="top">HAPPY</div>
+            <div class="mid">New</div>
+            <div class="bottom">Year</div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        let main = document.querySelector(".main");
+
+        for (let i = 0; i < 40; i++) {
+          let snow = document.createElement("div");
+          snow.className = "snow";
+          snow.style.left =
+            Math.floor(Math.random() * window.innerWidth) + "px";
+          snow.style.setProperty("--delay", Math.random() * 5 + "s");
+          snow.style.setProperty(
+            "--speed",
+            Math.floor(Math.random() * 2) + 6 + "s"
+          );
+
+          main.append(snow);
+        }
+
+        for (let i = 0; i < 40; i++) {
+          let snow = document.createElement("div");
+          snow.className = "snow back";
+          snow.style.left =
+            Math.floor(Math.random() * window.innerWidth) + "px";
+          snow.style.setProperty("--delay", Math.random() * 5 + "s");
+          snow.style.setProperty(
+            "--speed",
+            Math.floor(Math.random() * 3) + 6 + "s"
+          );
+
+          main.append(snow);
+        }
+      </script>
+    </div>
+  </body>
+</html>
