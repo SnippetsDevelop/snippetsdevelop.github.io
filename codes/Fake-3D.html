@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake 3D</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .layers {
+        width: 200%;
+        height: 100%;
+        display: flex;
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 0.8s;
+      }
+      .layer {
+        width: 100vw;
+        height: 100%;
+        background: rgb(255, 239, 219);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .container {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        margin-top: 75px;
+        overflow: hidden;
+      }
+      .can {
+        width: 200px;
+        position: relative;
+      }
+      .can img {
+        width: 200px;
+      }
+      .wrapper {
+        position: absolute;
+        width: fit-content;
+        height: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -53%);
+        mix-blend-mode: multiply;
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+      }
+      .wrapper img {
+        height: 100%;
+      }
+      .layer label {
+        display: block;
+        font-family: poppins;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 0.5mm solid black;
+        border-radius: 10mm;
+        cursor: pointer;
+        margin-top: 75px;
+      }
+      #toggle {
+        display: none;
+      }
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: poppins;
+        font-size: 175px;
+        font-weight: 500;
+        color: rgb(255, 213, 159);
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+      }
+      .fruits {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+      }
+      .fruits img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+      }
+      .layer:nth-child(1) .fruits img:nth-child(1) {
+        width: 125px;
+        transform: translate(calc(-50% - 225px), calc(-50% - 150px));
+      }
+      .layer:nth-child(1) .fruits img:nth-child(2) {
+        width: 180px;
+        transform: translate(calc(-50% + 275px), calc(-50% - 50px));
+      }
+      .layer:nth-child(1) .fruits img:nth-child(3) {
+        width: 250px;
+        transform: translate(calc(-50% - 175px), calc(-50% + 115px));
+      }
+      .layer:nth-child(2) {
+        background: rgb(229, 254, 193);
+      }
+      .layer:nth-child(2) .text {
+        color: rgb(181, 235, 115);
+      }
+      .layer:nth-child(2) .fruits img:nth-child(1) {
+        width: 75px;
+        transform: translate(calc(-50% + 180px), calc(-50% + 90px));
+      }
+      .layer:nth-child(2) .fruits img:nth-child(2) {
+        width: 275px;
+        transform: translate(calc(-50% + 225px), calc(-50% - 125px));
+      }
+      .layer:nth-child(2) .fruits img:nth-child(3) {
+        width: 200px;
+        transform: translate(calc(-50% - 200px), calc(-50% + 50px));
+      }
+      #toggle:checked ~ .main .layers .layer:nth-child(1) .container .wrapper {
+        left: -50%;
+      }
+      #toggle:checked ~ .main .layers .layer:nth-child(1) .text {
+        left: 150%;
+      }
+      #toggle:checked ~ .main .layers .layer:nth-child(1) .fruits img {
+        transform: translate(-100%, -50%);
+      }
+      #toggle:checked ~ .main .layers .layer:nth-child(1) .fruits {
+        left: 125%;
+      }
+
+      #toggle:not(:checked)
+        ~ .main
+        .layers
+        .layer:nth-child(2)
+        .container
+        .wrapper {
+        left: 150%;
+      }
+      #toggle:not(:checked) ~ .main .layers .layer:nth-child(2) .text {
+        left: -50%;
+      }
+      #toggle:not(:checked) ~ .main .layers .layer:nth-child(2) .fruits img {
+        transform: translate(-100%, -50%);
+      }
+      #toggle:not(:checked) ~ .main .layers .layer:nth-child(2) .fruits {
+        left: 0;
+      }
+      #toggle:checked ~ .main .layers {
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <input type="checkbox" name="" id="toggle" />
+
+      <div class="main">
+        <div class="layers">
+          <div class="layer">
+            <div class="text">Orange</div>
+
+            <div class="container">
+              <div class="can">
+                <img src="../images/can 2.png" alt="" />
+              </div>
+
+              <div class="wrapper">
+                <img src="../images/Contents.png" alt="" />
+              </div>
+            </div>
+
+            <div class="fruits">
+              <img src="../images/orange-3.png" alt="" />
+              <img src="../images/orange-2.png" alt="" />
+              <img src="../images/orange-1.png" alt="" />
+            </div>
+
+            <label for="toggle">Click to Slide</label>
+          </div>
+
+          <div class="layer">
+            <div class="text">Pineapple</div>
+
+            <div class="container">
+              <div class="can">
+                <img src="../images/can 2.png" alt="" />
+              </div>
+
+              <div class="wrapper">
+                <img src="../images/Contents-2.png" alt="" />
+              </div>
+            </div>
+
+            <div class="fruits">
+              <img src="../images/pineapple-3.png" alt="" />
+              <img src="../images/pineapple-2.png" alt="" />
+              <img src="../images/pineapple-1.png" alt="" />
+            </div>
+
+            <label for="toggle">Click to Slide</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
