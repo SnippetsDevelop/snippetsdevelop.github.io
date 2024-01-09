@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Hover Effects</title>
+    <!--Google Fonts and Icons-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
       rel="stylesheet"
@@ -20,7 +21,7 @@
         height: 100vh;
         margin: 0;
         padding: 0;
-        background: black;
+        background: rgb(29, 29, 39);
       }
       .center {
         width: 100%;
@@ -30,8 +31,8 @@
         justify-content: space-evenly;
       }
       .card {
-        width: 350px;
-        height: 280px;
+        width: 220px;
+        height: 310px;
         background: white;
         border-radius: 2mm;
         display: flex;
@@ -39,19 +40,24 @@
         justify-content: center;
         color: black;
         position: relative;
-        overflow: hidden;
+        transition: 0.5s;
       }
-      .card .text {
+      .text {
         font-family: poppins;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: 500;
-        z-index: 10;
       }
       .card span {
-        font-size: 220px;
-        z-index: 10;
+        font-size: 140px;
       }
-      #card2::before {
+      #card1:hover {
+        outline: 5mm solid rgb(5, 113, 220);
+      }
+      #card2:hover {
+        box-shadow: 10px 10px 0 rgb(5, 113, 220), 20px 20px 0 rgb(4, 75, 146),
+          30px 30px 0 rgb(3, 45, 87);
+      }
+      #card3::before {
         position: absolute;
         content: "";
         width: 0;
@@ -60,15 +66,36 @@
         left: -150px;
         background: rgb(5, 113, 220);
         border-radius: 50%;
-        z-index: 0;
         transition: 0.5s;
       }
-      #card2:hover::before {
+      #card3 span {
+        z-index: 10;
+      }
+      #card3:hover span {
+        color: white;
+      }
+      #card3 {
+        overflow: hidden;
+      }
+      #card3:hover::before {
         width: 600px;
         height: 600px;
       }
-      #card2:hover {
-        color: white;
+      #card4::before {
+        position: absolute;
+        content: "";
+        top: 10px;
+        left: 10px;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        outline: 0.5mm solid transparent;
+        border-radius: 2mm;
+        z-index: -1;
+        transition: 0.5s;
+      }
+      #card4:hover::before {
+        outline: 0.5mm solid white;
       }
     </style>
   </head>
@@ -78,7 +105,13 @@
         <div class="text">CARD</div>
       </div>
       <div class="card" id="card2">
-        <span class="material-icons-round"> star_rate </span>
+        <span class="material-icons">rocket_launch</span>
+      </div>
+      <div class="card" id="card3">
+        <span class="material-icons">star_rate</span>
+      </div>
+      <div class="card" id="card4">
+        <span class="material-icons">favorite</span>
       </div>
     </div>
   </body>
