@@ -132,6 +132,14 @@
         align-items: center;
         justify-content: center;
       }
+
+      /*CSS Code for responsiveness*/
+      @media screen and (max-width: 800px) {
+        .left {
+          position: relative;
+          width: 100vw;
+        }
+      }
     </style>
   </head>
   <body>
@@ -207,6 +215,24 @@
           rotateCards();
         }
       });
+
+      //Code for responsiveness
+
+      function adjust() {
+        let windowWidth = window.innerWidth;
+        let left = document.querySelector(".left");
+        left.remove();
+        if (windowWidth < 800) {
+          stackArea.insertAdjacentElement("beforebegin", left);
+        } else {
+          stackArea.insertAdjacentElement("afterbegin", left);
+        }
+      }
+      adjust();
+
+      //detect Resize
+
+      window.addEventListener("resize", adjust);
     </script>
   </body>
 </html>
