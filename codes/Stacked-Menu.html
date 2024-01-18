@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacked Menu</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(205, 219, 238);
+        overflow: hidden;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      #toggle {
+        display: none;
+      }
+      .toggle-btn,
+      .toggle-btn2 {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .toggle-btn span {
+        font-size: 40px;
+        color: rgb(109, 153, 214);
+      }
+      .page {
+        width: 100%;
+        height: 100%;
+        background: rgb(86, 55, 97);
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: poppins;
+        color: rgb(253, 157, 148);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: 0.3s;
+      }
+      .head {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-family: 500;
+      }
+      .toggle-btn2 span {
+        font-size: 40px;
+      }
+      .title {
+        margin-left: 5px;
+        transition: 0.25s;
+      }
+      .content {
+        flex-grow: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-out;
+      }
+      .content .text {
+        width: 500px;
+        height: fit-content;
+        font-size: 18px;
+        text-align: justify;
+      }
+      #toggle:checked ~ .page {
+        transform: translate(15%, 10%);
+        border-radius: 3mm;
+        left: 0 !important;
+      }
+      #toggle:checked ~ .page .head .toggle-btn2 {
+        opacity: 0;
+        z-index: -1;
+      }
+      #toggle:checked ~ .page .head .title {
+        transform: translateX(-40px);
+      }
+      #toggle:checked ~ .page .content {
+        opacity: 0;
+      }
+      .toggle-btn2 {
+        transition: 0.2s ease-out;
+      }
+      #toggle:checked ~ #page2 {
+        transform: translate(30%, 20%);
+        border-radius: 3mm;
+        left: 0 !important;
+      }
+      #toggle:checked ~ #page3 {
+        transform: translate(45%, 30%);
+        border-radius: 3mm;
+        left: 0 !important;
+      }
+      #toggle:checked ~ #page4 {
+        transform: translate(60%, 40%);
+        border-radius: 3mm;
+        left: 0 !important;
+      }
+      #page2 {
+        background: rgb(167, 66, 92);
+        color: rgb(255, 233, 146);
+      }
+      #page3 {
+        background: rgb(243, 130, 95);
+        color: rgb(167, 66, 92);
+      }
+      #page4 {
+        background: rgb(255, 233, 146);
+        color: rgb(167, 66, 92);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <input type="checkbox" name="" id="toggle" />
+
+        <label for="toggle" class="toggle-btn">
+          <span class="material-icons-round"> close </span>
+        </label>
+
+        <div class="page" id="page1">
+          <div class="head">
+            <label for="toggle" class="toggle-btn2">
+              <span class="material-icons-round"> menu </span>
+            </label>
+
+            <div class="title">CONTACT</div>
+          </div>
+
+          <div class="content">
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              neque repudiandae officia hic, qui voluptates pariatur non
+              excepturi modi laborum. Voluptates, enim! Reprehenderit
+              voluptatibus vitae perferendis cumque accusamus nesciunt impedit
+              et itaque ipsa repellat quia assumenda repellendus placeat, odit
+              accusantium dolores, sunt quisquam! Error, cumque nisi? Ducimus,
+              magni? Accusamus, est.
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="page2">
+          <div class="head">
+            <label for="toggle" class="toggle-btn2">
+              <span class="material-icons-round"> menu </span>
+            </label>
+
+            <div class="title">ABOUT</div>
+          </div>
+
+          <div class="content">
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              neque repudiandae officia hic, qui voluptates pariatur non
+              excepturi modi laborum. Voluptates, enim! Reprehenderit
+              voluptatibus vitae perferendis cumque accusamus nesciunt impedit
+              et itaque ipsa repellat quia assumenda repellendus placeat, odit
+              accusantium dolores, sunt quisquam! Error, cumque nisi? Ducimus,
+              magni? Accusamus, est.
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="page3">
+          <div class="head">
+            <label for="toggle" class="toggle-btn2">
+              <span class="material-icons-round"> menu </span>
+            </label>
+
+            <div class="title">TEAM</div>
+          </div>
+
+          <div class="content">
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              neque repudiandae officia hic, qui voluptates pariatur non
+              excepturi modi laborum. Voluptates, enim! Reprehenderit
+              voluptatibus vitae perferendis cumque accusamus nesciunt impedit
+              et itaque ipsa repellat quia assumenda repellendus placeat, odit
+              accusantium dolores, sunt quisquam! Error, cumque nisi? Ducimus,
+              magni? Accusamus, est.
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="page4">
+          <div class="head">
+            <label for="toggle" class="toggle-btn2">
+              <span class="material-icons-round"> menu </span>
+            </label>
+
+            <div class="title">PROJECTS</div>
+          </div>
+
+          <div class="content">
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              neque repudiandae officia hic, qui voluptates pariatur non
+              excepturi modi laborum. Voluptates, enim! Reprehenderit
+              voluptatibus vitae perferendis cumque accusamus nesciunt impedit
+              et itaque ipsa repellat quia assumenda repellendus placeat, odit
+              accusantium dolores, sunt quisquam! Error, cumque nisi? Ducimus,
+              magni? Accusamus, est.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let pages = document.querySelectorAll(".page");
+      let toggle = document.getElementById("toggle");
+
+      pages.forEach((page, index) => {
+        page.addEventListener("click", () => {
+          if (toggle.checked) {
+            for (var i = 0; i < pages.length; i++) {
+              pages[i].style.left = "0";
+            }
+
+            for (var i = index + 1; i < pages.length; i++) {
+              pages[i].style.left = "100vw";
+            }
+
+            toggle.checked = false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
