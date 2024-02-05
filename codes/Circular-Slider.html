@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Slider</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(235, 235, 235);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slider {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        user-select: none;
+      }
+      .knob {
+        width: 220px;
+        height: 220px;
+        background: rgb(222, 222, 222);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .knob .rotator {
+        width: 180px;
+        height: 180px;
+        background: rgb(235, 235, 235);
+        border-radius: 50%;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), inset 1px 2px 1px white,
+          2px -1px 1px rgba(0, 0, 0, 0.2), -1px 0px 1px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .knob .text {
+        width: 40px;
+        height: 40px;
+        margin: 0 15px;
+        font-family: poppins;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(57, 55, 53);
+        border: 0.3mm solid rgba(57, 55, 53);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pointer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: calc(50% - 10px);
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transform-origin: 110px 10px;
+        transform: rotate(-45deg);
+      }
+      .pointer span {
+        font-size: 60px;
+        transform: rotate(180deg) translateX(15px);
+      }
+      circle {
+        fill: none;
+      }
+      circle:nth-child(1) {
+        stroke: rgba(0, 0, 0, 0.7);
+        stroke-width: 15px;
+        stroke-dasharray: 660;
+        transform-origin: center;
+        transform: rotate(135deg);
+        stroke-linecap: round;
+      }
+      circle:nth-child(2) {
+        stroke: rgb(2, 117, 232);
+        stroke-width: 15px;
+        stroke-dasharray: 880;
+        stroke-dashoffset: calc(880 - (660 * 0) / 100);
+        transform-origin: center;
+        transform: rotate(135deg);
+        stroke-linecap: round;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="slider">
+        <div class="knob">
+          <div class="rotator">
+            <div class="text">0</div>
+          </div>
+          <div class="pointer">
+            <span class="material-icons"> play_arrow </span>
+          </div>
+        </div>
+
+        <svg class="progress-bar" width="300" height="300">
+          <circle class="progress-circle" cx="150" cy="150" r="140"></circle>
+          <circle
+            id="circle2"
+            class="progress-circle"
+            cx="150"
+            cy="150"
+            r="140"
+            style="
+              stroke: url(#gradient);
+              stroke-width: 16px;
+              stroke-linecap: round;
+            "
+          ></circle>
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color: red" />
+              <stop offset="50%" style="stop-color: orange" />
+              <stop offset="100%" style="stop-color: rgb(29, 209, 94)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      let knob = document.querySelector(".knob");
+      let circle = document.getElementById("circle2");
+      let pointer = document.querySelector(".pointer");
+      let text = document.querySelector(".text");
+
+      let isRotating = false;
+
+      document.addEventListener("mousedown", (e) => {
+        if (e.target.closest(".knob")) {
+          isRotating = true;
+        }
+      });
+
+      const rotateKnob = (e) => {
+        if (isRotating) {
+          let knobX = knob.getBoundingClientRect().left + knob.clientWidth / 2;
+          let knobY = knob.getBoundingClientRect().top + knob.clientHeight / 2;
+
+          let deltaX = e.clientX - knobX;
+          let deltaY = e.clientY - knobY;
+
+          let angleRad = Math.atan2(deltaY, deltaX);
+          let angleDeg = (angleRad * 180) / Math.PI;
+
+          let rotationAngle = (angleDeg - 135 + 360) % 360;
+
+          if (rotationAngle <= 270) {
+            pointer.style.transform = `rotate(${rotationAngle - 45}deg)`;
+
+            let progressPercent = rotationAngle / 270;
+
+            circle.style.strokeDashoffset = `${880 - 660 * progressPercent}`;
+
+            text.innerHTML = `${Math.round(progressPercent * 100)}`;
+          }
+        }
+      };
+
+      document.addEventListener("mousemove", rotateKnob);
+
+      document.addEventListener("mouseup", () => {
+        isRotating = false;
+      });
+    </script>
+  </body>
+</html>
