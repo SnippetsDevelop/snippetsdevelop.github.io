@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertical Carousel</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: url(../images/universe.png);
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .center {
+        width: 100%;
+      }
+      .top {
+        width: 100%;
+        height: 100vh;
+        font-family: poppins;
+        font-size: 100px;
+        color: white;
+        text-shadow: 3px 3px rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+      .left {
+        flex-basis: 50%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        z-index: 10;
+      }
+      .left-item {
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 0 60px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .title {
+        font-size: 110px;
+        font-family: poppins;
+        font-weight: 600;
+        color: white;
+      }
+      .text {
+        font-size: 18px;
+        font-family: poppins;
+        font-weight: 300;
+        color: white;
+      }
+      .right {
+        position: sticky;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        flex-basis: 50%;
+      }
+      .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: 0.25s;
+        transform: scale(0.3);
+      }
+      .item.active {
+        transform: scale(1);
+        opacity: 1;
+      }
+      .item img {
+        width: 350px;
+      }
+      .item button {
+        background: white;
+        padding: 15px 40px;
+        font-family: poppins;
+        font-size: 16px;
+        font-weight: 600;
+        color: black;
+        outline: none;
+        border: none;
+        border-radius: 7mm;
+        margin-top: 50px;
+      }
+      .item::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        backdrop-filter: blur(6px) saturate(200%);
+        -webkit-backdrop-filter: blur(6px) saturate(200%);
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="top">Solar System</div>
+      <div class="carousel">
+        <div class="left">
+          <div class="left-item">
+            <div class="title">Sun</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Moon</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Earth</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Mercury</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Venus</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Mars</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Jupiter</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Saturn</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Uranus</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+
+          <div class="left-item">
+            <div class="title">Neptune</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+              quisquam eaque, laboriosam expedita perferendis facilis esse
+              deleniti qui voluptas! Nesciunt!
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="item active">
+            <img src="../images/sun-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/moon-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/earth-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/mercury-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/venus-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/mars-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/jupiter-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/saturn-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/uranus-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+
+          <div class="item">
+            <img src="../images/neptune-image.png" alt="" />
+            <button type="button">View More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let items = document.querySelectorAll(".item");
+      let carousel = document.querySelector(".carousel");
+
+      document.addEventListener("scroll", () => {
+        let proportion =
+          carousel.getBoundingClientRect().top / window.innerHeight;
+
+        let index = Math.ceil(-1 * (proportion + 0.5));
+
+        items.forEach((item, i) => {
+          item.className = "item";
+          if (i == index) {
+            item.className = "item active";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
