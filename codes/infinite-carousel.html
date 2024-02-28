@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Slider</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+      }
+      .title {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        color: white;
+        font-family: poppins;
+        font-size: 100px;
+        font-weight: 600;
+      }
+      .slider {
+        width: 100%;
+        height: fit-content;
+        overflow: hidden;
+      }
+      .items {
+        width: fit-content;
+        display: flex;
+        animation: slide 50s linear infinite;
+      }
+      .item {
+        width: 350px;
+        border-radius: 5mm;
+        margin: 10px;
+      }
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="title">INFINITE CAROUSEL</div>
+      <div class="slider">
+        <div class="items">
+          <img src="../images/infinite-1.png" alt="" class="item" />
+          <img src="../images/infinite-2.png" alt="" class="item" />
+          <img src="../images/infinite-3.png" alt="" class="item" />
+          <img src="../images/infinite-4.png" alt="" class="item" />
+          <img src="../images/infinite-5.png" alt="" class="item" />
+          <img src="../images/infinite-6.png" alt="" class="item" />
+          <img src="../images/infinite-7.png" alt="" class="item" />
+
+          <img src="../images/infinite-1.png" alt="" class="item" />
+          <img src="../images/infinite-2.png" alt="" class="item" />
+          <img src="../images/infinite-3.png" alt="" class="item" />
+          <img src="../images/infinite-4.png" alt="" class="item" />
+          <img src="../images/infinite-5.png" alt="" class="item" />
+          <img src="../images/infinite-6.png" alt="" class="item" />
+          <img src="../images/infinite-7.png" alt="" class="item" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
