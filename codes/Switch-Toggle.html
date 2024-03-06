@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Toggle</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(237, 236, 237);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #toggle {
+        display: none;
+      }
+      .switch {
+        width: fit-content;
+        height: fit-content;
+        padding: 5px;
+        background: linear-gradient(rgb(211, 210, 212), rgb(245, 244, 246));
+        box-shadow: inset 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 2mm;
+        display: flex;
+        perspective: 300px;
+        position: relative;
+      }
+      .mode {
+        width: 100px;
+        height: 60px;
+        background: linear-gradient(rgb(245, 244, 246), rgb(204, 201, 202));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.25s transform;
+      }
+      .mode:nth-child(1) {
+        border-radius: 2mm 0 0 2mm;
+        transform-origin: right;
+      }
+      .mode:nth-child(2) {
+        border-radius: 0 2mm 2mm 0;
+        transform-origin: left;
+      }
+      .text {
+        font-family: poppins;
+        font-size: 27px;
+        font-weight: 800;
+        color: transparent;
+        background-color: rgb(82, 82, 82);
+        background-clip: text;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+      }
+      #toggle:not(:checked) ~ .switch .mode:nth-child(1) {
+        transform: rotateY(50deg);
+        background: rgb(238, 237, 239);
+        box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.2);
+      }
+      #toggle:checked ~ .switch .mode:nth-child(2) {
+        transform: rotateY(-50deg);
+        background: rgb(238, 237, 239);
+        box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.2);
+      }
+      #toggle:not(:checked) ~ .switch .mode:nth-child(1) .text {
+        background-color: rgb(255, 153, 0);
+      }
+      #toggle:checked ~ .switch .mode:nth-child(2) .text {
+        background-color: rgb(255, 153, 0);
+      }
+      .indicator {
+        position: absolute;
+        height: 52px;
+        width: 0;
+        background: linear-gradient(
+          to right,
+          rgb(153, 152, 153),
+          rgb(84, 83, 84)
+        );
+        top: 50%;
+        z-index: -1;
+        transition: 0.25s;
+      }
+      .indicator.left {
+        left: 5px;
+        transform: translate(0, -50%) rotateY(-65deg);
+        transform-origin: left;
+      }
+      .indicator.right {
+        right: 5px;
+        transform: translate(0, -50%) rotateY(65deg);
+        transform-origin: right;
+      }
+      #toggle:not(:checked) ~ .switch .indicator.left {
+        width: 95px;
+      }
+      #toggle:checked ~ .switch .indicator.right {
+        width: 95px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <input type="checkbox" name="toggle" id="toggle" />
+
+      <label for="toggle" class="switch">
+        <div class="mode">
+          <div class="text">OFF</div>
+        </div>
+        <div class="mode">
+          <div class="text">ON</div>
+        </div>
+        <div class="indicator left"></div>
+        <div class="indicator right"></div>
+      </label>
+    </div>
+  </body>
+</html>
