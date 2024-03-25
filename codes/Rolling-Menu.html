@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rolling Menu</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: rgb(6, 4, 23);
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+      }
+      .menu {
+        width: 350px;
+        height: 350px;
+        background: rgb(6, 4, 23);
+      }
+      .items {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .item {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-family: poppins;
+        font-size: 24px;
+        font-weight: 500;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        position: absolute;
+        top: calc(50% - 20px);
+        backface-visibility: hidden;
+        transition: 0.2s;
+      }
+      .item.active {
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white,
+          0 0 40px white, 0 0 50px white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="menu">
+        <div class="items">
+          <a href="" class="item">Home</a>
+          <a href="" class="item">Dashboard</a>
+          <a href="" class="item">Messages</a>
+          <a href="" class="item">Notifications</a>
+          <a href="" class="item">Favourites</a>
+          <a href="" class="item">Profile</a>
+          <a href="" class="item">Settings</a>
+          <a href="" class="item">About</a>
+          <a href="" class="item">Support</a>
+
+          <a href="" class="item">Home</a>
+          <a href="" class="item">Dashboard</a>
+          <a href="" class="item">Messages</a>
+          <a href="" class="item">Notifications</a>
+          <a href="" class="item">Favourites</a>
+          <a href="" class="item">Profile</a>
+          <a href="" class="item">Settings</a>
+          <a href="" class="item">About</a>
+          <a href="" class="item">Support</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      let items = document.querySelectorAll(".item");
+      let menu = document.querySelector(".menu");
+
+      let increment = 360 / items.length;
+      let angle = 0;
+      let iterator = angle;
+      let threshold = 80;
+      let accumulatedDeltaY = 0;
+
+      items.forEach((item) => {
+        item.style.transform = `rotateX(${iterator}deg) translateZ(120px)`;
+
+        let opacity = findOpacity(iterator % 360);
+        item.style.opacity = opacity;
+
+        if (opacity == 1) {
+          item.className = "item active";
+        } else {
+          item.className = "item";
+        }
+
+        iterator = iterator + increment;
+      });
+
+      function findOpacity(angle) {
+        let newAngle;
+        if (angle >= 0 && angle <= 90) {
+          newAngle = angle;
+        } else if (angle > 90 && angle <= 180) {
+          newAngle = 180 - angle;
+        } else if (angle > 180 && angle <= 270) {
+          newAngle = angle - 180;
+        } else {
+          newAngle = 360 - angle;
+        }
+        let opacity = 1 - (1 * (newAngle % 90)) / 90;
+        return opacity;
+      }
+
+      menu.addEventListener("wheel", (e) => {
+        accumulatedDeltaY += e.deltaY;
+
+        if (Math.abs(accumulatedDeltaY) >= threshold) {
+          let rotation;
+          if (accumulatedDeltaY < 0) {
+            rotation = Math.ceil(accumulatedDeltaY / threshold) * increment;
+          } else {
+            rotation = Math.floor(accumulatedDeltaY / threshold) * increment;
+          }
+
+          console.log(rotation);
+          angle = angle + rotation;
+
+          let iterator = angle;
+
+          items.forEach((item) => {
+            item.style.transform = `rotateX(${iterator}deg) translateZ(120px)`;
+
+            let opacity = findOpacity(iterator % 360);
+            item.style.opacity = opacity;
+
+            if (opacity == 1) {
+              item.className = "item active";
+            } else {
+              item.className = "item";
+            }
+
+            iterator = iterator + increment;
+          });
+
+          accumulatedDeltaY = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
