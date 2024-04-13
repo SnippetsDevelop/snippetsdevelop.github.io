@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wavy Button</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        place-items: center;
+      }
+      button {
+        width: 250px;
+        height: 60px;
+        background: rgb(255, 185, 0);
+        border: 0.5mm solid black;
+        border-radius: 5mm;
+        box-shadow: 3px 3px 0 black;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .text {
+        font-size: 22px;
+        font-weight: bold;
+        font-family: poppins;
+        z-index: 1;
+        position: relative;
+      }
+      .wave {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        background: url(../images/wave.svg);
+        background-size: 200% 100%;
+        top: 100%;
+        left: 0;
+        animation: wave 2s linear infinite;
+        transition: 0.5s;
+      }
+      @keyframes wave {
+        from {
+          background-position-x: 0;
+        }
+        to {
+          background-position-x: 200%;
+        }
+      }
+      button:hover .wave {
+        top: 50%;
+      }
+      button:hover {
+        box-shadow: 6px 6px 0 black;
+      }
+    </style>
+  </head>
+  <body>
+    <button>
+      <div class="text">HOVER ME!</div>
+      <div class="wave"></div>
+    </button>
+  </body>
+</html>
