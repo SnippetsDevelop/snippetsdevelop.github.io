@@ -1,0 +1,7 @@
+body {
+  display: grid;
+  place-items: center end !important;
+}
+.container {
+  margin-right: 140px;
+}
