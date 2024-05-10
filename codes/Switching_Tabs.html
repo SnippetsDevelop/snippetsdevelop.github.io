@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switching Tabs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        background: black;
+      }
+      .container {
+        width: 500px;
+        height: 300px;
+        display: flex;
+        position: relative;
+      }
+      input {
+        display: none;
+      }
+      .tab-name {
+        color: white;
+        font-family: poppins;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.25);
+        padding: 10px 30px;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: 0.25s;
+      }
+      input:checked + label .tab-name {
+        background: #ffd910;
+        color: black;
+        font-size: 18px;
+        font-weight: 800;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .tab-content {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: white;
+        color: black;
+        font-family: poppins;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        opacity: 0;
+        z-index: 0;
+        transition: 0.5s;
+      }
+      input:checked + label .tab-content {
+        opacity: 1;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="radio" name="option" id="1" checked />
+      <label for="1">
+        <div class="tab-name">Home</div>
+        <div class="tab-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae
+          lacus sed quam ullamcorper semper. Aliquam erat volutpat. Vestibulum
+          aliquam mattis justo, sit amet faucibus purus. Maecenas at sem ac
+          massa iaculis porttitor. Integer nec lacinia lectus, ut gravida est.
+          Phasellus efficitur ultricies mauris, sit amet cursus leo aliquam vel.
+        </div>
+      </label>
+      <input type="radio" name="option" id="2" />
+      <label for="2">
+        <div class="tab-name">Blog</div>
+        <div class="tab-content">
+          Nulla rutrum convallis egestas. Mauris et nisl suscipit tellus mattis
+          eleifend. Nullam egestas sapien eu nibh consectetur vehicula. Aenean
+          rhoncus turpis id urna ornare ultrices. Fusce vitae lectus urna. Sed
+          vehicula quam vitae eros maximus porta. Morbi tincidunt elit non
+          pharetra mollis.
+        </div>
+      </label>
+      <input type="radio" name="option" id="3" />
+      <label for="3">
+        <div class="tab-name">Shop</div>
+        <div class="tab-content">
+          Proin diam neque, finibus in neque sed, tincidunt dictum enim. Nunc
+          iaculis rhoncus magna at convallis. Donec lectus metus, molestie eget
+          velit quis, tristique eleifend magna. Etiam venenatis consectetur eros
+          vel venenatis. Sed id urna ipsum. Mauris pulvinar elementum venenatis.
+          Duis luctus sollicitudin justo malesuada mollis. Suspendisse turpis
+          massa
+        </div>
+      </label>
+      <input type="radio" name="option" id="4" />
+      <label for="4">
+        <div class="tab-name">News</div>
+        <div class="tab-content">
+          Ut at auctor neque. Quisque quis lectus eget erat laoreet dictum sed
+          at justo. Pellentesque cursus sed enim ut condimentum. Duis accumsan
+          nec lorem quis vulputate. Vivamus porttitor, urna vel dapibus egestas,
+          mi nibh interdum nibh, eu semper lacus diam id tortor.
+        </div>
+      </label>
+    </div>
+  </body>
+</html>
