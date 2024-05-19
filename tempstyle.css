@@ -1,7 +1,24 @@
 body {
-  display: grid;
-  place-items: center end !important;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: gold;
 }
 .container {
-  margin-right: 69px;
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu {
+  width: 100% !important;
+  margin: auto !important;
+  border-radius: 0 !important;
+}
+.dummy {
+  width: 50% !important;
+  height: 100%;
 }
