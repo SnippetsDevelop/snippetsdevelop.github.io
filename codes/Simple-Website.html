@@ -27,166 +27,96 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 14px;
+        padding: 16px;
         box-sizing: border-box;
       }
       .logo img {
-        width: 120px;
+        width: 140px;
       }
-      .teritary {
-        background: none;
-        border: none;
-        outline: none;
-        font-family: poppins;
-        cursor: pointer;
-      }
-      .secondary {
-        background: none;
-        border: none;
-        outline: 0.5mm solid black;
-        border-radius: 3mm;
-        font-family: poppins;
-        cursor: pointer;
-      }
-      .primary {
-        background: rgb(110, 193, 3);
-        border: none;
-        border-radius: 3mm;
-        font-family: poppins;
-        outline: 0.5mm solid rgb(110, 193, 3);
-        cursor: pointer;
-      }
-      header .teritary {
-        margin: 0 10px;
-        font-weight: 600;
-        font-size: 14px;
-      }
-      header .secondary,
-      header .primary {
-        margin: 0 10px;
-        padding: 5px 20px;
-        font-weight: 600;
-        font-size: 14px;
-      }
-      @media only screen and (max-width: 600px) {
-        header {
-          padding: 10px 8px;
-        }
-        .logo img {
-          width: 18vw;
-        }
-        header .teritary,
-        header .secondary,
-        header .primary {
-          font-size: 2.25vw;
-          margin: 0 1.1vw;
-        }
-        header .secondary,
-        header .primary {
-          padding: 5px 2.25vw;
-        }
-      }
-      .hero {
-        width: 100%;
-        height: 90vh;
-        background: url(../images/simple-website.jpg);
-        background-size: cover;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        padding: 50px;
-        box-sizing: border-box;
-      }
-      .content {
-        width: 400px;
-        height: fit-content;
-        font-family: poppins;
-        background: rgb(255, 255, 255);
-        padding: 20px;
-        border-radius: 5mm;
-      }
-      .content h1 {
-        font-size: 50px;
-        color: black;
-        margin: 0;
-        line-height: 60px;
-      }
-      .content p {
-        font-size: 16px;
-        font-weight: 600;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .content .btns {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .content .primary,
-      .content .secondary {
-        flex-grow: 0.4;
-        font-size: 16px;
-        font-weight: 600;
-        padding: 10px 20px;
-        margin-bottom: 10px;
-      }
-      @media only screen and (max-width: 600px) {
-        .hero {
-          padding: 0;
-          align-items: flex-end;
-        }
-        .content {
-          width: 100%;
-          border-radius: 0;
-        }
-      }
-      .sub-section {
-        width: 100%;
-        height: 90vh;
-        overflow: hidden;
+      .right {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
       }
-      .sub-section img {
-        width: 300px;
-        margin-right: 60px;
-      }
-      .desc {
-        flex-basis: 60%;
-        width: 80%;
+      .right a {
+        text-decoration: none;
         font-family: poppins;
-        text-align: justify;
+        font-size: 14px;
+        color: black;
+        margin: 0 15px;
       }
-      .desc h1 {
-        font-size: 60px;
-        color: rgb(89, 156, 0);
-        margin: 20px 0;
+      .right a:hover {
+        border-bottom: 0.5mm solid rgb(100, 100, 100);
       }
-      .desc p {
-        font-size: 16px;
-        margin: 0;
+      a.primary {
+        background: rgb(8, 119, 229);
+        color: white;
+        padding: 7px 20px;
+        border-radius: 5mm;
       }
-      @media only screen and (max-width: 900px) {
-        .sub-section {
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        .sub-section .desc {
-          flex-basis: auto;
-        }
+      a.primary:hover {
+        color: white;
+        background: rgb(4, 101, 199);
+        border: none;
       }
-      footer {
+      .right footer {
         width: 100%;
-        background: rgb(241, 249, 238);
+        background: rgb(245, 250, 255);
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         padding: 25px 20px;
         box-sizing: border-box;
+      }
+      .hero {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+      }
+      .hero-left {
+        flex-grow: 1;
+      }
+      .title {
+        font-family: poppins;
+        font-size: 60px;
+        font-weight: 500;
+        margin: 20px 0;
+      }
+      .caption {
+        font-family: poppins;
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+      .links {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+      }
+      .links a {
+        text-decoration: none;
+        font-family: poppins;
+        padding: 7px 20px;
+        border-radius: 5mm;
+        color: black;
+        border: 0.5mm solid rgb(200, 200, 200);
+        flex: 1;
+        max-width: 100px;
+        text-align: center;
+      }
+      .links a.primary {
+        color: white;
+        border: none;
+        margin-right: 20px;
+      }
+      .hero-right img {
+        width: 370px;
       }
       footer img {
         height: 30px;
@@ -217,39 +147,32 @@
       <div class="logo">
         <img src="../images/logo.png" alt="" />
       </div>
-      <div class="options">
-        <button type="button" class="teritary">Shop Now</button>
-        <button type="button" class="teritary">About Us</button>
-        <button type="button" class="secondary">Log In</button>
-        <button type="button" class="primary">Join Us</button>
+      <div class="right">
+        <a href="">Home</a>
+        <a href="" class="primary">Sign Up</a>
       </div>
     </header>
-    <section class="hero">
-      <div class="content">
-        <h1>Get Close To Nature</h1>
-        <p>Discover all the natural</p>
-        <div class="btns">
-          <button type="button" class="primary">Browse Products</button>
-          <button type="button" class="secondary">More Info</button>
+    <div class="hero">
+      <div class="hero-left">
+        <div class="title">
+          <div class="line">Simple and</div>
+          <div class="line">Responsive Design</div>
+        </div>
+        <div class="caption">
+          Explore all the minimalistic responsive designs
+        </div>
+        <div class="links">
+          <a href="" class="primary">Sign Up</a>
+          <a href="">Explore</a>
         </div>
       </div>
-    </section>
-    <section class="sub-section">
-      <img src="../images/simple-website 2.jpg" alt="" />
-      <div class="desc">
-        <h1>Learn More</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde adipisci
-          facilis voluptatibus. Illo quidem magnam omnis, corporis consequuntur
-          quae est incidunt facere commodi! Reiciendis perferendis qui quos
-          culpa consectetur libero nulla corporis dicta laudantium iure omnis
-          neque, enim fugit repellat.
-        </p>
+      <div class="hero-right">
+        <img src="../images/side.svg" alt="" />
       </div>
-    </section>
+    </div>
     <footer>
       <div class="left">
-        <img src="../images/logo.png" alt="" />
+        <img src="../images/logo2.png" alt="" />
         <a href="#">Home</a>
         <a href="#">About Us</a>
         <a href="#">Contact Us</a>
