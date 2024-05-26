@@ -3,22 +3,8 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: gold;
+  background: white;
 }
-.container {
-  position: relative;
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.menu {
-  width: 100% !important;
-  margin: auto !important;
-  border-radius: 0 !important;
-}
-.dummy {
-  width: 50% !important;
-  height: 100%;
+html::-webkit-scrollbar {
+  width: 0;
 }

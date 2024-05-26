@@ -4,30 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Website</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="../tempstyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+
     <style>
-      body {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        background: white;
-      }
       header {
         width: 100%;
+        height: 75px;
+        background: rgb(239, 240, 241);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px;
+        padding: 10px;
         box-sizing: border-box;
       }
       .logo img {
@@ -59,33 +52,23 @@
         background: rgb(4, 101, 199);
         border: none;
       }
-      .right footer {
-        width: 100%;
-        background: rgb(245, 250, 255);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        padding: 25px 20px;
-        box-sizing: border-box;
-      }
       .hero {
         width: 100%;
-        height: 80%;
+        height: 90%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         padding: 0 5%;
         box-sizing: border-box;
-        flex-wrap: wrap;
       }
       .hero-left {
         flex-grow: 1;
       }
       .title {
         font-family: poppins;
-        font-size: 60px;
-        font-weight: 500;
+        font-size: 50px;
+        line-height: 60px;
         margin: 20px 0;
       }
       .caption {
@@ -102,13 +85,11 @@
       .links a {
         text-decoration: none;
         font-family: poppins;
-        padding: 7px 20px;
-        border-radius: 5mm;
         color: black;
-        border: 0.5mm solid rgb(200, 200, 200);
-        flex: 1;
-        max-width: 100px;
         text-align: center;
+        border: 0.5mm solid rgb(200, 200, 200);
+        border-radius: 5mm;
+        padding: 7px 20px;
       }
       .links a.primary {
         color: white;
@@ -118,24 +99,131 @@
       .hero-right img {
         width: 370px;
       }
+      .content {
+        width: 100%;
+        min-height: 90%;
+        display: grid;
+        place-items: center;
+      }
+      .box {
+        width: 80%;
+        background: rgb(232, 240, 254);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 5mm;
+        padding: 30px;
+        box-sizing: border-box;
+      }
+      .box-left,
+      .box-right {
+        flex: 1;
+        box-sizing: border-box;
+        padding: 10px;
+        display: grid;
+        place-items: center;
+      }
+      .box-left img {
+        width: 300px;
+        border-radius: 5mm;
+      }
+      .box-right {
+        font-family: poppins;
+        color: rgb(40, 42, 45);
+      }
+      .box-title {
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      .box-description {
+        width: 100%;
+        font-size: 14px;
+        text-align: justify;
+      }
+      footer {
+        width: 100%;
+        background: rgb(245, 245, 245);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 25px 20px;
+        box-sizing: border-box;
+      }
       footer img {
         height: 30px;
         margin-right: 30px;
       }
-      .left {
+      .footer-left {
         display: flex;
         align-items: center;
       }
       footer a,
-      .right {
+      .footer-right {
         text-decoration: none;
         font-family: poppins;
         font-size: 14px;
         font-weight: 500;
-        margin: 0 10px;
         color: rgb(119, 134, 99);
+        margin: 0 10px;
       }
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 1000px) {
+        .title {
+          font-size: 5vw;
+        }
+        .hero-right img {
+          width: 35vw;
+        }
+        .caption {
+          font-size: 1.4vw;
+        }
+        .links a {
+          font-size: 1.5vw;
+          padding: 0.6vw 1.65vw;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .title {
+          font-size: 45px;
+          text-align: center;
+        }
+        .hero-right {
+          display: none;
+        }
+        .caption {
+          font-size: 14px;
+        }
+        .links a {
+          font-size: 14px;
+          padding: 7px 20px;
+        }
+        .hero-left {
+          display: grid;
+          place-items: center;
+        }
+        .links {
+          justify-content: center;
+        }
+        header {
+          padding: 16px 10px;
+        }
+        header .right a {
+          margin: 0 10px;
+          font-size: 12px;
+        }
+        .header .logo {
+          width: 80px;
+        }
+        .box-left img {
+          width: 200px;
+        }
+        .box-title {
+          font-size: 30px;
+        }
         footer {
           flex-direction: column;
         }
@@ -145,13 +233,14 @@
   <body>
     <header>
       <div class="logo">
-        <img src="../images/logo.png" alt="" />
+        <img src="../images/logo.png" alt="logo" />
       </div>
       <div class="right">
         <a href="">Home</a>
         <a href="" class="primary">Sign Up</a>
       </div>
     </header>
+
     <div class="hero">
       <div class="hero-left">
         <div class="title">
@@ -159,7 +248,7 @@
           <div class="line">Responsive Design</div>
         </div>
         <div class="caption">
-          Explore all the minimalistic responsive designs
+          Explore all the minimalistic reponsive designs
         </div>
         <div class="links">
           <a href="" class="primary">Sign Up</a>
@@ -167,17 +256,37 @@
         </div>
       </div>
       <div class="hero-right">
-        <img src="../images/side.svg" alt="" />
+        <img src="../images/side.svg" alt="side" />
       </div>
     </div>
-    <footer>
-      <div class="left">
-        <img src="../images/logo2.png" alt="" />
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+
+    <div class="content">
+      <div class="box">
+        <div class="box-left">
+          <img src="../images/content-side.png" alt="" />
+        </div>
+        <div class="box-right">
+          <div class="box-title">Features</div>
+
+          <div class="box-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            autem ab, tempora, officia aperiam, molestias dolores deleniti
+            molestiae debitis velit earum eius aliquam ipsa hic reiciendis
+            obcaecati unde eos a! Vel, in commodi! Ea quasi incidunt, doloremque
+            laboriosam porro dolor!
+          </div>
+        </div>
       </div>
-      <div class="right">© Copyright 2024</div>
+    </div>
+
+    <footer>
+      <div class="footer-left">
+        <img src="../images/logo2.png" alt="" />
+        <a href="">Home</a>
+        <a href="">About Us</a>
+        <a href="">Contact Us</a>
+      </div>
+      <div class="footer-right">© Copyright 2024</div>
     </footer>
   </body>
 </html>
