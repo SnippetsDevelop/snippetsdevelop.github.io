@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate on scroll</title>
+
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        width: 100%;
+        height: 100vh;
+        line-height: 80vh;
+        text-align: center;
+        display: block;
+        font-size: 60px;
+      }
+      .view {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .block {
+        height: 200px;
+        width: 300px;
+        margin: 50px;
+        border: 0.5mm solid black;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      }
+      .block:nth-child(1) {
+        background: rgb(232, 88, 67);
+      }
+      .block:nth-child(2) {
+        background: rgb(26, 84, 207);
+      }
+      .block:nth-child(3) {
+        background: rgb(36, 217, 127);
+      }
+      .block:nth-child(4) {
+        background: rgb(157, 86, 247);
+        width: 700px;
+      }
+      .block:nth-child(5) {
+        background: rgb(250, 201, 82);
+      }
+      .block:nth-child(6) {
+        background: rgb(26, 84, 207);
+      }
+      .block:nth-child(7) {
+        background: rgb(157, 86, 247);
+      }
+      .block:nth-child(8) {
+        background: rgb(36, 217, 127);
+        width: 700px;
+      }
+      .block:nth-child(9) {
+        background: rgb(232, 88, 67);
+      }
+      .block:nth-child(10) {
+        background: rgb(250, 201, 82);
+        width: 700px;
+      }
+      .block:nth-child(11) {
+        background: rgb(26, 84, 207);
+      }
+      .block:nth-child(12) {
+        background: rgb(36, 217, 127);
+      }
+      .block:nth-child(13) {
+        background: rgb(157, 86, 247);
+      }
+      .block:nth-child(14) {
+        background: rgb(250, 201, 82);
+      }
+      .block:nth-child(15) {
+        background: rgb(232, 88, 67);
+      }
+      .block:nth-child(16) {
+        background: rgb(36, 217, 127);
+        width: 700px;
+      }
+      .block:nth-child(17) {
+        background: rgb(157, 86, 247);
+      }
+      .block:nth-child(18) {
+        background: rgb(26, 84, 207);
+      }
+      .block:nth-child(19) {
+        background: rgb(250, 201, 82);
+      }
+      .block:nth-child(20) {
+        background: rgb(232, 88, 67);
+        width: 700px;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          clip-path: inset(100% 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .block {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animate On Scroll</h1>
+    <div class="view">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+  </body>
+</html>
