@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Step Menu</title>
+    <!--Google Fonts and Icons-->
+    <link rel="stylesheet" href="../tempstyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .menu {
+        position: relative;
+      }
+      .main-item {
+        width: 40px;
+        height: 40px;
+        background: rgb(82, 114, 255);
+        color: white;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 6px,
+          rgba(0, 0, 0, 0.2) 0px 3px 6px;
+      }
+      .sub-menu {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 170px;
+        background: rgb(82, 114, 255);
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+        border-radius: 2mm;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.2) 0px 10px 10px;
+      }
+      .item {
+        width: 100%;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: poppins;
+        color: white;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .item:hover {
+        background: white;
+        color: black;
+      }
+      .item .sub-menu {
+        top: 0;
+        left: 100%;
+      }
+      .parent:hover > .sub-menu {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="main-item parent">
+        <span class="material-icons"> more_vert </span>
+
+        <div class="sub-menu">
+          <a href="" class="item"> Home </a>
+          <a href="" class="item"> Blog </a>
+
+          <div class="item parent">
+            <span>Plans</span>
+            <span class="material-icons"> arrow_right </span>
+
+            <div class="sub-menu">
+              <a href="" class="item"> Basic </a>
+              <a href="" class="item"> Standard </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
