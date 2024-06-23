@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Selector</title>
+    <link rel="stylesheet" href="../tempstyle.css" />
+  </head>
+
+  <style>
+    input:focus + .label {
+      top: -30px;
+    }
+    input:focus::placeholder {
+      opacity: 0;
+    }
+    input:not(:placeholder-shown) + .label {
+      top: -30px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="input-box">
+        <input type="text" placeholder="Name" required minlength="3" />
+
+        <span class="label">Name</span>
+      </div>
+    </div>
+  </body>
+</html>
