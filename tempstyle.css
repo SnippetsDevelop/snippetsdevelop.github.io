@@ -1,75 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: #2c2d2d;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-family: poppins;
-}
-.container {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .box {
-  width: 200px;
-  height: 60px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3mm;
-  margin: 0px auto;
-}
-p {
-  width: 100%;
-  text-align: center;
-  color: white;
-}
-a {
-  display: block;
-  margin: 40px auto;
-  color: white;
-  text-align: center;
-}
-.input-box {
-  width: 300px;
-  height: 100px;
-  margin: auto;
-  position: relative;
-}
-input {
-  font-family: poppins;
-  width: 300px;
-  height: 36px;
-  background: black;
-  color: white;
-  border: none;
-  outline: 0.5mm solid white;
-  border-radius: 1mm;
-  padding: 0 10px;
+  width: 600px;
+  min-height: 200px;
+  height: fit-content;
   box-sizing: border-box;
-  font-size: 14px;
-  position: relative;
-  z-index: 1;
 }
-.label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: rgb(123, 189, 255);
-  display: block;
-  z-index: 0;
-  transition: 0.3s;
-}
-input:focus {
-  outline: 0.5mm solid rgb(123, 189, 255);
+.box:focus {
+  outline: none;
 }
