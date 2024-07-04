@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Form</title>
     <!--Google Fonts and Icons-->
+    <link rel="stylesheet" href="../tempstyle.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
       rel="stylesheet"
@@ -16,19 +17,6 @@
       rel="stylesheet"
     />
     <style>
-      body {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
-      .center {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
       form {
         width: fit-content;
         height: fit-content;
@@ -37,38 +25,42 @@
       .input {
         width: 250px;
         height: 45px;
-        border: 0.6mm solid black;
-        outline: none;
         background: white;
+        border: 0.4mm solid black;
+        outline: none;
+        border-radius: 1mm;
+        padding: 0 10px;
         box-sizing: border-box;
-        padding: 0 15px;
-        padding-right: 45px;
         font-family: poppins;
         font-size: 14px;
         font-weight: 500;
         transition: 0.25s;
+        padding-right: 45px;
       }
       .input:focus {
         box-shadow: 5px 5px 0 black;
+        padding-top: 9px;
       }
       .label {
         position: absolute;
-        top: 7px;
-        left: 15px;
-        font-size: 10px;
+        top: 15px;
+        left: 10px;
+        font-size: 6px;
         font-family: poppins;
-        font-weight: 600;
-        background: white;
-        padding: 0 3px;
+        font-weight: bold;
+        color: rgb(30, 30, 30);
         opacity: 0;
         visibility: hidden;
         transition: 0.25s;
       }
       .input:focus + .label,
       .input:not(:placeholder-shown) + .label {
-        top: -7px;
+        top: 7px;
         opacity: 1;
         visibility: visible;
+      }
+      .input:not(:placeholder-shown) {
+        padding-top: 9px;
       }
       .input:focus::placeholder {
         opacity: 0;
@@ -76,55 +68,48 @@
       .btn {
         position: absolute;
         top: 50%;
-        right: 0;
+        right: 4px;
+        width: 37px;
+        height: 37px;
         transform: translate(0, -50%);
-        height: 100%;
-        width: 45px;
         outline: none;
-        background: white;
-        border: 0.6mm solid black;
+        border: 0.4mm solid black;
+        border-radius: 1mm;
         cursor: pointer;
-        overflow: hidden;
         display: none;
       }
       .btn::before {
-        position: absolute;
         content: "arrow_forward";
         font-family: "Material Icons Outlined";
-        font-size: 24px;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgb(169, 249, 0);
+        background: rgb(85, 81, 255);
+        color: white;
+        font-size: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      .input:valid ~ .btn {
+      input:valid ~ .btn {
         display: block;
       }
       .load .input {
         background: rgb(228, 228, 228);
       }
-      .load .label,
-      .submit .label {
-        display: none;
-      }
       .load .btn::before {
-        width: 40px;
-        height: 40px;
+        content: "loop";
         background: linear-gradient(
           45deg,
-          rgb(169, 249, 0) 50%,
+          rgb(81, 81, 255) 50%,
           black 50%,
           black 100%
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        content: "loop";
         animation: rotate 1s infinite;
-        border-radius: 50%;
       }
       @keyframes rotate {
         from {
@@ -136,26 +121,31 @@
       }
       .submit::before {
         position: absolute;
+        top: 0;
+        left: 0;
         content: "Form Submitted";
         font-family: poppins;
         font-size: 14px;
         font-weight: 600;
-        color: rgb(169, 249, 0);
+        color: white;
         background: black;
         width: 100%;
         height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: slide 0.25s forwards;
+        animation: slide 0.5s forwards;
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: 10;
       }
       @keyframes slide {
         from {
           width: 0;
         }
+      }
+      .submit .label {
+        display: none;
       }
     </style>
   </head>
@@ -164,14 +154,14 @@
       <form action="" id="myForm" autocomplete="off">
         <input
           type="email"
-          name="email"
           class="input"
+          name="email"
           placeholder="Email"
           pattern="[a-zA-Z0-9._+\-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
           required
         />
 
-        <span class="label">EMAIL</span>
+        <span class="label">ENTER EMAIL</span>
 
         <button
           type="button"
@@ -180,14 +170,17 @@
         ></button>
       </form>
     </div>
+
     <script>
       function submitAnimate(button) {
         let form = document.getElementById("myForm");
+
         button.disabled = true;
+
         form.classList.toggle("load");
+
         setTimeout(() => {
-          form.classList.toggle("submit");
-          form.classList.toggle("load");
+          form.classList.replace("load", "submit");
 
           setTimeout(() => {
             form.classList.toggle("submit");
