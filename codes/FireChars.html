@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center Div</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        float: right;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background: black;
+      }
+      .element1,
+      .element2 {
+        width: 100px;
+        height: 50px;
+        background: white;
+        border-radius: 5px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 10px;
+      }
+      #fire {
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="element1"></div>
+    <div class="element2"></div>
+    <pre id="fire"></pre>
+    <script>
+      let width = 100,
+        height = 40,
+        firePixelsArray = [],
+        chars = ",;+ltgti!lI?/\\|)(1}{][rcvzjftJUOQocxfXhqwWB8&%$#@",
+        fireChars = "",
+        maxCharIndex = 0,
+        isInitialized = false;
+
+      const setDimensions = (w, h) => {
+          width = w;
+          height = h;
+          isInitialized = false;
+        },
+        initializeFireChars = () => {
+          fireChars = " ";
+          const charArrayLength = chars.length - 1,
+            step = 1;
+          for (
+            let i = 0;
+            i < (width * step > charArrayLength ? charArrayLength : width);
+            i += step
+          ) {
+            fireChars += chars[i];
+          }
+          fireChars = fireChars.split("");
+          maxCharIndex = fireChars.length - 1;
+        },
+        generateFire = () => {
+          if (!isInitialized) {
+            for (let i = 0; i < width * height + 1; i++) {
+              firePixelsArray[i] = 0;
+            }
+            fireChars = chars;
+            initializeFireChars();
+            isInitialized = true;
+          }
+
+          let fireString = "";
+
+          for (let i = 0; i < Math.floor(width / 3); i++) {
+            firePixelsArray[
+              Math.floor(Math.random() * width) + width * (height - 1)
+            ] = Math.floor(Math.random() * maxCharIndex);
+          }
+
+          for (let i = 0; i < Math.floor(width / 2); i++) {
+            firePixelsArray[
+              Math.floor(Math.random() * width) + width * (height - 1)
+            ] = 0;
+          }
+
+          for (let i = 0; i < width * (height - 1); i++) {
+            let averageValue =
+              (firePixelsArray[i] +
+                firePixelsArray[i + 1] +
+                firePixelsArray[i + width] +
+                firePixelsArray[i + width + 1]) /
+              4;
+            firePixelsArray[i] = Math.floor(averageValue);
+            fireString +=
+              fireChars[
+                firePixelsArray[i] > maxCharIndex
+                  ? maxCharIndex
+                  : firePixelsArray[i]
+              ];
+            if ((i + 1) % width === 0) fireString += `\n`;
+          }
+
+          document.getElementById("fire").innerText = fireString;
+          setTimeout(generateFire, 30);
+        };
+
+      generateFire();
+    </script>
+  </body>
+</html>
