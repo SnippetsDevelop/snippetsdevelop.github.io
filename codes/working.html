@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title Card</title>
     <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Noto+Serif+Vithkuqi:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -21,262 +25,151 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        perspective: 10000px;
       }
-      .title-card {
-        display: flex;
-        flex-wrap: wrap;
-        width: 840px;
-        justify-content: center;
+      .menu {
         position: relative;
-        transform-style: preserve-3d;
-        animation: scaling linear 0.15s 2500ms backwards,
-          shaking linear 0.45s 2500ms, shaking linear 0.45s 3600ms;
-      }
-      .title-card::before {
-        content: "";
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: radial-gradient(
+            55% 55% at 70% 35%,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(0, 0, 0, 0) 100%
+          ),
+          rgba(255, 255, 255, 0.05);
 
-        width: 50%;
-        height: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.5),
+          inset -1px -1px 1px rgba(255, 255, 255, 0.3);
+      }
+      .menu a {
         position: absolute;
-        top: 0;
-        left: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
-        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
-      .title-card::after {
+      .sector {
+        width: 200px;
+        height: 200px;
+        transform-origin: 0 100%;
+        margin-top: -200px;
+        margin-right: -200px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .option {
         position: absolute;
-        content: "";
-        width: 50%;
-        height: 100%;
-
-        top: 0;
-        right: 0;
-
-        background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
-        z-index: 1;
-      }
-      .box {
-        width: 120px;
-        height: 160px;
-        background: transparent;
-        position: relative;
-      }
-      .dots {
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(
-          rgb(255, 255, 255) 0.5mm,
-          transparent 0.5mm
-        );
-        background-size: 20px 20px;
-        opacity: 0.5;
-        background-position: center;
-      }
-      .animate {
-        animation: scaleDots 1.25s ease-in-out var(--delay);
-        animation-fill-mode: backwards;
-      }
-      @keyframes scaleDots {
-        0% {
-          opacity: 1;
-          background-size: 20px 20px;
-        }
-        50% {
-          opacity: 1;
-          background-size: 200px 200px;
-        }
-        100% {
-          opacity: 0.5;
-          background-size: 20px 20px;
-        }
-      }
-
-      .letter {
-        font-size: 140px;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        top: calc(50% - 30px);
+        left: calc(50% - 50px);
+        text-decoration: none;
+        font-family: poppins;
+        font-size: 12px;
+        font-weight: 500;
         color: white;
-        font-family: codystar;
+        line-height: 20px;
+        z-index: 1;
+      }
+      .menu a .option span {
+        font-size: 35px;
+      }
+      .menu a:hover .sector {
+        background: white;
+      }
+      .menu a:hover .option {
+        color: black;
+      }
+
+      /*Menu Icon at the center*/
+      .menu::before {
         position: absolute;
+        content: "menu";
+        font-family: "Material Icons";
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 2;
-        animation: scaleLetters 1s ease-in var(--delay);
-        animation-fill-mode: backwards;
-      }
-      @keyframes scaleLetters {
-        0%,
-        80% {
-          transform: translate(-50%, -50%) scale(0);
-        }
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-      }
-      .name {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        height: 150px;
-        animation: fallin 0.5s cubic-bezier(0.32, 0.58, 0.69, 0.88) 2500ms,
-          resize 0.5s ease-in 3500ms;
-        animation-fill-mode: both;
-      }
-      .text {
-        font-family: "Noto Serif Vithkuqi";
-        font-weight: 900;
-        font-size: 90px;
-        letter-spacing: 10px;
-        background: linear-gradient(
-          160deg,
-          rgb(255, 255, 86),
-          rgb(253, 163, 5)
-        );
-        color: transparent;
-        -webkit-background-clip: text;
-      }
-      .shadow {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-family: "Noto Serif Vithkuqi";
-        font-weight: 900;
-        font-size: 90px;
-        letter-spacing: 10px;
-        color: transparent;
-        text-shadow: 1px 1px rgb(183, 49, 0), 2px 2px rgb(183, 49, 0),
-          3px 3px rgb(183, 49, 0), 4px 4px rgb(183, 49, 0),
-          5px 5px rgb(183, 49, 0), -1px 1px 40px rgba(255, 68, 0, 0.6);
-        z-index: -1;
-      }
-      @keyframes fallin {
-        0% {
-          max-width: 73px;
-          overflow: hidden;
-          transform: translate(-50%, -50%) translateZ(10000px) rotateY(225deg);
-        }
-        100% {
-          max-width: 73px;
-          overflow: hidden;
-          transform: translate(-50%, -50%) translateZ(0px) rotateY(0deg);
-        }
-      }
-      @keyframes resize {
-        0% {
-          max-width: 73px;
-          overflow: hidden;
-        }
-        100% {
-          max-width: 1000px;
-          overflow: visible;
-        }
-      }
-      @keyframes scaling {
-        0% {
-          scale: 1.05;
-        }
-        100% {
-          scale: 1;
-        }
-      }
-      @keyframes shaking {
-        0% {
-          transform: translateX(0);
-        }
-        25% {
-          transform: translateX(3px);
-        }
-        50% {
-          transform: translateX(-3px);
-        }
-        75% {
-          transform: translateX(3px);
-        }
-        100% {
-          transform: translateX(0);
-        }
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        z-index: 1;
       }
     </style>
   </head>
   <body>
-    <div class="title-card">
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box" style="--delay: 150ms">
-        <div class="dots animate"></div>
-        <div class="letter">S</div>
-      </div>
+    <div class="menu">
+      <a href="">
+        <div class="sector"></div>
 
-      <div class="box" style="--delay: 300ms">
-        <div class="dots animate"></div>
-        <div class="letter">U</div>
-      </div>
-      <div class="box" style="--delay: 450ms">
-        <div class="dots animate"></div>
-        <div class="letter">P</div>
-      </div>
-      <div class="box" style="--delay: 600ms">
-        <div class="dots animate"></div>
-        <div class="letter">E</div>
-      </div>
-      <div class="box" style="--delay: 750ms">
-        <div class="dots animate"></div>
-        <div class="letter">R</div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-      <div class="box" style="--delay: 800ms">
-        <div class="dots animate"></div>
-        <div class="letter">S</div>
-      </div>
-      <div class="box" style="--delay: 950ms">
-        <div class="dots animate"></div>
-        <div class="letter">T</div>
-      </div>
-      <div class="box" style="--delay: 1100ms">
-        <div class="dots animate"></div>
-        <div class="letter">A</div>
-      </div>
-      <div class="box" style="--delay: 1250ms">
-        <div class="dots animate"></div>
-        <div class="letter">R</div>
-      </div>
-      <div class="box">
-        <div class="dots"></div>
-      </div>
-
-      <div class="name">
-        <div class="text">RAJNI</div>
-        <div class="shadow">RAJNI</div>
-      </div>
+        <div class="option">
+          <span class="material-icons-round">home</span>
+          <div class="name">Home</div>
+        </div>
+      </a>
+      <a href="">
+        <div class="sector"></div>
+        <div class="option">
+          <span class="material-icons-round">theaters</span>
+          <div class="name">Movies</div>
+        </div>
+      </a>
+      <a href="">
+        <div class="sector"></div>
+        <div class="option">
+          <span class="material-icons-round">music_note</span>
+          <div class="name">Music</div>
+        </div>
+      </a>
+      <a href="">
+        <div class="sector"></div>
+        <div class="option">
+          <span class="material-icons-round">sports_soccer</span>
+          <div class="name">Sports</div>
+        </div>
+      </a>
+      <a href="">
+        <div class="sector"></div>
+        <div class="option">
+          <span class="material-icons-round">newspaper</span>
+          <div class="name">News</div>
+        </div>
+      </a>
+      <a href="">
+        <div class="sector"></div>
+        <div class="option">
+          <span class="material-icons-round">settings</span>
+          <div class="name">Settings</div>
+        </div>
+      </a>
     </div>
+    <script>
+      let sectors = document.querySelectorAll(".sector");
+
+      let options = document.querySelectorAll(".option");
+
+      const totalSectors = sectors.length;
+      const skewVal = 360 / totalSectors - 90;
+
+      var deviation = 0;
+      if ((totalSectors / 2) % 2 != 0) {
+        deviation = 360 / totalSectors / 2;
+      }
+
+      sectors.forEach((sector, index) => {
+        const angle = (360 / totalSectors) * (index + 1) - deviation;
+        let optionAngle =
+          angle + Math.abs(skewVal) + (90 - Math.abs(skewVal)) / 2;
+        options[
+          index
+        ].style.transform = `rotateZ(${optionAngle}deg) translateY(-140px) rotate(-${optionAngle}deg)`;
+        sector.style.transform = `rotate(${angle}deg) skew(${skewVal}deg)`;
+      });
+    </script>
   </body>
 </html>
