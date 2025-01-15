@@ -18,82 +18,32 @@
         margin: 0;
         padding: 0;
       }
-      .center {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
       .stack-area {
         width: 100%;
         height: 300vh;
         position: relative;
+        background: white;
         display: flex;
-        justify-content: center;
       }
-      .right,
       .left {
         height: 100vh;
+        flex-basis: 50%;
+        position: sticky;
+        top: 0;
+        left: 0;
+      }
+      .right {
+        height: 100vh;
+        flex-basis: 50%;
+        position: sticky;
+        top: 0;
+      }
+      /*Styling for the left elements content starts here...*/
+      .left {
         display: flex;
         align-items: center;
         justify-content: center;
-        position: sticky;
-        top: 0;
         box-sizing: border-box;
-        flex-basis: 50%;
-      }
-      .cards {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-      .card {
-        width: 350px;
-        height: 350px;
-        box-sizing: border-box;
-        padding: 35px;
-        border-radius: 6mm;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transition: 0.5s ease-in-out;
-      }
-      .card:nth-child(1) {
-        background: rgb(64, 122, 255);
-        z-index: 4;
-      }
-      .card:nth-child(2) {
-        background: rgb(221, 62, 88);
-        z-index: 3;
-      }
-      .card:nth-child(3) {
-        background: rgb(186, 113, 245);
-        z-index: 2;
-      }
-      .card:nth-child(4) {
-        background: rgb(247, 92, 208);
-        z-index: 1;
-      }
-      .sub {
-        font-family: poppins;
-        font-size: 20px;
-        font-weight: 700;
-      }
-      .content {
-        font-family: poppins;
-        font-size: 44px;
-        font-weight: 700;
-        line-height: 54px;
-      }
-      .card.active {
-        transform-origin: bottom left;
-      }
-      .left {
         align-items: center;
         flex-direction: column;
       }
@@ -122,76 +72,103 @@
         cursor: pointer;
         margin-top: 20px;
       }
-      .top,
-      .bottom {
-        width: 100%;
-        height: 100vh;
-        font-family: poppins;
-        font-size: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      /*Styling for the left elements content ends here...*/
+
+      .card {
+        width: 350px;
+        height: 350px;
+        border-radius: 25px;
+        margin-bottom: 10px;
+        position: absolute;
+        top: calc(50% - 175px);
+        left: calc(50% - 175px);
+        transition: 0.5s ease-in-out;
+      }
+      .card:nth-child(1) {
+        background: rgb(64, 122, 255);
+      }
+      .card:nth-child(2) {
+        background: rgb(221, 62, 88);
+      }
+      .card:nth-child(3) {
+        background: rgb(186, 113, 245);
+      }
+      .card:nth-child(4) {
+        background: rgb(247, 92, 208);
       }
 
-      /*CSS Code for responsiveness*/
-      @media screen and (max-width: 800px) {
-        .left {
-          position: relative;
-          width: 100vw;
-        }
+      /*Styling for the card content starts here...*/
+      .card {
+        box-sizing: border-box;
+        padding: 35px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .sub {
+        font-family: poppins;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .content {
+        font-family: poppins;
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 54px;
+      }
+      /*Styling for the card content ends here...*/
+
+      .away {
+        transform-origin: bottom left;
       }
     </style>
   </head>
   <body>
-    <div class="center">
-      <div class="top">Scroll Down</div>
-      <div class="stack-area">
-        <div class="left">
-          <div class="title">Our Features</div>
-          <div class="sub-title">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-            qui quis, facere, cupiditate, doloremque natus ex perspiciatis
-            ratione hic corrupti adipisci ea doloribus!
-            <br />
-            <button>See More Details</button>
-          </div>
-        </div>
-        <div class="right">
-          <div class="cards">
-            <div class="card">
-              <div class="sub">Simplified</div>
-              <div class="content">Complex tasks are now simple</div>
-            </div>
-            <div class="card">
-              <div class="sub">Boost Productivity</div>
-              <div class="content">Perform Tasks in less time</div>
-            </div>
-            <div class="card">
-              <div class="sub">Facilitated learning</div>
-              <div class="content">train anyone from anywhere</div>
-            </div>
-            <div class="card">
-              <div class="sub">Support</div>
-              <div class="content">Now its 24/7 support</div>
-            </div>
-          </div>
+    <div class="stack-area">
+      <div class="left">
+        <div class="title">Our Features</div>
+        <div class="sub-title">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente qui
+          quis, facere, cupiditate, doloremque natus ex perspiciatis ratione hic
+          corrupti adipisci ea doloribus!
+          <br />
+          <button>See More Details</button>
         </div>
       </div>
-      <div class="bottom">Other Content...</div>
+      <div class="right">
+        <div class="card">
+          <div class="sub">Simplified</div>
+          <div class="content">Complex tasks are now simple</div>
+        </div>
+        <div class="card">
+          <div class="sub">Boost Productivity</div>
+          <div class="content">Perform Tasks in less time</div>
+        </div>
+        <div class="card">
+          <div class="sub">Facilitated learning</div>
+          <div class="content">train anyone from anywhere</div>
+        </div>
+        <div class="card">
+          <div class="sub">Support</div>
+          <div class="content">Now its 24/7 support</div>
+        </div>
+      </div>
     </div>
 
     <script>
       let cards = document.querySelectorAll(".card");
+
       let stackArea = document.querySelector(".stack-area");
 
       function rotateCards() {
         let angle = 0;
-        cards.forEach((card) => {
-          if (card.classList.contains("active")) {
-            card.style.transform = `translate(-50%, -120vh) rotate(-48deg)`;
+        cards.forEach((card, index) => {
+          if (card.classList.contains("away")) {
+            card.style.transform = `translateY(-120vh) rotate(-48deg)`;
           } else {
-            card.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+            card.style.transform = ` rotate(${angle}deg)`;
             angle = angle - 10;
+            card.style.zIndex = cards.length - index;
           }
         });
       }
@@ -199,40 +176,23 @@
       rotateCards();
 
       window.addEventListener("scroll", () => {
-        let proportion =
-          stackArea.getBoundingClientRect().top / window.innerHeight;
-        if (proportion <= 0) {
-          let n = cards.length;
-          let index = Math.ceil((proportion * n) / 2);
-          index = Math.abs(index) - 1;
-          for (let i = 0; i < n; i++) {
-            if (i <= index) {
-              cards[i].classList.add("active");
-            } else {
-              cards[i].classList.remove("active");
-            }
+        let distance = window.innerHeight * 0.5;
+
+        let topVal = stackArea.getBoundingClientRect().top;
+
+        let index = -1 * (topVal / distance + 1);
+
+        index = Math.floor(index);
+
+        for (i = 0; i < cards.length; i++) {
+          if (i <= index) {
+            cards[i].classList.add("away");
+          } else {
+            cards[i].classList.remove("away");
           }
-          rotateCards();
         }
+        rotateCards();
       });
-
-      //Code for responsiveness
-
-      function adjust() {
-        let windowWidth = window.innerWidth;
-        let left = document.querySelector(".left");
-        left.remove();
-        if (windowWidth < 800) {
-          stackArea.insertAdjacentElement("beforebegin", left);
-        } else {
-          stackArea.insertAdjacentElement("afterbegin", left);
-        }
-      }
-      adjust();
-
-      //detect Resize
-
-      window.addEventListener("resize", adjust);
     </script>
   </body>
 </html>
