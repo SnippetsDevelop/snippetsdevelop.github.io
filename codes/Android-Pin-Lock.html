@@ -169,6 +169,7 @@
 
         keys.forEach((key) => {
           key.addEventListener("click", (e) => {
+            console.log(e.target);
             if (e.target.closest(".clear")) {
               removeDot();
               input.value = input.value.slice(0, -1);

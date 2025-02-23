@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stacked Cards</title>
-    <!--Google Fonts-->
+    <title>Fake 3D</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,187 +16,185 @@
       rel="stylesheet"
     />
     <style>
+      html::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
       body {
         width: 100%;
-        height: fit-content;
+        height: 100vh;
         margin: 0;
         padding: 0;
+
+        background: #1d1e22;
       }
-      .stack-area {
-        width: 100%;
-        height: 300vh;
-        position: relative;
-        background: white;
-        display: flex;
-      }
-      .left {
+      .layer {
+        width: 100vw;
         height: 100vh;
-        flex-basis: 50%;
-        position: sticky;
-        top: 0;
-        left: 0;
-      }
-      .right {
-        height: 100vh;
-        flex-basis: 50%;
-        position: sticky;
-        top: 0;
-      }
-      /*Styling for the left elements content starts here...*/
-      .left {
         display: flex;
         align-items: center;
         justify-content: center;
-        box-sizing: border-box;
-        align-items: center;
         flex-direction: column;
-      }
-      .title {
-        width: 420px;
-        font-size: 84px;
-        font-family: poppins;
-        font-weight: 700;
-        line-height: 88px;
-      }
-      .sub-title {
-        width: 420px;
-        font-family: poppins;
-        font-size: 14px;
-        margin-top: 30px;
-      }
-      .sub-title button {
-        font-family: poppins;
-        font-size: 14px;
-        padding: 15px 30px;
-        background: black;
-        color: white;
-        border-radius: 8mm;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        margin-top: 20px;
-      }
-      /*Styling for the left elements content ends here...*/
-
-      .card {
-        width: 350px;
-        height: 350px;
-        border-radius: 25px;
-        margin-bottom: 10px;
         position: absolute;
-        top: calc(50% - 175px);
-        left: calc(50% - 175px);
-        transition: 0.5s ease-in-out;
-      }
-      .card:nth-child(1) {
-        background: rgb(64, 122, 255);
-      }
-      .card:nth-child(2) {
-        background: rgb(221, 62, 88);
-      }
-      .card:nth-child(3) {
-        background: rgb(186, 113, 245);
-      }
-      .card:nth-child(4) {
-        background: rgb(247, 92, 208);
-      }
+        top: 0;
+        left: 0;
 
-      /*Styling for the card content starts here...*/
-      .card {
+        transition: 1.2s cubic-bezier(0.71, 0, 0.38, 1);
+      }
+      #layer1 {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        background: rgb(255, 239, 219);
+        z-index: 2;
+      }
+      .can-container {
+        width: 200px;
+        position: relative;
+        overflow: hidden;
+
+        /*adjustment for the label button*/
+        margin-top: 75px;
+      }
+      .can-img {
+        width: 100%;
+      }
+      .wrapper {
+        position: absolute;
+        height: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -53%);
+        mix-blend-mode: multiply;
+        transition: 10s cubic-bezier(0.71, 0, 0.38, 1);
+      }
+      .text {
+        font-family: poppins;
+        font-size: 175px;
+        font-weight: 500;
+        color: rgb(255, 213, 159);
+        position: absolute;
+        transition: 1.2s cubic-bezier(0.71, 0, 0.38, 1);
+        display: none;
+      }
+      .fruits {
+        position: absolute;
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+        display: none;
+      }
+      .fruits img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: cubic-bezier(0.71, 0, 0.38, 1) 1.2s;
+      }
+      #layer1 .fruits img:nth-child(1) {
+        width: 125px;
+        translate: -225px -150px;
+      }
+      #layer1 .fruits img:nth-child(2) {
+        width: 180px;
+        translate: 275px -50px;
+      }
+      #layer1 .fruits img:nth-child(3) {
+        width: 250px;
+        translate: -175px 115px;
+      }
+      #layer2 {
+        background: rgb(229, 254, 193);
+        z-index: 1;
+      }
+      #layer2 .text {
+        color: rgb(181, 235, 115);
+      }
+      #layer2 .fruits img:nth-child(1) {
+        width: 75px;
+        translate: 180px 90px;
+      }
+      #layer2 .fruits img:nth-child(2) {
+        width: 275px;
+        translate: 225px -125px;
+      }
+      #layer2 .fruits img:nth-child(3) {
+        width: 200px;
+        translate: -200px 50px;
+      }
+      #toggle {
+        display: none;
+      }
+      .layer label {
+        display: block;
+        font-family: poppins;
         box-sizing: border-box;
-        padding: 35px;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 0.5mm solid black;
+        border-radius: 10mm;
+        cursor: pointer;
+        margin-top: 75px;
       }
-      .sub {
-        font-family: poppins;
-        font-size: 20px;
-        font-weight: 700;
+      #toggle:checked ~ #layer1 .can-container .wrapper {
+        left: -50%;
       }
-      .content {
-        font-family: poppins;
-        font-size: 44px;
-        font-weight: 700;
-        line-height: 54px;
+      #toggle:checked ~ #layer1 .text {
+        translate: 150% 0;
       }
-      /*Styling for the card content ends here...*/
-
-      .away {
-        transform-origin: bottom left;
+      #toggle:checked ~ #layer1 .fruits {
+        translate: 125vw 0;
+      }
+      #toggle:checked ~ #layer1 .fruits img {
+        translate: -100% 0;
+      }
+      #toggle:not(:checked) ~ #layer2 .can-container .wrapper {
+        left: 150%;
+      }
+      #toggle:not(:checked) ~ #layer2 .text {
+        translate: -150% 0;
+      }
+      #toggle:not(:checked) ~ #layer2 .fruits {
+        translate: -125vw 0;
+      }
+      #toggle:not(:checked) ~ #layer2 .fruits img {
+        translate: -100% 0;
+      }
+      #toggle:checked ~ #layer1 {
       }
     </style>
   </head>
   <body>
-    <div class="stack-area">
-      <div class="left">
-        <div class="title">Our Features</div>
-        <div class="sub-title">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente qui
-          quis, facere, cupiditate, doloremque natus ex perspiciatis ratione hic
-          corrupti adipisci ea doloribus!
-          <br />
-          <button>See More Details</button>
-        </div>
+    <input type="checkbox" id="toggle" />
+    <div class="layer" id="layer1">
+      <div class="text">Orange</div>
+
+      <div class="can-container">
+        <img src="../images/can 2.png" alt="" class="can-img" />
+
+        <img src="../images/Contents.png" alt="" class="wrapper" />
       </div>
-      <div class="right">
-        <div class="card">
-          <div class="sub">Simplified</div>
-          <div class="content">Complex tasks are now simple</div>
-        </div>
-        <div class="card">
-          <div class="sub">Boost Productivity</div>
-          <div class="content">Perform Tasks in less time</div>
-        </div>
-        <div class="card">
-          <div class="sub">Facilitated learning</div>
-          <div class="content">train anyone from anywhere</div>
-        </div>
-        <div class="card">
-          <div class="sub">Support</div>
-          <div class="content">Now its 24/7 support</div>
-        </div>
+
+      <div class="fruits">
+        <img src="../images/orange-3.png" alt="" />
+        <img src="../images/orange-2.png" alt="" />
+        <img src="../images/orange-1.png" alt="" />
       </div>
+
+      <label for="toggle">Click to Slide</label>
     </div>
+    <div class="layer" id="layer2">
+      <div class="text">Pineapple</div>
 
-    <script>
-      let cards = document.querySelectorAll(".card");
+      <div class="can-container">
+        <img src="../images/can 2.png" alt="" class="can-img" />
 
-      let stackArea = document.querySelector(".stack-area");
+        <img src="../images/Contents-2.png" alt="" class="wrapper" />
+      </div>
 
-      function rotateCards() {
-        let angle = 0;
-        cards.forEach((card, index) => {
-          if (card.classList.contains("away")) {
-            card.style.transform = `translateY(-120vh) rotate(-48deg)`;
-          } else {
-            card.style.transform = ` rotate(${angle}deg)`;
-            angle = angle - 10;
-            card.style.zIndex = cards.length - index;
-          }
-        });
-      }
+      <div class="fruits">
+        <img src="../images/pineapple-3.png" alt="" />
+        <img src="../images/pineapple-2.png" alt="" />
+        <img src="../images/pineapple-1.png" alt="" />
+      </div>
 
-      rotateCards();
-
-      window.addEventListener("scroll", () => {
-        let distance = window.innerHeight * 0.5;
-
-        let topVal = stackArea.getBoundingClientRect().top;
-
-        let index = -1 * (topVal / distance + 1);
-
-        index = Math.floor(index);
-
-        for (i = 0; i < cards.length; i++) {
-          if (i <= index) {
-            cards[i].classList.add("away");
-          } else {
-            cards[i].classList.remove("away");
-          }
-        }
-        rotateCards();
-      });
-    </script>
+      <label for="toggle">Click to Slide</label>
+    </div>
   </body>
 </html>
